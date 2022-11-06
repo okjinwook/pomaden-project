@@ -1,9 +1,21 @@
 @charset 'utf-8';
+main {
+	margin-top: 200px;	
+}
+.intro {
+	margin-bottom: 50px;
+}
+.intro img {
+	width: 100%;
+}
 .main_component {
 	height: auto;
 	width: 1350px;
 	margin: 0 auto;
 	margin-top: 50px;
+}
+.best_product {
+	margin-top: 40px;
 }
 .best_product_title{
 	font-size: 20px;
@@ -52,8 +64,6 @@
 	margin-top: 5px;
 }
 
-
-
 .more_best_button {
 	margin: 0 auto;
 	width: 250px;
@@ -61,12 +71,37 @@
 	border: 1px solid black;
 }
 
-
-
-
-.test {
-	margin: 0 auto;
-	height: 500px;
-	width: 1350px;
-	
+.main_news_title {
+	font-weight: 700;
+	font-size: 18px;
+	margin-bottom: 10px;
 }
+.main_news_box {
+	height: 300px;
+	width: 1350px;
+	border: 1px solid #dadada;
+}
+.main_news_buttonBox {
+	border-bottom: 1px solid #dadada;
+	height: 45px;
+	width: 100%;
+	cursor: pointer;
+}
+.event_button {
+	width: 50%;
+	font-size: 15px;
+	border-bottom: 2px solid black;
+}
+.notice_button {
+	width: 50%;
+	font-size: 15px;
+	border-bottom: 1px solid #dadada;
+}
+.main_news_content {
+	margin-left: 20px;
+}
+.main_news_content li {
+	margin-bottom: 10px;
+}
+
+
