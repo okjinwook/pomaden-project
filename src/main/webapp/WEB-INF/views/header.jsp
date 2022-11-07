@@ -9,6 +9,8 @@
 <title>남성룩 - 포마든POMADEN</title>
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/header.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/login.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/join.css">
 <link rel="icon" type="icon/png" href="">
 <script src="${cpath }/resources/js/header.js"></script>
 <script src="${cpath }/resources/js/main.js"></script>
@@ -18,11 +20,13 @@
 		<div class="header_info_component">
 			<div class="header_info jcsb aice">
 				<div class="header_left">
-					<div class="logo"><img src="${cpath }/resources/img/logo.png" width="200px"></div>
+					<div class="logo">
+						<a href="${cpath }"><img src="${cpath }/resources/img/logo.png" width="200px"></a>
+					</div>
 				</div>
 				<div class="header_right df">
-					<a href="">로그인</a>
-					<a href="">회원가입</a>
+					<a href="${cpath }/member/login">로그인</a>
+					<a href="${cpath }/member/join">회원가입</a>
 					<a href="">마이페이지</a>
 					<a href="">고객센터</a>
 				</div>

@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+.login_component {
+	height: 400px;
+	width: 600px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+
+.login_form {
+	width: 400px;
+	margin: 0 auto;
+}
+.login_title {
+	font-size: 35px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.login_input {
+	flex-flow: column;
+}
+.login_input > input {
+	border: 1px solid #dadada;;
+	height: 50px;
+	margin-bottom: 10px;
+	width: 400px;
+	padding: 5px;
+	border-radius: 7px;
+}
+.login_button {
+	border: none;
+	color: white;
+	background-color: black;
+	height: 50px;
+	margin-top: 20px;
+	width: 400px;
+	border-radius: 7px;
+}
+.find_box {
+	width: auto;
+	margin: 20px auto;
+}
+.find_box > a {
+	font-size: 12px;
+}

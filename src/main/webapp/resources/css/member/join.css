@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+
+.join_component {
+	width: 800px;
+	height: 900px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.join_title {
+	font-size: 30px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.join_info {
+	border-bottom: 2px solid black;
+	padding-bottom: 5px;
+}
+.join_info_left {
+	font-size: 19px;
+}
+.join_form {
+	width: 100%
+}
+.join_box  input {
+	border: 1px solid #dadada;
+}
+.join_box{
+	border-bottom: 1px solid #dadada;
+	width: 100%;
+}
+.join_input_id_box {
+	height: 90px;
+}
+.join_input_id_box input{
+	height: 25px;
+	margin-bottom: 5px;
+}
+.join_input_pw_box input {
+	height: 25px;
+	width: 200px;
+	margin-bottom: 5px;
+}
+.join_input_pw_check_box input {
+	height: 25px;
+	width: 200px;
+	margin-bottom: 5px;
+}
+.join_input_box {
+	margin-left: 15px;
+}
+.join_input_box > span{
+	font-size: 12px;
+	color: darkgrey;
+}
+
+.join_input_pw_box {
+	height: 70px;
+}
+.join_input_pw_check_box {
+	height: 70px;
+}
+
+.join_input_address_box {
+	height: 150px;
+}
+.join_address_button {
+	background-color: black;
+	color: white;
+	width: 100px;
+	height: 40px;
+	margin-left: 10px;
+	border-radius: 5px;
+	font-size: 14px;
+}
+.join_address_number {
+	width: 200px;
+}
+.join_address_number input{
+	width: 100px;
+}
+.join_address_info{
+	width: 400px;
+	height: 40px;
+	margin-top: 5px;
+}
+.join_address_detail{
+	width: 400px;
+	height: 40px;
+	margin-top: 5px;
+}
+.join_input_phone_box {
+	height: 70px;
+}
+.join_select_number > select{
+	width: 55px;
+	height: 40px;
+}
+.join_select_number  input {
+	width: 80px;
+	height: 100%;
+	margin-left: 10px;
+	padding-left: 15px;
+}
+.join_input_email_box {
+	height: 70px;
+}
+.join_input_email {
+	height: 25px;
+}
+.join_input_box {
+	flex-flow: column;
+}
+.join_info_box {
+	border-right: 1px solid #dadada;
+	width: 200px;
+	height: 100%;
+	background-color: #f9f9f9;
+	padding: 10px;
+}
+.join_button {
+	width: 100%;
+	margin-top: 50px;
+}
+.join_button > input[type="submit"] {
+	background-color: black;
+	color: white;
+	border: none;
+	width: 250px;
+	height: 50px;
+	margin: 0;
+	border-radius: 7px;
+}
+
