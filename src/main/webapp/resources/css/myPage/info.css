@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+.myPage_component {
+	height: 1000px;
+	width: 1350px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.myPage_title {
+	font-size: 30px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.myPage_kinds_box {
+	width: 100%;
+	height: 150px;
+	border: 1px solid #dadada;
+	margin-bottom: 80px;
+}
+.myPage_kind {
+	height: 100px;
+	width: 225px;
+	font-size: 17px;
+	font-weight: 700;
+	border-right: 1px solid #dadada;
+}
+.myPage_kinds_box > div:last-child {
+	border: none;	
+}
+
+
+
+
+/* orderList */
+.myPage_orderList_title {
+	width: 100%;
+	height: 40px;
+	font-size: 20px;
+	font-weight: 700;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+.myPage_orderList_box {
+	width: 100%;
+	height: 500px;
+	border-top: 2px solid black; 
+	border-bottom: 2px solid black;  
+}
+.myPage_orderList_info {
+	border: 1px solid black;
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid black;
+}
+.myPage_orderList_info > div {
+	font-size: 15px;
+	border-right: 1px solid #dadada;
+}
+.myPage_orderList_info > div:last-child {
+	border: none;	
+}
+.myPage_orderList_date {
+	width: 120px;
+}
+.myPage_orderList_img {
+	width: 80px;
+}
+.myPage_orderList_product_info {
+	width: 790px;
+}
+.myPage_orderList_count {
+	width: 60px;
+}
+.myPage_orderList_price {
+	width: 120px;
+}
+.myPage_orderList_progress {
+	width: 100px;
+}
+.myPage_orderList_check {
+	width: 80px;
+}
+
+
+
+.myPage_orderList_content {
+	width: 100%;
+	height: 50px;
+	font-size: 14px;
+	border: 1px solid #dadada;
+	border-top: none;
+}
+.myPage_orderList_content > div:last-child {
+	border: none;	
+}
+.myPage_orderList_content > div{
+	border-right: 1px solid #dadada;
+}
+

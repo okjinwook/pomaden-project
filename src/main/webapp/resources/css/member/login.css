@@ -31,7 +31,7 @@
 .login_button {
 	border: none;
 	color: white;
-	background-color: black;
+	background-color: #333;
 	height: 50px;
 	margin-top: 20px;
 	width: 400px;
