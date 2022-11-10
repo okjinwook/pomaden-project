@@ -17,13 +17,14 @@
 	height: 150px;
 	border: 1px solid #dadada;
 	margin-bottom: 80px;
+	background-color: #f9f9f9;
 }
 .myPage_kind {
 	height: 100px;
 	width: 225px;
 	font-size: 17px;
-	font-weight: 700;
 	border-right: 1px solid #dadada;
+	color: grey;
 }
 .myPage_kinds_box > div:last-child {
 	border: none;	
@@ -39,7 +40,6 @@
 	font-size: 20px;
 	font-weight: 700;
 	padding-left: 10px;
-	margin-bottom: 10px;
 }
 .myPage_orderList_box {
 	width: 100%;
@@ -48,14 +48,15 @@
 	border-bottom: 2px solid black;  
 }
 .myPage_orderList_info {
-	border: 1px solid black;
 	width: 100%;
 	height: 50px;
-	border-bottom: 1px solid black;
+	background-color: #333;
+	color: white;
 }
 .myPage_orderList_info > div {
 	font-size: 15px;
 	border-right: 1px solid #dadada;
+	font-weight: 700;
 }
 .myPage_orderList_info > div:last-child {
 	border: none;	
@@ -84,17 +85,17 @@
 
 
 
-.myPage_orderList_content {
+.myPage_orderList_item {
 	width: 100%;
 	height: 50px;
 	font-size: 14px;
 	border: 1px solid #dadada;
 	border-top: none;
 }
-.myPage_orderList_content > div:last-child {
+.myPage_orderList_item > div:last-child {
 	border: none;	
 }
-.myPage_orderList_content > div{
+.myPage_orderList_item > div{
 	border-right: 1px solid #dadada;
 }
 

@@ -12,7 +12,13 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/footer.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/login.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/join.css">
-<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/info.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/orderList.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/point.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/coupon.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/board.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/like.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/member_info.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/question.css">
 <link rel="icon" type="icon/png" href="">
 <script src="${cpath }/resources/js/header.js"></script>
 <script src="${cpath }/resources/js/main.js"></script>
@@ -29,7 +35,7 @@
 				<div class="header_right df">
 					<a href="${cpath }/member/login">로그인</a>
 					<a href="${cpath }/member/join">회원가입</a>
-					<a href="${cpath }/myPage/info">마이페이지</a>
+					<a href="${cpath }/myPage?category=orderList">마이페이지</a>
 					<a href="">고객센터</a>
 				</div>
 			</div>

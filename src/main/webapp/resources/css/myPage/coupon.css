@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+.myPage_coupon_title {
+	width: 100%;
+	height: 40px;
+	font-size: 20px;
+	font-weight: 700;
+	padding-left: 10px;
+}
+.myPage_coupon_box {
+	width: 100%;
+	height: 500px;
+	border-top: 2px solid black; 
+	border-bottom: 2px solid black;  
+}
+.myPage_coupon_info {
+	width: 100%;
+	height: 50px;
+	background-color: #333;
+	color: white;
+}
+.myPage_coupon_info > div{
+	font-size: 15px;
+	border-right: 1px solid #dadada;
+	font-weight: 700;
+}
+.myPage_coupon_info > div:last-child{
+	border: none;
+}
+.myPage_coupon_name {
+	width: 300px;
+}
+.myPage_coupon_benefit {
+	width: 588px;
+}
+.myPage_coupon_condition {
+	width: 260px;
+}
+.myPage_coupon_date {
+	width: 200px;
+}
