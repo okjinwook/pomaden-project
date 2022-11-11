@@ -15,9 +15,140 @@
 		</div>
 		
 		
-		<div class="myPage_orderList_title">좋아요 누른 상품</div>
-		<div class="myPage_orderList_box">
-		
+		<div class="myPage_like_title">좋아요 누른 상품</div>
+		<div class="myPage_like_box df">
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
+			<div class="myPage_like_item df">
+				<div class="myPage_like_img">
+					<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="100px">
+				</div>
+				<div class="myPage_like_info">
+					<div class="myPage_like_name jcce aice">라운드 넥 티셔츠</div>
+					<div class="myPage_like_category jcce aice">티셔츠</div>
+					<div class="myPage_like_price jcce aice">32000 원 ( 20% 할인 )</div>
+					<div class="myPage_like_likeCount jcce aice">❤ 302</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </main>
