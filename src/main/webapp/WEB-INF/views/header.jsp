@@ -18,10 +18,16 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/board.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/like.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/member_info.css">
-<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/question.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/myQuestion.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/cs/center.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/question/questionList.css">
+
+
+
 <link rel="icon" type="icon/png" href="">
 <script src="${cpath }/resources/js/header.js"></script>
 <script src="${cpath }/resources/js/main.js"></script>
+<script src="${cpath }/resources/js/cs/center.js"></script>
 </head>
 <body>
 	<header>
@@ -36,7 +42,7 @@
 					<a href="${cpath }/member/login">로그인</a>
 					<a href="${cpath }/member/join">회원가입</a>
 					<a href="${cpath }/myPage?category=orderList">마이페이지</a>
-					<a href="">고객센터</a>
+					<a href="${cpath }/cs/center">고객센터</a>
 				</div>
 			</div>
 		</div>
@@ -197,7 +203,7 @@
 					</div>
 				</div>
 				<div class="menu_question">
-					<a href="">1:1문의</a>
+					<a href="${cpath }/question/questionList">1:1문의</a>
 				</div>
 			</div>
 		</div>

@@ -11,7 +11,7 @@
 			<a href="${cpath }/myPage?category=board" class="myPage_board myPage_kind jcce aice">게시글</a>
 			<a href="${cpath }/myPage?category=like" class="myPage_like myPage_kind jcce aice">좋아요 상품</a>
 			<a href="${cpath }/myPage?category=member_info" class="myPage_member_info myPage_kind jcce aice">회원정보 관리</a>
-			<a href="${cpath }/myPage?category=question" class="myPage_question myPage_kind jcce aice">문의내역</a>
+			<a href="${cpath }/myPage?category=myQuestion" class="myPage_question myPage_kind jcce aice">문의내역</a>
 		</div>
 		<div class="myPage_orderList_title">주문내역</div>
 		
