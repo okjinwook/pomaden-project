@@ -67,8 +67,20 @@
 	cursor: pointer;
 }
 
-
-
-
+.question_select_box {
+	height: 30px;
+}
+.question_search_input {
+	height: 30px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.question_search_button {
+	height: 30px;
+	background-color: #333;
+	color: white;
+	width: 80px;
+	border-radius: 5px;
+}
 
 

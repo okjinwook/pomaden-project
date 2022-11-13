@@ -5,7 +5,7 @@
 	<div class="question_component">
 		<div class="question_title">1:1 문의</div>
 		<div class="question_filter_box jcsb">
-			<select>
+			<select class="question_select_box">
 				<option>배송문의</option>
 				<option>입금문의</option>
 				<option>재입고문의</option>
@@ -13,18 +13,18 @@
 				<option>교환문의</option>
 				<option>기타문의</option>
 			</select>
-			<div class="question_search_box">
-				<select>
+			<div class="question_search_box aice">
+				<select class="question_select_box">
 					<option>전체</option>
 					<option>미답변</option>
 					<option>답변</option>
 				</select>
-				<select>
+				<select class="question_select_box" style="margin-left: 10px;">
 					<option>제목</option>
 					<option>작성자</option>
 				</select>
-				<input type="text" id="">
-				<input type="button" value="검색하기">
+				<input class="question_search_input" type="text" id="">
+				<input class="question_search_button aice jcce" type="button" value="검색하기">
 			</div>
 		</div>
 		<div class="question_info_box df">

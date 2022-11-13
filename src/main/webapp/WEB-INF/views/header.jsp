@@ -21,6 +21,7 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/myQuestion.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/cs/center.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/question/questionList.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/product/productList.css">
 
 
 
@@ -28,6 +29,7 @@
 <script src="${cpath }/resources/js/header.js"></script>
 <script src="${cpath }/resources/js/main.js"></script>
 <script src="${cpath }/resources/js/cs/center.js"></script>
+<script src="${cpath }/resources/js/product/productList.js"></script>
 </head>
 <body>
 	<header>
@@ -85,7 +87,7 @@
 									<li>남방</li>
 								</ul>
 							</div>
-							<div class="menuAll_menu_T-shirts">
+							<div class="menuAll_menu_Tshirts">
 								<div class="menuAll_kinds">티셔츠</div>
 								<ul>
 									<li>긴팔티</li>
@@ -124,82 +126,64 @@
 						<a href="">홈</a>
 					</div>
 					<div class="menu_best">
-						<a href="">베스트</a>
-						<div class="header_menubar_drop hidden">
-							<ul>
-								<li>아우터 30</li>
-								<li>셔츠 30</li>
-								<li>티셔츠 30</li>
-								<li>팬츠 30</li>
-								<li>슈즈 30</li>
-							</ul>
-						</div>
-					</div>
-					<div class="menu_sale">
-						<a href="">SALE</a>
-						<div class="header_menubar_drop hidden">
-						
-						</div>
+						<a href="${cpath }/product/productList?category=베스트" class="menu_kind_button aice">베스트</a>
+						<ul class="header_menubar_drop hidden">
+							<li>아우터 30</li>
+							<li>셔츠 30</li>
+							<li>티셔츠 30</li>
+							<li>팬츠 30</li>
+							<li>슈즈 30</li>
+						</ul>
 					</div>
 					<div class="menu_outer">
-						<a href="">아우터</a>
-						<div class="header_menubar_drop hidden">
-							<ul>
-								<li>가디건</li>
-								<li>코치자켓</li>
-								<li>폴리스</li>
-								<li>집업</li>
-								<li>코트</li>
-								<li>패딩</li>
-							</ul>
-						</div>
+						<a href="${cpath }/product/productList?category=아우터" class="menu_kind_button aice">아우터</a>
+						<ul class="header_menubar_drop hidden">
+							<li>가디건</li>
+							<li>코치자켓</li>
+							<li>폴리스</li>
+							<li>집업</li>
+							<li>코트</li>
+							<li>패딩</li>
+						</ul>
 					</div>
 					<div class="menu_shirts">
-						<a href="">셔츠</a>
-						<div class="header_menubar_drop hidden">
-							<ul>
-								<li>맨투맨</li>
-								<li>니트/스웨터</li>
-								<li>후드</li>
-								<li>폴라넥</li>
-								<li>남방</li>
-							</ul>
-						</div>
+						<a href="${cpath }/product/productList?category=셔츠" class="menu_kind_button aice">셔츠</a>
+						<ul class="header_menubar_drop hidden">
+							<li>맨투맨</li>
+							<li>니트/스웨터</li>
+							<li>후드</li>
+							<li>폴라넥</li>
+							<li>남방</li>
+						</ul>
 					</div>
 					<div class="menu_T-shirts">
-						<a href="">티셔츠</a>
-						<div class="header_menubar_drop hidden">
-							<ul>
-								<li>긴팔티</li>
-								<li>반팔티</li>
-								<li>7부셔츠</li>
-								<li>스트라이프</li>
-							</ul>
-						</div>
+						<a href="${cpath }/product/productList?category=티셔츠" class="menu_kind_button aice">티셔츠</a>
+						<ul class="header_menubar_drop hidden">
+							<li>긴팔티</li>
+							<li>반팔티</li>
+							<li>7부셔츠</li>
+							<li>스트라이프</li>
+						</ul>
 					</div>
 					<div class="menu_pants">
-						<a href="">팬츠</a>
-						<div class="header_menubar_drop hidden">
-							<ul>
-								<li>청바지</li>
-								<li>슬랙스</li>
-								<li>트래이닝</li>
-								<li>와이드 팬츠</li>
-							</ul>
-						</div>
+						<a href="${cpath }/product/productList?category=팬츠" class="menu_kind_button aice">팬츠</a>
+						<ul class="header_menubar_drop hidden">
+							<li>청바지</li>
+							<li>슬랙스</li>
+							<li>트래이닝</li>
+							<li>와이드 팬츠</li>
+						</ul>
 					</div>
 					<div class="menu_shoose">
-						<a href="">슈즈</a>
-						<div class="header_menubar_drop hidden">
-							<ul>
-								<li>스니커즈</li>
-								<li>구두</li>
-								<li>로퍼</li>
-								<li>부츠</li>
-								<li>샌들</li>
-								<li>슬리퍼</li>
-							</ul>
-						</div>
+						<a href="${cpath }/product/productList?category=슈즈" class="menu_kind_button aice">슈즈</a>
+						<ul class="header_menubar_drop hidden">
+							<li>스니커즈</li>
+							<li>구두</li>
+							<li>로퍼</li>
+							<li>부츠</li>
+							<li>샌들</li>
+							<li>슬리퍼</li>
+						</ul>
 					</div>
 				</div>
 				<div class="menu_question">

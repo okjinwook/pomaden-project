@@ -26,8 +26,6 @@
 	</div>
 </main>
 <script>
-	const link =  'myPage_' + document.location.href.split("/").reverse()[0];
-	
 	const myPage_category = '${category}'
 	const class_category = document.querySelector('.myPage_' + myPage_category)
 	class_category.style.color = 'black'

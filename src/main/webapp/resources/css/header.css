@@ -105,7 +105,7 @@ header {
 .menuAll_component {
 	margin-right: 200px;
 }
-.menuAll_component > div {
+.menuAll_component > div{
 	height: 250px;
 }
 .menu_question {
@@ -115,8 +115,11 @@ header {
 	font-size: 16px;
 	font-weight: normal;
 }
+.menu_kind_button {
+	height: 100%;
+}
 .header_menubar > .menu_kind div:hover{
-	color: goldenrod;
+	color: red;
 }
 .header_menubar >.menu_kind> div {
 	position: relative;
@@ -134,14 +137,18 @@ header {
 	border-top: none;
 	height: auto;
 	width: 150px;
-	top: 49px;
+	top: 31px;
 	left: 0;
 	z-index: 1;
+	padding: 10px;
 }
 .header_menubar_drop li {
 	margin-bottom: 10px;
 	font-size: 14px;
 	font-weight: normal;
 	color: black;
-	margin-left: 15px;
+	padding: 5px;
+}
+.header_menubar_drop li:hover {
+	background-color: papayawhip;
 }
