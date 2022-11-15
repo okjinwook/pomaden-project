@@ -30,6 +30,7 @@
 <script src="${cpath }/resources/js/main.js"></script>
 <script src="${cpath }/resources/js/cs/center.js"></script>
 <script src="${cpath }/resources/js/product/productList.js"></script>
+<script src="${cpath }/resources/js/member/join.js"></script>
 </head>
 <body>
 	<header>
