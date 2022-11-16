@@ -43,6 +43,15 @@
 	height: 25px;
 	margin-bottom: 5px;
 }
+.join_id_same_check {
+	background-color: #333;
+	color: white;
+	margin-left: 10px;
+	border-radius:5px;
+	cursor: pointer;
+	font-size: 12px;
+	width: 80px;
+}
 .join_id_input {
 	flex-flow: column;
 }

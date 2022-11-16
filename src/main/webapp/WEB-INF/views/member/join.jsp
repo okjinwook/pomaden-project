@@ -15,6 +15,7 @@
 				<div class="join_id_input join_input_box jcce">
 					<div class="df">
 						<input type="text" required="required" name="member_id" onkeyup="idOnKeyUp(this)">
+						<div class="join_id_same_check jcce aice" onclick="idOnClick(event)">중복확인</div>
 						<div class="join_id_check join_check_msg aice jcce"></div>
 					</div>
 					<span>(영문소문자/숫자, 4 ~ 16자)</span>
@@ -47,11 +48,12 @@
 				<div class="join_info_box"><span>배송지 주소</span></div>
 				<div class="join_address_input join_input_box jcce">
 					<div class="join_address_number jcce">
-						<input type="text" id="join_postcode" required="required" readonly="readonly" placeholder="우편번호">
-						<div class="join_address_button jcce aice" onclick="postcodeOnClcik()">우편번호</div>
+						<input class="join_address_postcode" type="text" id="join_postcode" required="required" readonly="readonly" placeholder="우편번호">
+						<div class="join_address_button jcce aice" onclick="postcodeOnClick()">우편번호</div>
 					</div>
-					<input class="join_address_load" id="join_loadAddress" type="text" name="member_address" required="required" readonly="readonly" placeholder="도로명 주소" >
-					<input class="join_address_detail" id="join_detailAddress" type="text" placeholder="상세 주소">
+					<input class="join_address_load" id="join_loadAddress" type="text" required="required" readonly="readonly" placeholder="도로명 주소" >
+					<input class="join_address_detail" id="join_detailAddress" type="text" placeholder="상세 주소" onkeyup="addressOnKeyUp(this)" readonly="readonly">
+					<input class="join_result_address" type="text" name="member_address" hidden="hidden">
 				</div>
 			</div>
 			<div class="join_input_phone_box df join_box">
@@ -59,7 +61,7 @@
 				<div class="join_input_box jcce">
 					<div class="join_select_number aice">
 						<select class="join_phone_select_value jcce" onchange="phoneOnSelect(this)" required="required">
-							<option>-</option>
+							<option>--</option>
 							<option>010</option>
 							<option>011</option>
 							<option>016</option>
@@ -92,21 +94,7 @@
 	let join_phone_end_number = ''
 	
 	
-	function postcodeOnClcik() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var roadAddr = data.roadAddress; // 도로명 주소 변수
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('join_postcode').value = data.zonecode;
-                document.getElementById("join_loadAddress").value = roadAddr;
-            }
-        }).open();
-    }
+	
 	
 	
 </script>
