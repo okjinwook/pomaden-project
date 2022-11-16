@@ -11,6 +11,8 @@
 		<!-- 	user_name => userName	-->
 	</settings>
 	
-	
+	<typeAliases>
+		<typeAlias type="com.pomaden.model.MemberDTO" alias="member"/>		
+	</typeAliases>
 	
 </configuration>

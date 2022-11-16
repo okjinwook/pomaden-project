@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pomaden.model.MemberDTO;
@@ -30,13 +31,15 @@ public class MemberController {
 		System.out.println(dto.getMember_email());
 		return mav;
 	}
+	@ResponseBody
 	@GetMapping("/member/check")
 	public int check(String id) {
+		int row = 0;
 		MemberDTO dto = ms.check(id);
 		System.out.println(id);
-		if(dto == null) {
-			return 0;
+		if(dto != null) {
+			row = 1;
 		}
-		return 1;
+		return row;
 	}
 }

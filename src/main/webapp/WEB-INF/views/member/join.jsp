@@ -14,7 +14,7 @@
 				<div class="join_info_box"><span>아이디</span></div>
 				<div class="join_id_input join_input_box jcce">
 					<div class="df">
-						<input type="text" required="required" name="member_id" onkeyup="idOnKeyUp(this)">
+						<input type="text" required="required" name="member_id">
 						<div class="join_id_same_check jcce aice" onclick="idOnClick(event)">중복확인</div>
 						<div class="join_id_check join_check_msg aice jcce"></div>
 					</div>
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			<div class="join_button jcce">
-				<input class="" type="submit" value="회원가입">
+				<input class="join_submit_button" type="submit" value="회원가입" onclick="joinSubmitOnClick(event)">
 			</div>
 		</form>
 	</div>
@@ -92,7 +92,6 @@
 	let join_phone_select_number = ''
 	let join_phone_start_number= ''
 	let join_phone_end_number = ''
-	
 	
 	
 	

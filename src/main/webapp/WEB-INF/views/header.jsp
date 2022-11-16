@@ -196,7 +196,7 @@
 	
 	<script>
 		const menuAll_button = document.querySelector('.menuAll_button')
-		
+		const cpath = '${cpath}'
 		// 전체메뉴 클릭 이벤트
 		menuAll_button.addEventListener('click', menuAllClick)
 			
