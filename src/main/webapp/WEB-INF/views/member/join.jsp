@@ -33,8 +33,8 @@
 			</div>
 			<div class="join_input_pw_check_box  df join_box">
 				<div class="join_info_box"><span>비밀번호 확인</span></div>
-				<div class="join_pwCheck_input join_input_box jcce aice">
-					<input type="password" onkeyup="pwcheckOnKeyUp(this)" required="required">
+				<div class="join_pwCheck_input_box join_input_box jcce aice">
+					<input class="join_pwCheck_input" type="password" onkeyup="pwcheckOnKeyUp(this)" required="required">
 					<div class="join_pwCheck_check join_check_msg aice jcce"></div>
 				</div>
 			</div>
@@ -70,8 +70,8 @@
 							<option>019</option>
 						</select>
 						<input class="join_phone_result_value" type="text" name="member_phone" hidden="hidden">
-						<input class="join_phone_start_value" type="text" required="required" maxlength="4" onkeyup="phoneStartOnkeyUp(this)">
-						<input class="join_phone_end_value" type="text" required="required" maxlength="4" onkeyup="phoneEndOnkeyUp(this)">
+						<input class="join_phone_start_value" type="text" required="required" min="4" maxlength="4" onkeyup="phoneStartOnkeyUp(this)">
+						<input class="join_phone_end_value" type="text" required="required" min="4" maxlength="4" onkeyup="phoneEndOnkeyUp(this)">
 					</div>
 				</div>
 			</div>

@@ -32,6 +32,8 @@ function idOnClick(event) {
 function pwOnKeyUp(ob) {
 	let value = ob.value
 	const join_pw_check = document.querySelector('.join_pw_check')
+	const join_pwCheck_input = document.querySelector('.join_pwCheck_input')
+	const join_pwCheck_check = document.querySelector('.join_pwCheck_check')
 	const english = /[a-zA-Z]/
 	const number = /[0-9]/
 	// 정규식을 사용하여 대소문자/숫자 2가지 조합 , 8 ~ 16자 이내인가 체크
@@ -43,6 +45,15 @@ function pwOnKeyUp(ob) {
 		join_pw_check.innerText = '부적합한 비밀번호입니다.'
 		join_pw_check.style.color = 'red'
 	}
+	join_pwCheck_input.value = ''
+	if (value == join_pwCheck_input.value) {
+		join_pwCheck_check.innerText = '일치'
+		join_pwCheck_check.style.color = 'blue'
+	} else {
+		join_pwCheck_check.innerText = '불일치'
+		join_pwCheck_check.style.color = 'red'
+	}
+	
 }
 
 // 패스워드 확인 함수입니다, 일치 여부 확인 메세지
@@ -63,26 +74,23 @@ function phoneOnSelect(ob) {
 	const resultPhoneInput = document.querySelector('.join_phone_result_value')
 	join_phone_select_number = ob.value
 	resultPhoneInput.value = join_phone_select_number + join_phone_start_number + join_phone_end_number
+	console.log(resultPhoneInput.value)
 }
 
 // 전화번호 입력시 합치는 함수입니다 ex) 010 + 1234 + 5678 
 function phoneStartOnkeyUp(ob) {
 	const resultPhoneInput = document.querySelector('.join_phone_result_value')
-	let value = ob.value
-	if (value.length == 4) {
-		join_phone_start_number = ob.value
-	}
+	join_phone_start_number = ob.value
 	resultPhoneInput.value = join_phone_select_number + join_phone_start_number + join_phone_end_number
+	console.log(resultPhoneInput.value)
 }
 
 // 전화번호 입력시 합치는 함수입니다 ex) 010 + 1234 + 5678 
 function phoneEndOnkeyUp(ob) {
 	const resultPhoneInput = document.querySelector('.join_phone_result_value')
-	let value = ob.value
-	if (value.length == 4) {
-		join_phone_end_number = ob.value
-	}
+	join_phone_end_number = ob.value
 	resultPhoneInput.value = join_phone_select_number + join_phone_start_number + join_phone_end_number
+	console.log(resultPhoneInput.value)
 }
 
 
@@ -111,19 +119,24 @@ function addressOnKeyUp(ob) {
 	const join_address_postcode = document.querySelector(".join_address_postcode")
 	const join_address_load = document.querySelector(".join_address_load")
 
-	join_result_address.value = '(' + join_address_postcode.value + ')' + join_address_load.value + join_address_load.value + ob.value
+	join_result_address.value = '(' + join_address_postcode.value + ')' + join_address_load.value + ' ' + ob.value
 	console.log(join_result_address.value)
 }
 // 회원가입 눌렀을 때 발생하는 함수입니다.
 function joinSubmitOnClick(event) {
 	const join_check_msg = document.querySelectorAll('.join_check_msg')
+	let count
 	// 유효성 검사에 만족하지 못 하는 객체가 있으면 submit 막습니다
 	join_check_msg.forEach(msg => {
 		if (msg.style.color == 'red' || msg.innerText == '') {
 			event.preventDefault()
-			alert('잘못된 입력정보입니다.')
+			count = 1
 		}
 	})
+	// alert 반복 방지 코드입니다
+	if(count == 1) {
+		alert('잘못된 입력정보입니다.')
+	}	
 }
 
 

@@ -23,12 +23,14 @@ public class MemberController {
 	@PostMapping("/member/join")
 	public ModelAndView join(MemberDTO dto) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(dto.getMember_id());
-		System.out.println(dto.getMember_pw());
-		System.out.println(dto.getMember_name());
-		System.out.println(dto.getMember_address());
-		System.out.println(dto.getMember_phone());
-		System.out.println(dto.getMember_email());
+		int row = 0;
+		row = ms.insert(dto);
+		if(row == 1) {
+			mav.setViewName("redirect:/member/login");
+		}
+		else {
+			mav.setViewName("redirect:/member/join");
+		}
 		return mav;
 	}
 	@ResponseBody

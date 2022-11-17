@@ -12,5 +12,8 @@ public class MemberService {
 	public MemberDTO check(String id) {
 		return dao.check(id);
 	}
+	public int insert(MemberDTO dto) {
+		return dao.insert(dto);
+	}
 
 }

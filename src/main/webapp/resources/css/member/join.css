@@ -69,7 +69,7 @@
 	margin-left: 15px;
 	flex-flow: column;
 }
-.join_pwCheck_input {
+.join_pwCheck_input_box {
 	flex-flow: row;
 }
 .join_input_box > span{
@@ -163,6 +163,7 @@
 	height: 50px;
 	margin: 0;
 	border-radius: 7px;
+	cursor: pointer;
 }
 .join_check_msg {
 	font-size: 12px;

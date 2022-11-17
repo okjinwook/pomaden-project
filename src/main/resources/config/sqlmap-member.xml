@@ -7,4 +7,18 @@
 	<select id="check" resultType="member" parameterType="String">
 		select * from member where member_id=#{id}
 	</select>
+	
+	<insert id="insert" parameterType="member">
+		insert into member 
+		values
+			(
+			member_seq.nextval,
+			#{member_email},
+			#{member_id},
+			#{member_pw},
+			#{member_name},
+			#{member_address},
+			#{member_phone}
+			)
+	</insert>
 </mapper>
