@@ -42,8 +42,18 @@
 					</div>
 				</div>
 				<div class="header_right df">
-					<a href="${cpath }/member/login">로그인</a>
-					<a href="${cpath }/member/join">회원가입</a>
+					<c:if test="${empty login }">
+						<a href="${cpath }/member/login">로그인</a>
+					</c:if>
+					<c:if test="${not empty login }">
+						<a href="${cpath }/member/logout">로그아웃</a>
+					</c:if>
+					<c:if test="${empty login }">
+						<a href="${cpath }/member/join">회원가입</a>
+					</c:if>
+					<c:if test="${not empty login }">
+						<a href="${cpath }/cart/cartList">장바구니</a>
+					</c:if>
 					<a href="${cpath }/myPage?category=orderList">마이페이지</a>
 					<a href="${cpath }/cs/center">고객센터</a>
 				</div>

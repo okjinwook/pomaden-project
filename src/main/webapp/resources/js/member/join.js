@@ -53,7 +53,7 @@ function pwOnKeyUp(ob) {
 		join_pwCheck_check.innerText = '불일치'
 		join_pwCheck_check.style.color = 'red'
 	}
-	
+
 }
 
 // 패스워드 확인 함수입니다, 일치 여부 확인 메세지
@@ -122,6 +122,36 @@ function addressOnKeyUp(ob) {
 	join_result_address.value = '(' + join_address_postcode.value + ')' + join_address_load.value + ' ' + ob.value
 	console.log(join_result_address.value)
 }
+
+// 이메일 인증요청 버튼 클릭 함수입니다.
+function joinEmailOnClick(event) {
+	const join_email_code_box = document.querySelector('.join_email_code_box')
+	const timer = setInterval(codeTimer, 1000)
+	join_email_code_box.classList.remove('hidden')
+	time = 180
+}
+// 인증코드 제한 타이머 함수입니다
+function codeTimer() {
+	const join_code_time_box = document.querySelector('.join_code_time_box')
+	let min = Math.floor(time / 60)
+	let sec = Math.floor(time % 60)
+	let tm = min
+	let ts = sec
+	if (min < 10) {
+		tm = '0' + min
+	}
+	if (sec < 10) {
+		ts = '0' + sec
+	}
+	join_code_time_box.innerText = '( ' + tm + ' : ' + ts + ' )'
+	if (time == 0) {
+		clearInterval(timer)
+		join_code_time_box.style.color = 'red'
+		time = 180
+	}
+	time -= 1
+}
+
 // 회원가입 눌렀을 때 발생하는 함수입니다.
 function joinSubmitOnClick(event) {
 	const join_check_msg = document.querySelectorAll('.join_check_msg')
@@ -134,9 +164,9 @@ function joinSubmitOnClick(event) {
 		}
 	})
 	// alert 반복 방지 코드입니다
-	if(count == 1) {
+	if (count == 1) {
 		alert('잘못된 입력정보입니다.')
-	}	
+	}
 }
 
 

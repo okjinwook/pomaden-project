@@ -6,10 +6,10 @@
 <main>
 	<div class="login_component">
 		<div class="login_title">로그인</div>
-		<form class="login_form" action="">
+		<form class="login_form" action="${cpath }/member/login" method="POST">
 			<div class="login_input df">
-				<input type="text" id="login_id" placeholder="아이디를 입력해주세요." required="required">
-				<input type="password" id="login_pw" placeholder="비밀번호를 입력해주세요." required="required">
+				<input type="text" name="member_id" placeholder="아이디를 입력해주세요." required="required">
+				<input type="password" name="member_pw" placeholder="비밀번호를 입력해주세요." required="required">
 			</div>
 			<input class="login_button" type="submit" value="로그인">
 		</form>
