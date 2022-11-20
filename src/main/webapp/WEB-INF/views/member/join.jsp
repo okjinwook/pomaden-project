@@ -79,14 +79,16 @@
 				<div class="join_info_box"><span>이메일</span></div>
 				<div class="join_email_input join_input_box jcce">
 					<div class="aice">
-						<input class="join_input_email" type="email" required="required" name="member_email">
+						<input class="join_input_email" type="email" required="required" name="member_email" placeholder="ex@naver.com">
 						<div class="join_email_check_button jcce aice" onclick="joinEmailOnClick(event)">인증요청</div>
+						<div class="join_email_send_msg jcce aice"></div>
 					</div>
 					<div class="join_email_code_box aice hidden">
 						<input class="join_email_code_input" type="text"></input>
-						<div class="join_code_check_button aice jcce">인증확인</div>
+						<div class="join_code_check_button aice jcce" onclick="joinCodeCheckOnClick(event)">인증확인</div>
 						<div class="join_code_time_box aice jcce"></div>
 					</div>
+					<div class="join_code_msg_box aice join_check_msg jcce"></div>
 				</div>
 			</div>
 			<div class="join_button jcce">
@@ -101,7 +103,7 @@
 	let join_phone_start_number= ''
 	let join_phone_end_number = ''
 	let time = 180
-	
+	let timer
 	
 	
 	

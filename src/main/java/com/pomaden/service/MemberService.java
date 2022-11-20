@@ -9,14 +9,17 @@ import com.pomaden.model.MemberDTO;
 @Service
 public class MemberService {
 	@Autowired private MemberDAO dao;
-	public MemberDTO check(String id) {
-		return dao.check(id);
+	public MemberDTO idCheck(String member_id) {
+		return dao.idCheck(member_id);
 	}
 	public int insert(MemberDTO dto) {
 		return dao.insert(dto);
 	}
 	public MemberDTO login(MemberDTO dto) {
 		return dao.login(dto);
+	}
+	public MemberDTO emailCheck(String member_email) {
+		return dao.emailCheck(member_email);
 	}
 
 }

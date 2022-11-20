@@ -12,6 +12,8 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/footer.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/login.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/join.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/find_id.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/find_pw.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/orderList.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/point.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/coupon.css">

@@ -136,7 +136,7 @@
 	padding-left: 15px;
 }
 .join_input_email_box {
-	height: 100px;
+	height: 120px;
 }
 .join_input_email {
 	height: 25px;
@@ -180,6 +180,10 @@
 	margin-left: 10px;
 	cursor: pointer;
 }
+.join_email_send_msg {
+	font-size: 12px;
+	margin-left: 10px;
+}
 .join_code_check_button {
 	width: 70px;
 	height: 30px;
@@ -189,6 +193,14 @@
 	font-size: 12px;
 	cursor: pointer;
 	margin-right: 30px;
+}
+.join_code_time_box {
+	font-size: 12px;
+}
+.join_code_msg_box {
+	font-size: 12px;
+	margin-top: 10px;
+	justify-content: flex-start;
 }
 .join_email_input > div:nth-child(2){
 	margin-top: 10px;

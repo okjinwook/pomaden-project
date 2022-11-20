@@ -61,13 +61,28 @@ public class MemberController {
 	}
 	
 	@ResponseBody
-	@GetMapping("/member/check")
-	public int check(String id) {
+	@GetMapping("/member/idCheck")
+	public int idCheck(String member_id) {
 		int row = 0;
-		MemberDTO dto = ms.check(id);
+		MemberDTO dto = ms.idCheck(member_id);
 		if(dto != null) {
 			row = 1;
 		}
 		return row;
 	}
+	@ResponseBody
+	@GetMapping("/member/emailCheck")
+	public int emailCheck(String member_email) {
+		int row = 0;
+		MemberDTO dto = ms.emailCheck(member_email);
+		if(dto != null) {
+			row = 1;
+		}
+		return row;
+	}
+	
+	@GetMapping("/member/find_id")
+	public void getFind_id() {}
+	@GetMapping("/member/find_pw")
+	public void getFind_pw() {}
 }

@@ -2,7 +2,7 @@
 function idOnClick(event) {
 	let id = event.target.previousElementSibling.value
 	const join_id_check = document.querySelector('.join_id_check')
-	const url = cpath + '/member/check?id=' + id
+	const url = cpath + '/member/idCheck?member_id=' + id
 	const opt = {
 		method: 'GET'
 	}
@@ -126,9 +126,52 @@ function addressOnKeyUp(ob) {
 // 이메일 인증요청 버튼 클릭 함수입니다.
 function joinEmailOnClick(event) {
 	const join_email_code_box = document.querySelector('.join_email_code_box')
-	const timer = setInterval(codeTimer, 1000)
-	join_email_code_box.classList.remove('hidden')
-	time = 180
+	const join_email_send_msg = document.querySelector('.join_email_send_msg')
+	const join_email_code_input = document.querySelector('.join_email_code_input')
+	const member_email = document.querySelector('.join_input_email').value
+	let overlap = 0
+	
+	if(member_email.split('@')[1] == 'naver.com') {
+		const check_url = cpath + '/member/emailCheck?member_email=' + member_email
+		const check_opt = {
+			method: 'GET'
+		}
+		const check_json = fetch(check_url,check_opt)
+		.then(resp => resp.text())
+		.then(text => {
+			if(text == 1) {
+				alert('이미 사용중인 이메일입니다.')
+			}
+			else {
+				overlap = 1
+			}
+		})
+		if(overlap == 1) {
+			const url = cpath + '/member/sendEmail?member_email=' + member_email
+			const opt = {
+				method: 'GET'
+			}
+			timer = setInterval(codeTimer, 1000)
+			join_email_code_box.classList.remove('hidden')
+			time = 180
+			const json = fetch(url,opt)
+			.then(resp => resp.json())
+			.then(json => {
+				if(json.status == 'OK') {
+					join_email_send_msg.innerText = json.message
+					join_email_send_msg.style.color = 'blue'
+					join_email_code_input.focus()
+				}
+				else {
+					join_email_send_msg.innerText = json.message
+					join_email_send_msg.style.color = 'red'
+				}
+			})
+		}
+	}
+	else {
+		alert('올바르지 않은 이메일 형식입니다')
+	}
 }
 // 인증코드 제한 타이머 함수입니다
 function codeTimer() {
@@ -152,10 +195,34 @@ function codeTimer() {
 	time -= 1
 }
 
+// 인증확인 클릭 함수입니다.
+function joinCodeCheckOnClick(event) {
+	const codeNumber = document.querySelector('.join_email_code_input').value
+	const msgBox = document.querySelector('.join_code_msg_box')
+	const url = cpath + '/member/getAuthNumber?userNumber=' + codeNumber
+	const opt = {
+		method: 'GET'
+	}
+	const json = fetch(url,opt)
+	.then(resp => resp.json())
+	.then(json => {
+		if(json.status == 'OK') {
+			clearInterval(timer)
+			msgBox.innerText = json.message
+			msgBox.style.color = 'blue'
+		}
+		else {
+			msgBox.innerText = json.message
+			msgBox.style.color = 'red'
+		}
+	})
+	
+}
+
 // 회원가입 눌렀을 때 발생하는 함수입니다.
 function joinSubmitOnClick(event) {
 	const join_check_msg = document.querySelectorAll('.join_check_msg')
-	let count
+	let count = 0
 	// 유효성 검사에 만족하지 못 하는 객체가 있으면 submit 막습니다
 	join_check_msg.forEach(msg => {
 		if (msg.style.color == 'red' || msg.innerText == '') {
