@@ -15,7 +15,7 @@
 	width: 400px;
 	margin: 0 auto;
 }
-.findPw_id_input, .findPw_name_input{
+.findPw_id_input, .findPw_name_input, .findPw_email_code_input{
 	height: 50px;
 	width: 400px;
 	margin-bottom: 10px;
@@ -45,6 +45,33 @@
 	right: 5px;
 	margin-top: 7px;
 	font-size: 12px;
+}
+.findPw_code_box {
+	position: relative;
+}
+.findPw_email_send_msg_box {
+	margin-bottom: 10px;
+	font-size: 12px;
+}
+.findPw_code_msg_box {
+	font-size: 12px;
+}
+.findPw_code_check_button {
+	height: 36px;
+	width: 80px;
+	color: white;
+	background-color: #333;
+	cursor: pointer;
+	border-radius: 5px;
+	position: absolute;
+	right: 5px;
+	margin-top: 7px;
+	font-size: 12px;
+}
+.findPw_code_time_box {
+    position: absolute;
+    right: 100px;
+    top: 13px;
 }
 .findPw_find_button {
 	height: 50px;

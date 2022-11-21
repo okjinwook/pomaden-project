@@ -129,52 +129,50 @@ function joinEmailOnClick(event) {
 	const join_email_send_msg = document.querySelector('.join_email_send_msg')
 	const join_email_code_input = document.querySelector('.join_email_code_input')
 	const member_email = document.querySelector('.join_input_email').value
-	let overlap = 0
-	
+	// 이메일 형식이 올바른지 체크합니다.
 	if(member_email.split('@')[1] == 'naver.com') {
 		const check_url = cpath + '/member/emailCheck?member_email=' + member_email
 		const check_opt = {
 			method: 'GET'
 		}
 		const check_json = fetch(check_url,check_opt)
-		.then(resp => resp.text())
-		.then(text => {
-			if(text == 1) {
-				alert('이미 사용중인 이메일입니다.')
+		.then(resp => resp.json())
+		.then(json => {
+			if(json.status == 'OK') {
+				join_email_send_msg.innerText = '이미 사용중인 이메일입니다'
 			}
+			// 사용 가능한 이메일이면 인증코드 보냅니다.
 			else {
-				overlap = 1
+				const url = cpath + '/member/sendEmail?member_email=' + member_email
+				const opt = {
+					method: 'GET'
+				}
+				// 타이머 실행 
+				time = 180
+				timer = setInterval(JoinCodeTimer, 1000)
+				join_email_code_box.classList.remove('hidden')
+				const json = fetch(url,opt)
+				.then(resp => resp.json())
+				.then(json => {
+					if(json.status == 'OK') {
+						join_email_send_msg.innerText = json.message
+						join_email_send_msg.style.color = 'blue'
+						join_email_code_input.focus()
+					}
+					else {
+						join_email_send_msg.innerText = json.message
+						join_email_send_msg.style.color = 'red'
+					}
+				})
 			}
 		})
-		if(overlap == 1) {
-			const url = cpath + '/member/sendEmail?member_email=' + member_email
-			const opt = {
-				method: 'GET'
-			}
-			timer = setInterval(codeTimer, 1000)
-			join_email_code_box.classList.remove('hidden')
-			time = 180
-			const json = fetch(url,opt)
-			.then(resp => resp.json())
-			.then(json => {
-				if(json.status == 'OK') {
-					join_email_send_msg.innerText = json.message
-					join_email_send_msg.style.color = 'blue'
-					join_email_code_input.focus()
-				}
-				else {
-					join_email_send_msg.innerText = json.message
-					join_email_send_msg.style.color = 'red'
-				}
-			})
-		}
 	}
 	else {
 		alert('올바르지 않은 이메일 형식입니다')
 	}
 }
 // 인증코드 제한 타이머 함수입니다
-function codeTimer() {
+function JoinCodeTimer() {
 	const join_code_time_box = document.querySelector('.join_code_time_box')
 	let min = Math.floor(time / 60)
 	let sec = Math.floor(time % 60)

@@ -1,0 +1,21 @@
+@charset "utf-8";
+.pwResult_component {
+	height: auto;
+	width: 600px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.pwResult_title {
+	font-size: 35px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.pwResult_content {
+	height: 150px;
+	width: 350px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}

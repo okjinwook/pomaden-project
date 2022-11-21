@@ -1,5 +1,7 @@
 package com.pomaden.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,12 +53,6 @@ public class MemberController {
 		else {
 			mav.setViewName("redirect:/member/join");
 		}
-		System.out.println(dto.getMember_address());
-		System.out.println(dto.getMember_email());
-		System.out.println(dto.getMember_id());
-		System.out.println(dto.getMember_name());
-		System.out.println(dto.getMember_phone());
-		System.out.println(dto.getMember_pw());
 		return mav;
 	}
 	
@@ -72,17 +68,33 @@ public class MemberController {
 	}
 	@ResponseBody
 	@GetMapping("/member/emailCheck")
-	public int emailCheck(String member_email) {
-		int row = 0;
+	public HashMap<String, String> emailCheck(String member_email) {
+		HashMap<String, String> map = new HashMap<String, String>();
 		MemberDTO dto = ms.emailCheck(member_email);
 		if(dto != null) {
-			row = 1;
+			map.put("status", "OK");
 		}
-		return row;
+		else {
+			map.put("status", "Fail");
+		}
+		return map;
 	}
 	
 	@GetMapping("/member/find_id")
 	public void getFind_id() {}
 	@GetMapping("/member/find_pw")
 	public void getFind_pw() {}
+	@PostMapping("/member/find_id")
+	public ModelAndView find_id(MemberDTO getDTO) {
+		ModelAndView mav = new ModelAndView();
+		MemberDTO dto = ms.findId(getDTO);
+		if(dto == null) {
+			mav.addObject("message", "일치하는 회원을 찾을 수 없습니다.");
+		}
+		else {
+			mav.addObject("dto", dto);
+			mav.setViewName("/member/findId_result");
+		}
+		return mav;
+	}
 }

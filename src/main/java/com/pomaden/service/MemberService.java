@@ -21,5 +21,8 @@ public class MemberService {
 	public MemberDTO emailCheck(String member_email) {
 		return dao.emailCheck(member_email);
 	}
+	public MemberDTO findId(MemberDTO dto) {
+		return dao.findId(dto);
+	}
 
 }

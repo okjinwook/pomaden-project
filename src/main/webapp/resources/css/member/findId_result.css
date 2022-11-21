@@ -1,0 +1,37 @@
+@charset "utf-8";
+.idResult_component {
+	height: auto;
+	width: 600px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.idResult_title {
+	font-size: 35px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.idResult_content {
+	height: 150px;
+	width: 350px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+.idResult_name, .idResult_email, .idResult_id{
+	height: 50px;
+	font-size: 14px;
+}
+.idResult_info {
+	width: 100px;
+	font-weight: 700;
+	margin-left: 10px;
+}
+.idResult_button_box {
+	width: 350px;
+	margin: 0 auto;
+}
+.idResult_button_box > a {
+	font-size: 13px;
+}

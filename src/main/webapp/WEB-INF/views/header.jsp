@@ -14,6 +14,8 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/join.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/find_id.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/find_pw.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/findId_result.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/member/findPw_result.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/orderList.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/point.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/coupon.css">
@@ -33,6 +35,7 @@
 <script src="${cpath }/resources/js/cs/center.js"></script>
 <script src="${cpath }/resources/js/product/productList.js"></script>
 <script src="${cpath }/resources/js/member/join.js"></script>
+<script src="${cpath }/resources/js/member/find_pw.js"></script>
 </head>
 <body>
 	<header>
