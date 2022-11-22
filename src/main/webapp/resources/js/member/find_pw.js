@@ -66,6 +66,7 @@ function findPwCodeTimer() {
 	time -= 1
 }
 
+
 // 인증확인 클릭 함수입니다.
 function findPwCodeCheckOnClick(event) {
 	const codeNumber = document.querySelector('.findPw_email_code_input').value
@@ -87,5 +88,20 @@ function findPwCodeCheckOnClick(event) {
 			msgBox.style.color = 'red'
 		}
 	})
-	
 }
+function findPwOnClick(event) {
+	const findPw_check_msg = document.querySelectorAll('.findPw_check_msg')
+	let count = 0
+	// 유효성 검사에 만족하지 못 하는 객체가 있으면 submit 막습니다
+	findPw_check_msg.forEach(msg => {
+		if (msg.style.color == 'red' || msg.innerText == '') {
+			event.preventDefault()
+			count = 1
+		}
+	})
+	// alert 반복 방지 코드입니다
+	if (count == 1) {
+		alert('이메일 인증이 필요합니다.')
+	}
+}
+

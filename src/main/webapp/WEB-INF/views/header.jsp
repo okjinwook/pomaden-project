@@ -36,6 +36,7 @@
 <script src="${cpath }/resources/js/product/productList.js"></script>
 <script src="${cpath }/resources/js/member/join.js"></script>
 <script src="${cpath }/resources/js/member/find_pw.js"></script>
+<script src="${cpath }/resources/js/member/findPw_result.js"></script>
 </head>
 <body>
 	<header>

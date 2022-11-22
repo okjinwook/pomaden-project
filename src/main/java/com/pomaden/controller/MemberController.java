@@ -97,4 +97,25 @@ public class MemberController {
 		}
 		return mav;
 	}
+	
+	@PostMapping("/member/find_pw")
+	public ModelAndView find_pw(MemberDTO getDTO, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		MemberDTO dto = ms.findPw(getDTO);
+		session.setAttribute("member", dto);
+		if(dto == null) {
+			mav.addObject("message", "일치하는 회원을 찾을 수 없습니다.");
+		}
+		else {
+			mav.setViewName("/member/findPw_result");
+		}
+		return mav;
+	}
+	
+	@PostMapping("/member/change_pw")
+	public ModelAndView change_pw(MemberDTO dto , HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		int row = 0;
+		return mav;
+	}
 }

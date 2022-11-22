@@ -24,5 +24,8 @@ public class MemberService {
 	public MemberDTO findId(MemberDTO dto) {
 		return dao.findId(dto);
 	}
+	public MemberDTO findPw(MemberDTO dto) {
+		return dao.findPw(dto);
+	}
 
 }

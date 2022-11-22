@@ -13,9 +13,33 @@
 }
 .pwResult_content {
 	height: 150px;
-	width: 350px;
+	width: 600px;
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
 	margin: 0 auto;
 	margin-bottom: 15px;
+}
+.pwResult_new_pw, .pwResult_new_checkPw{
+	height: 50%;
+}
+.pwResult_info {
+	width: 200px;
+	font-weight: 700;
+	margin-left: 10px;
+}
+.pwResult_button_box {
+	width: 200px;
+	margin: 0 auto;
+}
+.pwResult_button_box > input {
+	width: 100%;
+	height: 40px;
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.pwResult_pw_msg ,.pwResult_pwCheck_msg {
+	font-size: 12px;
+	margin-left: 15px;
 }

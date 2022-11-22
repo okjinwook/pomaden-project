@@ -17,5 +17,8 @@ public interface MemberDAO {
 	
 	@Select("select * from member where member_name = #{member_name} and member_email = #{member_email}")
 	public MemberDTO findId(MemberDTO dto);
+	
+	@Select("select * from member where member_id = #{member_id} and member_name = #{member_name} and member_email = #{member_email}")
+	public MemberDTO findPw(MemberDTO dto);
 
 }
