@@ -9,53 +9,108 @@
 }
 .myPage_member_info_box {
 	width: 100%;
-	height: 500px;
+	height: auto;
 	border-top: 2px solid black; 
 	border-bottom: 2px solid black;  
-	padding-top: 20px;
 	flex-wrap: wrap;
 }
 .myPage_member_info_box > div {
 	border-bottom: 1px solid #dadada;
+	padding: 20px 0px;	
 }
-.myPage_member_id_box {
-	height: 60px;
-}
-.myPage_member_pw_box {
-	height: 60px;
-}
-.myPage_member_name_box {
-	height: 60px;
-}
-.myPage_member_email_box {
-	height: 60px;
-}
-.myPage_member_phone_box {
-	height: 60px;
+.myPage_member_info_box > div:last-child {
+	border-bottom: none;
 }
 .myPage_member_address_box {
-	height: 176px;
-}
-.myPage_member_address {
-	flex-flow: column;	
+	height: 198px;
 }
 .myPage_member_address > div {
 	height: 35px;
-	border: 1px solid #dadada;
 	margin-bottom: 8px;
 }
 .myPage_sen_box {
 	width: 240px;
+	font-weight: 700; 
+	height: 100%;
+}
+.myPage_member_address {
+	width: 500px;
+	flex-flow: column;	
 }
 .myPage_info_box {
-	width: 350px;
+	height: 30px;
+	width: 200px;
+	border: 1px solid #dadada;
+	padding-left: 10px;
+}
+.myPage_member_id:focus, .myPage_member_name:focus, .myPage_member_phone:focus {
+	outline: none;
+}
+.myPage_member_id, .myPage_member_name, .myPage_member_phone {
+	background-color: #f6f6f6;
+}
+.myPage_change_button_box {
+	margin-top: 20px;
 }
 .myPage_change_button {
 	width: 130px;
+	height: 45px;
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+.myPage_cancel_button {
+	width: 130px;
+	height: 45px;
+	background-color: white;
+	color: #333;
+	border-radius: 5px;
+	border: 1px solid #333;
+	cursor: pointer;
+	margin-right: 10px;
+}
+.myPage_email_button {
+	width: 90px;
 	height: 30px;
 	background-color: #333;
 	color: white;
-	margin-left: 100px;
 	border-radius: 5px;
 	cursor: pointer;
+	margin-left: 10px;
+	font-size: 13px;
+}
+.myPage_email_send_msg {
+	margin-left: 10px;
+	font-size: 14px;
+}
+.myPage_email_code_box {
+	margin-top: 10px;
+}
+.myPage_email_code_input {
+	height: 30px;
+	width: 100px;
+	border: 1px solid #dadada;
+}
+.myPage_email_check {
+	width: 90px;
+	height: 30px;
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 10px;
+	font-size: 13px;
+}
+.myPage_code_time_box {
+	margin-left: 30px;
+	font-size: 14px;
+}
+.myPage_code_msg_box {
+	font-size: 14px;
+}
+.myPage_msg {
+	margin-left: 10px;
+	font-size: 12px;
 }

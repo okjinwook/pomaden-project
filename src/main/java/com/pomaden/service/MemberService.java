@@ -1,5 +1,7 @@
 package com.pomaden.service;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,9 @@ public class MemberService {
 	}
 	public MemberDTO findPw(MemberDTO dto) {
 		return dao.findPw(dto);
+	}
+	public int changePw(HashMap<String, String> map) {
+		return dao.changePw(map);
 	}
 
 }

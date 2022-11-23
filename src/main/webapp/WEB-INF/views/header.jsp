@@ -37,6 +37,7 @@
 <script src="${cpath }/resources/js/member/join.js"></script>
 <script src="${cpath }/resources/js/member/find_pw.js"></script>
 <script src="${cpath }/resources/js/member/findPw_result.js"></script>
+<script src="${cpath }/resources/js/myPage/member_info.js"></script>
 </head>
 <body>
 	<header>
@@ -47,9 +48,12 @@
 						<a href="${cpath }"><img src="${cpath }/resources/img/logo.png" width="200px"></a>
 					</div>
 				</div>
-				<div class="header_right df">
+				<div class="header_right aice">
 					<c:if test="${empty login }">
 						<a href="${cpath }/member/login">로그인</a>
+					</c:if>
+					<c:if test="${not empty login }">
+						<a>${login.member_name }님</a>
 					</c:if>
 					<c:if test="${not empty login }">
 						<a href="${cpath }/member/logout">로그아웃</a>
@@ -58,17 +62,19 @@
 						<a href="${cpath }/member/join">회원가입</a>
 					</c:if>
 					<c:if test="${not empty login }">
-						<a href="${cpath }/cart/cartList">장바구니</a>
+						<a href="${cpath }/cart/cartList">
+							<img src="${cpath }/resources/img/cart.png" width="30px">
+						</a>
 					</c:if>
-					<a href="${cpath }/myPage?category=orderList">마이페이지</a>
-					<a href="${cpath }/cs/center">고객센터</a>
+					<a href="${cpath }/myPage?category=orderList">
+						<img src="${cpath }/resources/img/profile.png" width="30px">
+					</a>
 				</div>
 			</div>
 		</div>
 		<div class="header_menubar_component jcsb">
 			<div class="header_menubar aice jcsb">
 				<div class="menuAll aice">
-					<div class="menuAll_button">전체보기</div>
 					<div class="dropbox_menuAll hidden df">
 						<div class="menuAll_component">
 							<div class="menuAll_menu_best">
@@ -139,8 +145,9 @@
 					</div>
 				</div>
 				<div class="menu_kind aice jcsb">
+					<div class="menuAll_button jcce">전체보기</div>
 					<div class="menu_home">
-						<a href="">홈</a>
+						<a href="${cpath }/">홈</a>
 					</div>
 					<div class="menu_best">
 						<a href="${cpath }/product/productList?category=베스트" class="menu_kind_button aice">베스트</a>
@@ -202,10 +209,13 @@
 							<li>슬리퍼</li>
 						</ul>
 					</div>
-				</div>
-				<div class="menu_question">
-					<a href="${cpath }/question/questionList">1:1문의</a>
-				</div>
+					<div class="menu_question">
+						<a href="${cpath }/question/questionList">1:1문의</a>
+					</div>
+						<div class="menu_center">
+							<a href="${cpath }/cs/center">고객센터</a>
+						</div>
+					</div>
 			</div>
 		</div>
 	</header>

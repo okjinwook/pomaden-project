@@ -8,6 +8,6 @@ function menuAllClick(event) {
 		menuAll_button.innerText = '전체보기'
 	} else {
 		dropbox_menuAll.classList.remove('hidden')
-		menuAll_button.innerText = '전체보기 X'
+		menuAll_button.innerText = '닫기'
 	}
 }

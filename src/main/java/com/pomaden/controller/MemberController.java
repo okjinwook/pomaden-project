@@ -102,20 +102,33 @@ public class MemberController {
 	public ModelAndView find_pw(MemberDTO getDTO, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO dto = ms.findPw(getDTO);
-		session.setAttribute("member", dto);
 		if(dto == null) {
 			mav.addObject("message", "일치하는 회원을 찾을 수 없습니다.");
 		}
 		else {
+			session.setAttribute("id", dto.getMember_id());
 			mav.setViewName("/member/findPw_result");
 		}
 		return mav;
 	}
 	
+	@ResponseBody
 	@PostMapping("/member/change_pw")
-	public ModelAndView change_pw(MemberDTO dto , HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+	public HashMap<String, String> change_pw(String pw , HttpSession session) {
 		int row = 0;
-		return mav;
+		HashMap<String, String> data = new HashMap<String, String>();
+		HashMap<String, String> view = new HashMap<String, String>();
+		data.put("newPw", pw);
+		data.put("member_id", (String) session.getAttribute("id"));
+		row = ms.changePw(data);
+		if(row == 1) {
+			view.put("status", "OK");
+			view.put("message", "정상적으로 비밀번호가 변경되었습니다.");
+		}
+		else {
+			view.put("status", "Fail");
+			view.put("message", "비밀번호 변경 실패하였습니다");
+		}
+		return view;
 	}
 }

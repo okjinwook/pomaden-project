@@ -85,11 +85,14 @@ header {
 }
 .menuAll{
     height: 100%;
-	width: 150px;
 	font-size: 16px;
 	font-weight: normal;
 	cursor: pointer;
     position: relative;
+}
+.menuAll_button {
+	cursor: pointer;
+	width: 72px;
 }
 .menuAll_kinds {
 	font-weight: 700;
@@ -108,13 +111,11 @@ header {
 .menuAll_component > div{
 	height: 250px;
 }
-.menu_question {
-	width: 150px;
-	justify-content: flex-end;
-	display: flex;
-	font-size: 16px;
-	font-weight: normal;
-}
+/* .menu_question , .menu_center{ */
+/* 	width: 150px; */
+/* 	justify-content: flex-end; */
+/* 	display: flex; */
+/* } */
 .menu_kind_button {
 	height: 100%;
 }

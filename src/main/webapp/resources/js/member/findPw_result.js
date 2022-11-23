@@ -38,3 +38,35 @@ function findPwCheckOnKeyUp(ob) {
 		pwResult_pwCheck_msg.style.color = 'red'
 	}
 }
+
+function pwResultSubmit(event) {
+	const pwResult_pw_input = document.querySelector('.pwResult_pw_input').value
+	const pwResult_msg = document.querySelectorAll('.pwResult_msg')
+	const url = cpath + '/member/change_pw?pw=' + pwResult_pw_input
+	const opt = {
+		method: 'POST'
+	}
+	let count = 0
+	pwResult_msg.forEach(msg => {
+		if (msg.style.color == 'red' || msg.innerText == '') {
+			count = 1
+		}
+	})
+	if(count == 1) {
+		alert('잘못된 비밀번호입니다.')
+	}
+	else {
+		const json = fetch(url, opt)
+		.then(resp => resp.json())
+		.then(json => {
+			if(json.status == 'OK') {
+				const url = cpath + '/member/login'
+				alert(json.message)
+				location.replace(url)
+			}
+			else {
+				alert(json.message)
+			}
+		})
+	}
+}

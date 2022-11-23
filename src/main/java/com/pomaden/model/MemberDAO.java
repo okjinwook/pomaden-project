@@ -1,6 +1,9 @@
 package com.pomaden.model;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface MemberDAO {
 	
@@ -20,5 +23,8 @@ public interface MemberDAO {
 	
 	@Select("select * from member where member_id = #{member_id} and member_name = #{member_name} and member_email = #{member_email}")
 	public MemberDTO findPw(MemberDTO dto);
+	
+	@Update("update member set member_pw = #{newPw} where member_id = #{member_id}")
+	public int changePw(HashMap<String, String> map);
 
 }

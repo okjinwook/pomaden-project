@@ -31,7 +31,7 @@
 	width: 200px;
 	margin: 0 auto;
 }
-.pwResult_button_box > input {
+.pwResult_submit_button {
 	width: 100%;
 	height: 40px;
 	background-color: #333;
