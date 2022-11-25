@@ -24,9 +24,12 @@
 .myPage_member_address_box {
 	height: 198px;
 }
-.myPage_member_address > div {
+.myPage_member_address > input {
 	height: 35px;
+	width: 300px;
 	margin-bottom: 8px;
+	border: 1px solid #dadada;
+	padding-left: 10px;
 }
 .myPage_sen_box {
 	width: 240px;
@@ -49,6 +52,11 @@
 .myPage_member_id, .myPage_member_name, .myPage_member_phone {
 	background-color: #f6f6f6;
 }
+.myPage_rule_msg {
+	font-size: 12px;
+	margin-top: 10px;
+	color: darkgrey;
+}
 .myPage_change_button_box {
 	margin-top: 20px;
 }
@@ -60,6 +68,7 @@
 	border-radius: 5px;
 	cursor: pointer;
 	margin-right: 10px;
+	font-size: 14px;
 }
 .myPage_cancel_button {
 	width: 130px;
@@ -70,6 +79,7 @@
 	border: 1px solid #333;
 	cursor: pointer;
 	margin-right: 10px;
+	font-size: 14px;
 }
 .myPage_email_button {
 	width: 90px;
@@ -84,6 +94,7 @@
 .myPage_email_send_msg {
 	margin-left: 10px;
 	font-size: 14px;
+	color: red;
 }
 .myPage_email_code_box {
 	margin-top: 10px;
@@ -92,6 +103,7 @@
 	height: 30px;
 	width: 100px;
 	border: 1px solid #dadada;
+	padding-left: 10px;
 }
 .myPage_email_check {
 	width: 90px;
@@ -109,6 +121,7 @@
 }
 .myPage_code_msg_box {
 	font-size: 14px;
+	margin-left: 18px;
 }
 .myPage_msg {
 	margin-left: 10px;

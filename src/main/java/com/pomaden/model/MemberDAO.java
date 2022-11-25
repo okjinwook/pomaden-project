@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Update;
 public interface MemberDAO {
 	
 	@Select("select * from member where member_id=#{member_id}")
-	public MemberDTO idCheck(String member_id);
+	public MemberDTO selectOne(String member_id);
 
 	@Select("select * from member where member_email=#{member_email}")
 	public MemberDTO emailCheck(String member_email);
@@ -24,7 +24,6 @@ public interface MemberDAO {
 	@Select("select * from member where member_id = #{member_id} and member_name = #{member_name} and member_email = #{member_email}")
 	public MemberDTO findPw(MemberDTO dto);
 	
-	@Update("update member set member_pw = #{newPw} where member_id = #{member_id}")
-	public int changePw(HashMap<String, String> map);
+	public int update(HashMap<String, String> map);
 
 }

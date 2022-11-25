@@ -11,8 +11,8 @@ import com.pomaden.model.MemberDTO;
 @Service
 public class MemberService {
 	@Autowired private MemberDAO dao;
-	public MemberDTO idCheck(String member_id) {
-		return dao.idCheck(member_id);
+	public MemberDTO selectOne(String member_id) {
+		return dao.selectOne(member_id);
 	}
 	public int insert(MemberDTO dto) {
 		return dao.insert(dto);
@@ -29,8 +29,8 @@ public class MemberService {
 	public MemberDTO findPw(MemberDTO dto) {
 		return dao.findPw(dto);
 	}
-	public int changePw(HashMap<String, String> map) {
-		return dao.changePw(map);
+	public int update(HashMap<String, String> map) {
+		return dao.update(map);
 	}
 
 }

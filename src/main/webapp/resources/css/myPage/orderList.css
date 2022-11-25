@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 .myPage_component {
-	height: 1000px;
+	height: auto;
 	width: 1350px;
 	margin: 0 auto;
 	padding-top: 50px;

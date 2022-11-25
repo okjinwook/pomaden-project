@@ -7,9 +7,29 @@ public class MemberDTO {
 	private String member_id;
 	private String member_pw;
 	private String member_name;
-	private String member_address;
+	private String member_code_add;
+	private String member_load_add;
+	private String member_detail_add;
 	private String member_phone;
 	
+	public String getMember_code_add() {
+		return member_code_add;
+	}
+	public void setMember_code_add(String member_code_add) {
+		this.member_code_add = member_code_add;
+	}
+	public String getMember_load_add() {
+		return member_load_add;
+	}
+	public void setMember_load_add(String member_load_add) {
+		this.member_load_add = member_load_add;
+	}
+	public String getMember_detail_add() {
+		return member_detail_add;
+	}
+	public void setMember_detail_add(String member_detail_add) {
+		this.member_detail_add = member_detail_add;
+	}
 	public int getMember_idx() {
 		return member_idx;
 	}
@@ -39,12 +59,6 @@ public class MemberDTO {
 	}
 	public void setMember_name(String member_name) {
 		this.member_name = member_name;
-	}
-	public String getMember_address() {
-		return member_address;
-	}
-	public void setMember_address(String member_address) {
-		this.member_address = member_address;
 	}
 	public String getMember_phone() {
 		return member_phone;

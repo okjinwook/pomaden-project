@@ -60,7 +60,7 @@ public class MemberController {
 	@GetMapping("/member/idCheck")
 	public int idCheck(String member_id) {
 		int row = 0;
-		MemberDTO dto = ms.idCheck(member_id);
+		MemberDTO dto = ms.selectOne(member_id);
 		if(dto != null) {
 			row = 1;
 		}
@@ -118,9 +118,9 @@ public class MemberController {
 		int row = 0;
 		HashMap<String, String> data = new HashMap<String, String>();
 		HashMap<String, String> view = new HashMap<String, String>();
-		data.put("newPw", pw);
+		data.put("member_pw", pw);
 		data.put("member_id", (String) session.getAttribute("id"));
-		row = ms.changePw(data);
+		row = ms.update(data);
 		if(row == 1) {
 			view.put("status", "OK");
 			view.put("message", "정상적으로 비밀번호가 변경되었습니다.");

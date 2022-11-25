@@ -113,15 +113,6 @@ function postcodeOnClick() {
 		}
 	}).open();
 }
-// 주소지 입력시 우편번호, 도로명주소, 상세주소 값 합치는 함수입니다
-function addressOnKeyUp(ob) {
-	const join_result_address = document.querySelector(".join_result_address")
-	const join_address_postcode = document.querySelector(".join_address_postcode")
-	const join_address_load = document.querySelector(".join_address_load")
-
-	join_result_address.value = '(' + join_address_postcode.value + ')' + join_address_load.value + ' ' + ob.value
-	console.log(join_result_address.value)
-}
 
 // 이메일 인증요청 버튼 클릭 함수입니다.
 function joinEmailOnClick(event) {

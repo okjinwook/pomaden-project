@@ -13,8 +13,26 @@
 			#{member_id},
 			#{member_pw},
 			#{member_name},
-			#{member_address},
-			#{member_phone}
+			#{member_load_add},
+			#{member_phone},
+			#{member_code_add},
+			#{member_detail_add}
 			)
 	</insert>
+	<update id="update" parameterType="hashmap">
+		update member set 
+		<if test="member_email != null">
+			member_email = #{member_email},
+			member_code_add = #{member_code_add},
+			member_load_add = #{member_load_add},
+			member_detail_add = #{member_detail_add}
+			<if test="member_pw != null">
+				, member_pw = #{member_pw}
+			</if>
+		</if>
+		<if test="member_email == null">
+			member_pw = #{member_pw} 
+		</if>
+		where member_id = #{member_id}
+	</update>
 </mapper>

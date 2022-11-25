@@ -135,3 +135,32 @@ function myPageCodeCheckOnClick(event) {
 	})
 	
 }
+
+// 회원가입 눌렀을 때 발생하는 함수입니다.
+function myPageSubmitOnClick(event) {
+	const check_msg = document.querySelectorAll('.myPage_msg')
+	const member_pw = document.querySelector('.myPage_member_pw').value
+	const code_msg = document.querySelector('.myPage_code_msg_box')
+	const send_msg = document.querySelector('.myPage_email_send_msg')
+	let count = 0
+	// 유효성 검사에 만족하지 못 하는 객체가 있으면 submit 막습니다
+	if(member_pw != '') {
+		check_msg.forEach(msg => {
+			if (msg.style.color == 'red' || msg.innerText == '') {
+				event.preventDefault()
+				count = 1
+			}
+		})
+	}
+	if(send_msg.innerText != '') {
+		if (code_msg.style.color == 'red' || code_msg.innerText == '') {
+			event.preventDefault()
+			count = 1
+		}
+	}
+	// alert 반복 방지 코드입니다
+	if (count == 1) {
+		alert('잘못된 입력정보입니다.')
+	}
+}
+

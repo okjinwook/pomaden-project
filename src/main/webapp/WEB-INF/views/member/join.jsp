@@ -48,12 +48,11 @@
 				<div class="join_info_box"><span>배송지 주소</span></div>
 				<div class="join_address_input join_input_box jcce">
 					<div class="join_address_number jcce">
-						<input class="join_address_postcode" type="text" id="join_postcode" required="required" readonly="readonly" placeholder="우편번호">
+						<input class="join_address_postcode" type="text" id="join_postcode" name="member_code_add" required="required" readonly="readonly" placeholder="우편번호">
 						<div class="join_address_button jcce aice" onclick="postcodeOnClick()">우편번호</div>
 					</div>
-					<input class="join_address_load" id="join_loadAddress" type="text" required="required" readonly="readonly" placeholder="도로명 주소" >
-					<input class="join_address_detail" id="join_detailAddress" type="text" placeholder="상세 주소" onkeyup="addressOnKeyUp(this)" readonly="readonly">
-					<input class="join_result_address" type="text" name="member_address" hidden="hidden">
+					<input class="join_address_load" id="join_loadAddress" name="member_load_add" type="text" required="required" readonly="readonly" placeholder="도로명 주소" >
+					<input class="join_address_detail" id="join_detailAddress" name="member_detail_add" type="text" placeholder="상세 주소" readonly="readonly">
 				</div>
 			</div>
 			<div class="join_input_phone_box df join_box">
