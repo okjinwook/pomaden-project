@@ -39,6 +39,7 @@
 <script src="${cpath }/resources/js/member/find_pw.js"></script>
 <script src="${cpath }/resources/js/member/findPw_result.js"></script>
 <script src="${cpath }/resources/js/myPage/member_info.js"></script>
+<script src="${cpath }/resources/js/cart/cartList.js"></script>
 </head>
 <body>
 	<header>

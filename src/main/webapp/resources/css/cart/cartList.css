@@ -19,6 +19,11 @@
 	padding-top: 10px;
 	padding-bottom: 10px;  
 }
+.cartList_sub_title{
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: 700;
+}
 .cartList_info {
 	width: 100%;
 	height: 50px;
@@ -33,36 +38,73 @@
 .cartList_info > div:last-child {
 	border: none;	
 }
-.cartList_idx, .cartList_itme_idx{
-    width: 60px;
+.cartList_idx, .cartList_item_idx{
+    width: 80px;
 }
-.cartList_checkBox, .cartList_itme_checkBox {
-	width: 50px;
+.cartList_checkBox, .cartList_item_checkBox {
+	width: 60px;
 }
-.cartList_img, .cartList_itme_img {
-	width: 90px;
+.cartList_img, .cartList_item_img {
+	width: 110px;
 }
-.cartList_option, .cartList_itme_option {
-	width: 300px;
+.cartList_option, .cartList_item_option {
+	width: 400px;
 }
-.cartList_price, .cartList_itme_price {
-    width: 130px;
+.cartList_price, .cartList_item_price {
+    width: 140px;
 }
-.cartList_sale, .cartList_itme_sale {
-	width: 70px;
+.cartList_sale, .cartList_item_sale {
+	width: 120px;
 }
-.cartList_count, .cartList_itme_count {
-	width: 70px;
+.cartList_count, .cartList_item_count {
+	width: 190px;
 }
-.cartList_totalPrice, .cartList_itme_totalPrice {
-	width: 130px;
+.cartList_totalPrice, .cartList_item_totalPrice {
+	width: 140px;
 }
-.cartList_delete, .cartList_itme_delete {
-	width: 100px;
+.cartList_delete, .cartList_item_delete {
+	width: 110px;
 }
 .cartList_item{
-	height: 100px;
+	height: 87px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dadada;
+}
+.cartList_item > div:last-child {
+	border: none;
 }
 .cartList_item > div {
 	height: 100%;
+}
+.cartList_item_option {
+	flex-flow: column;
+}
+.cartList_item_option > .cartList_item_name{
+	font-size: 14px;
+}
+.cartList_item_option > .cartList_item_color{
+	font-size: 12px;
+	margin-top: 5px;
+}
+.cartList_item_option > .cartList_item_size{
+	font-size: 12px;
+}
+.cartList_item_name {
+	font-weight: 700;
+}
+.cartList_buy_count {
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 10px;
+	border: none;
+}
+.cartList_delete_button {
+	width: 60px;
+	height: 40px;
+	background-color: #333;
+	color: white;	
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 12px;
 }
