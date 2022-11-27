@@ -1,0 +1,124 @@
+@charset "utf-8";
+* {
+	box-sizing: border-box;
+}
+.df, .jcce, .jcsb, .jcfs, .jcfe, .aice {
+	display: flex;
+}
+.jcce {
+	justify-content: center; 
+}
+.jcsb {
+	justify-content: space-between;
+}
+.aice {
+	align-items: center;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+	margin: 0;
+}
+input {
+	padding: 0;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.hidden {
+	display: none;
+}
+html {
+	width: 100%;
+	height: 100%;
+}
+body {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+.admin_component {
+	height: 100%;
+	width: 100%;
+}
+.admin_logo {
+	width: 100%;
+	height: 30px;
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+
+/*=============== 관리자 로그인 css ================*/
+.admin_login_title {
+	margin-bottom: 70px;
+	font-size: 25px;
+	font-weight: 700;
+}
+.admin_login_box {
+	width: 1200px;
+	height: 800px;
+	flex-flow: column;
+	margin: 0 auto;
+	border-radius: 5px;
+	background-color: #dadada;
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.admin_id_input, .admin_pw_input {
+	height: 40px;
+	width: 250px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	border-radius: 5px;
+	border: 1px solid #dadada;
+}
+.admin_submit_button {
+	width: 250px;
+	height: 50px;
+	background-color: #333;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.admin_content_box {
+	width: 100%;
+	height: 730px;
+	padding: 10px;
+}
+/* ============================================= */
+
+
+/* 왼쪽 네이게이션 목록 css */
+.admin_nav_box {
+	width: 300px;
+	height: 100%;
+	background-color: #353535;
+	color: white;
+}
+.admin_member_mamager  li {
+	width: 100%;
+	padding: 10px;
+}
+.admin_product_mamager  li {
+	width: 100%;
+	padding: 10px;
+}
+.admin_board_mamager  li {
+	width: 100%;
+	padding: 10px;
+}
+.admin_nav_title {
+	font-weight: 700;
+	margin-left: 10px;
+	height: 40px;
+	border-bottom: 1px solid white; 
+}
+.admin_product_regist_button {
+	background-color: #2A2A2A;
+}

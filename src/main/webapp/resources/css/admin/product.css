@@ -1,0 +1,32 @@
+@charset "utf-8";
+/*  오른쪽 컨텐츠 제목 css */
+.admin_product_content {
+	width: 83%;
+	height: 100%;
+}
+.admin_product_title {
+	height: 60px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 700;
+	border-bottom: 1px solid black;
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+.admin_product_add {
+	padding-left: 30px;
+}
+.admin_product_box {
+	width: 300px;
+	height: 70px;
+	background-color: #dadada;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-radius: 5px;
+}
+.admin_info_box {
+	width: 30%;
+}
+.admin_img_component {
+	margin-left: 50px;
+}
