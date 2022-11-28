@@ -30,6 +30,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/config/sqlmap-member.xml</value>
+				<value>classpath:/config/sqlmap-product.xml</value>
 			</list>
 		</property>
 	</bean>

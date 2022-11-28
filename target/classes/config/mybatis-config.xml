@@ -13,6 +13,7 @@
 	
 	<typeAliases>
 		<typeAlias type="com.pomaden.model.MemberDTO" alias="member"/>		
+		<typeAlias type="com.pomaden.model.ProductDTO" alias="product"/>		
 	</typeAliases>
 	
 </configuration>
