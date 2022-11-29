@@ -2,6 +2,7 @@ package com.pomaden.service;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,10 @@ public class ProductService {
 		dto.setProduct_img(uploadFilePath);
 
 		return dao.insert(dto);
+	}
+
+	public List<ProductDTO> selectAll() {
+		return dao.selectAll();
 	}
 
 }

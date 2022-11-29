@@ -1,5 +1,7 @@
 package com.pomaden.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pomaden.model.AdminDTO;
+import com.pomaden.model.ItemDTO;
 import com.pomaden.model.ProductDTO;
 import com.pomaden.service.AdminService;
 import com.pomaden.service.ItemService;
@@ -23,6 +26,21 @@ public class AdminController {
 	@GetMapping("/admin")
 	public void admin() {}
 	
+	@PostMapping("/admin/login")
+	public ModelAndView login(AdminDTO dto, HttpSession session) {
+		ModelAndView mav = new ModelAndView("redirect:/admin/product_add");
+		System.out.println(dto.getAdmin_id());
+		System.out.println(dto.getAdmin_pw());
+		AdminDTO login = as.selectOne(dto);
+		System.out.println(login);
+		if(login != null) {
+			session.setAttribute("login", login);
+		}
+		else {
+			mav.setViewName("redirect:/admin");
+		}
+		return mav;
+	}
 	@GetMapping("/admin/product_add")
 	public void product_add() {}
 	
@@ -40,19 +58,25 @@ public class AdminController {
 		}
 		return mav;
 	}
-	@PostMapping("/admin/login")
-	public ModelAndView login(AdminDTO dto, HttpSession session) {
-		ModelAndView mav = new ModelAndView("redirect:/admin/product_add");
-		System.out.println(dto.getAdmin_id());
-		System.out.println(dto.getAdmin_pw());
-		AdminDTO login = as.selectOne(dto);
-		System.out.println(login);
-		if(login != null) {
-			session.setAttribute("login", login);
+	@PostMapping("/admin/item_add")
+	public ModelAndView item_insert(ItemDTO dto) {
+		ModelAndView mav = new ModelAndView("/admin/product_add");
+		int row = is.insert(dto);
+		if(row == 1) {
+			mav.addObject("msg", "정상적으로 등록되었습니다.");
+			mav.addObject("product_name", dto.getItem_name());
 		}
 		else {
-			mav.setViewName("redirect:/admin");
+			mav.addObject("msg", "상품등록 실패!!!.");
 		}
+		return mav;
+	}
+	
+	@GetMapping("/admin/product_list")
+	public ModelAndView product_list() {
+		ModelAndView mav = new ModelAndView();
+		List<ProductDTO> list = ps.selectAll();
+		mav.addObject("list", list);
 		return mav;
 	}
 }

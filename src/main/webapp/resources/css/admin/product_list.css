@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+.admin_product_list {
+	width: 90%;
+	height: 500px;
+	margin: 0 auto;
+	background-color: white;
+}
+.admin_product_info {
+	height: 40px;
+	font-weight: 700;
+	border-bottom: 1px solid black;
+	padding-right: 17px;
+}
+.admin_product_delete_button {
+	width: 60px;
+	height: 30px;
+	background-color: #dadada;
+	border: none;
+	border-radius: 5px;
+	font-size: 12px;
+	cursor: pointer;
+}
+.admin_product_item_box {
+    overflow-Y: scroll;
+    height: 460px;
+}
+.admin_product_item {
+	border-bottom: 1px solid #dadada;
+}
+.admin_product_item > div {
+	height: 60px;
+}
+.admin_product_img {
+	width: 100px;
+}
+.admin_product_name {
+	width: 558px;
+}
+.admin_product_price {
+	width: 200px;
+}
+.admin_product_sale {
+	width: 100px;
+}
+.admin_product_category {
+	width: 150px;
+}
+.admin_product_kind {
+	width: 150px;
+}
+.admin_product_like {
+	width: 100px;
+}
+.admin_product_delete {
+	width: 100px;
+}
+

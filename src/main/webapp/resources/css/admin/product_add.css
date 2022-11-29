@@ -1,22 +1,6 @@
 @charset "utf-8";
 /*  오른쪽 컨텐츠 제목 css */
-.admin_product_content {
-	width: 85%;
-	height: 100%;
-}
-.admin_product_title {
-	height: 60px;
-	width: 100%;
-	font-size: 20px;
-	font-weight: 700;
-	padding-left: 20px;
-	margin-bottom: 20px;
-	background-color: white;
-}
-.admin_category_box {
-	margin-left: 30px;
-	margin-bottom: 80px;
-}
+
 .admin_category_button {
 	width: 200px;
 	padding: 15px;
@@ -26,7 +10,8 @@
 	border-radius: 5px;
 }
 .admin_product_add {
-	padding-left: 30px;
+    margin: 0 auto;
+    width: 90%;
 }
 .admin_img_box {
 	width: 400px;

@@ -11,17 +11,19 @@ public class ProductDTO {
 	private String product_category;
 	private String product_kind;
 	private int product_like;
-	public String getProduct_name() {
-		return product_name;
-	}
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
-	}
+	
+	
 	public MultipartFile getProduct_upload() {
 		return product_upload;
 	}
 	public void setProduct_upload(MultipartFile product_upload) {
 		this.product_upload = product_upload;
+	}
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 	public String getProduct_img() {
 		return product_img;

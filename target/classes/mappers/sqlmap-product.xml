@@ -9,7 +9,6 @@
 		values
 		(
 			#{product_name},
-			#{product_upload},
 			#{product_img},
 			#{product_price},
 			#{product_sale},
@@ -17,5 +16,6 @@
 			#{product_kind},
 			0
 		)
+		
 	</insert>
 </mapper>
