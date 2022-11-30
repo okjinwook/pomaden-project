@@ -13,7 +13,7 @@
 	<main>
 		<div class="admin_component">
 			<form action="${cpath }/admin/login" method="POST">
-				<div class="admin_login_box aice jcce">
+				<div class="admin_login_box jcce aice">
 					<div class="admin_login_title aice jcce">포마든 관리자 페이지</div>
 					<input class="admin_id_input" type="text" name="admin_id" placeholder="관리자 ID">
 					<input class="admin_pw_input" type="password" name="admin_pw" placeholder="관리자 PW">

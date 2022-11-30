@@ -2,6 +2,7 @@ package com.pomaden.service;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,14 @@ public class ProductService {
 
 	public List<ProductDTO> selectAll() {
 		return dao.selectAll();
+	}
+
+	public List<ProductDTO> selectList(HashMap<String, String> data) {
+		return dao.selectList(data);
+	}
+
+	public List<ProductDTO> selectKind(String category) {
+		return dao.selectKind(category);
 	}
 
 }

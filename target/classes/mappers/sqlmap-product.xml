@@ -16,6 +16,12 @@
 			#{product_kind},
 			0
 		)
-		
 	</insert>
+	<select id="selectList" resultType="product" parameterType="hashmap">
+		select * from product where 
+		product_category=#{category}
+		<if test="kind != null">
+			and product_kind=#{kind}
+		</if>
+	</select>
 </mapper>

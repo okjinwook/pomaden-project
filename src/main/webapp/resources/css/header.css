@@ -120,7 +120,7 @@ header {
 	height: 100%;
 }
 .header_menubar > .menu_kind div:hover{
-	color: red;
+	color: darkgrey;
 }
 .header_menubar >.menu_kind> div {
 	position: relative;
@@ -145,11 +145,19 @@ header {
 }
 .header_menubar_drop li {
 	margin-bottom: 10px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: normal;
 	color: black;
 	padding: 5px;
+	width: 100%;
+	border-radius: 5px;
+}
+.header_menubar_drop > li  a {
+	width: 100%;
+	padding-left:10px;
+	display: block;
 }
 .header_menubar_drop li:hover {
-	background-color: papayawhip;
+    background-color: #333;
+    color: white;
 }

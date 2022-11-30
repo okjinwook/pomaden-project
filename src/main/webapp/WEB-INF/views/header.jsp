@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="cpath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
@@ -152,63 +153,63 @@
 						<a href="${cpath }/">홈</a>
 					</div>
 					<div class="menu_best">
-						<a href="${cpath }/product/productList?category=베스트" class="menu_kind_button aice">베스트</a>
+						<a href="${cpath }/product/productList?category=베스트&kind=전체" class="menu_kind_button aice">베스트</a>
 						<ul class="header_menubar_drop hidden">
-							<li>아우터 30</li>
-							<li>셔츠 30</li>
-							<li>티셔츠 30</li>
-							<li>팬츠 30</li>
-							<li>슈즈 30</li>
+							<li><a href="${cpath }/product/">아우터 30</a></li>
+							<li><a href="${cpath }/product/">셔츠 30</a></li>
+							<li><a href="${cpath }/product/">티셔츠 30</a></li>
+							<li><a href="${cpath }/product/">팬츠 30</a></li>
+							<li><a href="${cpath }/product/">슈즈 30</a></li>
 						</ul>
 					</div>
 					<div class="menu_outer">
-						<a href="${cpath }/product/productList?category=아우터" class="menu_kind_button aice">아우터</a>
+						<a href="${cpath }/product/productList?category=아우터&kind=전체" class="menu_kind_button aice">아우터</a>
 						<ul class="header_menubar_drop hidden">
-							<li>가디건</li>
-							<li>코치자켓</li>
-							<li>폴리스</li>
-							<li>집업</li>
-							<li>코트</li>
-							<li>패딩</li>
+							<li><a href="${cpath }/product/productList?category=아우터&kind=가디건">가디건</a></li>
+							<li><a href="${cpath }/product/productList?category=아우터&kind=코치자켓">코치자켓</a></li>
+							<li><a href="${cpath }/product/productList?category=아우터&kind=폴리스">폴리스</a></li>
+							<li><a href="${cpath }/product/productList?category=아우터&kind=집업">집업</a></li>
+							<li><a href="${cpath }/product/productList?category=아우터&kind=코트">코트</a></li>
+							<li><a href="${cpath }/product/productList?category=아우터&kind=패딩">패딩</a></li>
 						</ul>
 					</div>
 					<div class="menu_shirts">
-						<a href="${cpath }/product/productList?category=셔츠" class="menu_kind_button aice">셔츠</a>
+						<a href="${cpath }/product/productList?category=셔츠&kind=전체" class="menu_kind_button aice">셔츠</a>
 						<ul class="header_menubar_drop hidden">
-							<li>맨투맨</li>
-							<li>니트/스웨터</li>
-							<li>후드</li>
-							<li>폴라넥</li>
-							<li>남방</li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=맨투맨">맨투맨</a></li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=니트/스웨터">니트/스웨터</a></li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=후드">후드</a></li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=폴라넥">폴라넥</a></li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=남방">남방</a></li>
 						</ul>
 					</div>
 					<div class="menu_T-shirts">
-						<a href="${cpath }/product/productList?category=티셔츠" class="menu_kind_button aice">티셔츠</a>
+						<a href="${cpath }/product/productList?category=티셔츠&kind=전체" class="menu_kind_button aice">티셔츠</a>
 						<ul class="header_menubar_drop hidden">
-							<li>긴팔티</li>
-							<li>반팔티</li>
-							<li>7부셔츠</li>
-							<li>스트라이프</li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=긴발티">긴팔티</a></li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=반팔티">반팔티</a></li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=7부셔츠">7부셔츠</a></li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=스트라이프">스트라이프</a></li>
 						</ul>
 					</div>
 					<div class="menu_pants">
-						<a href="${cpath }/product/productList?category=팬츠" class="menu_kind_button aice">팬츠</a>
+						<a href="${cpath }/product/productList?category=팬츠&kind=전체" class="menu_kind_button aice">팬츠</a>
 						<ul class="header_menubar_drop hidden">
-							<li>청바지</li>
-							<li>슬랙스</li>
-							<li>트래이닝</li>
-							<li>와이드 팬츠</li>
+							<li><a href="${cpath }/product/productList?category=팬츠&kind=청바지">청바지</a></li>
+							<li><a href="${cpath }/product/productList?category=팬츠&kind=슬랙스">슬랙스</a></li>
+							<li><a href="${cpath }/product/productList?category=팬츠&kind=트래이닝">트래이닝</a></li>
+							<li><a href="${cpath }/product/productList?category=팬츠&kind=와이드 팬츠">와이드 팬츠</a></li>
 						</ul>
 					</div>
 					<div class="menu_shoose">
-						<a href="${cpath }/product/productList?category=슈즈" class="menu_kind_button aice">슈즈</a>
+						<a href="${cpath }/product/productList?category=슈즈&kind=전체" class="menu_kind_button aice">슈즈</a>
 						<ul class="header_menubar_drop hidden">
-							<li>스니커즈</li>
-							<li>구두</li>
-							<li>로퍼</li>
-							<li>부츠</li>
-							<li>샌들</li>
-							<li>슬리퍼</li>
+							<li><a href="${cpath }/product/productList?category=슈즈&kind=스니커즈">스니커즈</a></li>
+							<li><a href="${cpath }/product/productList?category=슈즈&kind=구두">구두</a></li>
+							<li><a href="${cpath }/product/productList?category=슈즈&kind=로퍼">로퍼</a></li>
+							<li><a href="${cpath }/product/productList?category=슈즈&kind=부츠">부츠</a></li>
+							<li><a href="${cpath }/product/productList?category=슈즈&kind=샌들">샌들</a></li>
+							<li><a href="${cpath }/product/productList?category=슈즈&kind=슬리퍼">슬리퍼</a></li>
 						</ul>
 					</div>
 					<div class="menu_question">
