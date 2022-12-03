@@ -79,4 +79,8 @@ public class ProductService {
 		return dao.selectKind(category);
 	}
 
+	public ProductDTO getProduct(String product_name) {
+		return dao.selectOne(product_name);
+	}
+
 }

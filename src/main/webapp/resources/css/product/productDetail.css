@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+.productDetail_component {
+	width: 1350px;
+	margin: 0 auto;
+}
+.productDetail_info {
+	width: 100%;
+	padding-bottom: 100px;
+}
+.productDetail_img_box {
+	width: 800px;
+}
+.productDetail_info_box {
+	width: 550px;
+}
+.productDetail_product_name {
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+.productDetail_product_price {
+	font-size: 20px;
+	text-decoration: line-through;
+	color: darkgrey;
+	margin-right: 10px;	
+}
+.productDetail_product_salePrice {
+	font-size: 20px;
+	font-weight: 700;
+}
+.productDetail_product_sale {
+	font-size: 18px;
+}
+.productDetail_product_info_box {
+	width: 100%;
+	border-bottom: 1px solid #dadada;
+	border-top: 1px solid #dadada;
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 40px;
+}
+.productDetail_product_info_title {
+	font-size: 18px;
+}
+.productDetail_info_dropbox {
+	position: absolute;
+	top: 60px;
+	left: 0px;
+	padding-left: 90px;
+}
+.productDetail_info_span{
+	color: grey;
+	width: 200px;
+}
+.productDetail_price_span{
+	color: #333;
+}
+
+.productDetail_item_color_box {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #dadada;
+}
+.productDetail_item_size_box {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #dadada;
+}
+.productDetail_item_color_title {
+	width: 150px;
+}
+.productDetail_item_size_title {
+	width: 150px;
+}
+.productDetail_color_button > div , .productDetail_size_button > div{
+	width: 50px;
+	padding: 5px;
+	font-size: 12px;
+	background-color: #F9F9F9;
+	border: 1px solid #dadada;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.productDetail_button_box {
+	margin-top: 50px;
+}
+.productDetail_buy_button {
+	width: 400px;
+	height: 60px;
+	background-color: #333;
+	color: white;
+	cursor: pointer;
+}
+.productDetail_cart_button {
+	width: 120px;
+	height: 60px;
+	border: 1px solid #dadada;
+	cursor: pointer;
+}
+.productDetail_review_box {
+	width: 100%;
+	margin-top: 80px;
+}
+.productDetail_review_title {
+	padding-bottom: 15px;
+	font-size: 20px;
+	border-bottom: 2px solid black;
+}

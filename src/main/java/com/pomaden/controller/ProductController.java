@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pomaden.model.ProductDTO;
@@ -30,6 +31,14 @@ public class ProductController {
 		mav.addObject("kind", kind);
 		mav.addObject("kindAll", kindAll);
 		mav.addObject("list", list);
+		return mav;
+	}
+	
+	@GetMapping("/product/productDetail/{product_name}")
+	public ModelAndView productDetail(@PathVariable("product_name") String product_name) {
+		ModelAndView mav = new ModelAndView("/product/productDetail");
+		ProductDTO dto = ps.getProduct(product_name);
+		mav.addObject("dto", dto);
 		return mav;
 	}
 }

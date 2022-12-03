@@ -16,4 +16,7 @@ public interface ProductDAO {
 
 	@Select("select DISTINCT product_kind from product where product_category = #{category} order by product_kind asc")
 	List<ProductDTO> selectKind(String category);
+	
+	@Select("select * from product where product_name = #{product_name}")
+	ProductDTO selectOne(String product_name);
 }

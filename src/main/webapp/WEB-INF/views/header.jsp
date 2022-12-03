@@ -27,6 +27,7 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/cs/center.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/question/questionList.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/product/productList.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/product/productDetail.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/cart/cartList.css">
 
 
@@ -36,6 +37,7 @@
 <script src="${cpath }/resources/js/main.js"></script>
 <script src="${cpath }/resources/js/cs/center.js"></script>
 <script src="${cpath }/resources/js/product/productList.js"></script>
+<script src="${cpath }/resources/js/product/productDetail.js"></script>
 <script src="${cpath }/resources/js/member/join.js"></script>
 <script src="${cpath }/resources/js/member/find_pw.js"></script>
 <script src="${cpath }/resources/js/member/findPw_result.js"></script>
@@ -93,12 +95,12 @@
 							<div class="menuAll_menu_outer">
 								<div class="menuAll_kinds">아우터</div>
 								<ul>
-									<li>가디건</li>
-									<li>코치자켓</li>
-									<li>폴리스</li>
-									<li>집업</li>
-									<li>코트</li>
-									<li>패딩</li>
+									<li><a href="${cpath }/product/productList?category=아우터&kind=가디건">가디건</a></li>
+									<li><a href="${cpath }/product/productList?category=아우터&kind=코치자켓">코치자켓</a></li>
+									<li><a href="${cpath }/product/productList?category=아우터&kind=폴리스">폴리스</a></li>
+									<li><a href="${cpath }/product/productList?category=아우터&kind=집업">집업</a></li>
+									<li><a href="${cpath }/product/productList?category=아우터&kind=코트">코트</a></li>
+									<li><a href="${cpath }/product/productList?category=아우터&kind=패딩">패딩</a></li>
 								</ul>
 							</div>
 						</div>
@@ -106,20 +108,20 @@
 							<div class="menuAll_menu_shirts">
 								<div class="menuAll_kinds">셔츠</div>
 								<ul>
-									<li>맨투맨</li>
-									<li>니트/스웨터</li>
-									<li>후드</li>
-									<li>폴라넥</li>
-									<li>남방</li>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=맨투맨">맨투맨</a></li>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=니트/스웨터">니트/스웨터</a></li>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=후드">후드</a></li>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=폴라넥">폴라넥</a></li>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=남방">남방</a></li>
 								</ul>
 							</div>
 							<div class="menuAll_menu_Tshirts">
 								<div class="menuAll_kinds">티셔츠</div>
 								<ul>
-									<li>긴팔티</li>
-									<li>반팔티</li>
-									<li>7부셔츠</li>
-									<li>스트라이프</li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=긴발티">긴팔티</a></li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=반팔티">반팔티</a></li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=7부셔츠">7부셔츠</a></li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=스트라이프">스트라이프</a></li>
 								</ul>
 							</div>
 						</div>
@@ -127,21 +129,21 @@
 							<div class="menuAll_menu_pants">
 								<div class="menuAll_kinds">팬츠</div>
 								<ul>
-									<li>청바지</li>
-									<li>슬랙스</li>
-									<li>트래이닝</li>
-									<li>와이드 팬츠</li>
+									<li><a href="${cpath }/product/productList?category=팬츠&kind=청바지">청바지</a></li>
+									<li><a href="${cpath }/product/productList?category=팬츠&kind=슬랙스">슬랙스</a></li>
+									<li><a href="${cpath }/product/productList?category=팬츠&kind=트래이닝">트래이닝</a></li>
+									<li><a href="${cpath }/product/productList?category=팬츠&kind=와이드 팬츠">와이드 팬츠</a></li>
 								</ul>
 							</div>
 							<div class="menuAll_menu_shoose">
 								<div class="menuAll_kinds">슈즈</div>
 								<ul>
-									<li>스니커즈</li>
-									<li>구두</li>
-									<li>로퍼</li>
-									<li>부츠</li>
-									<li>샌들</li>
-									<li>슬리퍼</li>
+									<li><a href="${cpath }/product/productList?category=슈즈&kind=스니커즈">스니커즈</a></li>
+									<li><a href="${cpath }/product/productList?category=슈즈&kind=구두">구두</a></li>
+									<li><a href="${cpath }/product/productList?category=슈즈&kind=로퍼">로퍼</a></li>
+									<li><a href="${cpath }/product/productList?category=슈즈&kind=부츠">부츠</a></li>
+									<li><a href="${cpath }/product/productList?category=슈즈&kind=샌들">샌들</a></li>
+									<li><a href="${cpath }/product/productList?category=슈즈&kind=슬리퍼">슬리퍼</a></li>
 								</ul>
 							</div>
 						</div>

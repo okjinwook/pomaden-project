@@ -19,7 +19,9 @@
 			<c:forEach var="dto" items="${list }">
 				<div class="productList_item">
 					<div class="productList_item_img">
-						<img src="${dto.product_img }" width="300px">
+						<a href="${cpath }/product/productDetail/${dto.product_name}">
+							<img src="${dto.product_img }" width="300px">
+						</a>
 					</div>
 					<div class="productList_item_name">${dto.product_name }</div>
 					<div class="productList_item_price">

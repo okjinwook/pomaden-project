@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>
 <main>
-	<div class="intro"><img src="${cpath }/resources/img/intro.png"></div>
 	<div class="main_component">
 		<div class="main_news">
 			<div class="main_news_title">EVENT · 공지사항</div>
