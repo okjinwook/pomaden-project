@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pomaden.model.ProductDTO;
+import com.pomaden.service.ItemService;
 import com.pomaden.service.ProductService;
 
 @Controller
 public class ProductController {
 	@Autowired private ProductService ps;
+	@Autowired private ItemService is;
 	
 	@GetMapping("/product/productList")
 	public ModelAndView selectCategory(String category, String kind) {
@@ -37,8 +39,12 @@ public class ProductController {
 	@GetMapping("/product/productDetail/{product_name}")
 	public ModelAndView productDetail(@PathVariable("product_name") String product_name) {
 		ModelAndView mav = new ModelAndView("/product/productDetail");
-		ProductDTO dto = ps.getProduct(product_name);
-		mav.addObject("dto", dto);
+		ProductDTO prodDto = ps.getProduct(product_name);
+		List<String> colorList= is.getItemSize(product_name);
+		List<String> sizeList= is.getItemColor(product_name);
+		mav.addObject("prodDto", prodDto);
+		mav.addObject("colorList", colorList);
+		mav.addObject("sizeList", sizeList);
 		return mav;
 	}
 }

@@ -31,3 +31,19 @@ function infoOnClick(event) {
 		}
 	}
 }
+
+// 리뷰 댓글 드롭박스 띄우기 함수입니다
+function detailReplyOnClick(event) {
+	const reply_dropbox = event.target.nextElementSibling
+	if(reply_dropbox.classList.contains('hidden') == false ) {
+		reply_dropbox.classList.add('hidden')
+	}
+	else {
+		reply_dropbox.classList.remove('hidden')
+	}
+}
+
+// 구입할 상품 선택시 상품 정보를 띄우는 함수입니다.
+function sizeOnclick(size) {
+	
+}

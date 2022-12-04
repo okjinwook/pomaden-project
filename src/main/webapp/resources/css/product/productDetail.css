@@ -41,14 +41,12 @@
 	padding-bottom: 20px;
 	margin-top: 40px;
 }
-.productDetail_product_info_title {
-	font-size: 18px;
-}
 .productDetail_info_dropbox {
 	position: absolute;
 	top: 60px;
 	left: 0px;
 	padding-left: 90px;
+	font-size: 14px;
 }
 .productDetail_info_span{
 	color: grey;
@@ -68,11 +66,32 @@
 	padding-bottom: 20px;
 	border-bottom: 1px solid #dadada;
 }
+.productDetail_buyList_box {
+	margin-top: 30px;
+	background-color: #f9f9f9;
+	padding: 10px;
+}
 .productDetail_item_color_title {
 	width: 150px;
 }
 .productDetail_item_size_title {
 	width: 150px;
+}
+.productDetail_buyList_name {
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+.productDetail_buyList_color {
+	margin-left: 20px;	
+	font-size: 14px;
+}
+.productDetail_buyList_size {
+	margin-left: 10px;
+	font-size: 14px;
+}
+.productDetail_buyList_salePrice {
+	margin-left: 20px;
+	font-size: 14px;
 }
 .productDetail_color_button > div , .productDetail_size_button > div{
 	width: 50px;
@@ -101,10 +120,58 @@
 }
 .productDetail_review_box {
 	width: 100%;
-	margin-top: 80px;
+	border-bottom: 2px solid black;	
+	border-top: 2px solid black;	
 }
 .productDetail_review_title {
-	padding-bottom: 15px;
+	margin-top: 80px;
+	margin-bottom: 15px;
 	font-size: 20px;
-	border-bottom: 2px solid black;
+	font-weight: 700;
+}
+.productDetail_review_item {
+	padding: 20px;
+	border-bottom: 2px solid #dadada;
+}
+.productDetail_review_reply_info {
+	width: 1000px;
+	border-right: 1px solid #dadada;
+}
+.productDetail_review_point {
+	margin-top: 10px;
+	font-size: 20px;
+}
+.productDetail_review_content {
+	margin-top: 20px;
+}
+.productDetail_review_img {
+	margin-top: 20px
+}
+.productDetail_review_reply {
+	margin-top: 10px;
+}
+.productDetail_review_reply_button {
+	cursor: pointer;
+    width: 100px;
+}
+.productDetail_review_reply_dropbox {
+	padding: 15px;
+}
+.productDetail_review_reply_item {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.productDetail_reply_writer {
+	width: 150px;
+	margin-bottom: 10px;
+}
+.productDetail_reply_content  {
+	background-color: #dadada;
+    padding: 20px;
+    width: 580px;
+    border-radius: 8px;
+}
+.productDetail_review_buyInfo {
+	width: 310px;
+	flex-flow: column;
 }

@@ -34,7 +34,7 @@ public class AdminController {
 		AdminDTO login = as.selectOne(dto);
 		System.out.println(login);
 		if(login != null) {
-			session.setAttribute("login", login);
+			session.setAttribute("adminLogin", login);
 		}
 		else {
 			mav.setViewName("redirect:/admin");
