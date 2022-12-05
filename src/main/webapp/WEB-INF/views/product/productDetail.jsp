@@ -44,7 +44,7 @@
 					<div class="productDetail_item_color_title">색상</div>
 					<div class="productDetail_color_button df">
 						<c:forEach var="color" items="${colorList }">
-							<div class="productDetail_colors aice jcce">${color}</div>
+							<div class="productDetail_colors aice jcce" onclick="colorOnClick(event)">${color}</div>
 						</c:forEach>
 					</div>
 				</div>
@@ -52,31 +52,16 @@
 					<div class="productDetail_item_size_title">사이즈</div>
 					<div class="productDetail_size_button df">
 						<c:forEach var="size" items="${sizeList }">
-							<div class="productDetail_sizes aice jcce" onclick="sizeOnClick(${size})">${size}</div>
+							<div class="productDetail_sizes aice jcce" onclick="sizeOnClick(event)">${size}</div>
 						</c:forEach>
 					</div>
 				</div>
-<!-- 				해야할 작업 : 상품선택 이벤트 , 선택한 상품 프론트 -->
-<!-- 				해야할 작업 : 상품선택 이벤트 , 선택한 상품 프론트 -->
-<!-- 				해야할 작업 : 상품선택 이벤트 , 선택한 상품 프론트 -->
 				<div class="productDetail_buyList_box">
-					<div class="productDetail_buyList_name">${prodDto.product_name }</div>
-					<div class="jcsb">
-						<div class="df">
-							<div class="productDetail_buyList_color">색상[블랙]</div>
-							<div class="productDetail_buyList_size">사이즈[XL]</div>
-						</div>
-						<div>
-							<div class="productDetail_buyList_salePrice">
-								총가격 : 
-								<fmt:formatNumber pattern="###,###" value="${prodDto.product_price * (100 - prodDto.product_sale) / 100}" />원
-							</div>
-						</div>
-					</div>
+					
 				</div>
 				<div class="productDetail_button_box jcsb">
 					<div class="productDetail_buy_button jcce aice">구매</div>
-					<div class="productDetail_cart_button jcce aice">장바구니 담기</div>
+					<div class="productDetail_cart_button jcce aice" onclick="cartOnclick()">장바구니 담기</div>
 				</div>
 			</div>
 		</div>
@@ -111,16 +96,16 @@
 		</div>
 	</div>
 </main>
-
 <script>
-	const colors = document.querySelectorAll(".productDetail_colors")
-	const sizes = document.querySelectorAll(".productDetail_sizes")
-	
-	colors.forEach(color => {
-		color.addEventListener('click', colorOnClick)
-	})
-	sizes.forEach(size => {
-		size.addEventListener('click', sizeOnClick)
-	})
+	const product_member_id = '${login.member_id}'
+	const product_name = '${prodDto.product_name}'
+	const product_img = '${prodDto.product_img}'
+	const product_price = '${prodDto.product_price}'
+	const product_sale = '${prodDto.product_sale}'
+	const product_category = '${prodDto.product_category}'
+	const product_count = '${prodDto.product_count}'
+	const product_color = '${prodDto.product_color}'
+	const product_size = '${prodDto.product_size}'
+	const product_salePrice = Number(product_price * (100 - product_sale) / 100).toLocaleString() 
 </script>
 <%@ include file="../footer.jsp" %>

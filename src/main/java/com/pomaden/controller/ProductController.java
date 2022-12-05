@@ -40,8 +40,8 @@ public class ProductController {
 	public ModelAndView productDetail(@PathVariable("product_name") String product_name) {
 		ModelAndView mav = new ModelAndView("/product/productDetail");
 		ProductDTO prodDto = ps.getProduct(product_name);
-		List<String> colorList= is.getItemSize(product_name);
-		List<String> sizeList= is.getItemColor(product_name);
+		List<String> sizeList = is.getItemSize(product_name);
+		List<String> colorList = is.getItemColor(product_name);
 		mav.addObject("prodDto", prodDto);
 		mav.addObject("colorList", colorList);
 		mav.addObject("sizeList", sizeList);

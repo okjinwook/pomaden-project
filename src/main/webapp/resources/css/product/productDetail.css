@@ -91,9 +91,10 @@
 }
 .productDetail_buyList_salePrice {
 	margin-left: 20px;
-	font-size: 14px;
+	font-size: 18px;
+    font-weight: 700;
 }
-.productDetail_color_button > div , .productDetail_size_button > div{
+.productDetail_color_button > div{
 	width: 50px;
 	padding: 5px;
 	font-size: 12px;
@@ -102,8 +103,18 @@
 	margin-right: 10px;
 	cursor: pointer;
 }
+.productDetail_size_button > div {
+	width: 50px;
+	padding: 5px;
+	font-size: 12px;
+	background-color: #F9F9F9;
+	border: 1px solid #dadada;
+	margin-right: 10px;
+	cursor: pointer;
+	color: #dadada;
+}
 .productDetail_button_box {
-	margin-top: 50px;
+	margin-top: 25px;
 }
 .productDetail_buy_button {
 	width: 400px;

@@ -1,20 +1,49 @@
 // color 선택 함수입니다
 function colorOnClick(event) {
+	const colors = document.querySelectorAll(".productDetail_colors")
+	const sizes = document.querySelectorAll(".productDetail_sizes")
 	colors.forEach(color => {
 		color.style.backgroundColor = '#F9F9F9'
 		color.style.color = 'black'
 	})
 	event.target.style.backgroundColor = '#333'
 	event.target.style.color = 'white'
-}
-// size 선택 함수입니다
-function sizeOnClick(event) {
 	sizes.forEach(size => {
 		size.style.backgroundColor = '#F9F9F9'
 		size.style.color = 'black'
 	})
-	event.target.style.backgroundColor = '#333'
-	event.target.style.color = 'white'
+}
+// size 선택 함수입니다
+function sizeOnClick(event) {
+	const buyList_box = document.querySelector(".productDetail_buyList_box")
+	const sizes = document.querySelectorAll(".productDetail_sizes")
+	const colors = document.querySelectorAll(".productDetail_colors")
+	const size = event.target
+	let dom = ''
+	// 색상이 선택이 먼저 되어 있으면 사이즈 선택할 수 있습니다
+	colors.forEach(color => {
+		if(color.style.color == 'white'){
+			sizes.forEach(size => {
+				size.style.backgroundColor = '#F9F9F9'
+				size.style.color = 'black'
+			})
+			event.target.style.backgroundColor = '#333'
+			event.target.style.color = 'white'
+			dom += `<div class="productDetail_buyList_name">${product_name}</div>`
+			dom += '<div class="jcsb">'
+			dom += '	<div class="df">'
+			dom += `		<div class="productDetail_buyList_color">색상[${color.innerText}]</div>`
+			dom += `		<div class="productDetail_buyList_size">사이즈[${size.innerText}]</div>`
+			dom += '	</div>'
+			dom += '	<div>'
+			dom += '		<div class="productDetail_buyList_salePrice">'
+			dom += `			총가격 : ${product_salePrice}원`
+			dom += '		</div>'
+			dom += '	</div>'
+			dom += '</div>	'
+			buyList_box.innerHTML = dom
+		}
+	})
 }
 // 상품정보 클릭시 드롭박스 띄우기 함수입니다
 function infoOnClick(event) {
@@ -43,7 +72,37 @@ function detailReplyOnClick(event) {
 	}
 }
 
-// 구입할 상품 선택시 상품 정보를 띄우는 함수입니다.
-function sizeOnclick(size) {
-	
+// 장바구니 담기 버튼 클릭 함수입니다
+function cartOnclick(event) {
+	const buyList_box = document.querySelector(".productDetail_buyList_box")
+	if(buyList_box.innerText == '') {
+		alert('상품을 선택해주세요.')
+	}
+	else {
+		const url = cpath + '/cart/insert'
+		const ob = {
+			'product_member_id': product_member_id,
+			'product_name' : product_name,
+			'product_img' :  product_img,
+			'product_price' : product_price,
+			'product_sale' : product_sale,
+			'product_category' : product_category,
+			'product_count' : product_count,
+			'product_color' : product_color,
+			'product_size' : product_size,
+			'product_salePrice' : product_salePrice
+		}
+		const opt = {
+            method: 'POST',
+            body: JSON.stringify(ob),
+            headers: {
+               'Content-type': 'application/json'
+            },
+         }
+		fetch(url, opt)
+		.then(resp => resp.json())
+		.then(json => {
+			console.log(json)
+		})
+	}
 }

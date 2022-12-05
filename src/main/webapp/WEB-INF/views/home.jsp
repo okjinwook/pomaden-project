@@ -24,88 +24,29 @@
 			</div>
 		</div>
 		<div class="best_product">
-			<div class="best_product_title">베스트 상품</div>
+			<div class="best_product_title">아우터</div>
 			<div class="best_product_item_box df">
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
+				<c:forEach var="dto" items="${list }">
+				<c:if test="${dto.product_category eq '아우터'}">
+					<div class="productList_item">
+						<div class="productList_item_img">
+							<a href="${cpath }/product/productDetail/${dto.product_name}">
+								<img src="${dto.product_img }" width="300px">
+							</a>
+						</div>
+						<div class="productList_item_name">${dto.product_name }</div>
+						<div class="productList_item_price">
+							<fmt:formatNumber pattern="###,###" value="${dto.product_price}" />원
+						</div>
+						<div class="productList_item_sale">( ${dto.product_sale }% 할인 )</div>
+						<div class="productList_item_salePrice">
+							<fmt:formatNumber pattern="###,###" value="${dto.product_price * (100 - dto.product_sale) / 100}" />원
+						</div>
+						<div class="productList_item_review">리뷰 : 0개</div>
+						<div class="productList_item_like">❤ ${dto.product_like }</div>
 					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
+				</c:if>
+			</c:forEach>
 			</div>
 			<a class="more_best_button jcce aice" href="">
 				<span style="font-weight: 700; margin-right: 10px;">베스트</span> 
@@ -113,88 +54,29 @@
 			</a>
 		</div>
 		<div class="best_product">
-			<div class="best_product_title">SALE</div>
+			<div class="best_product_title">셔츠</div>
 			<div class="best_product_item_box df">
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
+			<c:forEach var="dto" items="${list }">
+				<c:if test="${dto.product_category eq '셔츠'}">
+					<div class="productList_item">
+						<div class="productList_item_img">
+							<a href="${cpath }/product/productDetail/${dto.product_name}">
+								<img src="${dto.product_img }" width="300px">
+							</a>
+						</div>
+						<div class="productList_item_name">${dto.product_name }</div>
+						<div class="productList_item_price">
+							<fmt:formatNumber pattern="###,###" value="${dto.product_price}" />원
+						</div>
+						<div class="productList_item_sale">( ${dto.product_sale }% 할인 )</div>
+						<div class="productList_item_salePrice">
+							<fmt:formatNumber pattern="###,###" value="${dto.product_price * (100 - dto.product_sale) / 100}" />원
+						</div>
+						<div class="productList_item_review">리뷰 : 0개</div>
+						<div class="productList_item_like">❤ ${dto.product_like }</div>
 					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
-				<div class="best_product_item">
-					<div class="best_product_item_img">
-						<img src="https://www.smallman.co.kr/web/product/medium/202208/770d79f1fa1212186d103da49e7bf8b8.jpg" width="300px">
-					</div>
-					<div class="best_product_item_name">라운드 넥 티셔츠</div>
-					<div class="best_product_item_price">32000 원</div>
-					<div class="best_product_item_sale">( 20% 할인 )</div>
-					<div class="best_product_item_review">리뷰 : 23개</div>
-					<div class="best_product_item_like">❤ 302</div>
-				</div>
+				</c:if>
+			</c:forEach>
 			</div>
 			<a class="more_best_button jcce aice" href="">
 				<span style="font-weight: 700; margin-right: 10px;">SALE</span> 
