@@ -15,11 +15,13 @@
 		<typeAlias type="com.pomaden.model.MemberDTO" alias="member"/>		
 		<typeAlias type="com.pomaden.model.ProductDTO" alias="product"/>		
 		<typeAlias type="com.pomaden.model.ItemDTO" alias="item"/>		
+		<typeAlias type="com.pomaden.model.CartDTO" alias="cart"/>		
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mappers/sqlmap-member.xml"/>
 		<mapper resource="mappers/sqlmap-item.xml"/>
 		<mapper resource="mappers/sqlmap-product.xml"/>
+		<mapper resource="mappers/sqlmap-cart.xml"/>
 	</mappers>
 </configuration>

@@ -19,7 +19,6 @@ function sizeOnClick(event) {
 	const sizes = document.querySelectorAll(".productDetail_sizes")
 	const colors = document.querySelectorAll(".productDetail_colors")
 	const size = event.target
-	let dom = ''
 	// 색상이 선택이 먼저 되어 있으면 사이즈 선택할 수 있습니다
 	colors.forEach(color => {
 		if(color.style.color == 'white'){
@@ -29,22 +28,68 @@ function sizeOnClick(event) {
 			})
 			event.target.style.backgroundColor = '#333'
 			event.target.style.color = 'white'
-			dom += `<div class="productDetail_buyList_name">${product_name}</div>`
-			dom += '<div class="jcsb">'
-			dom += '	<div class="df">'
-			dom += `		<div class="productDetail_buyList_color">색상[${color.innerText}]</div>`
-			dom += `		<div class="productDetail_buyList_size">사이즈[${size.innerText}]</div>`
-			dom += '	</div>'
-			dom += '	<div>'
-			dom += '		<div class="productDetail_buyList_salePrice">'
-			dom += `			총가격 : ${product_salePrice}원`
-			dom += '		</div>'
-			dom += '	</div>'
-			dom += '</div>	'
-			buyList_box.innerHTML = dom
+			const item_color = color.innerText
+			const item_size = size.innerText
+			const url = cpath + '/item/getCount'
+			const ob = {
+				'item_name' : product_name,
+				'item_color' : item_color, 
+				'item_size' : item_size,
+			}
+			const opt = {
+	            method: 'POST',
+	            body: JSON.stringify(ob),
+	            headers: {
+               		'Content-type': 'application/json'
+	        	},
+         	}
+			// 선택한 상품 수량 가져오는 ajax입니다
+			fetch(url, opt)
+			.then(resp => resp.json())
+			.then(json => {
+				let dom = ''
+				dom += `<div class="productDetail_buyList_name">${product_name}</div>`
+				dom += '<div class="jcsb">'
+				dom += '	<div class="aice">'
+				dom += `		<div class="productDetail_buyList_color" id="${color.innerText}">색상[${color.innerText}]</div>`
+				dom += `		<div class="productDetail_buyList_size" id="${size.innerText}">사이즈[${size.innerText}]</div>`
+				dom += `		<div class="productDetail_buyList_count" id="${json.count}">남은수량[${json.count}개]</div>`
+				dom += `		<div class="productDetail_buyList_orderCount df">`
+				dom += `			<input class="productDetail_buy_count" type="number" value="1" min="1">`
+				dom += `			<div class="productDetail_upDownBox">`
+				dom += `				<img class="productDetail_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="detailUpOnClick()">`
+				dom += `				<img class="productDetail_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="detailDownOnClick()">`
+				dom += `			</div>`
+				dom += '		</div>'
+				dom += '	</div>'
+				dom += '	<div>'
+				dom += '		<div class="productDetail_buyList_salePrice">'
+				dom += `			총가격 : ${product_salePrice}원`
+				dom += '		</div>'
+				dom += '	</div>'
+				dom += '</div>	'
+				buyList_box.innerHTML = dom
+			})
 		}
 	})
 }
+// 수량 조절하는 함수입니다
+function detailUpOnClick() {
+	const count_input = document.querySelector(".productDetail_buy_count")
+	let value = document.querySelector(".productDetail_buy_count").value
+	count_input.value = ++value
+}
+function detailDownOnClick() {
+	const count_input = document.querySelector(".productDetail_buy_count")
+	let value = document.querySelector(".productDetail_buy_count").value
+	if(value == 1) {
+		return
+	}
+	else {
+		count_input.value = --value
+	}
+}
+
 // 상품정보 클릭시 드롭박스 띄우기 함수입니다
 function infoOnClick(event) {
 	const info_dropbox = document.querySelector(".productDetail_info_dropbox")
@@ -75,6 +120,9 @@ function detailReplyOnClick(event) {
 // 장바구니 담기 버튼 클릭 함수입니다
 function cartOnclick(event) {
 	const buyList_box = document.querySelector(".productDetail_buyList_box")
+	const product_count = document.querySelector(".productDetail_buy_count").value
+	const product_color = document.querySelector(".productDetail_buyList_color").id
+	const product_size = document.querySelector(".productDetail_buyList_size").id
 	if(buyList_box.innerText == '') {
 		alert('상품을 선택해주세요.')
 	}
@@ -89,8 +137,7 @@ function cartOnclick(event) {
 			'product_category' : product_category,
 			'product_count' : product_count,
 			'product_color' : product_color,
-			'product_size' : product_size,
-			'product_salePrice' : product_salePrice
+			'product_size' : product_size
 		}
 		const opt = {
             method: 'POST',
@@ -102,7 +149,7 @@ function cartOnclick(event) {
 		fetch(url, opt)
 		.then(resp => resp.json())
 		.then(json => {
-			console.log(json)
+			alert(json.msg)
 		})
 	}
 }

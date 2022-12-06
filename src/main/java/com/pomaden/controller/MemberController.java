@@ -27,6 +27,7 @@ public class MemberController {
 		MemberDTO login = ms.login(dto);
 		if(login != null) {
 			session.setAttribute("login", login);
+			mav.setViewName("redirect:/");
 		}
 		else {
 			mav.setViewName("/member/login");

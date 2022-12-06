@@ -65,9 +65,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="productDetail_review_title">REVIEW (평균 - 5점)</div>
+		<div class="productDetail_review_title">REVIEW</div>
 		<div class="productDetail_review_box">
-			<c:forEach var="i" begin="1" end="5">
+			<div class="productDetail_review_short_box df">
+				<div class="productDetail_review_short_new">최신순</div>
+				<div class="productDetail_review_short_high">평점순</div>
+			</div>
+			<c:forEach var="i" begin="1" end="1">
 				<div class="productDetail_review_item df">
 					<div class="productDetail_review_reply_info">
 						<div class="productDetail_review_writer">작성자 : coke님</div>
@@ -103,9 +107,6 @@
 	const product_price = '${prodDto.product_price}'
 	const product_sale = '${prodDto.product_sale}'
 	const product_category = '${prodDto.product_category}'
-	const product_count = '${prodDto.product_count}'
-	const product_color = '${prodDto.product_color}'
-	const product_size = '${prodDto.product_size}'
 	const product_salePrice = Number(product_price * (100 - product_sale) / 100).toLocaleString() 
 </script>
 <%@ include file="../footer.jsp" %>

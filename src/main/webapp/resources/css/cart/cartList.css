@@ -94,10 +94,23 @@
 	font-weight: 700;
 }
 .cartList_buy_count {
-	margin-left: 20px;
-	margin-right: 20px;
-	width: 10px;
+	width: 60px;
+	height: 40px;
+	padding-left: 15px;
 	border: none;
+	background-color: #f9f9f9;
+}
+.cartList_buy_count:focus {
+	outline: none;
+}
+.cartList_upDownBox {
+    flex-flow: column;
+    display: flex;
+}
+.cartList_up_button, .cartList_down_button {
+    width: 25px;
+    height: 19px;
+    cursor: pointer;
 }
 .cartList_delete_button {
 	width: 60px;

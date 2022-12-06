@@ -1,5 +1,6 @@
 package com.pomaden.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class ItemService {
 	}
 	public List<String> getItemColor(String product_name) {
 		return dao.selectColor(product_name);
+	}
+	public String getCount(HashMap<String, Object> ob) {
+		return dao.getCount(ob);
 	}
 
 }
