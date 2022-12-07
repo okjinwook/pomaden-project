@@ -78,10 +78,6 @@
 .productDetail_item_size_title {
 	width: 150px;
 }
-.productDetail_buyList_name {
-	margin-bottom: 10px;
-	font-size: 14px;
-}
 .productDetail_buyList_color {
 	margin-left: 20px;	
 	font-size: 14px;
@@ -97,8 +93,12 @@
 .productDetail_buyList_orderCount {
 	margin-left: 20px;
 }
+.productDetail_buyList_total_info {
+	padding-left: 20px;
+	font-weight: 700;
+}
 .productDetail_buy_count {
-	width: 60px;
+	width: 50px;
 	height: 40px;
 	padding-left: 15px;
 	border: none;

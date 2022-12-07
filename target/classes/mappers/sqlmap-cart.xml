@@ -9,15 +9,15 @@
 		values
 			(
 			cart_seq.nextval,
-			#{product_member_id},
-			#{product_name},
-			#{product_img},
-			#{product_price},
-			#{product_sale},
-			#{product_category},
-			#{product_count},
-			#{product_color},
-			#{product_size}
+			#{cart_member_id},
+			#{cart_name},
+			#{cart_img},
+			#{cart_price},
+			#{cart_sale},
+			#{cart_count},
+			#{cart_color},
+			#{cart_size},
+			#{cart_total}
 			)
 	</insert>
 </mapper>

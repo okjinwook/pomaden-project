@@ -18,11 +18,17 @@ public class CartService {
 	public List<CartDTO> selectAll(String member_id) {
 		return dao.selectAll(member_id);
 	}
-	public int updateCount(HashMap<String, Object> map) {
-		return dao.updateCount(map);
+	public int update(HashMap<String, Object> map) {
+		return dao.update(map);
 	}
 	public int cartDelete(int idx) {
 		return dao.cartDelete(idx);
+	}
+	public CartDTO selectOne(HashMap<String, Object> ob) {
+		return dao.selectOne(ob);
+	}
+	public int selectCount(String member_id) {
+		return dao.selectCount(member_id);
 	}
 
 }

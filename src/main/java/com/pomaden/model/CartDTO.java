@@ -7,10 +7,16 @@ public class CartDTO {
 	private String cart_img;
 	private int cart_price;
 	private int cart_sale;
-	private String cart_category;
 	private int cart_count;
 	private String cart_color;
 	private String cart_size;
+	private int cart_total;
+	public int getCart_total() {
+		return cart_total;
+	}
+	public void setCart_total(int cart_total) {
+		this.cart_total = cart_total;
+	}
 	public int getCart_idx() {
 		return cart_idx;
 	}
@@ -46,12 +52,6 @@ public class CartDTO {
 	}
 	public void setCart_sale(int cart_sale) {
 		this.cart_sale = cart_sale;
-	}
-	public String getCart_category() {
-		return cart_category;
-	}
-	public void setCart_category(String cart_category) {
-		this.cart_category = cart_category;
 	}
 	public int getCart_count() {
 		return cart_count;

@@ -23,7 +23,7 @@ public class MemberController {
 	
 	@PostMapping("/member/login") 
 	public ModelAndView login(MemberDTO dto, HttpSession session) {
-		ModelAndView mav = new ModelAndView("/home");
+		ModelAndView mav = new ModelAndView();
 		MemberDTO login = ms.login(dto);
 		if(login != null) {
 			session.setAttribute("login", login);
@@ -83,8 +83,10 @@ public class MemberController {
 	
 	@GetMapping("/member/find_id")
 	public void getFind_id() {}
+	
 	@GetMapping("/member/find_pw")
 	public void getFind_pw() {}
+	
 	@PostMapping("/member/find_id")
 	public ModelAndView find_id(MemberDTO getDTO) {
 		ModelAndView mav = new ModelAndView();

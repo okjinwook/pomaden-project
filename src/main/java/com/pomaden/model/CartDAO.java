@@ -10,15 +10,20 @@ import org.apache.ibatis.annotations.Update;
 
 public interface CartDAO {
 	int insert(HashMap<String, Object> ob);
-	
-	@Select("select * from cart where cart_member_id = #{member_id}")
+	@Select("select * from cart where cart_member_id = #{member_id} order by cart_name asc")
 	List<CartDTO> selectAll(String member_id);
 	
-	@Update("update cart set cart_count = #{cart_count} where cart_idx = #{cart_idx} ")
-	int updateCount(HashMap<String, Object> map);
+	@Update("update cart set cart_count = #{cart_count}, cart_total = #{cart_total} where cart_idx = #{cart_idx} ")
+	int update(HashMap<String, Object> map);
 
 	@Delete("delete cart where cart_idx = #{idx}")
 	int cartDelete(int idx);
+	
+	@Select("select * from cart where cart_name = #{cart_name} and cart_color = #{cart_color} and cart_size = #{cart_size}")
+	CartDTO selectOne(HashMap<String, Object> ob);
+
+	@Select("select count(*) from cart where cart_member_id = #{member_id}")
+	int selectCount(String member_id);
 
 
 }
