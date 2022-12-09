@@ -46,8 +46,36 @@
 			</c:forEach>
 		</div>
 		<div class="question_write_button_box">
-			<div class="question_write_button jcce aice">작성하기</div>
+			<div class="question_write_button jcce aice" onclick="questionOnWrite()">작성하기</div>
 		</div>
 	</div>
 </main>
+<div class="question_modal_box modal hidden">
+	<div class="question_modal_title jcce aice">1:1 문의</div>
+	<div class="question_modal_component">
+		<div class="question_modal_board_title">
+			<div>제목</div>
+			<input type="text">
+		</div>
+		<div class="question_modal_category">
+			<div>카테고리</div>
+			<select>
+				<option>배송문의</option>
+				<option>입금문의</option>
+				<option>재입고문의</option>
+				<option>환불문의</option>
+				<option>교환문의</option>
+				<option>기타문의</option>
+			</select>
+		</div>
+		<div class="question_modal_content">
+			<textarea rows="" cols="" placeholder="내용을 작성해주세요."></textarea>
+		</div>
+		<div class="question_modal_button_box jcsb">
+			<input class="question_modal_write_button" type="submit" value="작성">
+			<div class="question_modal_cancle_button jcce aice">취소</div>
+		</div>
+	</div>
+</div>
+
 <%@ include file="../footer.jsp" %>

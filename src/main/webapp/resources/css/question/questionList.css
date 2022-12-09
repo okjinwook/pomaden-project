@@ -84,3 +84,50 @@
 }
 
 
+
+
+
+/* 작성 모달 css */
+.question_modal_title {
+	width: 100%;
+	height: 40px;
+	border-bottom: 2px solid black;
+	font-weight: 700;
+}
+.question_modal_component {
+	padding: 10px;
+}
+.question_modal_board_title {
+	height: 50px;
+}
+.question_modal_category {
+	height: 50px;
+}
+.question_modal_content > textarea{
+	height: 500px;
+	width: 780px;
+	resize: none;
+}
+.question_modal_button_box {
+	position: absolute;
+    right: 10px;
+    left: 10px;
+    bottom: 10px;
+}
+.question_modal_write_button {
+	width: 48%;
+	height: 40px;
+	background-color: #333;
+	color: white;
+	font-size: 14px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.question_modal_cancle_button {
+	width: 48%;
+	height: 40px;
+	font-size: 14px;
+	border: 1px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+}

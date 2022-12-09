@@ -34,7 +34,9 @@
 								<img src="${dto.product_img }" width="300px">
 							</a>
 						</div>
-						<div class="productList_item_name">${dto.product_name }</div>
+						<div class="productList_item_name">
+							<a href="${cpath }/product/productDetail/${dto.product_name}">${dto.product_name }</a>
+						</div>
 						<div class="productList_item_price">
 							<fmt:formatNumber pattern="###,###" value="${dto.product_price}" />원
 						</div>
