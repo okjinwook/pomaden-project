@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.pomaden.model.QuestionDAO">
+	<select id="selectAll" resultType="question" parameterType="hashmap">
+		select * from question
+		<if test="category != null or check != null or kind != null"> 
+			where 
+		</if>
+		<if test="check != null and category != null">
+			question_check = #{check} and question_category = #{category}
+		</if>
+		<if test="check != null and category == null">
+			question_check = #{check}
+		</if>
+		<if test="category != null and check == null">
+			question_category = #{category}
+		</if>
+		<if test="kind != null">
+			#{kind} = a
+		</if>
+		order by question_date asc
+	</select>
+	<insert id="insert" parameterType="question">
+		insert into question 
+		values
+			(
+			question_seq.nextval,
+			#{question_member_id},
+			#{question_content},
+			sysdate,
+			'미답변',
+			#{question_category}
+			)
+	</insert>
+</mapper>
