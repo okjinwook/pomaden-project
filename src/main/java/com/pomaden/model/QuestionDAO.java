@@ -9,4 +9,5 @@ public interface QuestionDAO {
 
 	List<QuestionDTO> selectAll(HashMap<String, String> map);
 
+
 }

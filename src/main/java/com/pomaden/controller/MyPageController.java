@@ -19,11 +19,39 @@ import com.pomaden.service.MyPageService;
 public class MyPageController {
 	@Autowired private MemberService ms;
 	
-	@GetMapping("/myPage")
-	public ModelAndView orderList(String category, HttpSession session) {
+	@GetMapping("/myPage/oderList")
+	public ModelAndView orderList(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("category", category);
-		mav.setViewName("/myPage/" + category);
+		mav.addObject("login", session.getAttribute("login"));
+		return mav;
+	}
+	@GetMapping("/myPage/point")
+	public ModelAndView point(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("login", session.getAttribute("login"));
+		return mav;
+	}
+	@GetMapping("/myPage/coupon")
+	public ModelAndView coupon(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("login", session.getAttribute("login"));
+		return mav;
+	}
+	@GetMapping("/myPage/like")
+	public ModelAndView like(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("login", session.getAttribute("login"));
+		return mav;
+	}
+	@GetMapping("/myPage/member_info")
+	public ModelAndView member_info(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("login", session.getAttribute("login"));
+		return mav;
+	}
+	@GetMapping("/myPage/myQuestion")
+	public ModelAndView myQuestion(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
 		mav.addObject("login", session.getAttribute("login"));
 		return mav;
 	}

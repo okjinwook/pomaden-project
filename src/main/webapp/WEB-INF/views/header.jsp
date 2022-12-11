@@ -73,7 +73,7 @@
 							<img src="${cpath }/resources/img/cart.png" width="30px">
 						</a>
 					</c:if>
-					<a href="${cpath }/myPage?category=orderList">
+					<a href="${cpath }/myPage/orderList">
 						<img src="${cpath }/resources/img/profile.png" width="30px">
 					</a>
 				</div>
@@ -217,7 +217,7 @@
 						</ul>
 					</div>
 					<div class="menu_question">
-						<a href="${cpath }/question/questionList">1:1문의</a>
+						<a href="${cpath }/question/questionList?page=0">1:1문의</a>
 					</div>
 						<div class="menu_center">
 							<a href="${cpath }/cs/center">고객센터</a>

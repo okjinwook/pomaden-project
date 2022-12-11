@@ -6,22 +6,33 @@
 <mapper namespace="com.pomaden.model.QuestionDAO">
 	<select id="selectAll" resultType="question" parameterType="hashmap">
 		select * from question
-		<if test="category != null or check != null or kind != null"> 
-			where 
+		<if test="category != null or check != null or kind != null ">
+			where
 		</if>
-		<if test="check != null and category != null">
-			question_check = #{check} and question_category = #{category}
-		</if>
-		<if test="check != null and category == null">
-			question_check = #{check}
-		</if>
-		<if test="category != null and check == null">
+		<if test="category != null">
 			question_category = #{category}
 		</if>
-		<if test="kind != null">
-			#{kind} = a
+		<if test="category != null and check != null">
+			and question_check = #{check}
+		</if>
+		<if test="category == null and check != null">
+			question_check = #{check}
+		</if>
+		<if test="category != null or check != null">
+			<if test="kind != null and search != null">
+				and 
+				${kind} like '%${search}%'
+			</if>
+		</if>
+		<if test="category == null and check == null">
+			<if test="kind != null and search != null">
+				 ${kind} like '%${search}%'
+			 </if>
 		</if>
 		order by question_date asc
+		<if test="page != null">
+    		offset ${page} rows fetch first 10 rows only
+		</if>
 	</select>
 	<insert id="insert" parameterType="question">
 		insert into question 
@@ -32,7 +43,8 @@
 			#{question_content},
 			sysdate,
 			'미답변',
-			#{question_category}
+			#{question_category},
+			#{question_title}
 			)
 	</insert>
 </mapper>
