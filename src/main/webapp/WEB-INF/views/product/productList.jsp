@@ -34,7 +34,7 @@
 						<fmt:formatNumber pattern="###,###" value="${dto.product_price * (100 - dto.product_sale) / 100}" />원
 					</div>
 					<div class="productList_item_review">리뷰 : 0개</div>
-					<div class="productList_item_like">❤ ${dto.product_like }</div>
+					<div class="productList_item_like">좋아요 : ${dto.product_like }</div>
 				</div>
 			</c:forEach>
 		</div>
@@ -42,7 +42,7 @@
 </main>
 <script>
 	const productList_categorys = document.querySelectorAll('.productList_category > a')
-	
+	const member_id = '${login.member_id}'
 	productList_categorys.forEach(box => {
 		if(box.innerText == '${kind}') {
 			box.style.fontWeight = '700'

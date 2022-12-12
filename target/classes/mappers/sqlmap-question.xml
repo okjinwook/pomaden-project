@@ -6,7 +6,7 @@
 <mapper namespace="com.pomaden.model.QuestionDAO">
 	<select id="selectAll" resultType="question" parameterType="hashmap">
 		select * from question
-		<if test="category != null or check != null or kind != null ">
+		<if test="category != null or check != null or kind != null or member != null">
 			where
 		</if>
 		<if test="category != null">
@@ -27,6 +27,11 @@
 		<if test="category == null and check == null">
 			<if test="kind != null and search != null">
 				 ${kind} like '%${search}%'
+			 </if>
+		</if>
+		<if test="category == null and check == null and kind == null and search == null">
+			<if test="member != null">
+				 question_member_id = #{member}
 			 </if>
 		</if>
 		order by question_date asc

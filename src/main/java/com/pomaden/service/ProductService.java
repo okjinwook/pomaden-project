@@ -83,4 +83,10 @@ public class ProductService {
 		return dao.selectOne(product_name);
 	}
 
+	public int likeUpdate(HashMap<String, Object> map) {
+		return dao.update(map);
+	}
+
+
+
 }

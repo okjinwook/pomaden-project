@@ -168,7 +168,7 @@ function cartOnclick(event) {
 		
 		const url = cpath + '/cart/insert'
 		const ob = {
-			'cart_member_id': product_member_id,
+			'cart_member_id': member_id,
 			'cart_name' : product_name,
 			'cart_img' :  product_img,
 			'cart_price' : cart_price,
@@ -200,4 +200,51 @@ function cartOnclick(event) {
 			}
 		})
 	}
+}
+// 좋아요 누르면 발생하는 함수입니다.
+function likeOnClick(event) {
+	let result_like 
+	let src
+	if(img.classList.contains('productDetail_colorHearts')) {
+		result_like = (product_like * 1) - 1
+		product_like = (product_like * 1) - 1
+		src = cpath + '/resources/img/blackHearts.png'
+		img.classList.remove('productDetail_colorHearts')
+		img.classList.add('productDetail_blackHearts')
+		document.querySelector('.productDetail_like_button').style.backgroundColor = 'white'
+	}
+	else {
+		result_like = (product_like * 1) + 1
+		product_like = (product_like * 1) + 1
+		src = cpath + '/resources/img/colorHearts.png'
+		img.classList.remove('productDetail_blackHearts')
+		img.classList.add('productDetail_colorHearts')
+		document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'
+	}
+	console.log(result_like)
+	const url = cpath + '/product/likeUpdate'
+	const ob = {
+		'member_id' : member_id,
+		'product_name' : product_name,
+		'product_img' : product_img,
+		'product_price' : product_price,
+		'product_sale' : product_sale,
+		'product_category' : product_category,
+		'product_kind' : product_kind,
+		'product_like' : result_like,
+	}
+	const opt = {
+		method : 'POST',
+		body : JSON.stringify(ob),
+		headers : {
+			'Content-type' : 'application/json'
+		}
+	}
+	fetch(url, opt)
+	.then(resp => resp.text())
+	.then(text => {
+		if(text == 1) {
+			document.querySelector('.productDetail_like_button > img').src = src
+		}
+	})
 }

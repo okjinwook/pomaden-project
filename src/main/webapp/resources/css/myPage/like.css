@@ -9,14 +9,19 @@
 }
 .myPage_like_box {
 	width: 100%;
-	height: 500px;
+	height: auto;
 	border-top: 2px solid black; 
 	border-bottom: 2px solid black;  
 	padding-top: 20px;
+	padding-bottom: 20px;
 	flex-wrap: wrap;
 }
+.myPage_list_empty {
+	margin: 0 auto;
+}
 .myPage_like_item {
-	margin-right: 20px;
+    width: 450px;
+    height: 200px;
 }
 .myPage_like_img {
 	margin-right: 10px;
@@ -27,19 +32,24 @@
 .myPage_like_info > div{
 	justify-content: flex-start;
 }
-
 .myPage_like_name {
 	font-weight: 700;
-}
-.myPage_like_category {
-	font-size: 14px;
-	margin-top: 10px;
 }
 .myPage_like_price {
 	font-size: 14px;
 	margin-top: 15px;
+	text-decoration: line-through;
+	color: grey;
+}
+.myPage_like_sale {
+	color: grey;
+	font-size: 14px;
+	margin-top: 10px;
+}
+.myPage_like_salePrice {
+	margin-top: 10px;
 }
 .myPage_like_likeCount {
 	font-size: 14px;
-	margin-top: 20px;
+	margin-top: 25px;
 }

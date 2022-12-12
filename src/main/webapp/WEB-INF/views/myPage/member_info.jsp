@@ -11,7 +11,7 @@
 			<a href="${cpath }/myPage/board" class="myPage_board myPage_kind jcce aice">게시글</a>
 			<a href="${cpath }/myPage/like" class="myPage_like myPage_kind jcce aice">좋아요 상품</a>
 			<a href="${cpath }/myPage/member_info" class="myPage_member_info myPage_kind jcce aice">회원정보 관리</a>
-			<a href="${cpath }/myPage/myQuestion" class="myPage_question myPage_kind jcce aice">문의내역</a>
+			<a href="${cpath }/myPage/myQuestion?page=0" class="myPage_myQuestion myPage_kind jcce aice">문의내역</a>
 		</div>
 		<form action="${cpath }/myPage/updateMember" method="POST">
 			<div class="myPage_member_info_title">내 회원정보</div>
@@ -77,7 +77,7 @@
 	</div>
 </main>
 <script>
-	const myPage_category = '${category}'
+	const myPage_category = document.location.href.split('myPage/')[1].split('?')[0]
 	const class_category = document.querySelector('.myPage_' + myPage_category)
 	class_category.style.color = 'black'
 	class_category.style.fontWeight = '700'

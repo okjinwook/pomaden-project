@@ -1,6 +1,7 @@
 package com.pomaden.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,15 +12,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pomaden.model.LikeProductDTO;
 import com.pomaden.model.MemberDTO;
+import com.pomaden.model.QuestionDTO;
+import com.pomaden.service.LikeProductService;
 import com.pomaden.service.MemberService;
 import com.pomaden.service.MyPageService;
+import com.pomaden.service.QuestionService;
 
 @Controller
 public class MyPageController {
 	@Autowired private MemberService ms;
+	@Autowired private QuestionService qs;
+	@Autowired private LikeProductService ls;
 	
-	@GetMapping("/myPage/oderList")
+	@GetMapping("/myPage/orderList")
 	public ModelAndView orderList(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("login", session.getAttribute("login"));
@@ -37,12 +44,25 @@ public class MyPageController {
 		mav.addObject("login", session.getAttribute("login"));
 		return mav;
 	}
-	@GetMapping("/myPage/like")
-	public ModelAndView like(HttpSession session) {
+	@GetMapping("/myPage/board")
+	public ModelAndView board(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("login", session.getAttribute("login"));
 		return mav;
 	}
+	
+	
+	@GetMapping("/myPage/like")
+	public ModelAndView like(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		MemberDTO dto = (MemberDTO)session.getAttribute("login");
+		mav.addObject("login", session.getAttribute("login"));
+		List<LikeProductDTO> list = ls.selectAll(dto.getMember_id());
+		mav.addObject("list", list);
+		return mav;
+	}
+	
+	
 	@GetMapping("/myPage/member_info")
 	public ModelAndView member_info(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -50,9 +70,16 @@ public class MyPageController {
 		return mav;
 	}
 	@GetMapping("/myPage/myQuestion")
-	public ModelAndView myQuestion(HttpSession session) {
+	public ModelAndView myQuestion(HttpSession session, String page) {
+		HashMap<String , String> map = new HashMap<String, String>();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("login", session.getAttribute("login"));
+		MemberDTO member = (MemberDTO)session.getAttribute("login");
+		map.put("offset", page);
+		map.put("member", member.getMember_id());
+		int count = qs.getCount(map); 
+		List<QuestionDTO> list = qs.selectAll(map);
+		mav.addObject("list", list);
+		mav.addObject("count", count);
 		return mav;
 	}
 	
@@ -81,5 +108,6 @@ public class MyPageController {
 		}
 		return mav;
 	}
+	
 	
 }

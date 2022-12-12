@@ -143,14 +143,20 @@
 	margin-top: 25px;
 }
 .productDetail_buy_button {
-	width: 400px;
+	width: 380px;
 	height: 60px;
 	background-color: #333;
 	color: white;
 	cursor: pointer;
 }
 .productDetail_cart_button {
-	width: 120px;
+	width: 80px;
+	height: 60px;
+	border: 1px solid #dadada;
+	cursor: pointer;
+}
+.productDetail_like_button {
+	width: 80px;
 	height: 60px;
 	border: 1px solid #dadada;
 	cursor: pointer;

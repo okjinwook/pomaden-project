@@ -61,7 +61,17 @@
 				</div>
 				<div class="productDetail_button_box jcsb">
 					<div class="productDetail_buy_button jcce aice">구매</div>
-					<div class="productDetail_cart_button jcce aice" onclick="cartOnclick()">장바구니 담기</div>
+					<div class="productDetail_cart_button jcce aice" onclick="cartOnclick()">
+						<img src="${cpath }/resources/img/cart.png" width="30px">
+					</div>
+					<div class="productDetail_like_button jcce aice" onclick="likeOnClick(event)">
+						<c:if test="${empty likeCheck }">
+							<img class="productDetail_blackHearts" src="${cpath }/resources/img/blackHearts.png" width="30px">
+						</c:if>
+						<c:if test="${not empty likeCheck }">
+							<img class="productDetail_colorHearts" src="${cpath }/resources/img/colorHearts.png" width="30px">
+						</c:if>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -101,12 +111,22 @@
 	</div>
 </main>
 <script>
-	const product_member_id = '${login.member_id}'
+	const img = document.querySelector('.productDetail_like_button > img')
+	const member_id = '${login.member_id}'
 	const product_name = '${prodDto.product_name}'
 	const product_img = '${prodDto.product_img}'
 	const product_price = '${prodDto.product_price}'
 	const product_sale = '${prodDto.product_sale}'
 	const product_category = '${prodDto.product_category}'
-	const product_salePrice = Number(product_price * (100 - product_sale) / 100).toLocaleString() 
+	let product_like = '${prodDto.product_like}'
+	const product_kind = '${prodDto.product_kind}'
+	const product_salePrice = Number(product_price * (100 - product_sale) / 100).toLocaleString()
+	
+	if(img.classList.contains('productDetail_colorHearts')) {
+		document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'
+	}
+	else {
+		document.querySelector('.productDetail_like_button').style.backgroundColor = 'white'
+	} 
 </script>
 <%@ include file="../footer.jsp" %>

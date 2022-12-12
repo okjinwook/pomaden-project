@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface ProductDAO {
 
@@ -19,4 +20,7 @@ public interface ProductDAO {
 	
 	@Select("select * from product where product_name = #{product_name}")
 	ProductDTO selectOne(String product_name);
+	
+	@Update("update product set product_like = #{product_like} where product_name = #{product_name}")
+	int update(HashMap<String, Object> map);
 }

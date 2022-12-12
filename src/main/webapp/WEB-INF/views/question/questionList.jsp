@@ -63,7 +63,7 @@
 				<div class="question_prev_button">◀</div>
 			</c:if>
 			<c:forEach var="i" begin="${begin }" end="${end}">
-		  		<a href="${cpath }/question/questionList?check=${param.check }&kind=${param.kind }&search=${param.search }&category=${param.category }&page=${i - 1}" class="cartList_paging_page">${i }</a>
+		  		<a href="${cpath }/question/questionList?check=${param.check }&kind=${param.kind }&search=${param.search }&category=${param.category }&page=${i - 1}">${i }</a>
 			</c:forEach>
 			<c:if test="${next == true }">
 				<div class="question_next_button aice">▶</div>
