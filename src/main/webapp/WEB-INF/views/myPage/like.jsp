@@ -27,7 +27,7 @@
 							<img src="${dto.like_img }" width="130px">
 						</div>
 						<div class="myPage_like_info">
-							<div class="myPage_like_name jcce aice">${dto.like_name }</div>
+							<div class="myPage_like_name jcce aice"><a href="${cpath }/product/productDetail/${dto.like_name}">${dto.like_name }</a></div>
 							<div class="myPage_like_price jcce aice">
 								<fmt:formatNumber pattern="###,###" value="${dto.like_price}" />원
 							</div>
@@ -36,6 +36,10 @@
 								<fmt:formatNumber pattern="###,###" value="${dto.like_price * (100 - dto.like_sale) / 100}" />원
 							</div>
 							<div class="myPage_like_likeCount jcce aice">♥ ${dto.like_like }</div>
+							<form action="${cpath}/likeProduct/delete" method="POST">
+								<input name="like_name" value="${dto.like_name}" hidden="">
+								<input type="submit" class="myPage_like_delete_button jcce aice" value="삭제"></span>
+							</form>
 						</div>
 					</div>
 				</c:forEach>
@@ -44,6 +48,10 @@
 	</div>
 </main>
 <script>
+	const msg = '${param.msg}'
+	if(msg != '') {
+		alert(msg)
+	}
 	const myPage_category = document.location.href.split('myPage/')[1].split('?')[0]
 	const class_category = document.querySelector('.myPage_' + myPage_category)
 	class_category.style.color = 'black'

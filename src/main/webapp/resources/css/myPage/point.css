@@ -31,8 +31,16 @@
 	width: 120px;
 }
 .myPage_point_use {
-	width: 1080px;
+	width: 830px;
 }
-.myPage_point_price {
-	width: 150px;
+.myPage_point_change {
+	width: 200px;
+}
+.myPage_point_total {
+	width: 200px;
+}
+.myPage_point_item {
+	height: 50px;
+	font-size: 14px;
+	border-bottom: 1px solid #dadada;
 }

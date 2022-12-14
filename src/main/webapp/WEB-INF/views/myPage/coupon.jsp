@@ -22,7 +22,17 @@
 				<div class="myPage_coupon_benefit jcce aice">사용혜택</div>
 				<div class="myPage_coupon_condition jcce aice">사용조건</div>
 				<div class="myPage_coupon_date jcce aice">유효기간</div>
+				<div class="myPage_coupon_sale jcce aice">할인율</div>
 			</div>
+			<c:forEach var="dto" items="${list }">
+				<div class="myPage_coupon_item df">
+					<div class="myPage_coupon_name jcce aice">${dto.coupon_name }</div>
+					<div class="myPage_coupon_benefit jcce aice">${dto.coupon_benefit }</div>
+					<div class="myPage_coupon_condition jcce aice">${dto.coupon_condition }</div>
+					<div class="myPage_coupon_date jcce aice">~ ${dto.coupon_date }</div>
+					<div class="myPage_coupon_sale jcce aice">${dto.coupon_sale }%</div>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </main>

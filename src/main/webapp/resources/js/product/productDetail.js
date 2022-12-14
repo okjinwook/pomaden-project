@@ -154,6 +154,11 @@ function cartUpdateAjax(count , cart_idx) {
 // 장바구니 담기 버튼 클릭 함수입니다
 function cartOnclick(event) {
 	const buyList_box = document.querySelector(".productDetail_buyList_box")
+	if(member_id == '') {
+		alert('로그인 후 사용가능합니다.')
+		location.href= cpath + '/member/login'
+		return false
+	}
 	if(buyList_box.innerText == '') {
 		alert('상품을 선택해주세요.')
 	}
@@ -203,6 +208,11 @@ function cartOnclick(event) {
 }
 // 좋아요 누르면 발생하는 함수입니다.
 function likeOnClick(event) {
+	if(member_id == '') {
+		alert('로그인 후 사용가능합니다.')
+		location.href= cpath + '/member/login'
+		return false
+	}
 	let result_like 
 	let src
 	if(img.classList.contains('productDetail_colorHearts')) {
@@ -221,7 +231,6 @@ function likeOnClick(event) {
 		img.classList.add('productDetail_colorHearts')
 		document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'
 	}
-	console.log(result_like)
 	const url = cpath + '/product/likeUpdate'
 	const ob = {
 		'member_id' : member_id,

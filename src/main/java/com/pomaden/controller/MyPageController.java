@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pomaden.model.CouponDTO;
 import com.pomaden.model.LikeProductDTO;
 import com.pomaden.model.MemberDTO;
+import com.pomaden.model.PointDTO;
 import com.pomaden.model.QuestionDTO;
+import com.pomaden.service.CouponService;
 import com.pomaden.service.LikeProductService;
 import com.pomaden.service.MemberService;
 import com.pomaden.service.MyPageService;
+import com.pomaden.service.PointService;
 import com.pomaden.service.QuestionService;
 
 @Controller
@@ -25,6 +29,8 @@ public class MyPageController {
 	@Autowired private MemberService ms;
 	@Autowired private QuestionService qs;
 	@Autowired private LikeProductService ls;
+	@Autowired private CouponService cs;
+	@Autowired private PointService ps;
 	
 	@GetMapping("/myPage/orderList")
 	public ModelAndView orderList(HttpSession session) {
@@ -35,13 +41,19 @@ public class MyPageController {
 	@GetMapping("/myPage/point")
 	public ModelAndView point(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("login", session.getAttribute("login"));
+		MemberDTO login = (MemberDTO)session.getAttribute("login");
+		String member_id = login.getMember_id();
+		List<PointDTO> list = ps.selectAll(member_id);
+		mav.addObject("list", list);
 		return mav;
 	}
 	@GetMapping("/myPage/coupon")
 	public ModelAndView coupon(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("login", session.getAttribute("login"));
+		MemberDTO login = (MemberDTO)session.getAttribute("login");
+		String member_id = login.getMember_id();
+		List<CouponDTO> list = cs.selectAll(member_id);
+		mav.addObject("list", list);
 		return mav;
 	}
 	@GetMapping("/myPage/board")

@@ -20,8 +20,17 @@
 			<div class="myPage_point_info df">
 				<div class="myPage_point_date jcce aice">적용일자</div>
 				<div class="myPage_point_use jcce aice">포인트 내역</div>
-				<div class="myPage_point_price jcce aice">포인트</div>
+				<div class="myPage_point_change jcce aice">변경 포인트</div>
+				<div class="myPage_point_total jcce aice">총 포인트</div>
 			</div>
+			<c:forEach var="dto" items="${list }">
+				<div class="myPage_point_item df">
+					<div class="myPage_point_date jcce aice">${dto.point_date }</div>
+					<div class="myPage_point_use jcce aice">${dto.point_content }</div>
+					<div class="myPage_point_change jcce aice">${dto.point_change }</div>
+					<div class="myPage_point_total jcce aice">${dto.point_total }</div>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </main>

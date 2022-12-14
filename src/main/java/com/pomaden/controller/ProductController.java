@@ -48,11 +48,15 @@ public class ProductController {
 	@GetMapping("/product/productDetail/{product_name}")
 	public ModelAndView productDetail(@PathVariable("product_name") String product_name, HttpSession session) {
 		ModelAndView mav = new ModelAndView("/product/productDetail");
-		MemberDTO memDto = (MemberDTO)session.getAttribute("login");
+		MemberDTO memDto = null;
+		LikeProductDTO likeDTO = null;
+		if(session.getAttribute("login") != null) {
+			memDto = (MemberDTO)session.getAttribute("login");
+			likeDTO = ls.selectOne(product_name, memDto.getMember_id());
+		}
 		ProductDTO prodDto = ps.getProduct(product_name);
 		List<String> sizeList = is.getItemSize(product_name);
 		List<String> colorList = is.getItemColor(product_name);
-		LikeProductDTO likeDTO = ls.selectOne(product_name, memDto.getMember_id());
 		mav.addObject("likeCheck", likeDTO);
 		mav.addObject("prodDto", prodDto);
 		mav.addObject("colorList", colorList);
@@ -67,13 +71,11 @@ public class ProductController {
 		String product_name = (String)map.get("product_name");
 		String member_id = (String)map.get("member_id");
 		LikeProductDTO dto = ls.selectOne(product_name, member_id);
-		System.out.println(dto);
 		if(dto != null) {
 			row = ls.delete(map);
 		}
 		else {
 			row = ls.insert(map);
-			System.out.println("==" + row);
 		}
 		row = ps.likeUpdate(map);
 		return row;
