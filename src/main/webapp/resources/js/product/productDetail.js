@@ -28,8 +28,8 @@ function sizeOnClick(event) {
 			})
 			event.target.style.backgroundColor = '#333'
 			event.target.style.color = 'white'
-			const item_color = color.innerText
-			const item_size = size.innerText
+			item_color = color.innerText
+			item_size = size.innerText
 			const url = cpath + '/item/getCount'
 			const ob = {
 				'item_name' : product_name,
@@ -49,9 +49,9 @@ function sizeOnClick(event) {
 			.then(json => {
 				let dom = ''
 				dom += '<div class="jcsb">'
-				dom += '	<div class="aice">'
-				dom += `		<div class="productDetail_buyList_color" id="${color.innerText}">색상[${color.innerText}]</div>`
-				dom += `		<div class="productDetail_buyList_size" id="${size.innerText}">사이즈[${size.innerText}]</div>`
+				dom += `	<div class="aice">`
+				dom += `		<div class="productDetail_buyList_color" id="${item_color}">색상[${item_color}]</div>`
+				dom += `		<div class="productDetail_buyList_size" id="${item_size}">사이즈[${item_size}]</div>`
 				dom += `		<div class="productDetail_buyList_count" id="${json.count}">남은수량[${json.count}개]</div>`
 				dom += `		<div class="productDetail_buyList_orderCount df">`
 				dom += `			<input class="productDetail_buy_count" type="number" value="1" min="1">`
@@ -61,14 +61,15 @@ function sizeOnClick(event) {
 				dom += `			</div>`
 				dom += '		</div>'
 				dom += '	</div>'
-				dom += '</div>	'
+				dom += '</div>'
 				dom += '<div class="jcsb">'
-				dom += '	<div class="productDetail_buyList_total_info">총 상품 가격</div>'
+				dom += `	<div class="productDetail_buyList_total_info">상품 가격 : ${product_salePrice}</div>`
 				dom += '	<div class="productDetail_buyList_salePrice">'
 				dom += `		총가격 : ${product_salePrice }원`
 				dom += '	</div>'
 				dom += '</div>'
 				buyList_box.innerHTML = dom
+				buyList_box.classList.remove('hidden')
 			})
 		}
 	})
@@ -256,4 +257,14 @@ function likeOnClick(event) {
 			document.querySelector('.productDetail_like_button > img').src = src
 		}
 	})
+}
+// 구매하기 버튼 클릭함수입니다.
+function paymentOnClick() {
+	const count = document.querySelector(".productDetail_buy_count").value
+	location.href= cpath + "/product/payment?product_name=" + 
+					product_name + 
+					"&item_color=" + item_color + 
+					"&item_size=" + item_size + 
+					"&buy_count=" + count  
+					
 }

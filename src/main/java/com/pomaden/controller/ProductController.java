@@ -65,7 +65,7 @@ public class ProductController {
 	}
 	
 	@ResponseBody
-	@PostMapping("product/likeUpdate")
+	@PostMapping("/product/likeUpdate")
 	public int likeUpdate(@RequestBody HashMap<String, Object> map) {
 		int row = 0;
 		String product_name = (String)map.get("product_name");
@@ -79,5 +79,13 @@ public class ProductController {
 		}
 		row = ps.likeUpdate(map);
 		return row;
+	}
+	
+	@GetMapping("/product/payment")
+	public ModelAndView payment(String product_name, String item_color, String item_size, String buy_count) {
+		ModelAndView mav = new ModelAndView();
+		ProductDTO prodDto = ps.getProduct(product_name);
+		mav.addObject("prodDto", prodDto);
+		return mav;
 	}
 }

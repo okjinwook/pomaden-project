@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+.payment_component {
+	width: 1350px;
+	height: auto;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.payment_title {
+	font-size: 30px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.payment_delivery_title, .payment_orderList_title, .payment_discount_title, .payment_orderPrice_title, .payment_paymentWay_title {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	margin-top: 50px;
+}
+.payment_delivery_box > div {
+	height: 50px;
+}
+.payment_delivery_info {
+	width: 170px;
+	padding-left: 15px;
+}
+
+
+.payment_orderList_info {
+	height: 50px;
+	background-color: #333;
+	color: white;
+}
+.payment_orderList_info > div {
+	border-right: 1px solid #dadada;
+}
+.payment_orderList_img {
+	width: 100px;
+}
+.payment_orderList_name {
+	width: 600px;
+}
+.payment_orderList_count {
+	width: 100px;
+}
+.payment_orderList_point {
+	width: 100px;
+}
+.payment_orderList_sale {
+	width: 200px;
+}
+.payment_orderList_price {
+	width: 200px;
+}
+.payment_orderList_item {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+
+.payment_orderPrice_box {
+	height: 100px;
+	border: 1px solid black;
+}
+.payment_orderPrice_info {
+	height: 40px;
+	border-bottom: 1px solid black;
+}
+.payment_orderPrice_price {
+	height: 60px;
+}
+.payment_orderPrice_common {
+	width: 400px;
+	height: 100%;
+	background-color: cornsilk;
+}
+.payment_orderPrice_discount {
+	width: 270px;
+	height: 100%;
+	background-color: cornsilk;
+}
+.payment_orderPrice_total {
+	width: 680px;
+	height: 100%;
+	background-color: cornsilk;
+}
+
+
+

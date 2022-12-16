@@ -28,6 +28,7 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/question/questionList.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/product/productList.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/product/productDetail.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/product/payment.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/cart/cartList.css">
 
 
@@ -38,6 +39,7 @@
 <script src="${cpath }/resources/js/cs/center.js"></script>
 <script src="${cpath }/resources/js/product/productList.js"></script>
 <script src="${cpath }/resources/js/product/productDetail.js"></script>
+<script src="${cpath }/resources/js/product/payment.js"></script>
 <script src="${cpath }/resources/js/member/join.js"></script>
 <script src="${cpath }/resources/js/member/find_pw.js"></script>
 <script src="${cpath }/resources/js/member/findPw_result.js"></script>

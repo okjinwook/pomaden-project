@@ -56,11 +56,10 @@
 						</c:forEach>
 					</div>
 				</div>
-				<div class="productDetail_buyList_box">
-					
+				<div class="productDetail_buyList_box hidden">
 				</div>
 				<div class="productDetail_button_box jcsb">
-					<div class="productDetail_buy_button jcce aice">구매</div>
+					<div class="productDetail_buy_button jcce aice" onclick="paymentOnClick()">바로구매</div>
 					<div class="productDetail_cart_button jcce aice" onclick="cartOnclick()">
 						<img src="${cpath }/resources/img/cart.png" width="30px">
 					</div>
@@ -121,7 +120,8 @@
 	let product_like = '${prodDto.product_like}'
 	const product_kind = '${prodDto.product_kind}'
 	const product_salePrice = Number(product_price * (100 - product_sale) / 100).toLocaleString()
-	
+	let item_color = ''
+	let item_size = ''
 	if(img.classList.contains('productDetail_colorHearts')) {
 		document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'
 	}
