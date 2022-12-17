@@ -14,5 +14,8 @@ public class PointService {
 	public List<PointDTO> selectAll(String member_id) {
 		return dao.seletAll(member_id);
 	}
+	public PointDTO selectOne(String member_id) {
+		return dao.selectOne(member_id);
+	}
 
 }

@@ -14,11 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pomaden.model.CouponDTO;
 import com.pomaden.model.LikeProductDTO;
 import com.pomaden.model.MemberDTO;
+import com.pomaden.model.PointDTO;
 import com.pomaden.model.ProductDTO;
+import com.pomaden.service.CouponService;
 import com.pomaden.service.ItemService;
 import com.pomaden.service.LikeProductService;
+import com.pomaden.service.PointService;
 import com.pomaden.service.ProductService;
 
 @Controller
@@ -26,6 +30,8 @@ public class ProductController {
 	@Autowired private ProductService ps;
 	@Autowired private ItemService is;
 	@Autowired private LikeProductService ls;
+	@Autowired private CouponService cs;
+	@Autowired private PointService pos;
 	
 	@GetMapping("/product/productList")
 	public ModelAndView selectCategory(String category, String kind) {
@@ -82,10 +88,15 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/payment")
-	public ModelAndView payment(String product_name, String item_color, String item_size, String buy_count) {
+	public ModelAndView payment(String product_name, String item_color, String item_size, String buy_count, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		MemberDTO login = (MemberDTO)session.getAttribute("login");
+		List<CouponDTO> coupon =  cs.selectAll(login.getMember_id());
+		PointDTO point = pos.selectOne(login.getMember_id());
 		ProductDTO prodDto = ps.getProduct(product_name);
 		mav.addObject("prodDto", prodDto);
+		mav.addObject("couponList", coupon);
+		mav.addObject("point", point);
 		return mav;
 	}
 }
