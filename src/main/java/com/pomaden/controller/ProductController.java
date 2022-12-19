@@ -95,8 +95,15 @@ public class ProductController {
 		PointDTO point = pos.selectOne(login.getMember_id());
 		ProductDTO prodDto = ps.getProduct(product_name);
 		mav.addObject("prodDto", prodDto);
-		mav.addObject("couponList", coupon);
 		mav.addObject("point", point);
+		return mav;
+	}
+	@GetMapping("/product/couponList")
+	public ModelAndView couponList(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		MemberDTO login = (MemberDTO)session.getAttribute("login");
+		List<CouponDTO> coupon =  cs.selectAll(login.getMember_id());
+		mav.addObject("couponList", coupon);
 		return mav;
 	}
 }
