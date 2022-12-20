@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-
 <main>
 	<div class="productList_component">
 		<div class="productList_title">${category }</div>
@@ -17,6 +16,8 @@
 		</div>
 		<div class="productList_item_box df">
 			<c:forEach var="dto" items="${list }">
+				<fmt:parseNumber var="sale" integerOnly="true" value="${((dto.product_price * (dto.product_sale) / 100) / 100 )}" />
+				<fmt:parseNumber var="salePrice" integerOnly="true" value="${((dto.product_price * (100 - dto.product_sale) / 100) / 100 )}" />
 				<div class="productList_item">
 					<div class="productList_item_img">
 						<a href="${cpath }/product/productDetail/${dto.product_name}">
@@ -31,7 +32,7 @@
 					</div>
 					<div class="productList_item_sale">( ${dto.product_sale }% 할인 )</div>
 					<div class="productList_item_salePrice">
-						<fmt:formatNumber pattern="###,###" value="${dto.product_price * (100 - dto.product_sale) / 100}" />원
+						<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 					</div>
 					<div class="productList_item_review">리뷰 : 0개</div>
 					<div class="productList_item_like">좋아요 : ${dto.product_like }</div>

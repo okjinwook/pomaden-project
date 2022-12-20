@@ -86,15 +86,23 @@ public class ProductController {
 		row = ps.likeUpdate(map);
 		return row;
 	}
-	
-	@GetMapping("/product/payment")
-	public ModelAndView payment(String product_name, String item_color, String item_size, String buy_count, HttpSession session) {
+	@PostMapping("/product/payment")
+	public ModelAndView payment(List<HashMap<String, Object>> list, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		List<ProductDTO> productList = null;
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
-		List<CouponDTO> coupon =  cs.selectAll(login.getMember_id());
 		PointDTO point = pos.selectOne(login.getMember_id());
-		ProductDTO prodDto = ps.getProduct(product_name);
-		mav.addObject("prodDto", prodDto);
+		for(HashMap<String, Object> map : list) {
+			for(String key : map.keySet()) {
+				String product_name = (String)map.get("product_name");
+				String item_color = (String)map.get("item_color");
+				String item_size = (String)map.get("item_size");
+				String buy_count = (String)map.get("buy_count");
+//				ProductDTO prodDto = ps.getProduct(product_name);
+//				productList.add(prodDto);
+			}
+		}
+//		mav.addObject("prodDto", prodDto);
 		mav.addObject("point", point);
 		return mav;
 	}

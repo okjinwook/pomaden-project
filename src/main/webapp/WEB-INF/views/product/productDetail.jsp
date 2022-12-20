@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
+<fmt:parseNumber var="sale" integerOnly="true" value="${((prodDto.product_price * (prodDto.product_sale) / 100) / 100 )}" />
+<fmt:parseNumber var="salePrice" integerOnly="true" value="${((prodDto.product_price * (100 - prodDto.product_sale) / 100) / 100 )}" />
 <main>
 	<div class="productDetail_component">
 		<div class="productDetail_info jcsb">
@@ -15,7 +17,7 @@
 							<fmt:formatNumber pattern="###,###" value="${prodDto.product_price}" />원
 						</div>
 						<div class="productDetail_product_salePrice">
-							<fmt:formatNumber pattern="###,###" value="${prodDto.product_price * (100 - prodDto.product_sale) / 100}" />원
+							<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 						</div>
 					</div>
 					<div class="productDetail_product_sale">
@@ -119,7 +121,7 @@
 	const product_category = '${prodDto.product_category}'
 	let product_like = '${prodDto.product_like}'
 	const product_kind = '${prodDto.product_kind}'
-	const product_salePrice = Number(product_price * (100 - product_sale) / 100).toLocaleString()
+	const product_salePrice = ${salePrice * 100}
 	let item_color = ''
 	let item_size = ''
 	if(img.classList.contains('productDetail_colorHearts')) {

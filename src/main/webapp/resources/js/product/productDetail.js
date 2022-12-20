@@ -63,9 +63,9 @@ function sizeOnClick(event) {
 				dom += '	</div>'
 				dom += '</div>'
 				dom += '<div class="jcsb">'
-				dom += `	<div class="productDetail_buyList_total_info">상품 가격 : ${product_salePrice}</div>`
+				dom += `	<div class="productDetail_buyList_total_info">상품 가격 : ${Number(product_salePrice).toLocaleString()}</div>`
 				dom += '	<div class="productDetail_buyList_salePrice">'
-				dom += `		총가격 : ${product_salePrice }원`
+				dom += `		총가격 : ${Number(product_salePrice).toLocaleString() }원`
 				dom += '	</div>'
 				dom += '</div>'
 				buyList_box.innerHTML = dom
@@ -77,7 +77,7 @@ function sizeOnClick(event) {
 // 수량 변동에 따른 총 가격 변경 함수입니다.
 function renderSalePrice(count) {
 	const salePrice = document.querySelector(".productDetail_buyList_salePrice")
-	salePrice.innerHTML = `총가격 : ${Number((product_price * (100 - product_sale) / 100) * (count * 1)).toLocaleString()}원`
+	salePrice.innerHTML = `총가격 : ${Number(product_salePrice * (count * 1)).toLocaleString()}원`
 }
 // 수량 조절하는 함수입니다
 function detailUpOnClick() {
@@ -261,10 +261,25 @@ function likeOnClick(event) {
 // 구매하기 버튼 클릭함수입니다.
 function paymentOnClick() {
 	const count = document.querySelector(".productDetail_buy_count").value
-	location.href= cpath + "/product/payment?product_name=" + 
-					product_name + 
-					"&item_color=" + item_color + 
-					"&item_size=" + item_size + 
-					"&buy_count=" + count  
-					
+	const url = cpath + '/product/payment'
+	const ob = [
+		{
+			'product_name' : product_name,
+			'item_color' : item_color,
+			'item_size' : item_size,
+			'buy_count' : count
+		}
+	]
+	const opt = {
+		method : 'POST' ,
+		body: JSON.stringify(ob),
+		headers: {
+			'Content-type' : 'application/json'
+		}
+	}
+	fetch(url, opt)
+	.then(resp => resp.json())
+	.then(json => {
+		console.log(json)
+	})
 }

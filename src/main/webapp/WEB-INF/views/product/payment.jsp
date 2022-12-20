@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
+<fmt:parseNumber var="sale" integerOnly="true" value="${((prodDto.product_price * (prodDto.product_sale) / 100) * param.buy_count / 100 ) }" />
+<fmt:parseNumber var="salePrice" integerOnly="true" value="${((prodDto.product_price * (100 - prodDto.product_sale) / 100) * param.buy_count / 100 )}" />
 <main>
 	<div class="payment_component">
 		<div class="payment_title">결제</div>
@@ -48,16 +50,16 @@
 				</div>
 				<div class="payment_orderList_count jcce aice">${param.buy_count }</div>
 				<div class="payment_orderList_point jcce aice">
-					<fmt:formatNumber pattern="###,###" value="${((prodDto.product_price * (100 - prodDto.product_sale) / 100) * param.buy_count) * (1 / 100)}" /> P
+					<fmt:formatNumber pattern="###,###" value="${((prodDto.product_price * (100 - prodDto.product_sale) / 100) * param.buy_count) * 0.01}" /> P
 				</div>
 				<div class="payment_orderList_sale jcce aice">
-					-<fmt:formatNumber pattern="###,###" value="${(prodDto.product_price * (prodDto.product_sale / 100)) * param.buy_count}" />원
+					- <fmt:formatNumber pattern="###,###" value="${sale * 100 + 100}" />원
 				</div>
 				<div class="payment_orderList_price jcce aice">
 					<span class="payment_orderList_original_price">
 						<fmt:formatNumber pattern="###,###" value="${prodDto.product_price * param.buy_count}" />원
 					</span>
-					<fmt:formatNumber pattern="###,###" value="${(prodDto.product_price * (100 - prodDto.product_sale) / 100) * param.buy_count}" />원
+					<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 				</div>
 			</div>
 		</div>
@@ -72,7 +74,7 @@
 			<div class="payment_discount_sale_box aice">
 				<div class="payment_discount_info">상품 할인</div>
 				<div class="payment_discount_price">
-					- <fmt:formatNumber pattern="###,###" value="${(prodDto.product_price * (prodDto.product_sale) / 100) * param.buy_count}" />원
+					- <fmt:formatNumber pattern="###,###" value="${sale * 100 + 100}" />원
 				</div>
 			</div>
 			<div class="payment_discount_coupon_box aice">
@@ -95,19 +97,43 @@
 				<div class="payment_orderPrice_total aice jcce">총 주문 금액</div>
 			</div>
 			<div class="payment_orderPrice_price aice">
-				<div class="payment_orderPrice_common aice jcce">${prodDto.product_price * param.buy_count}</div>
-				<div class="payment_orderPrice_discount aice jcce"></div>
-				<div class="payment_orderPrice_total aice jcce">19500</div>
+				<div class="payment_orderPrice_common aice jcce">
+					<fmt:formatNumber pattern="###,###" value="${prodDto.product_price * param.buy_count}" />원
+				</div>
+				<div class="payment_orderPrice_discount aice jcce">
+					- <fmt:formatNumber pattern="###,###" value="${sale * 100 + 100}" />원
+				</div>
+				<div class="payment_orderPrice_total aice jcce">
+					<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
+				</div>
 			</div>
 		</div>
 		<div class="payment_paymentWay_title">결제수단</div>
 		<div class="payment_paymentWay_box">
+			<label>
+				<input type="radio" name="paymentWay" value="kakaopay" onclick="paymentWayOnClick('payment_paymentWay_kakaopay')">카카오페이
+			</label>
+			<label>
+				<input type="radio" name="paymentWay" value="deposit" onclick="paymentWayOnClick('payment_paymentWay_deposit')">무통장 입금
+			</label>
+			<div class="payment_paymentWay_kakaopay hidden payment_paymentWay"></div>
+			<div class="payment_paymentWay_deposit hidden payment_paymentWay">
+				<div class="payment_deposit_bank_box aice">
+					<div class="payment_deposit_bank_info jcce aice">은행</div>
+					<div class="payment_deposit_bank_name aice">카카오뱅크</div>
+				</div>
+				<div class="payment_deposit_number_box aice">
+					<div class="payment_deposit_number_info jcce aice">계좌번호</div>
+					<div class="payment_deposit_number_name aice">3333-1223-92986</div>
+				</div>
+			</div>
 		</div>
-		
+		<div class="payment_pay_button jcce aice">결제하기</div>
 	</div>
 </main>
 <script>
-	let salePrice = ${(prodDto.product_price * (100 - prodDto.product_sale) / 100) * param.buy_count}
-	let totalSale = ${(prodDto.product_price * (prodDto.product_sale) / 100) * param.buy_count}
+	let totalPrice = ${salePrice * 100}
+	let totalSale = ${sale * 100 + 100}
+	
 </script>
 <%@ include file="../footer.jsp" %>

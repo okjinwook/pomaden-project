@@ -26,7 +26,9 @@
 		<div class="best_product">
 			<div class="best_product_title">아우터</div>
 			<div class="best_product_item_box df">
-				<c:forEach var="dto" items="${list }">
+			<c:forEach var="dto" items="${list }">
+				<fmt:parseNumber var="sale" integerOnly="true" value="${((dto.product_price * (dto.product_sale) / 100) / 100 )}" />
+				<fmt:parseNumber var="salePrice" integerOnly="true" value="${((dto.product_price * (100 - dto.product_sale) / 100) / 100 )}" />
 				<c:if test="${dto.product_category eq '아우터'}">
 					<div class="productList_item">
 						<div class="productList_item_img">
@@ -42,7 +44,7 @@
 						</div>
 						<div class="productList_item_sale">( ${dto.product_sale }% 할인 )</div>
 						<div class="productList_item_salePrice">
-							<fmt:formatNumber pattern="###,###" value="${dto.product_price * (100 - dto.product_sale) / 100}" />원
+							<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 						</div>
 						<div class="productList_item_review">리뷰 : 0개</div>
 						<div class="productList_item_like">❤ ${dto.product_like }</div>
@@ -72,7 +74,7 @@
 						</div>
 						<div class="productList_item_sale">( ${dto.product_sale }% 할인 )</div>
 						<div class="productList_item_salePrice">
-							<fmt:formatNumber pattern="###,###" value="${dto.product_price * (100 - dto.product_sale) / 100}" />원
+							<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 						</div>
 						<div class="productList_item_review">리뷰 : 0개</div>
 						<div class="productList_item_like">❤ ${dto.product_like }</div>
