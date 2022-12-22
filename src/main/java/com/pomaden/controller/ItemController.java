@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pomaden.model.ItemDTO;
 import com.pomaden.service.ItemService;
 
 @Controller
@@ -17,10 +18,10 @@ public class ItemController {
 	
 	@PostMapping("/item/getCount")
 	@ResponseBody
-	public HashMap<String, String> getCount(@RequestBody HashMap<String, Object> ob) {
-		HashMap<String, String> map = new HashMap<String, String>();
-		String count = is.getCount(ob);
-		map.put("count", count);
+	public HashMap<String, Integer> getCount(@RequestBody HashMap<String, Object> ob) {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		ItemDTO count = is.selectOne(ob);
+		map.put("count", count.getItem_count());
 		return map;
 	}
 }

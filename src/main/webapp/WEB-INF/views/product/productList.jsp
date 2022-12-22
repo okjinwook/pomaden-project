@@ -16,7 +16,6 @@
 		</div>
 		<div class="productList_item_box df">
 			<c:forEach var="dto" items="${list }">
-				<fmt:parseNumber var="sale" integerOnly="true" value="${((dto.product_price * (dto.product_sale) / 100) / 100 )}" />
 				<fmt:parseNumber var="salePrice" integerOnly="true" value="${((dto.product_price * (100 - dto.product_sale) / 100) / 100 )}" />
 				<div class="productList_item">
 					<div class="productList_item_img">

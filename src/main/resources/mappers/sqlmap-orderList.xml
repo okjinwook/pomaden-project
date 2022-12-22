@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.pomaden.model.OrderListDAO">
+	<insert id="insert" parameterType="hashmap">
+		insert into orderList 
+		values
+			(
+			order_seq.nextval,
+			#{orderList_member_id},
+			#{orderList_name},
+			#{orderList_img},
+			#{orderList_price},
+			#{orderList_count},
+			#{orderList_color},
+			#{orderList_size},
+			#{orderList_progress},
+			'정상',
+			sysdate
+			)
+	</insert>
+</mapper>

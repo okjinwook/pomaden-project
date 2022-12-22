@@ -21,8 +21,8 @@ public class ItemService {
 	public List<String> getItemColor(String product_name) {
 		return dao.selectColor(product_name);
 	}
-	public String getCount(HashMap<String, Object> ob) {
-		return dao.getCount(ob);
+	public ItemDTO selectOne(HashMap<String, Object> ob) {
+		return dao.selectOne(ob);
 	}
 
 }

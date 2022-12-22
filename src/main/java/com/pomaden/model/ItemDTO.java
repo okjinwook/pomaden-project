@@ -5,6 +5,7 @@ public class ItemDTO {
 	private String item_color;
 	private String item_size;
 	private int item_count;
+	
 	public String getItem_name() {
 		return item_name;
 	}

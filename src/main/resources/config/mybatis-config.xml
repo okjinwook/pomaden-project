@@ -18,6 +18,7 @@
 		<typeAlias type="com.pomaden.model.CartDTO" alias="cart"/>		
 		<typeAlias type="com.pomaden.model.QuestionDTO" alias="question"/>		
 		<typeAlias type="com.pomaden.model.LikeProductDTO" alias="lileProduct"/>		
+		<typeAlias type="com.pomaden.model.OrderListDTO" alias="orderList"/>		
 	</typeAliases>
 	
 	<mappers>
@@ -27,5 +28,6 @@
 		<mapper resource="mappers/sqlmap-cart.xml"/>
 		<mapper resource="mappers/sqlmap-question.xml"/>
 		<mapper resource="mappers/sqlmap-likeProduct.xml"/>
+		<mapper resource="mappers/sqlmap-orderList.xml"/>
 	</mappers>
 </configuration>

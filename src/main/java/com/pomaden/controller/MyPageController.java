@@ -15,12 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.pomaden.model.CouponDTO;
 import com.pomaden.model.LikeProductDTO;
 import com.pomaden.model.MemberDTO;
+import com.pomaden.model.OrderListDTO;
 import com.pomaden.model.PointDTO;
 import com.pomaden.model.QuestionDTO;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.LikeProductService;
 import com.pomaden.service.MemberService;
 import com.pomaden.service.MyPageService;
+import com.pomaden.service.OrderListService;
 import com.pomaden.service.PointService;
 import com.pomaden.service.QuestionService;
 
@@ -31,13 +33,18 @@ public class MyPageController {
 	@Autowired private LikeProductService ls;
 	@Autowired private CouponService cs;
 	@Autowired private PointService ps;
+	@Autowired private OrderListService os;
+	
 	
 	@GetMapping("/myPage/orderList")
 	public ModelAndView orderList(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("login", session.getAttribute("login"));
+		MemberDTO login = (MemberDTO) session.getAttribute("login");
+		List<OrderListDTO> list = os.selectList(login.getMember_id());
+		mav.addObject("list", list);
 		return mav;
 	}
+		
 	@GetMapping("/myPage/point")
 	public ModelAndView point(HttpSession session) {
 		ModelAndView mav = new ModelAndView();

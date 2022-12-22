@@ -59,7 +59,7 @@
 .payment_orderList_img {
 	width: 100px;
 }
-.payment_orderList_name {
+.payment_orderList_name_box {
 	width: 648px;
 	flex-flow: column;
 }
@@ -71,6 +71,7 @@
 }
 .payment_orderList_sale {
 	width: 200px;
+	flex-flow: column;
 }
 .payment_orderList_price {
 	width: 200px;

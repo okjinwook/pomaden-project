@@ -20,10 +20,10 @@
 			</div>
 			<div class="cartList_item_box">
 				<c:forEach var="dto" items="${list }" varStatus="status">
-					<div class="cartList_item aice">
+					<div class="cartList_item aice" id="${dto.cart_idx }">
 						<div class="cartList_item_idx jcce aice">${status.count }</div>
 						<div class="cartList_item_checkBox jcce aice">
-							<input class="cartList_item_check" type="checkbox" onclick="checkOnClick(event, ${dto.cart_total}, '${dto.cart_name }')">
+							<input class="cartList_item_check" type="checkbox" onclick="checkOnClick(event, ${dto.cart_total}, '${dto.cart_idx }')">
 						</div>
 						<div class="cartList_item_img jcce aice">
 							<img src="${dto.cart_img }" width="50px">
@@ -36,13 +36,13 @@
 							<div class="cartList_item_size">사이즈[${dto.cart_size }]</div>
 						</div>
 						<div class="cartList_item_price jcce aice">
-							<fmt:formatNumber pattern="###,###" value="${dto.cart_price}" />원
+							<fmt:formatNumber pattern="###,###" value="${dto.cart_price * (100 - dto.cart_sale) / 100}" />원
 						</div>
 						<div class="cartList_item_count jcce aice">
 							<input type="number" class="cartList_buy_count" value="${dto.cart_count }" min="1" readonly="readonly">
 							<div class="cartList_upDownBox">
-								<img class="cartList_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="upOnClick(event, ${dto.cart_idx}, ${dto.cart_price })">
-								<img class="cartList_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="downOnClick(event, ${dto.cart_idx}, ${dto.cart_price })">
+								<img class="cartList_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="upOnClick(event, ${dto.cart_idx}, ${dto.cart_price * (100 - dto.cart_sale) / 100 })">
+								<img class="cartList_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="downOnClick(event, ${dto.cart_idx}, ${dto.cart_price * (100 - dto.cart_sale) / 100 })">
 							</div>
 						</div>
 						<div class="cartList_item_totalPrice jcce aice" >
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 		<div class="cartList_payment_box">
-			<div class="cartList_payment_button jcce aice">결제하기</div>
+			<div class="cartList_payment_button jcce aice" onclick="cartPaymentOnClick()">결제하기</div>
 		</div>
 	</div>
 </main>

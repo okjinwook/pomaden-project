@@ -51,7 +51,7 @@ public class AdminController {
 		int row = ps.insert(dto);
 		if(row == 1) {
 			mav.addObject("msg", "정상적으로 등록되었습니다.");
-			mav.addObject("product_name", dto.getProduct_name());
+			mav.addObject("dto", dto);
 		}
 		else {
 			mav.addObject("msg", "상품등록 실패!!!.");

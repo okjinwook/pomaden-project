@@ -167,17 +167,15 @@ function cartOnclick(event) {
 		const product_count = document.querySelector(".productDetail_buy_count").value
 		const product_color = document.querySelector(".productDetail_buyList_color").id
 		const product_size = document.querySelector(".productDetail_buyList_size").id
-		// 세일가 적용된 가격
-		const cart_price = product_price * (100 - product_sale) / 100
 		// 가격의 총 합
-		const cart_total = (cart_price * 1) * (product_count * 1)
+		const cart_total = (product_salePrice * 1) * (product_count * 1)
 		
 		const url = cpath + '/cart/insert'
 		const ob = {
 			'cart_member_id': member_id,
 			'cart_name' : product_name,
 			'cart_img' :  product_img,
-			'cart_price' : cart_price,
+			'cart_price' : product_price * 1,
 			'cart_sale' : product_sale * 1,
 			'cart_count' : product_count * 1,
 			'cart_color' : product_color,
@@ -216,6 +214,7 @@ function likeOnClick(event) {
 	}
 	let result_like 
 	let src
+	// 좋아요 버튼이 활성화 되어있으면
 	if(img.classList.contains('productDetail_colorHearts')) {
 		result_like = (product_like * 1) - 1
 		product_like = (product_like * 1) - 1
@@ -224,6 +223,7 @@ function likeOnClick(event) {
 		img.classList.add('productDetail_blackHearts')
 		document.querySelector('.productDetail_like_button').style.backgroundColor = 'white'
 	}
+	// 좋아요 버튼이 비활성화 상태의 이미지면
 	else {
 		result_like = (product_like * 1) + 1
 		product_like = (product_like * 1) + 1
@@ -261,25 +261,11 @@ function likeOnClick(event) {
 // 구매하기 버튼 클릭함수입니다.
 function paymentOnClick() {
 	const count = document.querySelector(".productDetail_buy_count").value
-	const url = cpath + '/product/payment'
-	const ob = [
-		{
-			'product_name' : product_name,
-			'item_color' : item_color,
-			'item_size' : item_size,
-			'buy_count' : count
-		}
-	]
-	const opt = {
-		method : 'POST' ,
-		body: JSON.stringify(ob),
-		headers: {
-			'Content-type' : 'application/json'
-		}
-	}
-	fetch(url, opt)
-	.then(resp => resp.json())
-	.then(json => {
-		console.log(json)
-	})
+	const url = cpath + '/product/paymentSingle?'
+		 	  + 'item_name=' + product_name
+			  + '&item_color=' + item_color 
+			  + '&item_size=' + item_size
+			  + '&count=' + count
+	location.href = url
 }
+ 

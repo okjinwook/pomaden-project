@@ -26,23 +26,15 @@
 				<div class="myPage_orderList_check jcce aice">처리여부</div>
 			</div>
 			<div class="myPage_orderList_content">
+			<c:forEach var="dto" items="${list }"></c:forEach>
 				<div class="myPage_orderList_item df">
-					<div class="myPage_orderList_date jcce aice">2022.11.8</div>
-					<div class="myPage_orderList_img jcce aice">이미지</div>
-					<div class="myPage_orderList_product_info jcce aice">라운드 넥 가디건</div>
-					<div class="myPage_orderList_count jcce aice">1개</div>
-					<div class="myPage_orderList_price jcce aice">구매금액</div>
-					<div class="myPage_orderList_progress jcce aice">입금대기</div>
-					<div class="myPage_orderList_check jcce aice">정상</div>
-				</div>
-				<div class="myPage_orderList_item df">
-					<div class="myPage_orderList_date jcce aice">2022.11.8</div>
-					<div class="myPage_orderList_img jcce aice">이미지</div>
-					<div class="myPage_orderList_product_info jcce aice">라운드 넥 가디건</div>
-					<div class="myPage_orderList_count jcce aice">1개</div>
-					<div class="myPage_orderList_price jcce aice">구매금액</div>
-					<div class="myPage_orderList_progress jcce aice">입금대기</div>
-					<div class="myPage_orderList_check jcce aice">정상</div>
+					<div class="myPage_orderList_date jcce aice">${dto.orderList_date }</div>
+					<div class="myPage_orderList_img jcce aice">${dto.orderList_date }</div>
+					<div class="myPage_orderList_product_info jcce aice">${dto.orderList_date }</div>
+					<div class="myPage_orderList_count jcce aice">${dto.orderList_date }</div>
+					<div class="myPage_orderList_price jcce aice">${dto.orderList_date }</div>
+					<div class="myPage_orderList_progress jcce aice">${dto.orderList_date }</div>
+					<div class="myPage_orderList_check jcce aice">${dto.orderList_date }</div>
 				</div>
 			</div>
 		</div>

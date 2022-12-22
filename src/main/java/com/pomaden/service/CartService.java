@@ -30,5 +30,8 @@ public class CartService {
 	public int selectCount(String member_id) {
 		return dao.selectCount(member_id);
 	}
+	public CartDTO getPaymentItem(HashMap<String, String> map) {
+		return dao.getPaymentItem(map);
+	}
 
 }

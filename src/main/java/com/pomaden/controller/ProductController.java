@@ -1,7 +1,9 @@
 package com.pomaden.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,14 +13,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pomaden.model.CartDTO;
 import com.pomaden.model.CouponDTO;
+import com.pomaden.model.ItemDTO;
 import com.pomaden.model.LikeProductDTO;
 import com.pomaden.model.MemberDTO;
 import com.pomaden.model.PointDTO;
 import com.pomaden.model.ProductDTO;
+import com.pomaden.service.CartService;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.ItemService;
 import com.pomaden.service.LikeProductService;
@@ -30,8 +36,9 @@ public class ProductController {
 	@Autowired private ProductService ps;
 	@Autowired private ItemService is;
 	@Autowired private LikeProductService ls;
-	@Autowired private CouponService cs;
+	@Autowired private CouponService cps;
 	@Autowired private PointService pos;
+	@Autowired private CartService cs;
 	
 	@GetMapping("/product/productList")
 	public ModelAndView selectCategory(String category, String kind) {
@@ -86,23 +93,35 @@ public class ProductController {
 		row = ps.likeUpdate(map);
 		return row;
 	}
-	@PostMapping("/product/payment")
-	public ModelAndView payment(List<HashMap<String, Object>> list, HttpSession session) {
+	@GetMapping("/product/payment")
+	public ModelAndView payment(int[] list, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		List<ProductDTO> productList = null;
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		PointDTO point = pos.selectOne(login.getMember_id());
-		for(HashMap<String, Object> map : list) {
-			for(String key : map.keySet()) {
-				String product_name = (String)map.get("product_name");
-				String item_color = (String)map.get("item_color");
-				String item_size = (String)map.get("item_size");
-				String buy_count = (String)map.get("buy_count");
-//				ProductDTO prodDto = ps.getProduct(product_name);
-//				productList.add(prodDto);
+		List<CartDTO> cartList = new ArrayList<>(); 
+		for(int idx : list) {
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("idx", idx + "");
+			map.put("member_id", login.getMember_id());
+			CartDTO dto = cs.getPaymentItem(map);
+			if(dto != null) {
+				cartList.add(dto);
 			}
 		}
-//		mav.addObject("prodDto", prodDto);
+		mav.addObject("list", cartList);
+		mav.addObject("point", point);
+		return mav;
+	}
+	@GetMapping("/product/paymentSingle")
+	public ModelAndView paymentSingle(String item_name, String item_color, String item_size, String count, HttpSession session) {
+		ModelAndView mav = new ModelAndView("/product/payment");
+		MemberDTO login = (MemberDTO)session.getAttribute("login");
+		PointDTO point = pos.selectOne(login.getMember_id());
+		ProductDTO dto = ps.getProduct(item_name);
+		mav.addObject("dto", dto);
+		mav.addObject("item_color", item_color);
+		mav.addObject("item_size", item_size);
+		mav.addObject("count", count);
 		mav.addObject("point", point);
 		return mav;
 	}
@@ -110,7 +129,7 @@ public class ProductController {
 	public ModelAndView couponList(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
-		List<CouponDTO> coupon =  cs.selectAll(login.getMember_id());
+		List<CouponDTO> coupon =  cps.selectAll(login.getMember_id());
 		mav.addObject("couponList", coupon);
 		return mav;
 	}

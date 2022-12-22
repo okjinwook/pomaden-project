@@ -24,6 +24,9 @@ public interface CartDAO {
 
 	@Select("select count(*) from cart where cart_member_id = #{member_id}")
 	int selectCount(String member_id);
+	
+	@Select("select * from cart where cart_member_id = #{member_id} and cart_idx = #{idx}")
+	CartDTO getPaymentItem(HashMap<String, String> map);
 
 
 }

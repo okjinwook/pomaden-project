@@ -4,7 +4,6 @@ function cartOnCheck(event) {
 	const item_boxs  = document.querySelectorAll('.cartList_item')
 	const checkBox = document.querySelectorAll('.cartList_item_check')
 	const item_prices = document.querySelectorAll('.cartList_item_totalPrice')
-	const item_names = document.querySelectorAll('.cartList_item_name')
 	const total_box = document.querySelector(".cartList_select_total_price")
 	const expected_box = document.querySelector(".cartList_select_expected_price")
 	let price = 0
@@ -15,13 +14,15 @@ function cartOnCheck(event) {
 		// 상품을 선택하면 상품리스트에 넣습니다
 		buy_product = []
 		buy_price = []
+		// 선택한 합친 상품 가격
 		item_prices.forEach(ob => {
 			let result = ob.innerText.split('원')[0].replace(',','') * 1
 			price += result
 			buy_price.push(result)
 		})
-		item_names.forEach(name => {
-			buy_product.push(name)
+		// 선택한 합친 상품 
+		item_boxs.forEach(box => {
+			  buy_product.push(box.id)
 		})
 		// 전체 상품 박스의 색상 변경을 해주는 코드입니다
 		item_boxs.forEach(box => {
@@ -107,7 +108,7 @@ function cartOnDelete(event) {
 	}
 }
 
-function checkOnClick(event, cart_price, cart_name) {
+function checkOnClick(event, cart_price, cart_idx) {
 	let target = event.target
 	const allCheckBox = document.querySelector(".cartList_checkBox > input")
 	const check_inputs = document.querySelectorAll(".cartList_item_check")
@@ -134,7 +135,7 @@ function checkOnClick(event, cart_price, cart_name) {
 	}
 	// 상품을 선택하면 상품리스트에 넣습니다
 	else {
-		buy_product.push(cart_name)
+		buy_product.push(cart_idx)
 		buy_price.push(cart_price)
 		// 선택한 상품의 박스 색 변경을 합니다 (만족하는 클래스명을 가진 객체를 선택을 위한 코드입니다)
 		while(target.classList.contains('cartList_item') == false) {
@@ -158,4 +159,12 @@ function checkOnClick(event, cart_price, cart_name) {
 	})
 	total_box.innerHTML = Number(price).toLocaleString() + '원' 
 	expected_box.innerHTML = Number(price).toLocaleString()  + '원'
+}
+function cartPaymentOnClick() {
+	const url = cpath + '/product/payment?list='
+	const arr = []
+	for(idx of buy_product) {
+		arr.push(idx)
+	}
+	location.href = url + arr
 }

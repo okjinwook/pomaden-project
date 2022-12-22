@@ -53,7 +53,7 @@
 				<div class="admin_item_component jcsb">
 					<div class="admin_product_box aice">
 						<div class="admin_info_box">상품명</div>
-						<input type="text" name="item_name" value="${product_name }" required="required">
+						<input type="text" name="item_name" value="${dto.product_name }" required="required">
 					</div>
 					<div class="admin_product_box aice">
 						<div class="admin_info_box">컬러</div>

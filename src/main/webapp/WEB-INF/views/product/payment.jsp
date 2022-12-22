@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<fmt:parseNumber var="sale" integerOnly="true" value="${((prodDto.product_price * (prodDto.product_sale) / 100) * param.buy_count / 100 ) }" />
-<fmt:parseNumber var="salePrice" integerOnly="true" value="${((prodDto.product_price * (100 - prodDto.product_sale) / 100) * param.buy_count / 100 )}" />
 <main>
 	<div class="payment_component">
 		<div class="payment_title">결제</div>
@@ -35,46 +33,82 @@
 		<div class="payment_orderList_box">
 			<div class="payment_orderList_info aice">
 				<div class="payment_orderList_img jcce aice">이미지</div>
-				<div class="payment_orderList_name jcce aice">상품명(옵션)</div>
+				<div class="payment_orderList_name_box jcce aice">상품명(옵션)</div>
 				<div class="payment_orderList_count jcce aice">수량</div>
 				<div class="payment_orderList_point jcce aice">적립금</div>
 				<div class="payment_orderList_sale jcce aice">상품할인</div>
 				<div class="payment_orderList_price jcce aice">주문금액</div>
 			</div>
-			<div class="payment_orderList_item aice">
-				<div class="payment_orderList_img jcce aice"><img src="${prodDto.product_img }" width="80px"></div>
-				<div class="payment_orderList_name jcce aice">
-					<div>${prodDto.product_name }</div>
-					<div>[${param.item_color }]</div>
-					<div>[${param.item_size }]</div>
+			<c:if test="${not empty list }">
+				<c:forEach var="dto" items="${list }">
+					<c:set var="totalOriginalPrice" value="${totalOriginalPrice + dto.cart_price * dto.cart_count}"></c:set>
+					<c:set var="totalSalePrice" value="${totalSalePrice + dto.cart_price * (dto.cart_sale / 100) * dto.cart_count}"></c:set>
+					<c:set var="totalResultPrice" value="${totalResultPrice + dto.cart_total}"></c:set>
+					
+					<div class="payment_orderList_item aice">
+						<div class="payment_orderList_img jcce aice" id="${dto.cart_img }"><img src="${dto.cart_img }" width="80px"></div>
+						<div class="payment_orderList_name_box jcce aice">
+							<div class="payment_orderList_name" id="${dto.cart_name }">${dto.cart_name }</div>
+							<div class="payment_orderList_color" id="${dto.cart_color }">[ ${dto.cart_color } ]</div>
+							<div class="payment_orderList_size" id="${dto.cart_size }">[ ${dto.cart_size } ]</div>
+						</div>
+						<div class="payment_orderList_count jcce aice" id="${dto.cart_count }">${dto.cart_count }</div>
+						<div class="payment_orderList_point jcce aice">
+							<fmt:formatNumber pattern="###,###" value="${dto.cart_total * 0.01}" /> P
+						</div>
+						<div class="payment_orderList_sale jcce aice">
+							<div>${dto.cart_sale }%</div>
+							- <fmt:formatNumber pattern="###,###" value="${dto.cart_price * (dto.cart_sale / 100) * dto.cart_count  }" />원
+						</div>
+						<div class="payment_orderList_price jcce aice">
+							<span class="payment_orderList_original_price">
+								<fmt:formatNumber pattern="###,###" value="${dto.cart_price * dto.cart_count}" />원
+							</span>
+							<fmt:formatNumber pattern="###,###" value="${dto.cart_total}" />원
+						</div>
+					</div>
+				</c:forEach>
+			</c:if>
+			<c:if test="${not empty dto }">
+				<c:set var="totalOriginalPrice" value="${dto.product_price * count}"></c:set>
+				<c:set var="totalSalePrice" value="${dto.product_price * (dto.product_sale / 100) * count}"></c:set>
+				<c:set var="totalResultPrice" value="${dto.product_price * (100 - dto.product_sale) / 100 * count}"></c:set>
+				<div class="payment_orderList_item aice">
+					<div class="payment_orderList_img jcce aice" id="${dto.product_img }"><img src="${dto.product_img }" width="80px"></div>
+					<div class="payment_orderList_name_box jcce aice">
+						<div class="payment_orderList_name" id="${dto.product_name }">${dto.product_name }</div>
+						<div class="payment_orderList_color" id="${item_color}">[${item_color }]</div>
+						<div class="payment_orderList_size" id="${item_size }">[${item_size }]</div>
+					</div>
+					<div class="payment_orderList_count jcce aice" id="${count }">${count }개</div>
+					<div class="payment_orderList_point jcce aice">
+						<fmt:formatNumber pattern="###,###" value="${totalResultPrice * 0.01}" /> P
+					</div>
+					<div class="payment_orderList_sale jcce aice">
+						<div>${dto.product_sale }%</div>
+						- <fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원
+					</div>
+					<div class="payment_orderList_price jcce aice">
+						<span class="payment_orderList_original_price">
+							<fmt:formatNumber pattern="###,###" value="${totalOriginalPrice}" />원
+						</span>
+						<fmt:formatNumber pattern="###,###" value="${totalResultPrice}" />원
+					</div>
 				</div>
-				<div class="payment_orderList_count jcce aice">${param.buy_count }</div>
-				<div class="payment_orderList_point jcce aice">
-					<fmt:formatNumber pattern="###,###" value="${((prodDto.product_price * (100 - prodDto.product_sale) / 100) * param.buy_count) * 0.01}" /> P
-				</div>
-				<div class="payment_orderList_sale jcce aice">
-					- <fmt:formatNumber pattern="###,###" value="${sale * 100 + 100}" />원
-				</div>
-				<div class="payment_orderList_price jcce aice">
-					<span class="payment_orderList_original_price">
-						<fmt:formatNumber pattern="###,###" value="${prodDto.product_price * param.buy_count}" />원
-					</span>
-					<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
-				</div>
-			</div>
+			</c:if>
 		</div>
 		<div class="payment_discount_title">할인 및 적립금</div>
 		<div class="payment_discount_box">
 			<div class="payment_discount_price_box aice">
 				<div class="payment_discount_info">상품 금액</div>
 				<div class="payment_discount_price">
-					<fmt:formatNumber pattern="###,###" value="${prodDto.product_price * param.buy_count}" />원
+					<fmt:formatNumber pattern="###,###" value="${totalOriginalPrice}" />원
 				</div>
 			</div>
 			<div class="payment_discount_sale_box aice">
 				<div class="payment_discount_info">상품 할인</div>
 				<div class="payment_discount_price">
-					- <fmt:formatNumber pattern="###,###" value="${sale * 100 + 100}" />원
+					- <fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원
 				</div>
 			</div>
 			<div class="payment_discount_coupon_box aice">
@@ -84,7 +118,7 @@
 			</div>
 			<div class="payment_discount_point_box aice">
 				<div class="payment_discount_info">적립금 사용</div>
-				<input class="payment_discount_point_input" type="number" placeholder="p">
+				<input class="payment_discount_point_input" type="number" placeholder="p" onkeyup="PointOnKeyUp(this, ${point.point_total })">
 				<div class="payment_discount_point_button" onclick="pointOnClick()">적용</div>
 				<div class="payment_discount_point_msg">( 최대 사용 가능한 적립금 ${point.point_total }P )</div>
 			</div>
@@ -98,13 +132,13 @@
 			</div>
 			<div class="payment_orderPrice_price aice">
 				<div class="payment_orderPrice_common aice jcce">
-					<fmt:formatNumber pattern="###,###" value="${prodDto.product_price * param.buy_count}" />원
+					<fmt:formatNumber pattern="###,###" value="${totalOriginalPrice}" />원
 				</div>
 				<div class="payment_orderPrice_discount aice jcce">
-					- <fmt:formatNumber pattern="###,###" value="${sale * 100 + 100}" />원
+					- <fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원
 				</div>
-				<div class="payment_orderPrice_total aice jcce">
-					<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
+				<div class="payment_orderPrice_total payment_orderPrice_resultPrice aice jcce">
+					<fmt:formatNumber pattern="###,###" value="${totalResultPrice}" />원
 				</div>
 			</div>
 		</div>
@@ -128,12 +162,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="payment_pay_button jcce aice">결제하기</div>
+		<div class="payment_pay_button jcce aice" onclick="ResultPaymentOnClick()">결제하기</div>
 	</div>
 </main>
 <script>
-	let totalPrice = ${salePrice * 100}
-	let totalSale = ${sale * 100 + 100}
+	let totalResultPrice = ${totalResultPrice}
+	let totalSalePrice = ${totalSalePrice}
+	let point = 0
+	console.log(totalSalePrice)
 	
 </script>
 <%@ include file="../footer.jsp" %>
