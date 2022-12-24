@@ -19,6 +19,9 @@
 				<div class="cartList_delete jcce aice">주문관리</div>
 			</div>
 			<div class="cartList_item_box">
+				<c:if test="${empty list }">
+					<div class="empty_msg jcce aice">장바구니에 담긴 상품이 없습니다.</div>
+				</c:if>
 				<c:forEach var="dto" items="${list }" varStatus="status">
 					<div class="cartList_item aice" id="${dto.cart_idx }">
 						<div class="cartList_item_idx jcce aice">${status.count }</div>

@@ -63,6 +63,10 @@
 .cartList_delete, .cartList_item_delete {
 	width: 110px;
 }
+
+.cartList_item_box {
+	min-height: 300px;
+}
 .cartList_item{
 	height: 87px;
 	padding-top: 10px;

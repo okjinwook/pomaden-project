@@ -16,9 +16,9 @@
 		
 		
 		<div class="myPage_like_title">좋아요 누른 상품</div>
-		<div class="myPage_like_box df">
+		<div class="myPage_like_box">
 			<c:if test="${empty list }">
-				<div class="myPage_list_empty">좋아요 누른 상품이 없습니다.</div>
+				<div class="empty_msg jcce aice">좋아요 누른 상품이 없습니다.</div>
 			</c:if>
 			<c:if test="${not empty list }">
 				<c:forEach var="dto" items="${list }">

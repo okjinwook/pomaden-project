@@ -22,7 +22,10 @@ a {
 }
 input {
 	padding: 0;
-	padding-left: 10px;
+}
+.empty_msg {
+	font-size: 25px;
+    height: 450px;
 }
 ul {
 	list-style: none;

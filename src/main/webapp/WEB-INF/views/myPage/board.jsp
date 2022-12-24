@@ -21,6 +21,9 @@
 				<div class="myPage_board_date jcce aice">게시일자</div>
 				<div class="myPage_board_boardTitle jcce aice">게시글 제목</div>
 			</div>
+			<c:if test="${empty list }">
+				<div class="empty_msg jcce aice">작성하신 게시글이 없습니다.</div>
+			</c:if>
 		</div>
 	</div>
 </main>

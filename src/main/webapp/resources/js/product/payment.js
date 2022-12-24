@@ -45,6 +45,12 @@ function paymentWayOnClick(ob) {
 function ResultPaymentOnClick() {
 	const paymentWay = document.querySelectorAll('input[name=paymentWay]')
 	const item = document.querySelectorAll('.payment_orderList_item')
+	let today = new Date()
+	let year = today.getFullYear() + '' // 년도
+	let month = today.getMonth() + 1 + ''  // 월
+	let date = today.getDate() + ''  // 날짜
+	let day = today.getDay() + ''  // 요일
+	let orderList_order_number = year + month + date + day
 	paymentWay.forEach(way => {
 		if(way.value == 'kakaopay') {
 			
@@ -54,13 +60,14 @@ function ResultPaymentOnClick() {
 			const ob = []
 			item.forEach(box => {
 				const map = {
-					'orderList_img' : box.children[0].id,
-					'orderList_name' : box.children[1].children[0].id,
-					'orderList_color' : box.children[1].children[1].id,
-					'orderList_size' : box.children[1].children[2].id,
-					'orderList_count' : box.children[2].id,
-					'orderList_price' : totalResultPrice,
-					'orderList_price' : '입금대기',
+					'orderList_order_number' : orderList_order_number,
+					'orderList_img' : box.getElementsByClassName('order_orderList_img')[0].id,
+					'orderList_name' : box.getElementsByClassName('order_orderList_name')[0].id,
+					'orderList_color' : box.getElementsByClassName('order_orderList_color')[0].id,
+					'orderList_size' : box.getElementsByClassName('order_orderList_size')[0].id,
+					'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
+					'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
+					'orderList_progress' : '입금대기',
 				}
 				ob.push(map)
 			})
@@ -70,11 +77,19 @@ function ResultPaymentOnClick() {
 				body : JSON.stringify(ob),
 				headers : {
 					'Content-type' : 'application/json'
-				}
+				},
 			}
 			fetch(url, opt)
 			.then(resp => resp.json())
 			.then(json => {
+				console.log(json)
+				if(json.status == 'OK') {
+					alert(json.msg)
+					location.href = cpath + '/myPage/orderList'
+				}
+				else {
+					alert(json.msg)
+				}
 			})
 		}
 		

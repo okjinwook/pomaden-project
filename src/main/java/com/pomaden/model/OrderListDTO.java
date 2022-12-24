@@ -4,84 +4,92 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class OrderListDTO {
-	private int orderlist_idx;
-	private String orderlist_member_id;
-	private String orderlist_name;
-	private String orderlist_img;
-	private int orderlist_price;
-	private int orderlist_count;
-	private String orderlist_color;
-	private String orderlist_size;
-	private String orderlist_progress;
-	private String orderlist_check;
-	private Date orderlist_date;
-	public int getOrderlist_idx() {
-		return orderlist_idx;
-	}
-	public void setOrderlist_idx(int orderlist_idx) {
-		this.orderlist_idx = orderlist_idx;
-	}
-	public String getOrderlist_member_id() {
-		return orderlist_member_id;
-	}
-	public void setOrderlist_member_id(String orderlist_member_id) {
-		this.orderlist_member_id = orderlist_member_id;
-	}
-	public String getOrderlist_name() {
-		return orderlist_name;
-	}
-	public void setOrderlist_name(String orderlist_name) {
-		this.orderlist_name = orderlist_name;
-	}
-	public String getOrderlist_img() {
-		return orderlist_img;
-	}
-	public void setOrderlist_img(String orderlist_img) {
-		this.orderlist_img = orderlist_img;
-	}
-	public int getOrderlist_price() {
-		return orderlist_price;
-	}
-	public void setOrderlist_price(int orderlist_price) {
-		this.orderlist_price = orderlist_price;
-	}
-	public int getOrderlist_count() {
-		return orderlist_count;
-	}
-	public void setOrderlist_count(int orderlist_count) {
-		this.orderlist_count = orderlist_count;
-	}
-	public String getOrderlist_color() {
-		return orderlist_color;
-	}
-	public void setOrderlist_color(String orderlist_color) {
-		this.orderlist_color = orderlist_color;
-	}
-	public String getOrderlist_size() {
-		return orderlist_size;
-	}
-	public void setOrderlist_size(String orderlist_size) {
-		this.orderlist_size = orderlist_size;
-	}
-	public String getOrderlist_progress() {
-		return orderlist_progress;
-	}
-	public void setOrderlist_progress(String orderlist_progress) {
-		this.orderlist_progress = orderlist_progress;
-	}
-	public String getOrderlist_check() {
-		return orderlist_check;
-	}
-	public void setOrderlist_check(String orderlist_check) {
-		this.orderlist_check = orderlist_check;
-	}
-	public String getOrderlist_date() {
-		return new SimpleDateFormat("yyyy-MM-dd").format(orderlist_date);
-	}
-	public void setOrderlist_date(Date orderlist_date) {
-		this.orderlist_date = orderlist_date;
-	}
+	private int orderList_idx;
+	private int orderList_order_number;
+	private String orderList_member_id;
+	private String orderList_name;
+	private String orderList_img;
+	private int orderList_price;
+	private int orderList_count;
+	private String orderList_color;
+	private String orderList_size;
+	private String orderList_progress;
+	private String orderList_check;
+	private Date orderList_date;
 	
+	
+	public int getOrderList_order_number() {
+		return orderList_order_number;
+	}
+	public void setOrderList_order_number(int orderList_order_number) {
+		this.orderList_order_number = orderList_order_number;
+	}
+	public int getOrderList_idx() {
+		return orderList_idx;
+	}
+	public void setOrderList_idx(int orderList_idx) {
+		this.orderList_idx = orderList_idx;
+	}
+	public String getOrderList_member_id() {
+		return orderList_member_id;
+	}
+	public void setOrderList_member_id(String orderList_member_id) {
+		this.orderList_member_id = orderList_member_id;
+	}
+	public String getOrderList_name() {
+		return orderList_name;
+	}
+	public void setOrderList_name(String orderList_name) {
+		this.orderList_name = orderList_name;
+	}
+	public String getOrderList_img() {
+		return orderList_img;
+	}
+	public void setOrderList_img(String orderList_img) {
+		this.orderList_img = orderList_img;
+	}
+	public int getOrderList_price() {
+		return orderList_price;
+	}
+	public void setOrderList_price(int orderList_price) {
+		this.orderList_price = orderList_price;
+	}
+	public int getOrderList_count() {
+		return orderList_count;
+	}
+	public void setOrderList_count(int orderList_count) {
+		this.orderList_count = orderList_count;
+	}
+	public String getOrderList_color() {
+		return orderList_color;
+	}
+	public void setOrderList_color(String orderList_color) {
+		this.orderList_color = orderList_color;
+	}
+	public String getOrderList_size() {
+		return orderList_size;
+	}
+	public void setOrderList_size(String orderList_size) {
+		this.orderList_size = orderList_size;
+	}
+	public String getOrderList_progress() {
+		return orderList_progress;
+	}
+	public void setOrderList_progress(String orderList_progress) {
+		this.orderList_progress = orderList_progress;
+	}
+	public String getOrderList_check() {
+		return orderList_check;
+	}
+	public void setOrderList_check(String orderList_check) {
+		this.orderList_check = orderList_check;
+	}
+	public String getOrderList_date() {
+		return new SimpleDateFormat("yyyy-MM-dd").format(orderList_date);
+	}
+	public void setOrderList_date(Date orderList_date) {
+		this.orderList_date = orderList_date;
+	}
 	
 	
 }

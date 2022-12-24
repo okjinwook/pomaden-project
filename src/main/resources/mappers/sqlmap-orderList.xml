@@ -9,6 +9,7 @@
 		values
 			(
 			order_seq.nextval,
+			#{orderList_order_number},
 			#{orderList_member_id},
 			#{orderList_name},
 			#{orderList_img},

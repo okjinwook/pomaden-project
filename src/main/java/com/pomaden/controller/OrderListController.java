@@ -21,13 +21,21 @@ public class OrderListController {
 	
 	@ResponseBody
 	@PostMapping("/orderList/insert")
-	public ModelAndView insert(@RequestBody List<HashMap<String, Object>> list, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+	public HashMap<String, String> insert(@RequestBody List<HashMap<String, Object>> list, HttpSession session) {
+		int row = 1;
+		HashMap<String, String> resp = new HashMap<String, String>(); 
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		for(HashMap<String, Object> map : list) {
 			map.put("orderList_member_id", login.getMember_id());
-			int row = os.insert(map);
+			row = os.insert(map);
+			if(row == 0) {
+				resp.put("status", "FAIL");
+				resp.put("msg", "결제요청에 실패하였습니다.");
+				return resp;
+			}
 		}
-		return mav;
+		resp.put("status", "OK");
+		resp.put("msg", "정상적으로 상품이 구매되었습니다.");
+		return resp;
 	}
 }
