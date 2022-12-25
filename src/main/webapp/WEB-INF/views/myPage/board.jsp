@@ -17,13 +17,29 @@
 		
 		<div class="myPage_board_title">리뷰 게시글 관리</div>
 		<div class="myPage_board_box">
-			<div class="myPage_board_info df">
+			<div class="myPage_board_info aice">
 				<div class="myPage_board_date jcce aice">게시일자</div>
-				<div class="myPage_board_boardTitle jcce aice">게시글 제목</div>
+				<div class="myPage_board_img jcce aice">이미지</div>
+				<div class="myPage_board_name jcce aice">상품명</div>
+				<div class="myPage_board_content jcce aice">내용</div>
+				<div class="myPage_board_grade jcce aice">평점</div>
 			</div>
 			<c:if test="${empty list }">
 				<div class="empty_msg jcce aice">작성하신 게시글이 없습니다.</div>
 			</c:if>
+			<c:forEach var="dto" items="${list }">
+				<div class="myPage_board_item aice">
+					<div class="myPage_board_date jcce aice">${dto.review_date }</div>
+					<div class="myPage_board_img jcce aice"><img src="${dto.review_img }" width="50px"></div>
+					<div class="myPage_board_name jcce aice">${dto.review_product }</div>
+					<div class="myPage_board_content jcce aice">${dto.review_content }</div>
+					<div class="myPage_board_grade aice">
+						<c:forEach begin="1" end="${dto.review_grade }">
+							★						
+						</c:forEach>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 	</div>
 </main>

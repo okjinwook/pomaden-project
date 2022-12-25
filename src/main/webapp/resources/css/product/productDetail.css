@@ -188,7 +188,7 @@
 	padding: 20px;
 	border-bottom: 2px solid #dadada;
 }
-.productDetail_review_reply_info {
+.productDetail_review_info {
 	width: 1000px;
 	border-right: 1px solid #dadada;
 }
@@ -226,6 +226,25 @@
     width: 580px;
     border-radius: 8px;
 }
+.productDetail_review_reply_write {
+	margin-top: 10px;
+}
+.productDetail_review_reply_write_input {
+	width: 850px;
+	height: 40px;
+	margin-right: 10px;
+	padding-left: 10px;
+}
+.productDetail_review_reply_write_button {
+	width: 60px;
+	height: 40px;
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
 .productDetail_review_buyInfo {
 	width: 310px;
 	flex-flow: column;

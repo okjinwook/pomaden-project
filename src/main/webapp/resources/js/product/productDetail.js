@@ -268,4 +268,26 @@ function paymentOnClick() {
 			  + '&count=' + count
 	location.href = url
 }
- 
+
+
+// 리뷰 댓글 ajax함수입니다
+function replyOnWrite(review_idx) {
+	const write_input = document.querySelector('.productDetail_review_reply_write_input').value
+	const url = cpath + '/reply/insert'
+	const ob = {
+		'reply_member_id' : member_id,
+		'reply_idx' : review_idx,
+		'reply_content' : write_input,
+	}
+	const opt = {
+		method : 'POST',
+		body : JSON.stringify(ob),
+		headers : {
+			'Content-type' : 'application/json'
+		}
+	}
+	fetch(url, opt)
+	.then(resp => resp.text())
+	.then(text => {
+	})
+} 

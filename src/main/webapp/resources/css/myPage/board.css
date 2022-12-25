@@ -29,9 +29,22 @@
 .myPage_board_info > div:last-child{
 	border: none;
 }
+.myPage_board_item {
+	height: 70px;
+	border-bottom: 1px solid #dadada;
+}
 .myPage_board_date {
 	width: 120px;
 }
-.myPage_board_boardTitle {
-	width: 100px;
+.myPage_board_img {
+	width: 70px;
+}
+.myPage_board_name {
+	width: 350px;
+}
+.myPage_board_content {
+	width: 660px;
+}
+.myPage_board_grade {
+	width: 150px;
 }

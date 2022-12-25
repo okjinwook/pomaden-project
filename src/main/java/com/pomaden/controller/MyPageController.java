@@ -18,6 +18,7 @@ import com.pomaden.model.MemberDTO;
 import com.pomaden.model.OrderListDTO;
 import com.pomaden.model.PointDTO;
 import com.pomaden.model.QuestionDTO;
+import com.pomaden.model.ReviewDTO;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.LikeProductService;
 import com.pomaden.service.MemberService;
@@ -25,6 +26,7 @@ import com.pomaden.service.MyPageService;
 import com.pomaden.service.OrderListService;
 import com.pomaden.service.PointService;
 import com.pomaden.service.QuestionService;
+import com.pomaden.service.ReviewService;
 
 @Controller
 public class MyPageController {
@@ -34,6 +36,7 @@ public class MyPageController {
 	@Autowired private CouponService cs;
 	@Autowired private PointService ps;
 	@Autowired private OrderListService os;
+	@Autowired private ReviewService rs;
 	
 	
 	@GetMapping("/myPage/orderList")
@@ -65,8 +68,12 @@ public class MyPageController {
 	}
 	@GetMapping("/myPage/board")
 	public ModelAndView board(HttpSession session) {
+		HashMap<String, String> map = new HashMap<String, String>();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("login", session.getAttribute("login"));
+		MemberDTO login = (MemberDTO)session.getAttribute("login");
+		map.put("member_id", login.getMember_id());
+		List<ReviewDTO> list = rs.selectList(map);
+		mav.addObject("list", list);
 		return mav;
 	}
 	

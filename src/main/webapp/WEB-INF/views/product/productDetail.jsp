@@ -80,22 +80,31 @@
 				<div class="productDetail_review_short_new">최신순</div>
 				<div class="productDetail_review_short_high">평점순</div>
 			</div>
-			<c:forEach var="i" begin="1" end="1">
+			<c:forEach var="reviewDto" items="${reviewList }">
 				<div class="productDetail_review_item df">
-					<div class="productDetail_review_reply_info">
-						<div class="productDetail_review_writer">작성자 : coke님</div>
-						<div class="productDetail_review_point">★★★★★ 5점</div>
-						<div class="productDetail_review_content">너무 이쁜 옷입니다.</div>
-						<div class="productDetail_review_img"><img src="${prodDto.product_img }" width="100px"></div>
+					<div class="productDetail_review_info">
+						<div class="productDetail_review_writer">작성자 : ${reviewDto.review_member_id }님</div>
+						<div class="productDetail_review_point">
+						<c:forEach begin="1" end="${reviewDto.review_grade }">
+							★						
+						</c:forEach>
+						 	최고에요
+						</div>
+						<div class="productDetail_review_content">${reviewDto.review_content }</div>
+						<div class="productDetail_review_img"><img src="${reviewDto.review_img }" width="100px"></div>
 						<div class="productDetail_review_reply">
 							<div class="productDetail_review_reply_button" onclick="detailReplyOnClick(event)">댓글 (0)</div>
-							<div class="productDetail_review_reply_dropbox hidden" >
+							<div class="productDetail_review_reply_dropbox hidden">
 								<c:forEach var="i" begin="1" end="3">
 									<div class="productDetail_review_reply_item">
 										<div class="productDetail_reply_writer">fanta님</div>
 										<div class="productDetail_reply_content">잘 어울립니다!!</div>
 									</div>
 								</c:forEach>
+							</div>
+							<div class="productDetail_review_reply_write aice">
+								<input class="productDetail_review_reply_write_input" placeholder="댓글입력..">
+								<div class="productDetail_review_reply_write_button jcce aice" onclick="replyOnWrite(${reviewDto.review_idx})">댓글입력</div>
 							</div>
 						</div>
 					</div>

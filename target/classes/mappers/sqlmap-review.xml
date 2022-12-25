@@ -17,4 +17,14 @@
 			#{review_grade}
 			)
 	</insert>
+	<select id="selectList" resultType="review" parameterType="hashmap">
+		select * from review where 
+		<if test="member_id != null">
+			review_member_id = #{member_id}
+		</if>
+		<if test="product_name != null">
+			review_product = #{product_name}
+		</if>
+		order by review_date desc
+	</select>
 </mapper>

@@ -2,6 +2,8 @@ package com.pomaden.service;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +48,7 @@ public class ReviewService {
 		chSftp = (ChannelSftp) channel;
 
 		FileInputStream fis = new FileInputStream(dest1);
-		chSftp.cd("/var/www/html/product");
+		chSftp.cd("/var/www/html/review");
 		chSftp.put(fis, dest1.getName());
 		System.out.println("sftp> transfer complete");
 
@@ -62,6 +64,10 @@ public class ReviewService {
 		dto.setReview_img(uploadFilePath);
 
 		return dao.insert(dto);
+	}
+
+	public List<ReviewDTO> selectList(HashMap<String, String> map) {
+		return dao.selectList(map);
 	}
 
 }

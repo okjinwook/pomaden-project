@@ -70,19 +70,23 @@
 			</div>
 			<div class="review_modal_img aice">
 				<div>이미지</div>
-				<label>
-					<span class="review_modal_img_box">사진등록</span>
-					<input type="file" name="review_upload" hidden="">
-				</label>
+				<div class="review_modal_img_box jcce aice">
+					<label class="jcce aice">
+						<span class="review_modal_img_span">사진등록</span>
+						<input type="file" name="review_upload" hidden="" onchange="reviewUpload(event)">
+					</label>
+				</div>
 			</div>
 			<div class="review_modal_category aice">
 				<div>평점</div>
-				<input name="review_grade" value="5" hidden="">
-				<span class="">★</span>
-				<span class="">★</span>
-				<span class="">★</span>
-				<span class="">★</span>
-				<span class="">★</span>
+				<input class="review_grade_input" name="review_grade" value="5" hidden="">
+				<div class="review_grade_star df">
+					<div class="" onclick="gradeOnClick(1)">☆</div>
+					<div class="" onclick="gradeOnClick(2)">☆</div>
+					<div class="" onclick="gradeOnClick(3)">☆</div>
+					<div class="" onclick="gradeOnClick(4)">☆</div>
+					<div class="" onclick="gradeOnClick(5)">☆</div>
+				</div>
 			</div>
 			<div class="review_modal_content">
 				<textarea name="review_content" placeholder="내용을 작성해주세요."></textarea>

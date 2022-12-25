@@ -24,12 +24,14 @@ import com.pomaden.model.LikeProductDTO;
 import com.pomaden.model.MemberDTO;
 import com.pomaden.model.PointDTO;
 import com.pomaden.model.ProductDTO;
+import com.pomaden.model.ReviewDTO;
 import com.pomaden.service.CartService;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.ItemService;
 import com.pomaden.service.LikeProductService;
 import com.pomaden.service.PointService;
 import com.pomaden.service.ProductService;
+import com.pomaden.service.ReviewService;
 
 @Controller
 public class ProductController {
@@ -39,6 +41,7 @@ public class ProductController {
 	@Autowired private CouponService cps;
 	@Autowired private PointService pos;
 	@Autowired private CartService cs;
+	@Autowired private ReviewService rs;
 	
 	@GetMapping("/product/productList")
 	public ModelAndView selectCategory(String category, String kind) {
@@ -61,6 +64,8 @@ public class ProductController {
 	@GetMapping("/product/productDetail/{product_name}")
 	public ModelAndView productDetail(@PathVariable("product_name") String product_name, HttpSession session) {
 		ModelAndView mav = new ModelAndView("/product/productDetail");
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("product_name", product_name);
 		MemberDTO memDto = null;
 		LikeProductDTO likeDTO = null;
 		if(session.getAttribute("login") != null) {
@@ -70,10 +75,12 @@ public class ProductController {
 		ProductDTO prodDto = ps.getProduct(product_name);
 		List<String> sizeList = is.getItemSize(product_name);
 		List<String> colorList = is.getItemColor(product_name);
+		List<ReviewDTO> reviewList = rs.selectList(map);
 		mav.addObject("likeCheck", likeDTO);
 		mav.addObject("prodDto", prodDto);
 		mav.addObject("colorList", colorList);
 		mav.addObject("sizeList", sizeList);
+		mav.addObject("reviewList", reviewList);
 		return mav;
 	}
 	
