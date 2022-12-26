@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="cpath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
@@ -56,7 +57,7 @@
 			<div class="header_info jcsb aice">
 				<div class="header_left">
 					<div class="logo">
-						<a href="${cpath }"><img src="${cpath }/resources/img/logo.png" width="200px"></a>
+						<a href="${cpath }">POMADEN</a>
 					</div>
 				</div>
 				<div class="header_right aice">

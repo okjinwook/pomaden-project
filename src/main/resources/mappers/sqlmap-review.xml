@@ -14,7 +14,9 @@
 			#{review_img},
 			#{review_content},
 			sysdate,
-			#{review_grade}
+			#{review_grade},
+			#{review_color},
+			#{review_size}
 			)
 	</insert>
 	<select id="selectList" resultType="review" parameterType="hashmap">
@@ -25,6 +27,6 @@
 		<if test="product_name != null">
 			review_product = #{product_name}
 		</if>
-		order by review_date desc
+		order by ${sort} desc
 	</select>
 </mapper>

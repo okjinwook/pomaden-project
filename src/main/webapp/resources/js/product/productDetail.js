@@ -269,14 +269,27 @@ function paymentOnClick() {
 	location.href = url
 }
 
+function loginTest() {
+	if(member_id == '') {
+		alert('로그인 후 이용가능합니다.')
+		location.href = cpath + '/member/login'
+		return false
+	}
+}
+
 
 // 리뷰 댓글 ajax함수입니다
-function replyOnWrite(review_idx) {
-	const write_input = document.querySelector('.productDetail_review_reply_write_input').value
+function replyOnWrite(event, review_idx) {
+	loginTest()
+	const write_input = event.target.previousElementSibling.value
+	if(write_input == '') {
+		alert('댓글을 입력해주세요.')
+		return false
+	}
 	const url = cpath + '/reply/insert'
 	const ob = {
 		'reply_member_id' : member_id,
-		'reply_idx' : review_idx,
+		'reply_review_idx' : review_idx,
 		'reply_content' : write_input,
 	}
 	const opt = {
@@ -287,7 +300,53 @@ function replyOnWrite(review_idx) {
 		}
 	}
 	fetch(url, opt)
-	.then(resp => resp.text())
-	.then(text => {
+	.then(resp => resp.json())
+	.then(json => {
+		alert(json.msg)
+		location.reload()
 	})
 } 
+// 댓글 수정 함수입니다.
+function replyUpdate(event, reply_idx, reply_content) {
+	let target = event.target
+	if(target.innerText == '수정') {
+		target.innerText = '수정완료'
+		target.style.width = '55px'
+		while(target.classList.contains('productDetail_reply_info') == false) {
+			target = target.parentNode
+		}
+		target = target.nextElementSibling
+		target.innerHTML = `<input class="productDetail_reply_content_input" value='${reply_content}'>`
+		document.querySelector('.productDetail_reply_content').style.padding = '0px'
+	}
+	else {
+		if(confirm('댓글을 수정하시겠습니까?')) {
+			const reply_content_input = document.querySelector('.productDetail_reply_content_input').value
+			const url = cpath + '/reply/update?reply_idx=' + reply_idx + '&reply_content=' + reply_content_input
+			const opt = {
+				method : 'POST'
+			}
+			fetch(url, opt)
+			.then(resp => resp.json())
+			.then(json => {
+				alert(json.msg)
+				location.reload()
+			})
+		}
+	}
+}
+// 댓글 삭제 함수입니다.
+function replyDelete(reply_idx) {
+	if(confirm('댓글을 삭제하시겠습니까?')) {
+		const url = cpath + '/reply/delete?reply_idx=' + reply_idx
+		const opt = {
+			method : 'POST'
+		}
+		fetch(url, opt)
+		.then(resp => resp.json())
+		.then(json => {
+			alert(json.msg)
+			location.reload()
+		})
+	}
+}

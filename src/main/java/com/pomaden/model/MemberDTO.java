@@ -11,7 +11,22 @@ public class MemberDTO {
 	private String member_load_add;
 	private String member_detail_add;
 	private String member_phone;
+	private int member_point;
+	private int member_coupon;
 	
+	
+	public int getMember_point() {
+		return member_point;
+	}
+	public void setMember_point(int member_point) {
+		this.member_point = member_point;
+	}
+	public int getMember_coupon() {
+		return member_coupon;
+	}
+	public void setMember_coupon(int member_coupon) {
+		this.member_coupon = member_coupon;
+	}
 	public String getMember_code_add() {
 		return member_code_add;
 	}

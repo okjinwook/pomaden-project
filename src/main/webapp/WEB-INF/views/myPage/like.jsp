@@ -6,14 +6,13 @@
 		<div class="myPage_title">마이페이지</div>
 		<div class="myPage_kinds_box aice jcsb">
 			<a href="${cpath }/myPage/orderList" class="myPage_orderList myPage_kind jcce aice">주문내역</a>
-			<a href="${cpath }/myPage/point" class="myPage_point myPage_kind jcce aice">포인트</a>
-			<a href="${cpath }/myPage/coupon" class="myPage_coupon myPage_kind jcce aice">쿠폰</a>
+			<a href="${cpath }/myPage/point" class="myPage_point myPage_kind jcce aice">포인트<span class="myPage_member_point">${login.member_point }</span></a>
+			<a href="${cpath }/myPage/coupon" class="myPage_coupon myPage_kind jcce aice">쿠폰<span class="myPage_member_coupon">${login.member_coupon }</span></a>
 			<a href="${cpath }/myPage/board" class="myPage_board myPage_kind jcce aice">게시글</a>
 			<a href="${cpath }/myPage/like" class="myPage_like myPage_kind jcce aice">좋아요 상품</a>
 			<a href="${cpath }/myPage/member_info" class="myPage_member_info myPage_kind jcce aice">회원정보 관리</a>
 			<a href="${cpath }/myPage/myQuestion?page=0" class="myPage_myQuestion myPage_kind jcce aice">문의내역</a>
 		</div>
-		
 		
 		<div class="myPage_like_title">좋아요 누른 상품</div>
 		<div class="myPage_like_box">
@@ -27,7 +26,7 @@
 							<img src="${dto.like_img }" width="130px">
 						</div>
 						<div class="myPage_like_info">
-							<div class="myPage_like_name jcce aice"><a href="${cpath }/product/productDetail/${dto.like_name}">${dto.like_name }</a></div>
+							<div class="myPage_like_name jcce aice"><a href="${cpath }/product/productDetail/${dto.like_name}/review_grade">${dto.like_name }</a></div>
 							<div class="myPage_like_price jcce aice">
 								<fmt:formatNumber pattern="###,###" value="${dto.like_price}" />원
 							</div>

@@ -6,15 +6,15 @@
 		<div class="myPage_title">마이페이지</div>
 		<div class="myPage_kinds_box aice jcsb">
 			<a href="${cpath }/myPage/orderList" class="myPage_orderList myPage_kind jcce aice">주문내역</a>
-			<a href="${cpath }/myPage/point" class="myPage_point myPage_kind jcce aice">포인트(100p)</a>
-			<a href="${cpath }/myPage/coupon" class="myPage_coupon myPage_kind jcce aice">쿠폰(1)</a>
+			<a href="${cpath }/myPage/point" class="myPage_point myPage_kind jcce aice">포인트<span class="myPage_member_point">${login.member_point }</span></a>
+			<a href="${cpath }/myPage/coupon" class="myPage_coupon myPage_kind jcce aice">쿠폰<span class="myPage_member_coupon">${login.member_coupon }</span></a>
 			<a href="${cpath }/myPage/board" class="myPage_board myPage_kind jcce aice">게시글</a>
 			<a href="${cpath }/myPage/like" class="myPage_like myPage_kind jcce aice">좋아요 상품</a>
 			<a href="${cpath }/myPage/member_info" class="myPage_member_info myPage_kind jcce aice">회원정보 관리</a>
-			<a href="${cpath }/myPage/myQuestion?page=0" class="myPage_myQquestion myPage_kind jcce aice">문의내역</a>
+			<a href="${cpath }/myPage/myQuestion?page=0" class="myPage_myQuestion myPage_kind jcce aice">문의내역</a>
 		</div>
-		<div class="myPage_orderList_title">주문내역</div>
 		
+		<div class="myPage_orderList_title">주문내역</div>
 		<div class="myPage_orderList_box">
 			<div class="myPage_orderList_info df">
 				<div class="myPage_orderList_date jcce aice">주문일자</div>
@@ -48,7 +48,7 @@
 						<div class="myPage_orderList_progress jcce aice">${dto.orderList_progress }</div>
 						<div class="myPage_orderList_check jcce aice">${dto.orderList_check }</div>
 						<div class="myPage_orderList_review jcce aice">
-							<div class="myPage_orderList_review_button" onclick="reviewOnClick('${dto.orderList_name}')">리뷰 작성</div>
+							<div class="myPage_orderList_review_button" onclick="reviewOnClick('${dto.orderList_name}','${dto.orderList_color }', '${dto.orderList_size }')">리뷰 작성</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -67,6 +67,14 @@
 			<div class="review_modal_product aice">
 				<div>상품명</div>
 				<input name="review_product" readonly="readonly">
+			</div>
+			<div class="review_modal_color aice">
+				<div>컬러</div>
+				<input name="review_color" readonly="readonly">
+			</div>
+			<div class="review_modal_size aice">
+				<div>사이즈</div>
+				<input name="review_size" readonly="readonly">
 			</div>
 			<div class="review_modal_img aice">
 				<div>이미지</div>

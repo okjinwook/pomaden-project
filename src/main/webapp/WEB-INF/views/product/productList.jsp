@@ -19,12 +19,12 @@
 				<fmt:parseNumber var="salePrice" integerOnly="true" value="${((dto.product_price * (100 - dto.product_sale) / 100) / 100 )}" />
 				<div class="productList_item">
 					<div class="productList_item_img">
-						<a href="${cpath }/product/productDetail/${dto.product_name}">
+						<a href="${cpath }/product/productDetail/${dto.product_name}/review_grade">
 							<img src="${dto.product_img }" width="300px">
 						</a>
 					</div>
 					<div class="productList_item_name">
-						<a href="${cpath }/product/productDetail/${dto.product_name}">${dto.product_name }</a>
+						<a href="${cpath }/product/productDetail/${dto.product_name}/review_grade">${dto.product_name }</a>
 					</div>
 					<div class="productList_item_price">
 						<fmt:formatNumber pattern="###,###" value="${dto.product_price}" />원

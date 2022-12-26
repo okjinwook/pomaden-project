@@ -16,7 +16,9 @@
 			#{member_load_add},
 			#{member_phone},
 			#{member_code_add},
-			#{member_detail_add}
+			#{member_detail_add},
+			#{member_point},
+			#{member_coupon}
 			)
 	</insert>
 	<update id="update" parameterType="hashmap">

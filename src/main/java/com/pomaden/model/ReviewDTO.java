@@ -14,6 +14,22 @@ public class ReviewDTO {
 	private String review_content;
 	private Date review_date;
 	private int review_grade;
+	private String review_color;
+	private String review_size;
+	
+	
+	public String getReview_color() {
+		return review_color;
+	}
+	public void setReview_color(String review_color) {
+		this.review_color = review_color;
+	}
+	public String getReview_size() {
+		return review_size;
+	}
+	public void setReview_size(String review_size) {
+		this.review_size = review_size;
+	}
 	public int getReview_idx() {
 		return review_idx;
 	}

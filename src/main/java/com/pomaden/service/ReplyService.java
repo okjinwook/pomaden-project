@@ -1,6 +1,7 @@
 package com.pomaden.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,18 @@ public class ReplyService {
 
 	public int insert(HashMap<String, Object> map) {
 		return dao.insert(map);
+	}
+
+	public List<ReplyDTO> selectList() {
+		return dao.selectList();
+	}
+
+	public int delete(int reply_idx) {
+		return dao.delete(reply_idx);
+	}
+
+	public int update(HashMap<String, String> data) {
+		return dao.update(data);
 	}
 	
 }
