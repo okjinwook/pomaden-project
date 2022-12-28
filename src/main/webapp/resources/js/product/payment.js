@@ -47,19 +47,39 @@ function kakaopayPayment(item, orderList_order_number) {
 	let total_amount = totalResultPrice // 상품 총액
 	let quantity = 0 // 총 상품 개수
 	let item_name = '' // 상품명
-	
 	totalCount.forEach(count => {
 		quantity += count.id * 1
 	})
 	item.forEach(box => {
-		item_name += box.getElementsByClassName('order_orderList_name')[0].id + " / "
+		item_name = box.getElementsByClassName('order_orderList_name')[0].id
+		return
 	})
+	if(quantity != 1) {
+		item_name += '외' + quantity - 1 + '개' 
+	}
 	const url = cpath + '/kakaopay/paymentReady'
 	const ob = {
+		kakaopay : {
 		"item_name" : item_name,
 		"quantity" : quantity + '',
 		"total_amount" : total_amount + '',
+		}
 	}
+	item.forEach(box => {
+		const map = {
+			'orderList_order_number' : orderList_order_number,
+			'orderList_img' : box.getElementsByClassName('order_orderList_img')[0].id,
+			'orderList_name' : box.getElementsByClassName('order_orderList_name')[0].id,
+			'orderList_color' : box.getElementsByClassName('order_orderList_color')[0].id,
+			'orderList_size' : box.getElementsByClassName('order_orderList_size')[0].id,
+			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
+			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
+			'orderList_progress' : '결제완료',
+			'cart_idx' : box.getElementsByClassName('order_orderList_idx')[0].value,
+		}
+		const name = box.getElementsByClassName('order_orderList_name')[0].id
+		ob[name]  = map
+	})
 	const opt = {
 		method : 'POST',
 		body : JSON.stringify(ob),
@@ -72,37 +92,6 @@ function kakaopayPayment(item, orderList_order_number) {
 	.then(json => {
 		window.open(json.next_redirect_pc_url, 'kakaopay', 'width=600px, height=500px')
 		
-		// 주문내역 insert 
-//		const url = cpath + '/orderList/insert'
-//		const ob = []
-//		item.forEach(box => {
-//			const map = {
-//				'orderList_order_number' : orderList_order_number,
-//				'orderList_img' : box.getElementsByClassName('order_orderList_img')[0].id,
-//				'orderList_name' : box.getElementsByClassName('order_orderList_name')[0].id,
-//				'orderList_color' : box.getElementsByClassName('order_orderList_color')[0].id,
-//				'orderList_size' : box.getElementsByClassName('order_orderList_size')[0].id,
-//				'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
-//				'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
-//				'orderList_progress' : '결제완료',
-//			}
-//			ob.push(map)
-//		})
-//		const opt = {
-//			method : 'POST',
-//			body : JSON.stringify(ob),
-//			headers : {
-//				'Content-type' : 'application/json'
-//			},
-//		}
-//		fetch(url, opt)
-//		.then(resp => resp.json())
-//		.then(json => {
-//			if(json.status == 'FAIL') {
-//				alert(json.msg)
-//				return false
-//			}
-//		})
 	})
 }
 
@@ -153,8 +142,9 @@ function ResultPaymentOnClick() {
 	let year = today.getFullYear() + '' // 년도
 	let month = today.getMonth() + 1 + ''  // 월
 	let date = today.getDate() + ''  // 날짜
-	let day = today.getDay() + ''  // 요일
-	let orderList_order_number = year + month + date + day
+	const random = Math.floor(Math.random() * (9999 - 1000) + 1000);
+	let orderList_order_number = year + month + date + random
+	console.log(orderList_order_number)
 	// 결제 수단 대입
 	paymentWay.forEach(way => {
 		if(way.checked == true) {

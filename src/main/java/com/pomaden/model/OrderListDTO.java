@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class OrderListDTO {
 	private int orderList_idx;
-	private int orderList_order_number;
+	private String orderList_order_number;
 	private String orderList_member_id;
 	private String orderList_name;
 	private String orderList_img;
@@ -18,10 +18,10 @@ public class OrderListDTO {
 	private Date orderList_date;
 	
 	
-	public int getOrderList_order_number() {
+	public String getOrderList_order_number() {
 		return orderList_order_number;
 	}
-	public void setOrderList_order_number(int orderList_order_number) {
+	public void setOrderList_order_number(String orderList_order_number) {
 		this.orderList_order_number = orderList_order_number;
 	}
 	public int getOrderList_idx() {

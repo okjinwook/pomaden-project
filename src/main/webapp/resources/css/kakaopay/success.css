@@ -1,0 +1,41 @@
+@charset "utf-8";
+* {
+	box-sizing: border-box;
+}
+.df, .jcce, .jcsb, .jcfs, .jcfe, .aice {
+	display: flex;
+}
+.jcce {
+	justify-content: center; 
+}
+.jcsb {
+	justify-content: space-between;
+}
+.aice {
+	align-items: center;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+	margin: 0;
+}
+input {
+	padding: 0;
+}
+.empty_msg {
+	font-size: 25px;
+    height: 450px;
+}
+ul {
+	list-style: none;
+	padding: 0;
+}
+.hidden {
+	display: none;
+}
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	height: 100%;	
+}

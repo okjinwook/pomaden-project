@@ -9,7 +9,7 @@ public interface OrderListDAO {
 
 	int insert(HashMap<String, Object> map);
 
-	@Select("select * from orderList where orderList_member_id = #{member_id}")
+	@Select("select * from orderList where orderList_member_id = #{member_id} order by orderlist_date desc")
 	List<OrderListDTO> selectList(String member_id);
 
 }

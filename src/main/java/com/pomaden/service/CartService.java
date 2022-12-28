@@ -33,5 +33,7 @@ public class CartService {
 	public CartDTO getPaymentItem(HashMap<String, String> map) {
 		return dao.getPaymentItem(map);
 	}
+	public int delete(int idx) {
+		return dao.cartDelete(idx);	}
 
 }

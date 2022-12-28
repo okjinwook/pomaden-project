@@ -46,6 +46,7 @@
 					<c:set var="totalResultPrice" value="${totalResultPrice + dto.cart_total}"></c:set>
 					
 					<div class="payment_orderList_item aice">
+						<input class="order_orderList_idx" value="${dto.cart_idx }" hidden="">
 						<div class="payment_orderList_img jcce aice order_orderList_img" id="${dto.cart_img }"><img src="${dto.cart_img }" width="80px"></div>
 						<div class="payment_orderList_name_box jcce aice">
 							<div class="payment_orderList_name order_orderList_name" id="${dto.cart_name }">${dto.cart_name }</div>
@@ -173,7 +174,6 @@
 	let totalResultPrice = ${totalResultPrice}
 	let totalSalePrice = ${totalSalePrice}
 	let point = 0
-	console.log(totalSalePrice)
 	
 </script>
 <%@ include file="../footer.jsp" %>
