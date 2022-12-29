@@ -48,7 +48,12 @@
 						<div class="myPage_orderList_progress jcce aice">${dto.orderList_progress }</div>
 						<div class="myPage_orderList_check jcce aice">${dto.orderList_check }</div>
 						<div class="myPage_orderList_review jcce aice">
-							<div class="myPage_orderList_review_button" onclick="reviewOnClick('${dto.orderList_name}','${dto.orderList_color }', '${dto.orderList_size }')">리뷰 작성</div>
+							<c:if test="${dto.orderList_review_check == 0}">
+								<div class="myPage_orderList_review_button" onclick="reviewOnClick('${dto.orderList_idx }','${dto.orderList_name}','${dto.orderList_color }', '${dto.orderList_size }')">리뷰 작성</div>
+							</c:if>
+							<c:if test="${dto.orderList_review_check == 1}">
+								<div class="myPage_orderList_review_success_button">작성 완료</div>
+							</c:if>
 						</div>
 					</div>
 				</c:forEach>
@@ -60,6 +65,7 @@
 	<form action="${cpath }/review/insert" method="POST" enctype="multipart/form-data">
 		<div class="review_modal_title jcce aice">리뷰작성</div>
 		<div class="review_modal_component">
+			<input type="number" name="review_orderList_idx" hidden="">
 			<div class="review_modal_writer aice">
 				<div>작성자</div>
 				<input name="review_member_id" value="${login.member_id }" readonly="readonly">

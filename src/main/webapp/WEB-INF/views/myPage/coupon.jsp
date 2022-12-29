@@ -22,6 +22,7 @@
 				<div class="myPage_coupon_condition jcce aice">사용조건</div>
 				<div class="myPage_coupon_date jcce aice">유효기간</div>
 				<div class="myPage_coupon_sale jcce aice">할인율</div>
+				<div class="myPage_coupon_use jcce aice">사용 여부</div>
 			</div>
 			<c:forEach var="dto" items="${list }">
 				<div class="myPage_coupon_item df">
@@ -30,6 +31,12 @@
 					<div class="myPage_coupon_condition jcce aice">${dto.coupon_condition }</div>
 					<div class="myPage_coupon_date jcce aice">~ ${dto.coupon_date }</div>
 					<div class="myPage_coupon_sale jcce aice">${dto.coupon_sale }%</div>
+					<c:if test="${dto.coupon_use == 0 }">
+						<div class="myPage_coupon_use jcce aice">사용 가능</div>
+					</c:if>
+					<c:if test="${dto.coupon_use == 1 }">
+						<div class="myPage_coupon_use jcce aice">사용 불가능</div>
+					</c:if>
 				</div>
 			</c:forEach>
 		</div>

@@ -19,7 +19,8 @@
 			#{orderList_size},
 			#{orderList_progress},
 			'정상',
-			sysdate
+			sysdate,
+			0
 			)
 	</insert>
 </mapper>

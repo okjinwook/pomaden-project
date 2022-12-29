@@ -33,16 +33,19 @@
 	width: 200px;
 }
 .myPage_coupon_benefit {
-	width: 508px;
+	width: 450px;
 }
 .myPage_coupon_condition {
-	width: 360px;
+	width: 350px;
 }
 .myPage_coupon_date {
-	width: 200px;
+	width: 150px;
 }
 .myPage_coupon_sale {
 	width: 80px; 
+}
+.myPage_coupon_use {
+	width: 120px; 
 }
 .myPage_coupon_item {
 	height: 50px;

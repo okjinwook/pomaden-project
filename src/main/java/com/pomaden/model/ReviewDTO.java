@@ -9,6 +9,7 @@ public class ReviewDTO {
 	private int review_idx;
 	private String review_member_id;
 	private String review_product;
+	private int review_orderList_idx;
 	private MultipartFile review_upload;
 	private String review_img;
 	private String review_content;
@@ -77,6 +78,12 @@ public class ReviewDTO {
 	}
 	public void setReview_grade(int review_grade) {
 		this.review_grade = review_grade;
+	}
+	public int getReview_orderList_idx() {
+		return review_orderList_idx;
+	}
+	public void setReview_orderList_idx(int review_orderList_idx) {
+		this.review_orderList_idx = review_orderList_idx;
 	}
 	
 	

@@ -10,6 +10,7 @@
 			(
 			review_seq.nextval,
 			#{review_member_id},
+			#{review_orderList_idx},
 			#{review_product},
 			#{review_img},
 			#{review_content},

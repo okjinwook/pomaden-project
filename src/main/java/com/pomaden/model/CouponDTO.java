@@ -11,8 +11,16 @@ public class CouponDTO {
     private String coupon_condition;
     private Date coupon_date;
     private int coupon_sale;
+    private int coupon_use;
     
     
+    
+	public int getCoupon_use() {
+		return coupon_use;
+	}
+	public void setCoupon_use(int coupon_use) {
+		this.coupon_use = coupon_use;
+	}
 	public int getCoupon_sale() {
 		return coupon_sale;
 	}

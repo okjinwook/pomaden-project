@@ -39,7 +39,7 @@
 				<div class="payment_orderList_sale jcce aice">상품할인</div>
 				<div class="payment_orderList_price jcce aice">주문금액</div>
 			</div>
-			<c:if test="${not empty list }">
+			<c:if test="${not empty list}">
 				<c:forEach var="dto" items="${list }">
 					<c:set var="totalOriginalPrice" value="${totalOriginalPrice + dto.cart_price * dto.cart_count}"></c:set>
 					<c:set var="totalSalePrice" value="${totalSalePrice + dto.cart_price * (dto.cart_sale / 100) * dto.cart_count}"></c:set>
@@ -88,8 +88,10 @@
 						<fmt:formatNumber pattern="###,###" value="${totalResultPrice * 0.01}" /> P
 					</div>
 					<div class="payment_orderList_sale jcce aice">
-						<div>${dto.product_sale }%</div>
-						- <fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원
+						<div>( ${dto.product_sale }% )</div>
+						<span class="sale_span">
+							- <fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원
+						</span>
 					</div>
 					<div class="payment_orderList_price jcce aice">
 						<span class="payment_orderList_original_price">
@@ -113,7 +115,9 @@
 			<div class="payment_discount_sale_box aice">
 				<div class="payment_discount_info">상품 할인</div>
 				<div class="payment_discount_price">
-					- <fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원
+					<span class="sale_span">
+						-<fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원
+					</span>
 				</div>
 			</div>
 			<div class="payment_discount_coupon_box aice">
@@ -123,7 +127,7 @@
 			</div>
 			<div class="payment_discount_point_box aice">
 				<div class="payment_discount_info">적립금 사용</div>
-				<input class="payment_discount_point_input" type="number" placeholder="p" onkeyup="PointOnKeyUp(this, ${point.point_total })">
+				<input class="payment_discount_point_input" type="number" onkeyup="PointOnKeyUp(this, ${point.point_total })">
 				<div class="payment_discount_point_button" onclick="pointOnClick()">적용</div>
 				<div class="payment_discount_point_msg">( 최대 사용 가능한 적립금 ${point.point_total }P )</div>
 			</div>
@@ -140,7 +144,7 @@
 					<fmt:formatNumber pattern="###,###" value="${totalOriginalPrice}" />원
 				</div>
 				<div class="payment_orderPrice_discount aice jcce">
-					- <fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원
+					<span class="sale_span">- <fmt:formatNumber pattern="###,###" value="${totalSalePrice}" />원</span>
 				</div>
 				<div class="payment_orderPrice_total payment_orderPrice_resultPrice aice jcce">
 					<fmt:formatNumber pattern="###,###" value="${totalResultPrice}" />원
@@ -155,7 +159,9 @@
 			<label>
 				<input type="radio" name="paymentWay" value="deposit" onclick="paymentWayOnClick('payment_paymentWay_deposit')">무통장 입금
 			</label>
-			<div class="payment_paymentWay_kakaopay hidden payment_paymentWay"></div>
+			<div class="payment_paymentWay_kakaopay hidden payment_paymentWay">
+				<div class="payment_paymentWay_kakaopay_icon jcce aice">KAKAOPAY</div>
+			</div>
 			<div class="payment_paymentWay_deposit hidden payment_paymentWay">
 				<div class="payment_deposit_bank_box aice">
 					<div class="payment_deposit_bank_info jcce aice">은행</div>

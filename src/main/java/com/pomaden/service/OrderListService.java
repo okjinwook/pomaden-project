@@ -21,4 +21,8 @@ public class OrderListService {
 		return dao.selectList(member_id);
 	}
 
+	public int update(int orderList_idx) {
+		return dao.update(orderList_idx);
+	}
+
 }

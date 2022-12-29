@@ -115,7 +115,9 @@
 
 /* ================================================ */
 
-
+.sale_span {
+	color: blue;
+}
 .payment_discount_box {
 	border: 1px solid black;
 }
@@ -149,6 +151,7 @@
 	height: 30px;
 	width: 150px;
 	margin-right: 10px;
+	padding-left: 10px;
 }
 .payment_discount_point_msg {
 	font-size: 12px;
@@ -163,6 +166,16 @@
 .payment_paymentWay_box {
 	padding: 20px;
 	border: 1px solid black;
+}
+.payment_paymentWay_kakaopay_icon {
+	width: 110px;
+	height: 40px;
+	margin-top: 20px;
+	background-color: #FFEB00;
+	color: #131D22;
+	font-size: 14px;
+	font-weight: 700;
+	border-radius: 100px;
 }
 .payment_paymentWay_deposit {
 	margin-top: 20px;

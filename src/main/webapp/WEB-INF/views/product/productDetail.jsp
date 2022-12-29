@@ -56,7 +56,8 @@
 						</c:forEach>
 					</div>
 				</div>
-				<div class="productDetail_buyList_box hidden">
+				<div class="productDetail_buyList_box">
+					<div class="productDetail_none_option jcce aice">옵션을 선택해주세요</div>
 				</div>
 				<div class="productDetail_button_box jcsb">
 					<div class="productDetail_buy_button jcce aice" onclick="paymentOnClick()">바로구매</div>

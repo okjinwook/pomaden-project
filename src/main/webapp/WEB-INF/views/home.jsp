@@ -3,26 +3,6 @@
 <%@ include file="header.jsp" %>
 <main>
 	<div class="main_component">
-		<div class="main_news">
-			<div class="main_news_title">EVENT · 공지사항</div>
-			<div class="main_news_box">
-				<div class="main_news_buttonBox jcsb">
-					<div class="event_button jcce aice">EVENT</div>
-					<div class="notice_button jcce aice">공지사항</div>
-				</div>
-				<div class="main_news_content">
-					<ul class="main_news_content_event">
-						<li>[이벤트] 1 + 1 행사 할인</li>
-						<li>[이벤트] 회원가입 이벤트 500적립금!!!!!!!!!!</li>
-						<li>[이벤트] 한달 간 배송비 무료 이벤트</li>
-					</ul>
-					<ul class="main_news_content_notice hidden">
-						<li>[공지] 개인정보처리방침 (ver.2.0) 18.04.12~19.10.28 </li>
-						<li>[공지] 교환/반품 배송지 변경 안내 (2021.05 부터) </li>
-					</ul>
-				</div>
-			</div>
-		</div>
 		<div class="best_product">
 			<div class="best_product_title">아우터</div>
 			<div class="best_product_item_box df">
@@ -90,11 +70,6 @@
 	</div>
 </main>
 <script>
-	const main_news_buttonBox = document.querySelectorAll('.main_news_buttonBox > div')
-	
-	main_news_buttonBox.forEach(button => {
-		button.addEventListener('click', mainNewsClick) 
-	})
 </script>
 
 <%@ include file="footer.jsp" %>

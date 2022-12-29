@@ -71,6 +71,12 @@
 	margin-top: 30px;
 	background-color: cornsilk;
 	padding: 10px;
+	height: 81px;
+}
+.productDetail_none_option {
+	line-height: 61px;
+    font-size: 14px;
+    color: darkgrey;
 }
 .productDetail_item_color_title {
 	width: 150px;

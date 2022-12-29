@@ -16,6 +16,7 @@ public class OrderListDTO {
 	private String orderList_progress;
 	private String orderList_check;
 	private Date orderList_date;
+	private int orderList_review_check;
 	
 	
 	public String getOrderList_order_number() {
@@ -89,6 +90,12 @@ public class OrderListDTO {
 	}
 	public void setOrderList_date(Date orderList_date) {
 		this.orderList_date = orderList_date;
+	}
+	public int getOrderList_review_check() {
+		return orderList_review_check;
+	}
+	public void setOrderList_review_check(int orderList_review_check) {
+		this.orderList_review_check = orderList_review_check;
 	}
 	
 	

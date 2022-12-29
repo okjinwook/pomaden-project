@@ -1,13 +1,15 @@
 // 리뷰 모달 띄우는 함수입니다. 
-function reviewOnClick(product_name, product_color, product_size){
+function reviewOnClick(orderList_idx ,product_name, product_color, product_size){
 	const modal = document.querySelector('.review_modal_box')
 	const overlay = document.querySelector('.overlay')
 	const product = document.querySelector('.review_modal_product > input[name="review_product"]')
 	const color = document.querySelector('.review_modal_color > input[name="review_color"]')
 	const size = document.querySelector('.review_modal_size > input[name="review_size"]')
+	const idx = document.querySelector('input[name="review_orderList_idx"]')
 	product.value = product_name
 	color.value = product_color
 	size.value = product_size
+	idx.value = orderList_idx
 	modal.classList.remove('hidden')
 	overlay.classList.remove('hidden')
 	

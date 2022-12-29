@@ -28,21 +28,29 @@ public class KakaoPayController {
 	@GetMapping("/kakaopay/success")
 	public ModelAndView success(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		int insertRow;
+		int deleteRow;
 		List<HashMap<String, Object>> insertList = (List<HashMap<String, Object>>) session.getAttribute("list");
 		MemberDTO login = (MemberDTO) session.getAttribute("login");
 		for(HashMap<String, Object> map : insertList) {
 			map.put("orderList_member_id", login.getMember_id());
-			int insertRow = os.insert(map);
-			int deleteRow = cs.delete(Integer.parseInt((String)map.get("cart_idx")));
+			insertRow = os.insert(map);
+			if(map.get("cart_idx") != null) {
+				deleteRow = cs.delete(Integer.parseInt((String)map.get("cart_idx")));
+			}
 		}
 		mav.addObject("list", insertList);
-		session.removeAttribute("list");
+//		session.removeAttribute("list");
 		return mav;
 	}
 	@GetMapping("/kakaopay/fail")
-	public void fail(String pg_token) {}
+	public void fail(HttpSession session) {
+		session.removeAttribute("list");
+	}
 	@GetMapping("/kakaopay/cancle")
-	public void cancle(String pg_token) {}
+	public void cancle(HttpSession session) {
+		session.removeAttribute("list");
+	}
 	
 	
 	@ResponseBody

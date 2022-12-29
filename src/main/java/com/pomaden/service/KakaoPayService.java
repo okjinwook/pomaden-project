@@ -6,9 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +49,7 @@ public class KakaoPayService {
 			String param = "cid=TC0ONETIME"
 						 + "&partner_order_id=partner_order_id"
 						 + "&partner_user_id=partner_user_id"
-						 + "&item_name=" + item_name
+						 + "&item_name=" + URLEncoder.encode(item_name,"utf-8")
 						 + "&quantity=" + quantity
 						 + "&total_amount=" + total_amount
 						 + "&tax_free_amount=0"

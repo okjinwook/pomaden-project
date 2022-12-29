@@ -102,6 +102,13 @@
 	padding: 5px;
 	cursor: pointer;
 }
+.myPage_orderList_review_success_button {
+	background-color: darkgrey;
+	color: white;
+	border-radius: 5px;
+	font-size: 12px;
+	padding: 5px;
+}
 .myPage_orderList_item {
 	width: 100%;
 	height: 70px;

@@ -44,9 +44,11 @@ function paymentWayOnClick(ob) {
 // 결제수단 카카오페이 함수입니다.
 function kakaopayPayment(item, orderList_order_number) {
 	const totalCount = document.querySelectorAll('.payment_orderList_count')
-	let total_amount = totalResultPrice // 상품 총액
+	const total_amount = totalResultPrice // 상품 총액
+	const size = item.length
 	let quantity = 0 // 총 상품 개수
 	let item_name = '' // 상품명
+	
 	totalCount.forEach(count => {
 		quantity += count.id * 1
 	})
@@ -55,8 +57,10 @@ function kakaopayPayment(item, orderList_order_number) {
 		return
 	})
 	if(quantity != 1) {
-		item_name += '외' + quantity - 1 + '개' 
+		
+		item_name += ' 외 ' + ((quantity * 1) - 1) + '개' 
 	}
+	console.log(item_name)
 	const url = cpath + '/kakaopay/paymentReady'
 	const ob = {
 		kakaopay : {
@@ -75,7 +79,9 @@ function kakaopayPayment(item, orderList_order_number) {
 			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
 			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
 			'orderList_progress' : '결제완료',
-			'cart_idx' : box.getElementsByClassName('order_orderList_idx')[0].value,
+		}
+		if(size != 1) {
+			map.cart_idx = box.getElementsByClassName('order_orderList_idx')[0].value		
 		}
 		const name = box.getElementsByClassName('order_orderList_name')[0].id
 		ob[name]  = map
@@ -90,13 +96,13 @@ function kakaopayPayment(item, orderList_order_number) {
 	fetch(url, opt)
 	.then(resp => resp.json())
 	.then(json => {
-		window.open(json.next_redirect_pc_url, 'kakaopay', 'width=600px, height=500px')
-		
+		location.href = json.next_redirect_pc_url
 	})
 }
 
 // 결제수단 무통장입금 함수입니다
 function depositPayment(item, orderList_order_number) {
+	const size = item.length
 	const url = cpath + '/orderList/insert'
 	const ob = []
 	item.forEach(box => {
@@ -109,6 +115,9 @@ function depositPayment(item, orderList_order_number) {
 			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
 			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
 			'orderList_progress' : '입금대기',
+		}
+		if(size != 1) {
+			map.cart_idx = box.getElementsByClassName('order_orderList_idx')[0].value		
 		}
 		ob.push(map)
 	})
@@ -142,9 +151,8 @@ function ResultPaymentOnClick() {
 	let year = today.getFullYear() + '' // 년도
 	let month = today.getMonth() + 1 + ''  // 월
 	let date = today.getDate() + ''  // 날짜
-	const random = Math.floor(Math.random() * (9999 - 1000) + 1000);
+	const random = Math.floor(Math.random() * (9999 - 1000) + 1000); // 1000 ~ 9999 난수
 	let orderList_order_number = year + month + date + random
-	console.log(orderList_order_number)
 	// 결제 수단 대입
 	paymentWay.forEach(way => {
 		if(way.checked == true) {
