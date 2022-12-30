@@ -19,20 +19,22 @@
 		<div class="couponList_coupon_apply jcce aice">적용하기</div>
 	</div>
 	<c:forEach var="dto" items="${couponList }">
-		<div class="couponList_coupon_item aice">
-			<div class="couponList_coupon_name jcce aice">${dto.coupon_name }</div>
-			<div class="couponList_coupon_count jcce aice">1개</div>
-			<div class="couponList_coupon_date jcce aice">~ ${dto.coupon_date }</div>
-			<div class="couponList_coupon_sale jcce aice">${dto.coupon_sale} %</div>
-			<div class="couponList_coupon_apply jcce aice">
-				<div class="couponList_apply_button jcce aice" onclick="sendCoupon('${dto.coupon_name }',${dto.coupon_sale})">쿠폰선택</div>
+		<c:if test="${dto.coupon_use == 0 }">
+			<div class="couponList_coupon_item aice">
+				<div class="couponList_coupon_name jcce aice">${dto.coupon_name }</div>
+				<div class="couponList_coupon_count jcce aice">1개</div>
+				<div class="couponList_coupon_date jcce aice">~ ${dto.coupon_date }</div>
+				<div class="couponList_coupon_sale jcce aice">${dto.coupon_sale} %</div>
+				<div class="couponList_coupon_apply jcce aice">
+					<div class="couponList_apply_button jcce aice" onclick="sendCoupon('${dto.coupon_name }',${dto.coupon_sale},${dto.coupon_idx })">쿠폰선택</div>
+				</div>
 			</div>
-		</div>
+		</c:if>
 	</c:forEach>
 	<script>
 		// 부모창 값 넘겨주기 (opener <= 부모창 객체(?))
-		function sendCoupon(coupon_name, coupon_sale){
-			opener.sendCoupon(coupon_name, coupon_sale);
+		function sendCoupon(coupon_name, coupon_sale, coupon_idx){
+			opener.sendCoupon(coupon_name, coupon_sale, coupon_idx);
 			window.close();
 		}
 	</script>

@@ -26,7 +26,7 @@ public class KakaoPayService {
 		String item_name = "";
 		String quantity = "";
 		String total_amount = "";
-		List<HashMap<String, Object>> insertList = new ArrayList<HashMap<String, Object>>(); 
+		List<HashMap<String, Object>> kakaopayItemList = new ArrayList<HashMap<String, Object>>(); 
 		// 카카오페이 결제 정보 추출
 		for(String key : data.keySet()) {
 			if("kakaopay".equals(key)) {
@@ -35,10 +35,10 @@ public class KakaoPayService {
 				total_amount = (String) data.get(key).get("total_amount");
 			}
 			else { // 결제 성공시 주문내역에 insert 할 객체를 list에 담습니다
-				insertList.add(data.get(key));
+				kakaopayItemList.add(data.get(key));
 			}
 		}
-		session.setAttribute("list", insertList);
+		session.setAttribute("kakaopayItemList", kakaopayItemList);
 		try {
 			URL url = new URL("https://kapi.kakao.com/v1/payment/ready");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();

@@ -1,5 +1,5 @@
 // 자식 부모창에서 쿠폰 정보를 받아오는 함수입니다
-function sendCoupon(coupon_name, coupon_sale) {
+function sendCoupon(coupon_name, coupon_sale, coupon_idx) {
 	const coupon_box = document.querySelector('.payment_coupon_box')
 	const discount = document.querySelector('.payment_orderPrice_price > .payment_orderPrice_discount')
 	const total = document.querySelector('.payment_orderPrice_price > .payment_orderPrice_total')
@@ -10,6 +10,7 @@ function sendCoupon(coupon_name, coupon_sale) {
 	
 	discount.innerText = '- ' + Number(totalSalePrice + point * 1).toLocaleString() + '원'
 	total.innerText = Number(totalResultPrice - point * 1).toLocaleString() + '원'
+	coupon = coupon_idx
 }
 
 // 보유한 적립금액 만큼만 적용하는 제한 함수입니다.
@@ -29,6 +30,8 @@ function pointOnClick() {
 	
 	discount.innerText = '- ' + Number((totalSalePrice * 1) + (point * 1)).toLocaleString() + '원'
 	total.innerText = Number((totalResultPrice * 1) - (point * 1)).toLocaleString() + '원'
+	totalResultPrice -= point
+	totalSalePrice += point
 }
 
 
@@ -60,7 +63,7 @@ function kakaopayPayment(item, orderList_order_number) {
 		
 		item_name += ' 외 ' + ((quantity * 1) - 1) + '개' 
 	}
-	console.log(item_name)
+	
 	const url = cpath + '/kakaopay/paymentReady'
 	const ob = {
 		kakaopay : {
@@ -86,6 +89,18 @@ function kakaopayPayment(item, orderList_order_number) {
 		const name = box.getElementsByClassName('order_orderList_name')[0].id
 		ob[name]  = map
 	})
+	if(coupon != 0) {
+		const coupon_map = {
+			'coupon_idx' : coupon
+		}
+		ob['coupon'] = coupon_map
+	}
+	if(point != 0) {
+		const point_map = {
+			'point_use' : point * 1
+		}
+		ob['point'] = point_map
+	}
 	const opt = {
 		method : 'POST',
 		body : JSON.stringify(ob),
@@ -103,6 +118,8 @@ function kakaopayPayment(item, orderList_order_number) {
 // 결제수단 무통장입금 함수입니다
 function depositPayment(item, orderList_order_number) {
 	const size = item.length
+	const coupon_map = {}
+	const point_map = {}
 	const url = cpath + '/orderList/insert'
 	const ob = []
 	item.forEach(box => {
@@ -121,6 +138,14 @@ function depositPayment(item, orderList_order_number) {
 		}
 		ob.push(map)
 	})
+	if(coupon != 0) {
+		coupon_map['coupon_idx'] = coupon * 1
+		ob.push(coupon_map)
+	}
+	if(point != 0) {
+		point_map['point_use'] = point * 1
+		ob.push(point_map)
+	}
 	const opt = {
 		method : 'POST',
 		body : JSON.stringify(ob),
@@ -131,7 +156,6 @@ function depositPayment(item, orderList_order_number) {
 	fetch(url, opt)
 	.then(resp => resp.json())
 	.then(json => {
-		console.log(json)
 		if(json.status == 'OK') {
 			alert(json.msg)
 			location.href = cpath + '/myPage/orderList'

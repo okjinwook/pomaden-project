@@ -127,9 +127,9 @@
 			</div>
 			<div class="payment_discount_point_box aice">
 				<div class="payment_discount_info">적립금 사용</div>
-				<input class="payment_discount_point_input" type="number" onkeyup="PointOnKeyUp(this, ${point.point_total })">
+				<input class="payment_discount_point_input" type="number" onkeyup="PointOnKeyUp(this, ${point })">
 				<div class="payment_discount_point_button" onclick="pointOnClick()">적용</div>
-				<div class="payment_discount_point_msg">( 최대 사용 가능한 적립금 ${point.point_total }P )</div>
+				<div class="payment_discount_point_msg">( 최대 사용 가능한 적립금 ${point }P )</div>
 			</div>
 		</div>
 		<div class="payment_orderPrice_title">주문금액</div>
@@ -179,6 +179,7 @@
 <script>
 	let totalResultPrice = ${totalResultPrice}
 	let totalSalePrice = ${totalSalePrice}
+	let coupon = 0 
 	let point = 0
 	
 </script>

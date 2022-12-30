@@ -32,9 +32,17 @@
 				, member_pw = #{member_pw}
 			</if>
 		</if>
-		<if test="member_email == null">
+		<if test="member_email == null and member_pw != null">
 			member_pw = #{member_pw} 
 		</if>
+		<if test="member_point != null">
+			member_point = #{member_point}
+		</if>
+		
+		<if test="member_coupon != null">
+			member_coupon = #{member_coupon}
+		</if>
+		
 		where member_id = #{member_id}
 	</update>
 </mapper>

@@ -76,11 +76,9 @@
 					<c:if test="${empty login }">
 						<a href="${cpath }/member/join">회원가입</a>
 					</c:if>
-					<c:if test="${not empty login }">
-						<a href="${cpath }/cart/cartList">
-							<img src="${cpath }/resources/img/cart.png" width="30px">
-						</a>
-					</c:if>
+					<a href="${cpath }/cart/cartList">
+						<img src="${cpath }/resources/img/cart.png" width="30px">
+					</a>
 					<a href="${cpath }/myPage/orderList">
 						<img src="${cpath }/resources/img/profile.png" width="30px">
 					</a>

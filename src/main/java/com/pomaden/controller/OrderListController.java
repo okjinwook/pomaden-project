@@ -13,29 +13,92 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pomaden.model.MemberDTO;
+import com.pomaden.model.PointDTO;
+import com.pomaden.service.CartService;
+import com.pomaden.service.CouponService;
+import com.pomaden.service.MemberService;
 import com.pomaden.service.OrderListService;
+import com.pomaden.service.PointService;
 
 @Controller
 public class OrderListController {
 	@Autowired private OrderListService os;
+	@Autowired private PointService ps;
+	@Autowired private MemberService ms;
+	@Autowired private CartService carts;
+	@Autowired private CouponService cous;
 	
 	@ResponseBody
 	@PostMapping("/orderList/insert")
 	public HashMap<String, String> insert(@RequestBody List<HashMap<String, Object>> list, HttpSession session) {
-		int row = 1;
+		int orderListInsertRow = 1;
+		int cartDeleteRow = 1;
+		int couponUpdateRow = 1;
+		int memberPointUpdateRow = 1;
+		int memberCouponUpdateRow = 1;
+		int pointInsertRow = 0;
 		HashMap<String, String> resp = new HashMap<String, String>(); 
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
+		String member_id = login.getMember_id();
+		
 		for(HashMap<String, Object> map : list) {
-			map.put("orderList_member_id", login.getMember_id());
-			row = os.insert(map);
-			if(row == 0) {
+			HashMap<String, String> couponUpdateMap = new HashMap<String, String>();
+			HashMap<String, String> pointUpdateMap = new HashMap<String, String>();
+			HashMap<String, String> pointInsertMap = new HashMap<String, String>();
+			
+			// 주문내역 insert
+			if(map.get("orderList_order_number") != null) {
+				map.put("orderList_member_id", member_id);
+				orderListInsertRow = os.insert(map);
+			}
+			// 주문내역 insert에 성공 했으면서
+			if(orderListInsertRow == 1) {
+				// 리스트 안의 hashmap이 상품인지 쿠폰,적립금 사용 데이터인지
+				if(map.get("cart_idx") != null) {
+					int cart_idx = Integer.parseInt(String.valueOf(map.get("cart_idx")));
+					cartDeleteRow = carts.delete(cart_idx);
+				}
+				else if(map.get("coupon_idx") != null) {
+					int coupon_count = login.getMember_coupon() - 1;
+					int coupon_idx = Integer.parseInt(String.valueOf(map.get("coupon_idx")));
+					couponUpdateMap.put("member_id", member_id);
+					couponUpdateMap.put("member_coupon", String.valueOf(coupon_count));
+					memberCouponUpdateRow = ms.update(couponUpdateMap);
+					couponUpdateRow = cous.update(coupon_idx);
+				}
+				else if(map.get("point_use") != null) {
+					int member_point = login.getMember_point();
+					int point_use = Integer.parseInt(String.valueOf(map.get("point_use")));
+					int point_total = member_point - point_use; // 원래 있던 포인트 - 사용한 포인트
+					pointUpdateMap.put("member_point", String.valueOf(point_total));
+					pointUpdateMap.put("member_id", login.getMember_id());
+					memberPointUpdateRow = ms.update(pointUpdateMap);
+					
+					pointInsertMap.put("point_member_id", login.getMember_id());
+					pointInsertMap.put("point_content", "상품 구매 적용");
+					pointInsertMap.put("point_change", "-" + point_use);
+					pointInsertMap.put("point_total", String.valueOf(point_total));
+					pointInsertRow = ps.insert(pointInsertMap);
+				}
+				if(cartDeleteRow == 1 && couponUpdateRow == 1 && 
+					memberPointUpdateRow == 1 && memberCouponUpdateRow == 1 &&
+					pointInsertRow == 1) {
+					resp.put("status", "OK");
+					resp.put("msg", "정상적으로 상품이 구매되었습니다.");
+				}
+				else {
+					resp.put("status", "FAIL");
+					resp.put("msg", "상품구매 실패!!");
+				}
+			}
+			else {
 				resp.put("status", "FAIL");
-				resp.put("msg", "결제요청에 실패하였습니다.");
-				return resp;
+				resp.put("msg", "상품구매 실패!!");
 			}
 		}
-		resp.put("status", "OK");
-		resp.put("msg", "정상적으로 상품이 구매되었습니다.");
+		login = ms.selectOne(member_id);
+		session.removeAttribute("login");
+		session.setAttribute("login", login);
 		return resp;
 	}
 }

@@ -154,157 +154,161 @@ function cartUpdateAjax(count , cart_idx) {
 
 // 장바구니 담기 버튼 클릭 함수입니다
 function cartOnclick(event) {
-	const buyList_box = document.querySelector(".productDetail_buyList_box")
 	if(member_id == '') {
-		alert('로그인 후 사용가능합니다.')
-		location.href= cpath + '/member/login'
-		return false
-	}
-	if(buyList_box.innerText == '') {
-		alert('상품을 선택해주세요.')
+		alert('로그인 후 이용가능합니다.')
+		location.href = cpath + '/member/login'
 	}
 	else {
-		const product_count = document.querySelector(".productDetail_buy_count").value
-		const product_color = document.querySelector(".productDetail_buyList_color").id
-		const product_size = document.querySelector(".productDetail_buyList_size").id
-		// 가격의 총 합
-		const cart_total = (product_salePrice * 1) * (product_count * 1)
-		
-		const url = cpath + '/cart/insert'
-		const ob = {
-			'cart_member_id': member_id,
-			'cart_name' : product_name,
-			'cart_img' :  product_img,
-			'cart_price' : product_price * 1,
-			'cart_sale' : product_sale * 1,
-			'cart_count' : product_count * 1,
-			'cart_color' : product_color,
-			'cart_size' : product_size,
-			'cart_total' : cart_total,
+		const buyList_box = document.querySelector(".productDetail_buyList_box")
+		if(buyList_box.innerText == '') {
+			alert('상품을 선택해주세요.')
 		}
-		const opt = {
-            method: 'POST',
-            body: JSON.stringify(ob),
-            headers: {
-               'Content-type': 'application/json'
-            },
-         }
-		fetch(url, opt)
-		.then(resp => resp.json())
-		.then(json => {
-			// 컨펌 값이 있으면 컨펌메세지
-			if(json.confirm != null) {
-				if(confirm(json.msg)) {
-					// 메세지 확인선택시 기존에 있던 장바구니 상품 추가 작업(update)
-					cartUpdateAjax(json.cart_count, json.cart_idx)
+		else {
+			const product_count = document.querySelector(".productDetail_buy_count").value
+			const product_color = document.querySelector(".productDetail_buyList_color").id
+			const product_size = document.querySelector(".productDetail_buyList_size").id
+			// 가격의 총 합
+			const cart_total = (product_salePrice * 1) * (product_count * 1)
+			
+			const url = cpath + '/cart/insert'
+			const ob = {
+				'cart_member_id': member_id,
+				'cart_name' : product_name,
+				'cart_img' :  product_img,
+				'cart_price' : product_price * 1,
+				'cart_sale' : product_sale * 1,
+				'cart_count' : product_count * 1,
+				'cart_color' : product_color,
+				'cart_size' : product_size,
+				'cart_total' : cart_total,
+			}
+			const opt = {
+	            method: 'POST',
+	            body: JSON.stringify(ob),
+	            headers: {
+	               'Content-type': 'application/json'
+	            },
+	         }
+			fetch(url, opt)
+			.then(resp => resp.json())
+			.then(json => {
+				// 컨펌 값이 있으면 컨펌메세지
+				if(json.confirm != null) {
+					if(confirm(json.msg)) {
+						// 메세지 확인선택시 기존에 있던 장바구니 상품 추가 작업(update)
+						cartUpdateAjax(json.cart_count, json.cart_idx)
+					}
 				}
-			}
-			else {
-				alert(json.msg)
-			}
-		})
+				else {
+					alert(json.msg)
+				}
+			})
+		}
 	}
 }
 // 좋아요 누르면 발생하는 함수입니다.
 function likeOnClick(event) {
 	if(member_id == '') {
-		alert('로그인 후 사용가능합니다.')
-		location.href= cpath + '/member/login'
-		return false
+		alert('로그인 후 이용가능합니다.')
+		location.href = cpath + '/member/login'
 	}
-	let result_like 
-	let src
-	// 좋아요 버튼이 활성화 되어있으면
-	if(img.classList.contains('productDetail_colorHearts')) {
-		result_like = (product_like * 1) - 1
-		product_like = (product_like * 1) - 1
-		src = cpath + '/resources/img/blackHearts.png'
-		img.classList.remove('productDetail_colorHearts')
-		img.classList.add('productDetail_blackHearts')
-		document.querySelector('.productDetail_like_button').style.backgroundColor = 'white'
-	}
-	// 좋아요 버튼이 비활성화 상태의 이미지면
 	else {
-		result_like = (product_like * 1) + 1
-		product_like = (product_like * 1) + 1
-		src = cpath + '/resources/img/colorHearts.png'
-		img.classList.remove('productDetail_blackHearts')
-		img.classList.add('productDetail_colorHearts')
-		document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'
-	}
-	const url = cpath + '/product/likeUpdate'
-	const ob = {
-		'member_id' : member_id,
-		'product_name' : product_name,
-		'product_img' : product_img,
-		'product_price' : product_price,
-		'product_sale' : product_sale,
-		'product_category' : product_category,
-		'product_kind' : product_kind,
-		'product_like' : result_like,
-	}
-	const opt = {
-		method : 'POST',
-		body : JSON.stringify(ob),
-		headers : {
-			'Content-type' : 'application/json'
+		let result_like = ''
+		let src = ''
+		// 좋아요 버튼이 활성화 되어있으면
+		if(img.classList.contains('productDetail_colorHearts')) {
+			result_like = (product_like * 1) - 1
+			product_like = (product_like * 1) - 1
+			src = cpath + '/resources/img/blackHearts.png'
+			img.classList.remove('productDetail_colorHearts')
+			img.classList.add('productDetail_blackHearts')
+			document.querySelector('.productDetail_like_button').style.backgroundColor = 'white'
 		}
-	}
-	fetch(url, opt)
-	.then(resp => resp.text())
-	.then(text => {
-		if(text == 1) {
-			document.querySelector('.productDetail_like_button > img').src = src
+		// 좋아요 버튼이 비활성화 상태의 이미지면
+		else {
+			result_like = (product_like * 1) + 1
+			product_like = (product_like * 1) + 1
+			src = cpath + '/resources/img/colorHearts.png'
+			img.classList.remove('productDetail_blackHearts')
+			img.classList.add('productDetail_colorHearts')
+			document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'
 		}
-	})
+		const url = cpath + '/product/likeUpdate'
+		const ob = {
+			'member_id' : member_id,
+			'product_name' : product_name,
+			'product_img' : product_img,
+			'product_price' : product_price,
+			'product_sale' : product_sale,
+			'product_category' : product_category,
+			'product_kind' : product_kind,
+			'product_like' : result_like,
+		}
+		const opt = {
+			method : 'POST',
+			body : JSON.stringify(ob),
+			headers : {
+				'Content-type' : 'application/json'
+			}
+		}
+		fetch(url, opt)
+		.then(resp => resp.text())
+		.then(text => {
+			if(text == 1) {
+				document.querySelector('.productDetail_like_button > img').src = src
+			}
+		})
+	}
 }
 // 구매하기 버튼 클릭함수입니다.
 function paymentOnClick() {
-	const count = document.querySelector(".productDetail_buy_count").value
-	const url = cpath + '/product/paymentSingle?'
-		 	  + 'item_name=' + product_name
-			  + '&item_color=' + item_color 
-			  + '&item_size=' + item_size
-			  + '&count=' + count
-	location.href = url
-}
-
-function loginTest() {
 	if(member_id == '') {
 		alert('로그인 후 이용가능합니다.')
 		location.href = cpath + '/member/login'
-		return false
+	}
+	else {
+		const count = document.querySelector(".productDetail_buy_count").value
+		const url = cpath + '/product/paymentSingle?'
+			 	  + 'item_name=' + product_name
+				  + '&item_color=' + item_color 
+				  + '&item_size=' + item_size
+				  + '&count=' + count
+		location.href = url
 	}
 }
 
-
 // 리뷰 댓글 ajax함수입니다
 function replyOnWrite(event, review_idx) {
-	loginTest()
-	const write_input = event.target.previousElementSibling.value
-	if(write_input == '') {
-		alert('댓글을 입력해주세요.')
-		return false
+	if(member_id == '') {
+		alert('로그인 후 이용가능합니다.')
+		location.href = cpath + '/member/login'
 	}
-	const url = cpath + '/reply/insert'
-	const ob = {
-		'reply_member_id' : member_id,
-		'reply_review_idx' : review_idx,
-		'reply_content' : write_input,
-	}
-	const opt = {
-		method : 'POST',
-		body : JSON.stringify(ob),
-		headers : {
-			'Content-type' : 'application/json'
+	else {
+		const write_input = event.target.previousElementSibling.value
+		if(write_input == '') {
+			alert('댓글을 입력해주세요.')
+			return false
 		}
+		const url = cpath + '/reply/insert'
+		const ob = {
+			'reply_member_id' : member_id,
+			'reply_review_idx' : review_idx,
+			'reply_content' : write_input,
+		}
+		const opt = {
+			method : 'POST',
+			body : JSON.stringify(ob),
+			headers : {
+				'Content-type' : 'application/json'
+			}
+		}
+		fetch(url, opt)
+		.then(resp => resp.json())
+		.then(json => {
+			alert(json.msg)
+			location.reload()
+		})
 	}
-	fetch(url, opt)
-	.then(resp => resp.json())
-	.then(json => {
-		alert(json.msg)
-		location.reload()
-	})
 } 
 // 댓글 수정 함수입니다.
 function replyUpdate(event, reply_idx, reply_content) {

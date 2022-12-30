@@ -1,5 +1,6 @@
 package com.pomaden.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class PointService {
 	public List<PointDTO> selectAll(String member_id) {
 		return dao.seletAll(member_id);
 	}
-	public PointDTO selectOne(String member_id) {
-		return dao.selectOne(member_id);
+	public int insert(HashMap<String, String> pointInsertMap) {
+		return dao.insert(pointInsertMap);
 	}
 
 }

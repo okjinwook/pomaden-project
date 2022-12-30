@@ -14,5 +14,8 @@ public class CouponService {
 	public List<CouponDTO> selectAll(String member_id) {
 		return dao.selectAll(member_id);
 	}
+	public int update(int coupon_idx) {
+		return dao.update(coupon_idx);
+	}
 	
 }

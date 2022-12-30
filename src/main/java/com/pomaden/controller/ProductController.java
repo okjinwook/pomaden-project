@@ -110,7 +110,7 @@ public class ProductController {
 	public ModelAndView payment(int[] list, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
-		PointDTO point = pos.selectOne(login.getMember_id());
+		int point = login.getMember_point();
 		List<CartDTO> cartList = new ArrayList<>(); 
 		for(int idx : list) {
 			HashMap<String, String> map = new HashMap<String, String>();
@@ -129,7 +129,7 @@ public class ProductController {
 	public ModelAndView paymentSingle(String item_name, String item_color, String item_size, String count, HttpSession session) {
 		ModelAndView mav = new ModelAndView("/product/payment");
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
-		PointDTO point = pos.selectOne(login.getMember_id());
+		int point = login.getMember_point();
 		ProductDTO dto = ps.getProduct(item_name);
 		mav.addObject("dto", dto);
 		mav.addObject("item_color", item_color);
