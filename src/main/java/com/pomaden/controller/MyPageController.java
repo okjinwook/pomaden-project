@@ -102,6 +102,7 @@ public class MyPageController {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO member = (MemberDTO)session.getAttribute("login");
 		map.put("offset", page);
+		map.put("search", "");
 		map.put("member", member.getMember_id());
 		int count = qs.getCount(map); 
 		List<QuestionDTO> list = qs.selectAll(map);

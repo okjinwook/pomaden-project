@@ -121,17 +121,19 @@ public class ProductController {
 				cartList.add(dto);
 			}
 		}
-		mav.addObject("list", cartList);
+		mav.addObject("cartList", cartList);
 		mav.addObject("point", point);
 		return mav;
 	}
 	@GetMapping("/product/paymentSingle")
 	public ModelAndView paymentSingle(String item_name, String item_color, String item_size, String count, HttpSession session) {
 		ModelAndView mav = new ModelAndView("/product/payment");
+		List<ProductDTO> list = new ArrayList<>();
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		int point = login.getMember_point();
 		ProductDTO dto = ps.getProduct(item_name);
-		mav.addObject("dto", dto);
+		list.add(dto);
+		mav.addObject("list", list);
 		mav.addObject("item_color", item_color);
 		mav.addObject("item_size", item_size);
 		mav.addObject("count", count);

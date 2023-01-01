@@ -20,7 +20,11 @@
 			#{orderList_progress},
 			'정상',
 			sysdate,
-			0
+			0,
+			#{orderList_delivery_msg},
+			#{orderList_delivery_address},
+			#{orderList_delivery_phone},
+			#{orderList_delivery_name}
 			)
 	</insert>
 </mapper>

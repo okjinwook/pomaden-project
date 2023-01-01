@@ -36,7 +36,7 @@ public class OrderListController {
 		int couponUpdateRow = 1;
 		int memberPointUpdateRow = 1;
 		int memberCouponUpdateRow = 1;
-		int pointInsertRow = 0;
+		int pointInsertRow = 1;
 		HashMap<String, String> resp = new HashMap<String, String>(); 
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		String member_id = login.getMember_id();

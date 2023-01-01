@@ -9,7 +9,7 @@
 }
 .myPage_myQuestion_box {
 	width: 100%;
-	height: 500px;
+	min-height: 500px;
 	border-top: 2px solid black; 
 	border-bottom: 2px solid black; 
 	padding-top: 10px;
@@ -48,9 +48,6 @@
 }
 .myPage_myQuestion_date {
 	width: 120px;
-}
-.myPage_myQuestion_detail_box {
-	padding: 10px 0px;
 }
 .myPage_myQuestion_content_box, .myPage_myQuestion_answer_box {
 	height: 60px;

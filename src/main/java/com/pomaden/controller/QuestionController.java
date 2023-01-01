@@ -24,9 +24,8 @@ public class QuestionController {
 		map.put("category", null); 
 		map.put("check", null);
 		map.put("kind", null);
-		map.put("search", null);
+		map.put("search", search);
 		map.put("offset", page);
-		
 		
 		if(category != "" && "전체".equals(category) != true) {
 			map.put("category", category); 
@@ -39,9 +38,6 @@ public class QuestionController {
 		}
 		if(kind != "" && "작성자".equals(kind)) {
 			map.put("kind", "question_member_id"); 
-		}
-		if(search != "") {
-			map.put("search", search); 
 		}
 		
 		int count = qs.getCount(map);

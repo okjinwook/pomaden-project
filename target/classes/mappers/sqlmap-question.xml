@@ -5,33 +5,55 @@
    
 <mapper namespace="com.pomaden.model.QuestionDAO">
 	<select id="selectAll" resultType="question" parameterType="hashmap">
-		select * from question
-		<if test="category != null or check != null or kind != null or member != null">
-			where
-		</if>
+		select * from question where
 		<if test="category != null">
 			question_category = #{category}
 		</if>
 		<if test="category != null and check != null">
 			and question_check = #{check}
-		</if>
-		<if test="category == null and check != null">
-			question_check = #{check}
-		</if>
-		<if test="category != null or check != null">
-			<if test="kind != null and search != null">
+			 <if test="kind != null">
 				and 
 				${kind} like '%${search}%'
 			</if>
+			<if test="kind == null">
+				and
+				question_title like '%${search}%' or question_member_id like '%${search}%'
+			</if>
+		</if>
+		<if test="category == null and check != null">
+			question_check = #{check}
+			 <if test="kind != null">
+				and 
+				${kind} like '%${search}%'
+			</if>
+			 <if test="kind == null">
+				and
+				question_title like '%${search}%' or question_member_id like '%${search}%'
+			</if>
+		</if>
+		<if test="category != null or check != null">
+			<if test="kind != null">
+				and 
+				${kind} like '%${search}%'
+			</if>
+			<if test="kind == null">
+				and
+				question_title like '%${search}%' or question_member_id like '%${search}%'
+			</if>
 		</if>
 		<if test="category == null and check == null">
-			<if test="kind != null and search != null">
+			<if test="kind != null">
 				 ${kind} like '%${search}%'
+			 </if>
+		</if>
+		<if test="category == null and check == null">
+			<if test="kind == null">
+				 question_title like '%${search}%' or question_member_id like '%${search}%'
 			 </if>
 		</if>
 		<if test="category == null and check == null and kind == null and search == null">
 			<if test="member != null">
-				 question_member_id = #{member}
+				 and question_member_id = #{member}
 			 </if>
 		</if>
 		order by question_date asc

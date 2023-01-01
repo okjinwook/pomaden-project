@@ -17,8 +17,36 @@ public class OrderListDTO {
 	private String orderList_check;
 	private Date orderList_date;
 	private int orderList_review_check;
+	private String orderList_delivery_msg;
+	private String orderList_delivery_address;
+	private String orderList_delivery_phone;
+	private String orderList_delivery_name;
 	
 	
+	public String getOrderList_delivery_msg() {
+		return orderList_delivery_msg;
+	}
+	public void setOrderList_delivery_msg(String orderList_delivery_msg) {
+		this.orderList_delivery_msg = orderList_delivery_msg;
+	}
+	public String getOrderList_delivery_address() {
+		return orderList_delivery_address;
+	}
+	public void setOrderList_delivery_address(String orderList_delivery_address) {
+		this.orderList_delivery_address = orderList_delivery_address;
+	}
+	public String getOrderList_delivery_phone() {
+		return orderList_delivery_phone;
+	}
+	public void setOrderList_delivery_phone(String orderList_delivery_phone) {
+		this.orderList_delivery_phone = orderList_delivery_phone;
+	}
+	public String getOrderList_delivery_name() {
+		return orderList_delivery_name;
+	}
+	public void setOrderList_delivery_name(String orderList_delivery_name) {
+		this.orderList_delivery_name = orderList_delivery_name;
+	}
 	public String getOrderList_order_number() {
 		return orderList_order_number;
 	}

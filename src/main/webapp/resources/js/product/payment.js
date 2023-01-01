@@ -60,7 +60,6 @@ function kakaopayPayment(item, orderList_order_number) {
 		return
 	})
 	if(quantity != 1) {
-		
 		item_name += ' 외 ' + ((quantity * 1) - 1) + '개' 
 	}
 	
@@ -82,6 +81,10 @@ function kakaopayPayment(item, orderList_order_number) {
 			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
 			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
 			'orderList_progress' : '결제완료',
+			'orderList_delivery_msg' : document.querySelector('.payment_delivery_msg').value,
+			'orderList_delivery_address' : document.querySelector('.payment_delivery_address').innerText,
+			'orderList_delivery_phone' : document.querySelector('.payment_delivery_phone').innerText,
+			'orderList_delivery_name' : document.querySelector('.payment_delivery_name').innerText,
 		}
 		if(size != 1) {
 			map.cart_idx = box.getElementsByClassName('order_orderList_idx')[0].value		
@@ -122,6 +125,7 @@ function depositPayment(item, orderList_order_number) {
 	const point_map = {}
 	const url = cpath + '/orderList/insert'
 	const ob = []
+	console.log(document.querySelector('.payment_delivery_msg').value)
 	item.forEach(box => {
 		const map = {
 			'orderList_order_number' : orderList_order_number,
@@ -132,6 +136,10 @@ function depositPayment(item, orderList_order_number) {
 			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
 			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
 			'orderList_progress' : '입금대기',
+			'orderList_delivery_msg' : document.querySelector('.payment_delivery_msg').value,
+			'orderList_delivery_address' : document.querySelector('.payment_delivery_address').innerText,
+			'orderList_delivery_phone' : document.querySelector('.payment_delivery_phone').innerText,
+			'orderList_delivery_name' : document.querySelector('.payment_delivery_name').innerText,
 		}
 		if(size != 1) {
 			map.cart_idx = box.getElementsByClassName('order_orderList_idx')[0].value		

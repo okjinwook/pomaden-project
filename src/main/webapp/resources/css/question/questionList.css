@@ -82,6 +82,7 @@
 	color: white;
 	width: 80px;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .question_paging_box {
 	margin-top: 25px;

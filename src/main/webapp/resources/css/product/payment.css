@@ -12,7 +12,24 @@
 	text-align: center;
 	margin-bottom: 50px;
 }
-.payment_delivery_title, .payment_orderList_title, .payment_discount_title, .payment_orderPrice_title, .payment_paymentWay_title {
+.payment_delivery_title_box {
+	margin-bottom: 10px;
+}
+.payment_delivery_change_button {
+	padding: 5px;
+	background-color: #333;
+	color: white;
+	font-size: 10px;
+	border-radius: 5px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.payment_delivery_title {
+	font-size: 20px;
+	font-weight: 700;
+}
+.payment_orderList_title, .payment_discount_title, .payment_orderPrice_title, .payment_paymentWay_title {
 	font-size: 20px;
 	font-weight: 700;
 	margin-bottom: 10px;
