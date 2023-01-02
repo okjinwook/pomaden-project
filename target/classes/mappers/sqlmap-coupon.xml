@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.pomaden.model.CouponDAO">
+	<insert id="insert" parameterType="hashmap">
+		insert into coupon 
+		values
+			(
+			coupon_seq.nextval,
+			#{coupon_member_id},
+			#{coupon_name},
+			#{coupon_benefit},
+			#{coupon_condition},
+			sysdate,
+			#{coupon_sale},
+			0
+			)
+	</insert>
+</mapper>

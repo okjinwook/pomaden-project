@@ -36,12 +36,90 @@ body {
 	box-sizing: border-box;
 	height: 100%;	
 }
-
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .7);
+}
+.modal{
+	width: 800px;
+    height: 430px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 3;
+	background-color: white;
+	border-radius: 5px;
+}
 .couponList_title {
 	height: 50px;
-	border-bottom: 1px solid black;
 	font-weight: 700;
+	margin-left: 20px;
 }
+.couponItemList_component {
+	min-width: 900px;
+    height: 380px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    overflow-y: scroll;
+}
+.couponItemList_item_info {
+	height: 50px;
+	border-bottom: 1px solid black;
+	font-size: 14px;
+}
+.couponItemList_item_img {
+	width: 80px;
+}
+.couponItemList_item_name {
+	width: 250px;
+	flex-flow: column;
+}
+.couponItemList_coupon_name_box {
+	color: brown;
+}
+.couponItemList_item_price {
+	width: 330px;
+}
+.couponItemList_item_select_button_box {
+	width: 120px;
+}
+.couponItemList_item_salePrice {
+	width: 120px;
+}
+.couponItemList_item_select_button {
+	padding: 5px;
+	background-color: #333;
+	color: white;
+	font-size:12px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.couponItemList_item_box {
+	font-size: 12px;
+}
+.couponList_select_button {
+    width: 100px;
+    height: 40px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+}
+
+/* ===============쿠폰 모달=============== */
+.couponList_coupon_item_component {
+	height: 325px;
+	overflow-y: scroll; 
+}
+
 .couponList_coupon_info {
 	height: 50px;
 	border-bottom: 1px solid black;
@@ -61,7 +139,7 @@ body {
 	height: 100%;
 }
 .couponList_coupon_name {
-	width: 460px;
+	width: 342px;
 }
 .couponList_coupon_count {
 	width: 130px;
@@ -82,4 +160,14 @@ body {
 	border-radius: 5px;
 	padding: 8px;
 	cursor: pointer;
+}
+.couponList_modal_cancle_button {
+	width: 90px;
+    height: 35px;
+	font-size: 12px;
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 10px auto;
 }

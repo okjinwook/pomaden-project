@@ -22,6 +22,8 @@
 		<typeAlias type="com.pomaden.model.ReviewDTO" alias="review"/>		
 		<typeAlias type="com.pomaden.model.ReplyDTO" alias="reply"/>		
 		<typeAlias type="com.pomaden.model.PointDTO" alias="point"/>		
+		<typeAlias type="com.pomaden.model.CouponDTO" alias="coupon"/>		
+		<typeAlias type="com.pomaden.model.ShippingDTO" alias="shipping"/>		
 	</typeAliases>
 	
 	<mappers>
@@ -34,5 +36,7 @@
 		<mapper resource="mappers/sqlmap-orderList.xml"/>
 		<mapper resource="mappers/sqlmap-review.xml"/>
 		<mapper resource="mappers/sqlmap-point.xml"/>
+		<mapper resource="mappers/sqlmap-coupon.xml"/>
+		<mapper resource="mappers/sqlmap-shipping.xml"/>
 	</mappers>
 </configuration>

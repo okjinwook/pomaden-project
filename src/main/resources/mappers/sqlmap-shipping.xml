@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.pomaden.model.ShippingDAO">
+	<insert id="insert" parameterType="hashmap">
+		insert into shipping 
+		values
+			(
+			shipping_seq.nextval,
+			#{shipping_member_id},
+			#{shipping_name},
+			#{shipping_phone},
+			#{shipping_load_add},
+			#{shipping_code_add},
+			#{shipping_detail_add},
+			#{shipping_msg}
+			)
+	</insert>
+</mapper>

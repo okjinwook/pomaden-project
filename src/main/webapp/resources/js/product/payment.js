@@ -1,16 +1,39 @@
 // 자식 부모창에서 쿠폰 정보를 받아오는 함수입니다
-function sendCoupon(coupon_name, coupon_sale, coupon_idx) {
+function sendCoupon(total_sale_price, coupon_arr, item_arr) {
 	const coupon_box = document.querySelector('.payment_coupon_box')
 	const discount = document.querySelector('.payment_orderPrice_price > .payment_orderPrice_discount')
 	const total = document.querySelector('.payment_orderPrice_price > .payment_orderPrice_total')
-	
-	coupon_box.innerText = '- ' + Number(totalResultPrice * (coupon_sale / 100)).toLocaleString() + '원'
-	totalSalePrice = Math.floor(totalSalePrice + totalResultPrice * (coupon_sale / 100))
-	totalResultPrice =  Math.floor(totalResultPrice * (100 - coupon_sale) / 100 )
-	
-	discount.innerText = '- ' + Number(totalSalePrice + point * 1).toLocaleString() + '원'
-	total.innerText = Number(totalResultPrice - point * 1).toLocaleString() + '원'
-	coupon = coupon_idx
+	const item_idx = document.querySelectorAll('.order_orderList_idx') // 상품 idx
+	if(coupon_arr.length != 0) {
+		coupon_box.innerText = '- ' + Number(total_sale_price).toLocaleString() + '원'
+		totalSalePrice = Math.floor(totalSalePrice + total_sale_price)
+		totalResultPrice =  Math.floor(totalResultPrice - total_sale_price )
+		discount.children[0].innerText = '- ' + Number(totalSalePrice + point * 1).toLocaleString() + '원'
+		total.innerText = Number(totalResultPrice - point * 1).toLocaleString() + '원'
+		
+		coupon = coupon_arr
+		for(ob in item_arr) {
+			let idx = item_arr[ob].cart_idx
+			let salePrice = item_arr[ob].cart_price
+			// 쿠폰 사용한 상품 가격 변경
+			item_idx.forEach(item => {
+				if(item.value == idx) {
+					let target = item
+					while(target.classList.contains('payment_orderList_item') == false) {
+						target = target.parentNode
+					}
+					// target_price = 상품 최종 가격
+					// target_sale = 상품 최종 세일
+					let target_price = target.getElementsByClassName('order_orderList_price')[0]
+					let target_sale = target.getElementsByClassName('payment_orderList_sale_price')[0]
+					target_price.id = target_price.id * 1 - salePrice * 1
+					target_sale.id = target_sale.id * 1 + salePrice * 1
+					target_price.innerText = Number(target_price.id).toLocaleString() + '원'
+					target_sale.innerText = '- ' + Number(target_sale.id).toLocaleString() + '원'
+				}
+			})
+		}
+	}
 }
 
 // 보유한 적립금액 만큼만 적용하는 제한 함수입니다.
@@ -28,7 +51,7 @@ function pointOnClick() {
 	const discount = document.querySelector('.payment_orderPrice_price > .payment_orderPrice_discount')
 	const total = document.querySelector('.payment_orderPrice_price > .payment_orderPrice_total')
 	
-	discount.innerText = '- ' + Number((totalSalePrice * 1) + (point * 1)).toLocaleString() + '원'
+	discount.children[0].innerText = '- ' + Number((totalSalePrice * 1) + (point * 1)).toLocaleString() + '원'
 	total.innerText = Number((totalResultPrice * 1) - (point * 1)).toLocaleString() + '원'
 	totalResultPrice -= point
 	totalSalePrice += point
@@ -60,7 +83,7 @@ function kakaopayPayment(item, orderList_order_number) {
 		return
 	})
 	if(quantity != 1) {
-		item_name += ' 외 ' + ((quantity * 1) - 1) + '개' 
+		item_name += ' 외 ' + ((quantity * 1) - 1) + '개' // ex) 가디건 외 1개
 	}
 	
 	const url = cpath + '/kakaopay/paymentReady'
@@ -81,10 +104,10 @@ function kakaopayPayment(item, orderList_order_number) {
 			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
 			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
 			'orderList_progress' : '결제완료',
-			'orderList_delivery_msg' : document.querySelector('.payment_delivery_msg').value,
-			'orderList_delivery_address' : document.querySelector('.payment_delivery_address').innerText,
-			'orderList_delivery_phone' : document.querySelector('.payment_delivery_phone').innerText,
-			'orderList_delivery_name' : document.querySelector('.payment_delivery_name').innerText,
+			'orderList_shipping_msg' : document.querySelector('.payment_shipping_msg').value,
+			'orderList_shipping_address' : document.querySelector('.payment_shipping_address').innerText,
+			'orderList_shipping_phone' : document.querySelector('.payment_shipping_phone').innerText,
+			'orderList_shipping_name' : document.querySelector('.payment_shipping_name').innerText,
 		}
 		if(size != 1) {
 			map.cart_idx = box.getElementsByClassName('order_orderList_idx')[0].value		
@@ -92,11 +115,13 @@ function kakaopayPayment(item, orderList_order_number) {
 		const name = box.getElementsByClassName('order_orderList_name')[0].id
 		ob[name]  = map
 	})
-	if(coupon != 0) {
-		const coupon_map = {
-			'coupon_idx' : coupon
+	if(coupon.length != 0) {
+		for(idx of coupon) {
+			const coupon_map = {
+				'coupon_idx' : idx
+			}
+			ob['coupon'] = coupon_map
 		}
-		ob['coupon'] = coupon_map
 	}
 	if(point != 0) {
 		const point_map = {
@@ -125,7 +150,6 @@ function depositPayment(item, orderList_order_number) {
 	const point_map = {}
 	const url = cpath + '/orderList/insert'
 	const ob = []
-	console.log(document.querySelector('.payment_delivery_msg').value)
 	item.forEach(box => {
 		const map = {
 			'orderList_order_number' : orderList_order_number,
@@ -136,19 +160,23 @@ function depositPayment(item, orderList_order_number) {
 			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
 			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
 			'orderList_progress' : '입금대기',
-			'orderList_delivery_msg' : document.querySelector('.payment_delivery_msg').value,
-			'orderList_delivery_address' : document.querySelector('.payment_delivery_address').innerText,
-			'orderList_delivery_phone' : document.querySelector('.payment_delivery_phone').innerText,
-			'orderList_delivery_name' : document.querySelector('.payment_delivery_name').innerText,
+			'orderList_shipping_msg' : document.querySelector('.payment_shipping_msg').value,
+			'orderList_shipping_address' : document.querySelector('.payment_shipping_address').innerText,
+			'orderList_shipping_phone' : document.querySelector('.payment_shipping_phone').innerText,
+			'orderList_shipping_name' : document.querySelector('.payment_shipping_name').innerText,
 		}
 		if(size != 1) {
 			map.cart_idx = box.getElementsByClassName('order_orderList_idx')[0].value		
 		}
 		ob.push(map)
 	})
-	if(coupon != 0) {
-		coupon_map['coupon_idx'] = coupon * 1
-		ob.push(coupon_map)
+	if(coupon.length != 0) {
+		for(idx of coupon) {
+			const coupon_map = {
+				'coupon_idx' : idx
+			}
+			ob['coupon'] = coupon_map
+		}
 	}
 	if(point != 0) {
 		point_map['point_use'] = point * 1

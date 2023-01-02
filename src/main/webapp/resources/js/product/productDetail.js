@@ -144,10 +144,15 @@ function cartUpdateAjax(count , cart_idx) {
         },
      }
 	fetch(url, opt)
-	.then(resp => resp.text())
-	.then(text => {
-		if(text == '1') {
-			alert("장바구니에 등록되었습니다.")
+	.then(resp => resp.json())
+	.then(json => {
+		if(json.confirm != null) {
+			if(confirm(json.msg)) {
+				location.href = cpath + '/cart/cartList'
+			}
+		}
+		else{ 
+			alert(json.msg)
 		}
 	})
 }
@@ -200,7 +205,9 @@ function cartOnclick(event) {
 					}
 				}
 				else {
-					alert(json.msg)
+					if(confirm(json.msg)) {
+						location.href = cpath + '/cart/cartList'
+					}
 				}
 			})
 		}

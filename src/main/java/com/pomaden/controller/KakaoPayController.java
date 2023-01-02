@@ -42,6 +42,7 @@ public class KakaoPayController {
 		int memberPointUpdateRow = 1;
 		int memberCouponUpdateRow = 1;
 		int pointInsertRow = 1;
+		int point_use = 0;
 		// 페이지 리로드 시 중복으로 실행 되는 것을 방지하기 위한 조건문입니다.
 		if(session.getAttribute("kakaopayItemList") != null) {
 			List<HashMap<String, Object>> kakaopayItemList = (List<HashMap<String, Object>>) session.getAttribute("kakaopayItemList");
@@ -77,7 +78,7 @@ public class KakaoPayController {
 					}
 					else if(map.get("point_use") != null) {
 						int member_point = login.getMember_point();
-						int point_use = Integer.parseInt(String.valueOf(map.get("point_use")));
+						point_use = Integer.parseInt(String.valueOf(map.get("point_use")));
 						int point_total = member_point - point_use; // 원래 있던 포인트 - 사용한 포인트
 						pointUpdateMap.put("member_point", String.valueOf(point_total));
 						pointUpdateMap.put("member_id", login.getMember_id());
@@ -95,6 +96,8 @@ public class KakaoPayController {
 						pointInsertRow == 1) {
 						mav.addObject("status", "OK");
 						mav.addObject("msg", "정상적으로 상품이 구매되었습니다.");
+						mav.addObject("successList", session.getAttribute("successList"));
+						mav.addObject("point", point_use);
 					}
 					else {
 						mav.addObject("status", "FAIL");
@@ -111,7 +114,6 @@ public class KakaoPayController {
 			session.setAttribute("login", login);
 			session.removeAttribute("kakaopayItemList");
 		}
-		mav.addObject("successList", session.getAttribute("successList"));
 		return mav;
 	}
 	@GetMapping("/kakaopay/fail")

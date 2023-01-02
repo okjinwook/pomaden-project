@@ -2,6 +2,7 @@ package com.pomaden.service;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
+import com.pomaden.model.CartDTO;
 import com.pomaden.model.ProductDAO;
 import com.pomaden.model.ProductDTO;
 
@@ -85,6 +87,23 @@ public class ProductService {
 
 	public int likeUpdate(HashMap<String, Object> map) {
 		return dao.update(map);
+	}
+
+	public List<CartDTO> setPaymentSingle(String item_color, String item_name, String item_size, String count) {
+		List<CartDTO> list = new ArrayList<CartDTO>();
+		ProductDTO dto = dao.selectOne(item_name);
+		CartDTO setCart = new CartDTO();
+		int total_price =  Integer.parseInt(count) * dto.getProduct_price() * (100 - dto.getProduct_sale()) / 100;
+		setCart.setCart_color(item_color);
+		setCart.setCart_count(Integer.parseInt(count));
+		setCart.setCart_sale(dto.getProduct_sale());
+		setCart.setCart_img(dto.getProduct_img());
+		setCart.setCart_name(dto.getProduct_name());
+		setCart.setCart_price(dto.getProduct_price());
+		setCart.setCart_size(item_size);
+		setCart.setCart_total(total_price);
+		list.add(setCart);
+		return list;
 	}
 
 

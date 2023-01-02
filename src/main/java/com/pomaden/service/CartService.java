@@ -1,5 +1,6 @@
 package com.pomaden.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.pomaden.model.CartDAO;
 import com.pomaden.model.CartDTO;
+import com.pomaden.model.MemberDTO;
 
 @Service
 public class CartService {
@@ -30,10 +32,21 @@ public class CartService {
 	public int selectCount(String member_id) {
 		return dao.selectCount(member_id);
 	}
-	public CartDTO getPaymentItem(HashMap<String, String> map) {
-		return dao.getPaymentItem(map);
-	}
 	public int delete(int idx) {
-		return dao.cartDelete(idx);	}
+		return dao.cartDelete(idx);	
+	}
+	public List<CartDTO> getPayment(int[] list, MemberDTO login) {
+		List<CartDTO> cartList = new ArrayList<>();
+		for(int idx : list) {
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("idx", idx + "");
+			map.put("member_id", login.getMember_id());
+			CartDTO dto = dao.getPaymentItem(map);
+			if(dto != null) {
+				cartList.add(dto);
+			}
+		}
+		return cartList;
+	}
 
 }

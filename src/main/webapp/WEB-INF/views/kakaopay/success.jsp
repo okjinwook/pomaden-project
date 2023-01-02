@@ -5,7 +5,7 @@
 	<c:set var="success_order_name" value=""></c:set>
 	<c:set var="success_order_count" value="0"></c:set>
 	<c:set var="success_order_price" value="0"></c:set>
-	<c:forEach var="dto" items="${list }" varStatus="status">
+	<c:forEach var="dto" items="${successList }" varStatus="status">
 		<c:set var="success_order_number" value="${dto.orderList_order_number }"></c:set>
 		<c:if test="${status.index == 0}">
 			<c:set var="success_order_name" value="${dto.orderList_name }"></c:set>
@@ -35,7 +35,7 @@
 			<div class="success_orderList_price aice">
 				<div class="success_orderList_info_price jcce aice">가격</div>
 				<div class="success_orderList_item_price jcce aice">
-					<fmt:formatNumber pattern="###,###" value="${success_order_price }" />원
+					<fmt:formatNumber pattern="###,###" value="${success_order_price - point }" />원
 				</div>
 			</div>
 		</div>

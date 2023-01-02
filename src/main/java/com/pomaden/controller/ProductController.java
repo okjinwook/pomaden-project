@@ -111,32 +111,18 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		int point = login.getMember_point();
-		List<CartDTO> cartList = new ArrayList<>(); 
-		for(int idx : list) {
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("idx", idx + "");
-			map.put("member_id", login.getMember_id());
-			CartDTO dto = cs.getPaymentItem(map);
-			if(dto != null) {
-				cartList.add(dto);
-			}
-		}
-		mav.addObject("cartList", cartList);
+		List<CartDTO> cartList = cs.getPayment(list, login); 
+		session.setAttribute("couponItemlist", cartList);
 		mav.addObject("point", point);
 		return mav;
 	}
 	@GetMapping("/product/paymentSingle")
 	public ModelAndView paymentSingle(String item_name, String item_color, String item_size, String count, HttpSession session) {
 		ModelAndView mav = new ModelAndView("/product/payment");
-		List<ProductDTO> list = new ArrayList<>();
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		int point = login.getMember_point();
-		ProductDTO dto = ps.getProduct(item_name);
-		list.add(dto);
-		mav.addObject("list", list);
-		mav.addObject("item_color", item_color);
-		mav.addObject("item_size", item_size);
-		mav.addObject("count", count);
+		List<CartDTO> list = ps.setPaymentSingle(item_color, item_name, item_size, count);
+		session.setAttribute("couponItemlist", list);
 		mav.addObject("point", point);
 		return mav;
 	}

@@ -46,7 +46,7 @@ public class CartController {
 		else {
 			row = cs.insert(ob);
 			if(row == 1) {
-				map.put("msg", "장바구니에 등록되었습니다.");
+				map.put("msg", "장바구니에 등록되었습니다.\n장바구니로 이동하시겠습니까?");
 			}
 			else {
 				map.put("msg", "장바구니 등록에 실패하였습니다.");
@@ -57,9 +57,17 @@ public class CartController {
 	
 	@ResponseBody
 	@PostMapping("/cart/update")
-	public int updateCount(@RequestBody HashMap<String, Object> map) {
+	public HashMap<String, String> updateCount(@RequestBody HashMap<String, Object> map) {
+		HashMap<String, String> resp = new HashMap<String, String>();
 		int row = cs.update(map);
-		return row;
+		if(row == 1) {
+			resp.put("msg", "장바구니에 등록되었습니다.\n장바구니로 이동하시겠습니까?");
+			resp.put("confirm", "confirm");
+		}
+		else {
+			resp.put("msg", "장바구니 등록에 실패하였습니다.");
+		}
+		return resp;
 	}
 	
 	@PostMapping("/cart/cartDelete")

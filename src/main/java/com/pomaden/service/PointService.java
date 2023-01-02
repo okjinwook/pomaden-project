@@ -18,5 +18,13 @@ public class PointService {
 	public int insert(HashMap<String, String> pointInsertMap) {
 		return dao.insert(pointInsertMap);
 	}
+	public HashMap<String, String> joinPointMap(String member_id) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("point_member_id", member_id);
+		map.put("point_content", "회원가입 환영 적립금");
+		map.put("point_change", "+500");
+		map.put("point_total", "500");
+		return map;
+	}
 
 }

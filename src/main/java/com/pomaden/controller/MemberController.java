@@ -12,11 +12,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pomaden.model.MemberDTO;
+import com.pomaden.service.CouponService;
 import com.pomaden.service.MemberService;
+import com.pomaden.service.PointService;
+import com.pomaden.service.ShippingService;
 
 @Controller
 public class MemberController {
 	@Autowired private MemberService ms;
+	@Autowired private ShippingService ss;
+	@Autowired private PointService ps;
+	@Autowired private CouponService cs;
 	
 	@GetMapping("/member/login")
 	public void login() {}
@@ -46,10 +52,21 @@ public class MemberController {
 	@PostMapping("/member/join")
 	public ModelAndView join(MemberDTO dto) {
 		ModelAndView mav = new ModelAndView();
-		int row = 0;
-		row = ms.insert(dto);
-		if(row == 1) {
-			mav.setViewName("redirect:/member/login");
+		HashMap<String, String> shippingMap = ss.getShippingMap(dto);
+		HashMap<String, String> pointInsertMap = ps.joinPointMap(dto.getMember_id());
+		HashMap<String, String> couponInsertMap = cs.joinCouponMap(dto.getMember_id());
+		int shippingRow = 0;
+		int pointRow = 0;
+		int couponRow = 0;
+		int memberRow = 0;
+		memberRow = ms.insert(dto);
+		shippingRow = ss.insert(shippingMap);
+		pointRow = ps.insert(pointInsertMap);
+		couponRow = cs.insert(couponInsertMap);
+		if(memberRow == 1) {
+			if(shippingRow == 1 && pointRow == 1 && couponRow == 1) {
+				mav.setViewName("redirect:/member/login");
+			}
 		}
 		else {
 			mav.setViewName("redirect:/member/join");
