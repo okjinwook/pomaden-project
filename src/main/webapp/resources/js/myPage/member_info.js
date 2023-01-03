@@ -136,8 +136,8 @@ function myPageCodeCheckOnClick(event) {
 	
 }
 
-// 회원가입 눌렀을 때 발생하는 함수입니다.
-function myPageSubmitOnClick(event) {
+// 회원정보 수정 눌렀을 때 발생하는 함수입니다.
+function memeberUpdateOnClick(event) {
 	const check_msg = document.querySelectorAll('.myPage_msg')
 	const member_pw = document.querySelector('.myPage_member_pw').value
 	const code_msg = document.querySelector('.myPage_code_msg_box')
@@ -163,4 +163,7 @@ function myPageSubmitOnClick(event) {
 		alert('잘못된 입력정보입니다.')
 	}
 }
-
+function shippingChangeOnClick(member_id) {
+	const url = cpath + '/shipping/shippingList?member_id=' + member_id
+	window.open(url, 'shippingList', 'width=600px, height=700px')
+}

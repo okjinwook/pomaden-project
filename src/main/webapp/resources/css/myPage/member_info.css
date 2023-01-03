@@ -23,6 +23,7 @@
 }
 .myPage_member_address_box {
 	height: 198px;
+	position: relative;
 }
 .myPage_member_address > input {
 	height: 35px;
@@ -39,6 +40,16 @@
 .myPage_member_address {
 	width: 500px;
 	flex-flow: column;	
+}
+.myPage_address_change_button {
+	position: absolute;
+	top: 15px;
+	padding:5px;
+	font-size: 10px;
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
 }
 .myPage_info_box {
 	height: 30px;

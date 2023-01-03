@@ -59,11 +59,13 @@ public class MemberController {
 		int pointRow = 0;
 		int couponRow = 0;
 		int memberRow = 0;
+		dto.setMember_point(500);
+		dto.setMember_coupon(1);
 		memberRow = ms.insert(dto);
-		shippingRow = ss.insert(shippingMap);
-		pointRow = ps.insert(pointInsertMap);
-		couponRow = cs.insert(couponInsertMap);
 		if(memberRow == 1) {
+			shippingRow = ss.insert(shippingMap);
+			pointRow = ps.insert(pointInsertMap);
+			couponRow = cs.insert(couponInsertMap);
 			if(shippingRow == 1 && pointRow == 1 && couponRow == 1) {
 				mav.setViewName("redirect:/member/login");
 			}

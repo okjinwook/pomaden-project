@@ -62,6 +62,7 @@
 					<input class="myPage_member_phone myPage_info_box" readonly="readonly" value="${login.member_phone }">
 				</div>
 				<div class="myPage_member_address_box aice">
+					<div class="myPage_address_change_button" onclick="shippingChangeOnClick('${login.member_id}')">배송지 변경</div>
 					<div class="myPage_sen_box aice">배송지</div>
 					<div class="myPage_member_address df">
 						<input class="" name="member_code_add" value="${login.member_code_add }">
@@ -71,7 +72,7 @@
 				</div>
 			</div>
 			<div class="myPage_change_button_box jcce">
-				<input class="myPage_change_button jcce aice" value="회원정보수정" type="submit" onclick="myPageSubmitOnClick(event)">
+				<input class="myPage_change_button jcce aice" value="회원정보수정" type="submit" onclick="memeberUpdateOnClick(event)">
 				<a class="myPage_cancel_button jcce aice" href="${cpath }">취소</a>
 			</div>
 		</form>
