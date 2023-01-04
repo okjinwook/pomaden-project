@@ -9,6 +9,15 @@ public class ShippingDTO {
 	private String shipping_code_add;
 	private String shipping_detail_add;
 	private String shipping_msg;
+	private int shipping_rep;
+	
+	
+	public int getShipping_rep() {
+		return shipping_rep;
+	}
+	public void setShipping_rep(int shipping_rep) {
+		this.shipping_rep = shipping_rep;
+	}
 	public int getShipping_idx() {
 		return shipping_idx;
 	}

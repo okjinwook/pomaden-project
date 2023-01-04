@@ -31,6 +31,7 @@
 	margin-bottom: 8px;
 	border: 1px solid #dadada;
 	padding-left: 10px;
+	background-color: #f6f6f6;
 }
 .myPage_sen_box {
 	width: 240px;
@@ -57,7 +58,8 @@
 	border: 1px solid #dadada;
 	padding-left: 10px;
 }
-.myPage_member_id:focus, .myPage_member_name:focus, .myPage_member_phone:focus {
+.myPage_member_id:focus, .myPage_member_name:focus, .myPage_member_phone:focus,
+.myPage_member_address > input:focus {
 	outline: none;
 }
 .myPage_member_id, .myPage_member_name, .myPage_member_phone {

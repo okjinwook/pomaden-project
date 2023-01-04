@@ -19,7 +19,7 @@ public interface CartDAO {
 	@Delete("delete cart where cart_idx = #{idx}")
 	int cartDelete(int idx);
 	
-	@Select("select * from cart where cart_name = #{cart_name} and cart_color = #{cart_color} and cart_size = #{cart_size}")
+	@Select("select * from cart where cart_name = #{cart_name} and cart_color = #{cart_color} and cart_size = #{cart_size} and cart_member_id = #{cart_member_id}")
 	CartDTO selectOne(HashMap<String, Object> ob);
 
 	@Select("select count(*) from cart where cart_member_id = #{member_id}")

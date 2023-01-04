@@ -19,6 +19,7 @@ import com.pomaden.model.OrderListDTO;
 import com.pomaden.model.PointDTO;
 import com.pomaden.model.QuestionDTO;
 import com.pomaden.model.ReviewDTO;
+import com.pomaden.model.ShippingDTO;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.LikeProductService;
 import com.pomaden.service.MemberService;
@@ -27,6 +28,7 @@ import com.pomaden.service.OrderListService;
 import com.pomaden.service.PointService;
 import com.pomaden.service.QuestionService;
 import com.pomaden.service.ReviewService;
+import com.pomaden.service.ShippingService;
 
 @Controller
 public class MyPageController {
@@ -37,6 +39,7 @@ public class MyPageController {
 	@Autowired private PointService ps;
 	@Autowired private OrderListService os;
 	@Autowired private ReviewService rs;
+	@Autowired private ShippingService ss;
 	
 	
 	@GetMapping("/myPage/orderList")
@@ -93,7 +96,10 @@ public class MyPageController {
 	@GetMapping("/myPage/member_info")
 	public ModelAndView member_info(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		MemberDTO login = (MemberDTO) session.getAttribute("login");
+		List<ShippingDTO> shippingList = ss.selectAll(login.getMember_id());
 		mav.addObject("login", session.getAttribute("login"));
+		mav.addObject("list", shippingList);
 		return mav;
 	}
 	@GetMapping("/myPage/myQuestion")
@@ -113,7 +119,7 @@ public class MyPageController {
 	
 	@PostMapping("/myPage/updateMember")
 	public ModelAndView updateMember(MemberDTO getDto, HttpSession session) {
-		ModelAndView mav = new ModelAndView("redirect:/myPage?category=member_info");
+		ModelAndView mav = new ModelAndView("redirect:/myPage/member_info");
 		HashMap<String, String> data = new HashMap<String, String>();
 		int row = 0;
 		if(getDto.getMember_pw() != "") {

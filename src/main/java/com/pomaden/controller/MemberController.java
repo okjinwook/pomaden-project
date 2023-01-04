@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pomaden.model.MemberDTO;
+import com.pomaden.model.ShippingDTO;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.MemberService;
 import com.pomaden.service.PointService;
@@ -52,7 +53,7 @@ public class MemberController {
 	@PostMapping("/member/join")
 	public ModelAndView join(MemberDTO dto) {
 		ModelAndView mav = new ModelAndView();
-		HashMap<String, String> shippingMap = ss.getShippingMap(dto);
+		ShippingDTO shipDto = ss.getShippingDto(dto);
 		HashMap<String, String> pointInsertMap = ps.joinPointMap(dto.getMember_id());
 		HashMap<String, String> couponInsertMap = cs.joinCouponMap(dto.getMember_id());
 		int shippingRow = 0;
@@ -63,7 +64,7 @@ public class MemberController {
 		dto.setMember_coupon(1);
 		memberRow = ms.insert(dto);
 		if(memberRow == 1) {
-			shippingRow = ss.insert(shippingMap);
+			shippingRow = ss.insert(shipDto);
 			pointRow = ps.insert(pointInsertMap);
 			couponRow = cs.insert(couponInsertMap);
 			if(shippingRow == 1 && pointRow == 1 && couponRow == 1) {

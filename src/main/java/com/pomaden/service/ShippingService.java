@@ -14,20 +14,21 @@ import com.pomaden.model.ShippingDTO;
 public class ShippingService {
 	@Autowired private ShippingDAO dao;
 	
-	public int insert(HashMap<String, String> shippingMap) {
-		return dao.insert(shippingMap);
+	public int insert(ShippingDTO dto) {
+		return dao.insert(dto);
 	}
 
-	public HashMap<String, String> getShippingMap(MemberDTO dto) {
-		HashMap<String, String> shippingMap = new HashMap<String, String>();
-		shippingMap.put("shipping_member_id", dto.getMember_id());
-		shippingMap.put("shipping_name", dto.getMember_name());
-		shippingMap.put("shipping_phone", dto.getMember_phone());
-		shippingMap.put("shipping_load_add", dto.getMember_load_add());
-		shippingMap.put("shipping_code_add", dto.getMember_code_add());
-		shippingMap.put("shipping_detail_add", dto.getMember_detail_add());
-		shippingMap.put("shipping_msg", "부재 시 집 앞에 놔주세요.");
-		return shippingMap;
+	public ShippingDTO getShippingDto(MemberDTO dto) {
+		ShippingDTO shipDto = new ShippingDTO();
+		shipDto.setShipping_member_id(dto.getMember_id());
+		shipDto.setShipping_code_add(dto.getMember_code_add());
+		shipDto.setShipping_name(dto.getMember_name());
+		shipDto.setShipping_phone(dto.getMember_phone());
+		shipDto.setShipping_detail_add(dto.getMember_detail_add());
+		shipDto.setShipping_load_add(dto.getMember_load_add());
+		shipDto.setShipping_msg("부재 시 집 앞에 놔주세요.");
+		shipDto.setShipping_rep(1);
+		return shipDto;
 	}
 
 	public List<ShippingDTO> selectAll(String member_id) {
@@ -36,6 +37,14 @@ public class ShippingService {
 
 	public ShippingDTO selectOne(int shipping_idx) {
 		return dao.selectOne(shipping_idx);
+	}
+
+	public int update(ShippingDTO dto) {
+		return dao.update(dto);
+	}
+
+	public int delete(int shipping_idx) {
+		return dao.delete(shipping_idx);
 	}
 
 }

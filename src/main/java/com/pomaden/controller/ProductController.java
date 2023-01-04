@@ -26,6 +26,7 @@ import com.pomaden.model.PointDTO;
 import com.pomaden.model.ProductDTO;
 import com.pomaden.model.ReplyDTO;
 import com.pomaden.model.ReviewDTO;
+import com.pomaden.model.ShippingDTO;
 import com.pomaden.service.CartService;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.ItemService;
@@ -34,6 +35,7 @@ import com.pomaden.service.PointService;
 import com.pomaden.service.ProductService;
 import com.pomaden.service.ReplyService;
 import com.pomaden.service.ReviewService;
+import com.pomaden.service.ShippingService;
 
 @Controller
 public class ProductController {
@@ -45,6 +47,7 @@ public class ProductController {
 	@Autowired private CartService cs;
 	@Autowired private ReviewService revs;
 	@Autowired private ReplyService reps;
+	@Autowired private ShippingService ss;
 	
 	@GetMapping("/product/productList")
 	public ModelAndView selectCategory(String category, String kind) {
@@ -111,8 +114,10 @@ public class ProductController {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		int point = login.getMember_point();
-		List<CartDTO> cartList = cs.getPayment(list, login); 
+		List<CartDTO> cartList = cs.getPayment(list, login);
+		List<ShippingDTO> shippingList = ss.selectAll(login.getMember_id());
 		session.setAttribute("couponItemlist", cartList);
+		mav.addObject("shippingList", shippingList);
 		mav.addObject("point", point);
 		return mav;
 	}
@@ -122,7 +127,9 @@ public class ProductController {
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		int point = login.getMember_point();
 		List<CartDTO> list = ps.setPaymentSingle(item_color, item_name, item_size, count);
+		List<ShippingDTO> shippingList = ss.selectAll(login.getMember_id());
 		session.setAttribute("couponItemlist", list);
+		mav.addObject("shippingList", shippingList);
 		mav.addObject("point", point);
 		return mav;
 	}

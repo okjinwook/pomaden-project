@@ -6,30 +6,29 @@
 		<div class="payment_title">결제</div>
 		<div class="payment_shipping_title_box aice">
 			<div class="payment_shipping_title">배송지 정보</div>
-			<div class="payment_shipping_change_button jcce aice">배송지 변경</div>
+			<div class="payment_shipping_change_button jcce aice" onclick="shippingChangeOnClick('${login.member_id}')">배송지 변경</div>
 		</div>
 		<div class="payment_shipping_box">
-			<div class="payment_shipping_name_box aice">
-				<div class="payment_shipping_info aice">받으시는 분</div>
-				<div class="payment_shipping_name">${login.member_name }</div>
-			</div>
-			<div class="payment_shipping_phone_box aice">
-				<div class="payment_shipping_info aice">휴대전화</div>
-				<div class="payment_shipping_phone">${login.member_phone }</div>
-			</div>
-			<div class="payment_shipping_address_box aice">
-				<div class="payment_shipping_info aice">배송지 주소</div>
-				<div class="payment_shipping_address">(${login.member_code_add }) ${login.member_load_add } ${login.member_detail_add }</div>
-			</div>
-			<div class="payment_shipping_msg_box aice">
-				<div class="payment_shipping_info aice">배송메시지</div>
-				<select class="payment_shipping_msg">
-					<option>부재 시 집 앞에 놔주세요.</option>
-					<option>부재 시 경비실에 맡겨주세요.</option>
-					<option>부재 시 택배함에 넣어주세요.</option>
-					<option>배송 전 연락 바랍니다.</option>
-				</select>
-			</div>
+			<c:forEach var="shipping" items="${shippingList }">
+				<c:if test="${shipping.shipping_rep == 1 }">
+					<div class="payment_shipping_name_box aice">
+						<div class="payment_shipping_info aice">받으시는 분</div>
+						<div class="payment_shipping_name">${shipping.shipping_name }</div>
+					</div>
+					<div class="payment_shipping_phone_box aice">
+						<div class="payment_shipping_info aice">휴대전화</div>
+						<div class="payment_shipping_phone">${shipping.shipping_phone }</div>
+					</div>
+					<div class="payment_shipping_address_box aice">
+						<div class="payment_shipping_info aice">배송지 주소</div>
+						<div class="payment_shipping_address">(${shipping.shipping_code_add }) ${shipping.shipping_load_add } ${shipping.shipping_detail_add }</div>
+					</div>
+					<div class="payment_shipping_msg_box aice">
+						<div class="payment_shipping_info aice">배송메시지</div>
+						<div class="payment_shipping_msg">${shipping.shipping_msg }</div>
+					</div>
+				</c:if>
+			</c:forEach>
 		</div>
 		<div class="payment_orderList_title">상품 정보</div>
 		<div class="payment_orderList_box">

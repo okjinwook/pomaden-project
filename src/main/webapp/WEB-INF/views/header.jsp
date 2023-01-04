@@ -52,6 +52,7 @@
 <script src="${cpath }/resources/js/myPage/orderList.js"></script>
 <script src="${cpath }/resources/js/cart/cartList.js"></script>
 <script src="${cpath }/resources/js/question/questionList.js"></script>
+<script src="${cpath }/resources/js/shipping/shippingList.js"></script>
 </head>
 <body>
 <div class="overlay hidden"></div>

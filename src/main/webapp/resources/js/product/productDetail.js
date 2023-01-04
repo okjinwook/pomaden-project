@@ -361,3 +361,6 @@ function replyDelete(reply_idx) {
 		})
 	}
 }
+function setReload() {
+	location.reload()
+}

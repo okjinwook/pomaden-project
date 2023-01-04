@@ -167,3 +167,8 @@ function shippingChangeOnClick(member_id) {
 	const url = cpath + '/shipping/shippingList?member_id=' + member_id
 	window.open(url, 'shippingList', 'width=600px, height=700px')
 }
+
+// 수정이나 배송지 추가 후 새로고침
+function setReload() {
+	location.reload()
+}

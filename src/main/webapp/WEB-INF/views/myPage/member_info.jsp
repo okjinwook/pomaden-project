@@ -64,11 +64,15 @@
 				<div class="myPage_member_address_box aice">
 					<div class="myPage_address_change_button" onclick="shippingChangeOnClick('${login.member_id}')">배송지 변경</div>
 					<div class="myPage_sen_box aice">배송지</div>
-					<div class="myPage_member_address df">
-						<input class="" name="member_code_add" value="${login.member_code_add }">
-						<input class="" name="member_load_add" value="${login.member_load_add }">
-						<input class="" name="member_detail_add" value="${login.member_detail_add }">
-					</div>
+					<c:forEach var="dto" items="${list }">
+						<c:if test="${dto.shipping_rep == 1 }">
+							<div class="myPage_member_address df">
+								<input class="" name="member_code_add" value="${dto.shipping_code_add }" readonly="readonly">
+								<input class="" name="member_load_add" value="${dto.shipping_load_add }" readonly="readonly">
+								<input class="" name="member_detail_add" value="${dto.shipping_detail_add }" readonly="readonly">
+							</div>
+						</c:if>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="myPage_change_button_box jcce">
