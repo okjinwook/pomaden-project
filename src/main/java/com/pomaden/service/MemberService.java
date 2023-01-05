@@ -1,6 +1,7 @@
 package com.pomaden.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,9 @@ public class MemberService {
 	}
 	public int update(HashMap<String, String> map) {
 		return dao.update(map);
+	}
+	public List<MemberDTO> selectAll() {
+		return dao.selectAll();
 	}
 
 }

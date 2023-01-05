@@ -1,6 +1,7 @@
 package com.pomaden.model;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
@@ -24,5 +25,8 @@ public interface MemberDAO {
 	public MemberDTO findPw(MemberDTO dto);
 	
 	public int update(HashMap<String, String> map);
+
+	@Select("select * from member")
+	public List<MemberDTO> selectAll();
 
 }

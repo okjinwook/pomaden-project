@@ -106,7 +106,7 @@ public class ProductController {
 		else {
 			row = ls.insert(map);
 		}
-		row = ps.likeUpdate(map);
+		row = ps.update(map);
 		return row;
 	}
 	@GetMapping("/product/payment")

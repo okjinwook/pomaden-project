@@ -1,0 +1,35 @@
+@charset "utf-8";
+.admin_notice_component {
+	width: 800px;
+	height: 400px;
+	margin-left: 30px;
+}
+.admin_notice_insert_info {
+	font-weight: 700;
+}
+.admin_notice_title_box {
+	margin-bottom: 10px;
+}
+.admin_notice_title_box > input {
+	width: 600px;
+	height: 30px;
+	margin-left: 20px;
+	padding-left: 10px;
+}
+.admin_notice_content_box > textarea {
+	width: 600px;
+	height: 500px;
+	margin-left: 20px;
+	padding: 10px;
+    resize: none;
+}
+.admin_notice_insert_button {
+	width:100px;
+	height: 40px;
+	background-color: #333;
+	color: white;
+	border-radius:  5px;
+	cursor: pointer;
+	margin-left: 552px;
+	margin-top: 20px;
+}

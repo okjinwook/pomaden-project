@@ -1,0 +1,45 @@
+@charset "utf-8";
+.admin_content {
+	background-color: #dadada;
+}
+.admin_member_list {
+	width: 70%;
+	height: 500px;
+	margin: 0 auto;
+	background-color: white;
+}
+.admin_member_info {
+	height: 40px;
+	font-weight: 700;
+	border-bottom: 1px solid black;
+	padding-right: 17px;
+}
+.admin_member_item_box {
+    overflow-Y: scroll;
+    height: 460px;
+}
+.admin_member_item {
+	border-bottom: 1px solid #dadada;
+}
+.admin_member_item > div {
+	height: 60px;
+}
+.admin_member_email {
+	width: 270px;
+}
+.admin_member_id {
+	width: 200px;
+}
+.admin_member_name {
+	width: 110px;
+}
+.admin_member_phone {
+	width: 237px;
+}
+.admin_member_point {
+	width: 150px;
+}
+.admin_member_coupon {
+	width: 150px;
+}
+

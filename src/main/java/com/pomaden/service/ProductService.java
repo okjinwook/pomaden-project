@@ -85,7 +85,7 @@ public class ProductService {
 		return dao.selectOne(product_name);
 	}
 
-	public int likeUpdate(HashMap<String, Object> map) {
+	public int update(HashMap<String, Object> map) {
 		return dao.update(map);
 	}
 
@@ -104,6 +104,10 @@ public class ProductService {
 		setCart.setCart_total(total_price);
 		list.add(setCart);
 		return list;
+	}
+
+	public int delete(String product_name) {
+		return dao.delete(product_name);
 	}
 
 

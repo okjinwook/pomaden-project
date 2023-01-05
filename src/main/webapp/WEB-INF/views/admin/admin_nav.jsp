@@ -8,22 +8,35 @@
 <meta charset="UTF-8">
 <title>포마든 - 관리자페이지</title>
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/admin_nav.css">
-<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/product_add.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/product_insert.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/product_list.css">
-<script src="${cpath }/resources/js/admin/product_add.js"></script>
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/member_list.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/review_list.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/notice_list.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/notice_insert.css">
+<script src="${cpath }/resources/js/admin/product_insert.js"></script>
+<script src="${cpath }/resources/js/admin/product_list.js"></script>
+<script src="${cpath }/resources/js/admin/review_list.js"></script>
+<script src="${cpath }/resources/js/admin/notice_insert.js"></script>
 </head>
 <body>
 	<nav class="admin_nav_component df">
 		<div class="admin_nav_box">
 			<div class="admin_logo jcce aice">포마든 관리자 페이지</div>
 			<div class="admin_member_mamager">
-				<div class="admin_nav_title jcce aice">회원 관리</div>
+				<a href="${cpath }/admin/member_list" class="admin_nav_title jcce aice">회원 관리</a>
 			</div>
 			<div class="admin_product_mamager">
-				<div class="admin_nav_title jcce aice">상품 관리</div>
+				<a href="${cpath }/admin/product_list" class="admin_nav_title jcce aice">상품 관리</a>
 			</div>
 			<div class="admin_board_mamager">
-				<div class="admin_nav_title jcce aice">게시글 관리</div>
+				<a href="${cpath }/admin/review_list" class="admin_nav_title jcce aice">리뷰 관리</a>
+			</div>
+			<div class="admin_notice_mamager">
+				<a href="${cpath }/admin/notice_list" class="admin_nav_title jcce aice">공지 관리</a>
 			</div>
 		</div>
 	</nav>
+	<script>
+		const cpath = '${cpath}'
+	</script>

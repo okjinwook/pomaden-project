@@ -4,11 +4,11 @@
 	<div class="admin_content">
 		<div class="admin_title aice">상품 등록</div>
 		<div class="admin_category_box df">
-			<a href="${cpath }/admin/product_list" class="admin_product_list_button admin_category_button jcce aice">상품 목록</a>
-			<a href="${cpath }/admin/product_add" class="admin_product_add_button admin_category_button jcce aice">상품 등록</a>
+			<a href="${cpath }/admin/product_list" class="admin_category_button jcce aice">상품 목록</a>
+			<a href="${cpath }/admin/product_insert" class="admin_category_button jcce aice">상품 등록</a>
 		</div>
-		<div class="admin_product_add df">
-			<form class="df" action="${cpath }/admin/product_add" method="POST" enctype="multipart/form-data">
+		<div class="admin_product_insert df">
+			<form class="df" action="${cpath }/admin/product_insert" method="POST" enctype="multipart/form-data">
 				<div class="admin_img_component">
 					<div class="admin_img_box aice">
 						<label class="admin_img_label jcce aice">
@@ -49,7 +49,7 @@
 					<input type="submit" class="admin_add_button" value="상품 등록">
 				</div>
 			</form>
-			<form action="${cpath }/admin/item_add" enctype="multipart/form-data" method="POST">
+			<form action="${cpath }/admin/item_insert" enctype="multipart/form-data" method="POST">
 				<div class="admin_item_component jcsb">
 					<div class="admin_product_box aice">
 						<div class="admin_info_box">상품명</div>

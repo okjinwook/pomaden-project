@@ -21,7 +21,10 @@
 			)
 	</insert>
 	<select id="selectList" resultType="review" parameterType="hashmap">
-		select * from review where 
+		select * from review
+		<if test="member_id != null or product_name != null"> 
+			where 
+		</if>
 		<if test="member_id != null">
 			review_member_id = #{member_id}
 		</if>

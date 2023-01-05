@@ -24,4 +24,16 @@
 			and product_kind=#{kind}
 		</if>
 	</select>
+	<update id="update" parameterType="hashmap">
+		update product set 
+		<if test="product_like != null">
+			product_like = #{product_like} 
+		</if>
+		<if test="product_price != null">
+			product_price = #{product_price} ,
+			product_sale = #{product_sale}
+		</if>
+		where 
+		product_name = #{product_name} 
+	</update>
 </mapper>

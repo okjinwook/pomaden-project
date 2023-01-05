@@ -1,0 +1,45 @@
+@charset "utf-8";
+.admin_content {
+	background-color: #dadada;
+}
+.admin_review_list {
+	width: 90%;
+	height: 500px;
+	margin: 0 auto;
+	background-color: white;
+}
+.admin_review_info {
+	height: 40px;
+	font-weight: 700;
+	border-bottom: 1px solid black;
+	padding-right: 17px;
+}
+.admin_review_item_box {
+    overflow-Y: scroll;
+    height: 460px;
+}
+.admin_review_item {
+	border-bottom: 1px solid #dadada;
+}
+.admin_review_item > div {
+	height: 60px;
+}
+.admin_review_img {
+	width: 80px;
+}
+.admin_review_writer {
+	width: 120px;
+}
+.admin_review_product {
+	width: 300px;
+}
+.admin_review_content {
+	width: 300px;
+}
+.admin_review_grade {
+	width: 100px;
+}
+.admin_review_date {
+	width: 150px;
+}
+

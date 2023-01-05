@@ -43,11 +43,8 @@ body {
 }
 .admin_nav_component {
 	height: 100%;
-	width: 100%;
-	background-color: #dadada;
 	position: absolute;
     left: 0px;
-    z-index: -1;
 }
 .admin_logo {
 	width: 100%;

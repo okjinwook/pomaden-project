@@ -10,11 +10,11 @@
 		</div>
 		<div class="cs_content_box">
 			<div class="cs_notice_content_box">
-				<c:forEach var="i" begin="1" end="10">
+				<c:forEach var="dto" items="${list }" varStatus="status">
 					<div class="cs_notice_item df">
-						<div class="cs_notice_index jcce aice">${i}</div>				
-						<div class="cs_notice_content aice">'틱톡' 사업자도용 사기 사례&주의 부탁드립니다. </div>
-						<div class="cs_notice_date jcce aice">2022.11.12</div>				
+						<div class="cs_notice_index jcce aice">${status.count}</div>				
+						<div class="cs_notice_title aice">${dto.notice_title } </div>
+						<div class="cs_notice_date jcce aice">${dto.notice_date }</div>				
 					</div>
 				</c:forEach>
 			</div>

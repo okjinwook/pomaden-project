@@ -1,5 +1,7 @@
 @charset "utf-8";
-
+.admin_content {
+	background-color: #dadada;
+}
 .admin_product_list {
 	width: 90%;
 	height: 500px;
@@ -12,7 +14,7 @@
 	border-bottom: 1px solid black;
 	padding-right: 17px;
 }
-.admin_product_delete_button {
+.admin_product_delete_button , .admin_product_update_button{
 	width: 60px;
 	height: 30px;
 	background-color: #dadada;
@@ -31,17 +33,27 @@
 .admin_product_item > div {
 	height: 60px;
 }
+.admin_product_item  input {
+	padding-left: 10px;
+	height: 30px;
+}
 .admin_product_img {
 	width: 100px;
 }
 .admin_product_name {
-	width: 558px;
+	width: 458px;
 }
 .admin_product_price {
 	width: 200px;
 }
+.admin_product_price > input {
+	width: 150px;
+}
 .admin_product_sale {
 	width: 100px;
+}
+.admin_product_sale > input{
+	width: 80px;
 }
 .admin_product_category {
 	width: 150px;
@@ -50,6 +62,9 @@
 	width: 150px;
 }
 .admin_product_like {
+	width: 100px;
+}
+.admin_product_update {
 	width: 100px;
 }
 .admin_product_delete {
