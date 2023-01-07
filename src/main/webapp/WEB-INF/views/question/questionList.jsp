@@ -7,7 +7,7 @@
 		<form action="${cpath }/question/questionList">
 			<div class="question_filter_box jcsb">
 				<select name="category" class="question_select_box" onchange="location.href='${cpath }/question/questionList?page=0&check=${param.check }&kind=${param.kind }&search=${param.search }&category=' + (this.value)" >
-					<option value="전체">전체</option>
+					<option value="전체">카테고리</option>
 					<option value="배송문의">배송문의</option>
 					<option value="입금문의">입금문의</option>
 					<option value="재입고문의">재입고문의</option>
@@ -17,9 +17,9 @@
 				</select>
 				<div class="question_search_box aice">
 					<select name="check" class="question_check_box question_select_box">
-						<option value="전체">전체</option>
+						<option value="전체">답변여부</option>
 						<option value="미답변">미답변</option>
-						<option value="답변">답변</option>
+						<option value="답변완료">답변완료</option>
 					</select>
 					<select name="kind" class="question_kind_box question_select_box" style="margin-left: 10px;">
 						<option value="전체">전체</option>

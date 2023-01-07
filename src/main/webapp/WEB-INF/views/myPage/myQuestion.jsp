@@ -30,13 +30,24 @@
 					<div class="myPage_myQuestion_date jcce aice">${dto.question_date }</div>
 				</div>
 				<div class="myPage_myQuestion_detail_box hidden">
-					<div class="myPage_myQuestion_content_box aice">
+					<div class="myPage_myQuestion_content_box df">
 						<div class="myPage_myQuestion_content_title aice jcce">내용</div>
 						<div class="myPage_myQuestion_content">${dto.question_content }</div>
 					</div>
-					<div class="myPage_myQuestion_answer_box aice">
+					<div class="myPage_myQuestion_answer_box df">
 						<div class="myPage_myQuestion_answer_title aice jcce">답변</div>
-						<div class="myPage_myQuestion_answer">미답변 문의글입니다</div>
+						<div class="myPage_myQuestion_answer">
+							<c:if test="${dto.question_check == '미답변'}">
+								미답변 문의글입니다
+							</c:if>
+							<c:if test="${dto.question_check == '답변완료'}">
+								<c:forEach var="ansDto" items="${ansList }">
+									<c:if test="${ansDto.answer_question_idx == dto.question_idx}">
+										${ansDto.answer_content }
+									</c:if>
+								</c:forEach>
+							</c:if>
+						</div>
 					</div>
 				</div>
 			</c:forEach>

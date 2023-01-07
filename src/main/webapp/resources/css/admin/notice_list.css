@@ -1,7 +1,4 @@
 @charset "utf-8";
-.admin_content {
-	background-color: #dadada;
-}
 .admin_notice_list {
 	width: 90%;
 	height: 500px;
@@ -28,10 +25,10 @@
 	width: 120px;
 }
 .admin_notice_title {
-	width: 300px;
+	width: 400px;
 }
 .admin_notice_content {
-	width: 300px;
+	width: 771px;
 }
 .admin_notice_date {
 	width: 150px;

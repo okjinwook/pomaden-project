@@ -13,17 +13,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pomaden.mail.Hash;
 import com.pomaden.model.AdminDTO;
+import com.pomaden.model.AnswerDTO;
 import com.pomaden.model.ItemDTO;
 import com.pomaden.model.MemberDTO;
 import com.pomaden.model.NoticeDTO;
 import com.pomaden.model.ProductDTO;
+import com.pomaden.model.QuestionDTO;
 import com.pomaden.model.ReviewDTO;
 import com.pomaden.service.AdminService;
+import com.pomaden.service.AnswerService;
 import com.pomaden.service.ItemService;
 import com.pomaden.service.MemberService;
 import com.pomaden.service.NoticeService;
 import com.pomaden.service.ProductService;
+import com.pomaden.service.QuestionService;
 import com.pomaden.service.ReviewService;
 
 @Controller
@@ -34,6 +39,8 @@ public class AdminController {
 	@Autowired private MemberService ms;
 	@Autowired private ReviewService rs;
 	@Autowired private NoticeService ns; 
+	@Autowired private QuestionService qs;
+	@Autowired private AnswerService aws;
 	
 	@GetMapping("/admin")
 	public void admin() {}
@@ -152,5 +159,38 @@ public class AdminController {
 		}
 		return mav;
 	}
+	@GetMapping("/admin/question_list")
+	public ModelAndView question_list(String check, String category) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		ModelAndView mav = new ModelAndView();
+		map.put("search", null);
+		map.put("category", null); 
+		map.put("check", null);
+		map.put("page", null);
+		if(check != null && "전체".equals(check) == false && check != "") {
+			map.put("check", check);
+			System.out.println(check);
+		}
+		if(category != null && "전체".equals(category) == false && category != "") {
+			System.out.println(category);
+			map.put("category", category);
+		}
+		List<QuestionDTO> list = qs.selectList(map);
+		mav.addObject("list", list);
+		return mav;
+	}
 	
+	@PostMapping("/admin/answer_insert")
+	public ModelAndView answer_insert(AnswerDTO dto) {
+		ModelAndView mav = new ModelAndView("redirect:/admin/question_list");
+		int updateRow = qs.update(dto.getAnswer_question_idx());
+		int insertRow = aws.insert(dto);
+		if(insertRow == 1 && updateRow == 1) {
+			mav.addObject("msg", "답변이 등록되었습니다.");
+		}
+		else {
+			mav.addObject("msg", "답변 실패!!");
+		}
+		return mav;
+	}
 }

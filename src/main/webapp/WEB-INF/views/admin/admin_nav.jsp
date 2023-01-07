@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="cpath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
@@ -14,10 +15,10 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/review_list.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/notice_list.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/notice_insert.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/admin/question_list.css">
 <script src="${cpath }/resources/js/admin/product_insert.js"></script>
 <script src="${cpath }/resources/js/admin/product_list.js"></script>
-<script src="${cpath }/resources/js/admin/review_list.js"></script>
-<script src="${cpath }/resources/js/admin/notice_insert.js"></script>
+<script src="${cpath }/resources/js/admin/question_list.js"></script>
 </head>
 <body>
 	<nav class="admin_nav_component df">
@@ -31,6 +32,9 @@
 			</div>
 			<div class="admin_board_mamager">
 				<a href="${cpath }/admin/review_list" class="admin_nav_title jcce aice">리뷰 관리</a>
+			</div>
+			<div class="admin_question_mamager">
+				<a href="${cpath }/admin/question_list" class="admin_nav_title jcce aice">문의 관리</a>
 			</div>
 			<div class="admin_notice_mamager">
 				<a href="${cpath }/admin/notice_list" class="admin_nav_title jcce aice">공지 관리</a>

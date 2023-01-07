@@ -19,12 +19,18 @@
 				</c:forEach>
 			</div>
 			<div class="cs_oftenQeution_content_box hidden">
-				<c:forEach var="i" begin="1" end="10">
-					<div class="cs_oftenQeution_item df">
-						<div class="cs_oftenQeution_index jcce aice">[ 자주 묻는 질문 ]</div>				
-						<div class="cs_oftenQeution_content jcce aice">상품 교환 / 반품은 어떻게 하나요?  </div>				
-					</div>
-				</c:forEach>
+				<div class="cs_oftenQeution_item df">
+					<div class="cs_oftenQeution_index jcce aice">[ 자주 묻는 질문 ]</div>				
+					<div class="cs_oftenQeution_content jcce aice">상품 교환 / 반품은 어떻게 하나요?  </div>				
+				</div>
+				<div class="cs_oftenQeution_item df">
+					<div class="cs_oftenQeution_index jcce aice">[ 자주 묻는 질문 ]</div>				
+					<div class="cs_oftenQeution_content jcce aice">회원 ID / PW 분실 시 어떻게 해야 하나요?   </div>				
+				</div>
+				<div class="cs_oftenQeution_item df">
+					<div class="cs_oftenQeution_index jcce aice">[ 자주 묻는 질문 ]</div>				
+					<div class="cs_oftenQeution_content jcce aice">주문건 취소 / 변경 하고 싶을 때 어떻게 해야 하나요?  </div>				
+				</div>
 			</div>
 		</div>
 	</div>

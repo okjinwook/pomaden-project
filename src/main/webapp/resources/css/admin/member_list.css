@@ -1,12 +1,10 @@
 @charset "utf-8";
-.admin_content {
-	background-color: #dadada;
-}
 .admin_member_list {
 	width: 70%;
 	height: 500px;
 	margin: 0 auto;
 	background-color: white;
+	font-size: 14px;
 }
 .admin_member_info {
 	height: 40px;

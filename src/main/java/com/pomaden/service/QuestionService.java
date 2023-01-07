@@ -28,5 +28,11 @@ public class QuestionService {
 		resultCount += (count % 10 == 0) ? 0 : 1;
 		return resultCount;
 	}
+	public List<QuestionDTO> selectList(HashMap<String, String> map) {
+		return dao.selectAll(map);
+	}
+	public int update(int question_idx) {
+		return dao.update(question_idx);
+	}
 
 }

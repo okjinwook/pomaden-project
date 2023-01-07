@@ -21,7 +21,14 @@
 					<div class="admin_review_img jcce aice"><img src="${dto.review_img }" width="50px"></div>
 					<div class="admin_review_writer jcce aice">${dto.review_member_id }</div>
 					<div class="admin_review_product jcce aice">${dto.review_product }</div>
-					<div class="admin_review_content jcce aice">${dto.review_content }</div>
+					<div class="admin_review_content jcce aice">
+						<c:if test="${fn:length(dto.review_content) > 80}">
+							${fn:substring(dto.question_review , 0 , 80) }...
+						</c:if> 
+						<c:if test="${fn:length(dto.review_content) < 40}">
+							${dto.review_content }
+						</c:if> 
+					</div>
 					<div class="admin_review_grade jcce aice">${dto.review_grade }</div>
 					<div class="admin_review_date jcce aice">${dto.review_date }</div>
 				</div>

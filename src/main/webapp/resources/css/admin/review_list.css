@@ -1,7 +1,4 @@
 @charset "utf-8";
-.admin_content {
-	background-color: #dadada;
-}
 .admin_review_list {
 	width: 90%;
 	height: 500px;
@@ -28,13 +25,13 @@
 	width: 80px;
 }
 .admin_review_writer {
-	width: 120px;
+	width: 140px;
 }
 .admin_review_product {
-	width: 300px;
+	width: 400px;
 }
 .admin_review_content {
-	width: 300px;
+	width: 571px;
 }
 .admin_review_grade {
 	width: 100px;

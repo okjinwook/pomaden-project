@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pomaden.model.AnswerDTO;
 import com.pomaden.model.CouponDTO;
 import com.pomaden.model.LikeProductDTO;
 import com.pomaden.model.MemberDTO;
@@ -20,6 +21,7 @@ import com.pomaden.model.PointDTO;
 import com.pomaden.model.QuestionDTO;
 import com.pomaden.model.ReviewDTO;
 import com.pomaden.model.ShippingDTO;
+import com.pomaden.service.AnswerService;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.LikeProductService;
 import com.pomaden.service.MemberService;
@@ -40,7 +42,7 @@ public class MyPageController {
 	@Autowired private OrderListService os;
 	@Autowired private ReviewService rs;
 	@Autowired private ShippingService ss;
-	
+	@Autowired private AnswerService as;
 	
 	@GetMapping("/myPage/orderList")
 	public ModelAndView orderList(HttpSession session) {
@@ -111,7 +113,9 @@ public class MyPageController {
 		map.put("search", "");
 		map.put("member", member.getMember_id());
 		int count = qs.getCount(map); 
+		List<AnswerDTO> ansList = as.selectAll();
 		List<QuestionDTO> list = qs.selectAll(map);
+		mav.addObject("ansList", ansList);
 		mav.addObject("list", list);
 		mav.addObject("count", count);
 		return mav;

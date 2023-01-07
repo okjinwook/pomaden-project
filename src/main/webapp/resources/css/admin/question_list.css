@@ -1,0 +1,120 @@
+@charset "utf-8";
+.admin_question_select_box {
+	margin-left: 80px;
+}
+.admin_question_select_box > select {
+	height: 30px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+.admin_question_list {
+	width: 90%;
+	height: 500px;
+	margin: 0 auto;
+	background-color: white;
+	font-size: 14px;
+}
+.admin_question_info {
+	height: 40px;
+	font-weight: 700;
+	border-bottom: 1px solid black;
+	padding-right: 17px;
+}
+.admin_question_item_box {
+    overflow-Y: scroll;
+    height: 460px;
+}
+.admin_question_item {
+	border-bottom: 1px solid #dadada;
+}
+.admin_question_item > div {
+	height: 60px;
+}
+.admin_question_writer {
+	width: 140px;
+}
+.admin_question_title {
+	width: 300px;
+}
+.admin_question_content {
+	width: 550px;
+	padding-left: 15px;
+}
+.admin_question_check {
+	width: 110px;
+}
+.admin_question_category {
+	width: 110px;
+}
+.admin_question_answer {
+	width: 100px;
+}
+.admin_question_date {
+	width: 130px;
+}
+.admin_question_answer_button {
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	font-size: 10px;
+	padding: 10px;
+	cursor: pointer;
+}
+
+
+/* ================================답변 박스 ===================================*/
+.admin_question_answer_box {
+	height: auto;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 60px;
+    padding-bottom: 60px;
+}
+.admin_question_answer_item {
+	background-color: white;
+	margin-bottom: 20px;
+}
+.admin_question_answer_box textarea {
+	height: 300px;
+	width: 100%;
+	resize: none;
+	padding: 10px;
+}
+.admin_question_answer_item > div{
+	border-bottom: 1px solid #dadada;	
+}
+.admin_question_answer_info {
+	width: 120px;
+	height: 50px;
+	background-color: cornsilk;
+	padding-left: 15px;
+	font-weight: 700;
+}
+.admin_question_answer_content_info {
+	min-height: 200px;
+}
+.admin_question_answer_writer {
+	padding-left: 10px;
+	font-size: 14px;
+}
+.admin_question_answer_title {
+	padding-left: 10px;
+	font-size: 14px;
+}
+.admin_question_answer_content {
+	min-height: 200px;
+	padding: 10px;
+	font-size: 14px;
+}
+.admin_answer_button_box {
+	justify-content: flex-end;
+}
+.admin_answer_button {
+	width: 100px;
+	height: 40px;
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	border: none;
+}

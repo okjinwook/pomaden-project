@@ -15,7 +15,7 @@
 				and 
 				${kind} like '%${search}%'
 			</if>
-			<if test="kind == null">
+			<if test="kind == null and search != null">
 				and
 				question_title like '%${search}%' or question_member_id like '%${search}%'
 			</if>
@@ -26,7 +26,7 @@
 				and 
 				${kind} like '%${search}%'
 			</if>
-			 <if test="kind == null">
+			 <if test="kind == null and search != null">
 				and
 				question_title like '%${search}%' or question_member_id like '%${search}%'
 			</if>
@@ -36,7 +36,7 @@
 				and 
 				${kind} like '%${search}%'
 			</if>
-			<if test="kind == null">
+			<if test="kind == null and search != null">
 				and
 				question_title like '%${search}%' or question_member_id like '%${search}%'
 			</if>
