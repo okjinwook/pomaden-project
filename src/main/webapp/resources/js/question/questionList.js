@@ -10,3 +10,4 @@ function modalCancleClick(){
 	modal.classList.add('hidden')
 	overlay.classList.add('hidden')
 }
+

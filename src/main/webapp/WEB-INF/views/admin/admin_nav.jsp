@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="cpath" value="${pageContext.request.contextPath }"/>
+<c:set var="newLine" value="\n"></c:set>
 <!DOCTYPE html>
 <html>
 <head>

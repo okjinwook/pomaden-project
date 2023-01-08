@@ -16,15 +16,16 @@
 		</div>
 		<div class="admin_notice_item_box">
 			<c:forEach var="dto" items="${list }">
+				<c:set var="content" value="${fn:replace(dto.notice_content, '<br>', ' ')}"/>
 				<div class="admin_notice_item df">
 					<div class="admin_notice_admin jcce aice">${dto.notice_admin }</div>
 					<div class="admin_notice_title jcce aice">${dto.notice_title }</div>
 					<div class="admin_notice_content jcce aice">
-						<c:if test="${fn:length(dto.notice_content) > 80}">
-							${fn:substring(dto.notice_content , 0 , 80) }...
+						<c:if test="${fn:length(content) > 80}">
+							${fn:substring(content , 0 , 80) }...
 						</c:if> 
-						<c:if test="${fn:length(dto.notice_content) < 40}">
-							${dto.notice_content }
+						<c:if test="${fn:length(content) < 80}">
+							${content }
 						</c:if> 
 					</div>
 					<div class="admin_notice_date jcce aice">${dto.notice_date }</div>

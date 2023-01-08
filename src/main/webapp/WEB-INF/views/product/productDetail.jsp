@@ -139,6 +139,7 @@
 				<div class="empty_msg jcce aice">작성된 리뷰가 없습니다.</div>
 			</c:if>
 			<c:forEach var="reviewDto" items="${reviewList }">
+				<c:set var="content" value="${fn:replace(dto.reviewDto_content, '<br>', ' ')}"/>
 				<c:set var="reply_count" value="0"/>
 				<c:forEach var="replyDto" items="${replyList }">
 					<c:if test="${replyDto.reply_review_idx == reviewDto.review_idx}">
@@ -155,7 +156,7 @@
 						</c:forEach>
 						</div>
 						<div class="productDetail_review_img"><img src="${reviewDto.review_img }" width="100px"></div>
-						<div class="productDetail_review_content">${reviewDto.review_content }</div>
+						<div class="productDetail_review_content">${content }</div>
 						<div class="productDetail_review_reply">
 							<div class="productDetail_review_reply_button" onclick="detailReplyOnClick(event)">
 								댓글 (${reply_count})

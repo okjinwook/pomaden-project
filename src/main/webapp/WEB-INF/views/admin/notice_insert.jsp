@@ -17,7 +17,7 @@
 					<div class="admin_notice_insert_info">내용</div>
 					<textarea name="notice_content" placeholder="공지 내용을 입력해주세요."></textarea>
 				</div>
-				<input type="submit" class="admin_notice_insert_button">
+				<input type="submit" class="admin_notice_insert_button" onclick="noticeOnSubmit(event)">
 			</div>
 		</form>
 	</div>

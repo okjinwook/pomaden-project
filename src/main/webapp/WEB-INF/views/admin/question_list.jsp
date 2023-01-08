@@ -34,22 +34,23 @@
 		</div>
 		<div class="admin_question_item_box">
 			<c:forEach var="dto" items="${list }">
+				<c:set var="content" value="${fn:replace(dto.question_content, '<br>', ' ')}"/>
 				<div class="admin_question_item df">
 					<div class="admin_question_writer jcce aice">${dto.question_member_id }</div>
 					<div class="admin_question_title aice">${dto.question_title }</div>
 					<div class="admin_question_content aice">
-						<c:if test="${fn:length(dto.question_content) > 40}">
-							${fn:substring(dto.question_content , 0 , 40) }...
+						<c:if test="${fn:length(content) > 40}">
+							${fn:substring(content , 0 , 40) }...
 						</c:if> 
-						<c:if test="${fn:length(dto.question_content) < 40}">
-							${dto.question_content }
+						<c:if test="${fn:length(content) < 40}">
+							${content }
 						</c:if> 
 					</div>
 					<div class="admin_question_check jcce aice">${dto.question_check }</div>
 					<div class="admin_question_category jcce aice">${dto.question_category }</div>
 					<div class="admin_question_answer jcce aice">
 						<c:if test="${dto.question_check == '미답변' }">
-							<div class="admin_question_answer_button" onclick="answerOnClick(${dto.question_idx },'${dto.question_member_id }', '${dto.question_title }', '${dto.question_content }')">답변</div>
+							<div class="admin_question_answer_button" onclick="answerOnClick(${dto.question_idx },'${dto.question_member_id }', '${dto.question_title }', '${fn:replace(dto.question_content, '<br>', newLine)}')">답변</div>
 						</c:if>
 					</div>
 					<div class="admin_question_date jcce aice">${dto.question_date }</div>

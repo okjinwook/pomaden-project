@@ -63,6 +63,10 @@ public class ReviewService {
 
 		dto.setReview_img(uploadFilePath);
 
+		
+		// textarea 컨텐트 개행처리 \n => <br>
+		String content = dto.getReview_content();
+		dto.setReview_content(content.replaceAll("\n", "<br>"));
 		return dao.insert(dto);
 	}
 

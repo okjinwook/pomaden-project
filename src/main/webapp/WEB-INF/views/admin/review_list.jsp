@@ -17,16 +17,17 @@
 		</div>
 		<div class="admin_review_item_box">
 			<c:forEach var="dto" items="${list }">
+				<c:set var="content" value="${fn:replace(dto.review_content, '<br>', ' ')}"/>
 				<div class="admin_review_item df">
 					<div class="admin_review_img jcce aice"><img src="${dto.review_img }" width="50px"></div>
 					<div class="admin_review_writer jcce aice">${dto.review_member_id }</div>
 					<div class="admin_review_product jcce aice">${dto.review_product }</div>
 					<div class="admin_review_content jcce aice">
-						<c:if test="${fn:length(dto.review_content) > 80}">
-							${fn:substring(dto.question_review , 0 , 80) }...
+						<c:if test="${fn:length(content) > 80}">
+							${fn:substring(content , 0 , 80) }...
 						</c:if> 
-						<c:if test="${fn:length(dto.review_content) < 40}">
-							${dto.review_content }
+						<c:if test="${fn:length(content) < 80}">
+							${content }
 						</c:if> 
 					</div>
 					<div class="admin_review_grade jcce aice">${dto.review_grade }</div>

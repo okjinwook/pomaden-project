@@ -63,7 +63,6 @@ public class AdminController {
 	@PostMapping("admin/product_insert")
 	public ModelAndView product_insert(ProductDTO dto) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(dto.getProduct_upload().getOriginalFilename());
 		int row = ps.insert(dto);
 		if(row == 1) {
 			mav.addObject("msg", "정상적으로 등록되었습니다.");

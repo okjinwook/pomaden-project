@@ -101,7 +101,7 @@
 				<textarea name="question_content" placeholder="내용을 작성해주세요."></textarea>
 			</div>
 			<div class="question_modal_button_box jcsb">
-				<input class="question_modal_write_button" type="submit" value="작성">
+				<input class="question_modal_write_button" type="submit" value="작성" onclick="questionOnSubmit(event)">
 				<div class="question_modal_cancle_button jcce aice" onclick="modalCancleClick()">취소</div>
 			</div>
 		</div>
@@ -113,8 +113,8 @@
 	const kind = document.querySelectorAll('.question_kind_box > option')
 	const search = document.querySelector('.question_search_input')
 	const pages = document.querySelectorAll('.question_paging_box > a')
-	if('${msg}' != '') {
-		alert('${msg}')
+	if('${param.msg}' != '') {
+		alert('${param.msg}')
 	}
 	category.forEach(ob => {
 		if('${param.category}' == ob.value) {

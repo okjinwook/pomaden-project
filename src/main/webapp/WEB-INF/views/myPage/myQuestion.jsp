@@ -23,6 +23,7 @@
 				<div class="myPage_myQuestion_date jcce aice">작성일자</div>
 			</div>
 			<c:forEach var="dto" items="${list }">
+				<c:set var="content" value="${fn:replace(dto.question_content, '<br>', ' ')}"/>
 				<div class="myPage_myQuestion_item df" onclick="questionOnClick(event)">
 					<div class="myPage_myQuestion_category jcce aice">${dto.question_category }</div>
 					<div class="myPage_myQuestion_questionTitle jcce aice">${dto.question_title }</div>
@@ -32,7 +33,14 @@
 				<div class="myPage_myQuestion_detail_box hidden">
 					<div class="myPage_myQuestion_content_box df">
 						<div class="myPage_myQuestion_content_title aice jcce">내용</div>
-						<div class="myPage_myQuestion_content">${dto.question_content }</div>
+						<div class="myPage_myQuestion_content">
+							<c:if test="${fn:length(content) > 80}">
+							${fn:substring(content , 0 , 80) }...
+							</c:if> 
+							<c:if test="${fn:length(content) < 80}">
+								${content }
+							</c:if> 
+						</div>
 					</div>
 					<div class="myPage_myQuestion_answer_box df">
 						<div class="myPage_myQuestion_answer_title aice jcce">답변</div>
