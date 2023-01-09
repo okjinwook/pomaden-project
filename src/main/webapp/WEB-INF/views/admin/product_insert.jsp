@@ -12,6 +12,7 @@
 				<div class="admin_img_component">
 					<div class="admin_img_box aice">
 						<label class="admin_img_label jcce aice">
+							<div class="admin_img"></div>
 							<input class="admin_file_input" type="file" name="product_upload" hidden="" onchange="adminUpload(event)">
 							<span>상품 이미지 등록</span>
 							<span>클릭</span>
@@ -38,8 +39,8 @@
 						<select name="product_category" onChange="adminCegoryOnChange(event)" required="required">
 							<option>--선택--</option>
 							<option>아우터</option>
-							<option>셔츠</option>
 							<option>티셔츠</option>
+							<option>셔츠</option>
 							<option>팬츠</option>
 							<option>슈즈</option>
 						</select>
@@ -53,7 +54,7 @@
 				<div class="admin_item_component jcsb">
 					<div class="admin_product_box aice">
 						<div class="admin_info_box">상품명</div>
-						<input type="text" name="item_name" value="${dto.product_name }" required="required">
+						<input type="text" name="item_name" value="${param.product_name }" required="required">
 					</div>
 					<div class="admin_product_box aice">
 						<div class="admin_info_box">컬러</div>
@@ -65,6 +66,8 @@
 							<option>베이지</option>
 							<option>옐로우</option>
 							<option>블루</option>
+							<option>레드</option>
+							<option>카키</option>
 						</select>
 					</div>
 					<div class="admin_product_box aice">
@@ -89,8 +92,8 @@
 	</div>
 		
 	<script>
-		if('${msg}' != '') {
-			alert('${msg}')
+		if('${param.msg}' != '') {
+			alert('${param.msg}')
 		}
 	</script>
 </body>

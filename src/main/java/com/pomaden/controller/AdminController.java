@@ -62,20 +62,27 @@ public class AdminController {
 	
 	@PostMapping("admin/product_insert")
 	public ModelAndView product_insert(ProductDTO dto) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		int row = ps.insert(dto);
-		if(row == 1) {
-			mav.addObject("msg", "정상적으로 등록되었습니다.");
-			mav.addObject("dto", dto);
+		ModelAndView mav = new ModelAndView("redirect:/admin/product_insert");
+		ProductDTO checkDto = ps.selectOne(dto.getProduct_name());
+		if(checkDto == null) {
+			int row = ps.insert(dto);
+			if(row == 1) {
+				mav.addObject("msg", "정상적으로 등록되었습니다.");
+				mav.addObject("dto", dto);
+				mav.addObject("product_name", dto.getProduct_name());
+			}
+			else {
+				mav.addObject("msg", "상품등록 실패!!!.");
+			}
 		}
 		else {
-			mav.addObject("msg", "상품등록 실패!!!.");
+			mav.addObject("msg", "이미 등록된 상품입니다.");
 		}
 		return mav;
 	}
 	@PostMapping("/admin/item_insert")
 	public ModelAndView item_insert(ItemDTO dto) {
-		ModelAndView mav = new ModelAndView("/admin/product_insert");
+		ModelAndView mav = new ModelAndView("redirect:/admin/product_insert");
 		int row = is.insert(dto);
 		if(row == 1) {
 			mav.addObject("msg", "정상적으로 등록되었습니다.");

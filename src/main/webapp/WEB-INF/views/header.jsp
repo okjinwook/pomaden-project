@@ -108,30 +108,27 @@
 									<li><a href="${cpath }/product/productList?category=아우터&kind=가디건">가디건</a></li>
 									<li><a href="${cpath }/product/productList?category=아우터&kind=코치자켓">코치자켓</a></li>
 									<li><a href="${cpath }/product/productList?category=아우터&kind=폴리스">폴리스</a></li>
-									<li><a href="${cpath }/product/productList?category=아우터&kind=집업">집업</a></li>
 									<li><a href="${cpath }/product/productList?category=아우터&kind=코트">코트</a></li>
 									<li><a href="${cpath }/product/productList?category=아우터&kind=패딩">패딩</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="menuAll_component">
-							<div class="menuAll_menu_shirts">
-								<div class="menuAll_kinds">셔츠</div>
-								<ul>
-									<li><a href="${cpath }/product/productList?category=셔츠&kind=맨투맨">맨투맨</a></li>
-									<li><a href="${cpath }/product/productList?category=셔츠&kind=니트/스웨터">니트/스웨터</a></li>
-									<li><a href="${cpath }/product/productList?category=셔츠&kind=후드">후드</a></li>
-									<li><a href="${cpath }/product/productList?category=셔츠&kind=폴라넥">폴라넥</a></li>
-									<li><a href="${cpath }/product/productList?category=셔츠&kind=남방">남방</a></li>
-								</ul>
-							</div>
 							<div class="menuAll_menu_Tshirts">
 								<div class="menuAll_kinds">티셔츠</div>
 								<ul>
-									<li><a href="${cpath }/product/productList?category=티셔츠&kind=긴발티">긴팔티</a></li>
-									<li><a href="${cpath }/product/productList?category=티셔츠&kind=반팔티">반팔티</a></li>
-									<li><a href="${cpath }/product/productList?category=티셔츠&kind=7부셔츠">7부셔츠</a></li>
-									<li><a href="${cpath }/product/productList?category=티셔츠&kind=스트라이프">스트라이프</a></li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=맨투맨">맨투맨</a></li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=니트/스웨터">니트/스웨터</a></li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=후드">후드</a></li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=폴라넥">폴라넥</a></li>
+								</ul>
+							</div>
+							<div class="menuAll_menu_shirts">
+								<div class="menuAll_kinds">셔츠</div>
+								<ul>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=긴팔셔츠">긴팔셔츠</a></li>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=반팔셔츠">반팔셔츠</a></li>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=스트라이프">스트라이프</a></li>
 								</ul>
 							</div>
 						</div>
@@ -177,28 +174,25 @@
 							<li><a href="${cpath }/product/productList?category=아우터&kind=가디건">가디건</a></li>
 							<li><a href="${cpath }/product/productList?category=아우터&kind=코치자켓">코치자켓</a></li>
 							<li><a href="${cpath }/product/productList?category=아우터&kind=폴리스">폴리스</a></li>
-							<li><a href="${cpath }/product/productList?category=아우터&kind=집업">집업</a></li>
 							<li><a href="${cpath }/product/productList?category=아우터&kind=코트">코트</a></li>
 							<li><a href="${cpath }/product/productList?category=아우터&kind=패딩">패딩</a></li>
 						</ul>
 					</div>
 					<div class="menu_shirts">
-						<a href="${cpath }/product/productList?category=셔츠&kind=전체" class="menu_kind_button aice">셔츠</a>
+						<a href="${cpath }/product/productList?category=티셔츠&kind=전체" class="menu_kind_button aice">티셔츠</a>
 						<ul class="header_menubar_drop hidden">
-							<li><a href="${cpath }/product/productList?category=셔츠&kind=맨투맨">맨투맨</a></li>
-							<li><a href="${cpath }/product/productList?category=셔츠&kind=니트/스웨터">니트/스웨터</a></li>
-							<li><a href="${cpath }/product/productList?category=셔츠&kind=후드">후드</a></li>
-							<li><a href="${cpath }/product/productList?category=셔츠&kind=폴라넥">폴라넥</a></li>
-							<li><a href="${cpath }/product/productList?category=셔츠&kind=남방">남방</a></li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=맨투맨">맨투맨</a></li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=니트/스웨터">니트/스웨터</a></li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=후드">후드</a></li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=폴라넥">폴라넥</a></li>
 						</ul>
 					</div>
 					<div class="menu_T-shirts">
-						<a href="${cpath }/product/productList?category=티셔츠&kind=전체" class="menu_kind_button aice">티셔츠</a>
+						<a href="${cpath }/product/productList?category=셔츠&kind=전체" class="menu_kind_button aice">셔츠</a>
 						<ul class="header_menubar_drop hidden">
-							<li><a href="${cpath }/product/productList?category=티셔츠&kind=긴발티">긴팔티</a></li>
-							<li><a href="${cpath }/product/productList?category=티셔츠&kind=반팔티">반팔티</a></li>
-							<li><a href="${cpath }/product/productList?category=티셔츠&kind=7부셔츠">7부셔츠</a></li>
-							<li><a href="${cpath }/product/productList?category=티셔츠&kind=스트라이프">스트라이프</a></li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=긴팔셔츠">긴팔셔츠</a></li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=반팔셔츠">반팔셔츠</a></li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=스트라이프">스트라이프</a></li>
 						</ul>
 					</div>
 					<div class="menu_pants">

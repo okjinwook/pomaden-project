@@ -1,4 +1,7 @@
 function adminUpload(event) {
+	const admin_img = document.querySelector('.admin_img')
+	const file_span = document.querySelectorAll('.admin_img_label > span')
+	admin_img.innerHTML = ''
 	let target = event.target
 	let file = target.files[0]
 	var reader = new FileReader();
@@ -7,9 +10,10 @@ function adminUpload(event) {
     	const img = document.createElement('img')
     	img.src = reader.result
 		img.classList.add('admin_load_img')
-		target.parentNode.parentNode.appendChild(img)
-		target.parentNode.style.display = 'none'
-		
+		admin_img.appendChild(img)
+		file_span.forEach(span => {
+			span.innerText = ''
+		})
 	}
 }
 
@@ -24,27 +28,24 @@ function adminCegoryOnChange(event){
 		dom += 		'<option>가디건</option>'
 		dom += 		'<option>코치자켓</option>'
 		dom += 		'<option>폴리스</option>'
-		dom += 		'<option>집업</option>'
 		dom += 		'<option>코트</option>'
 		dom += 		'<option>패딩</option>'
-		dom += '</select>'
-	}
-	else if(value == '셔츠') {
-		dom += '<select class="admin_sub_shirts" name="product_kind" required="required">'
-		dom += 		'<option>--선택--</option>'
-		dom += 		'<option>맨투맨</option>'
-		dom += 		'<option>니트/스웨터</option>'
-		dom += 		'<option>후드</option>'
-		dom += 		'<option>폴라넥</option>'
-		dom += 		'<option>남방</option>'
 		dom += '</select>'
 	}
 	else if(value == '티셔츠') {
 		dom += '<select class="admin_sub_Tshirts" name="product_kind" required="required">'
 		dom += 		'<option>--선택--</option>'
-		dom += 		'<option>긴팔티</option>'
-		dom += 		'<option>반팔티</option>'
-		dom += 		'<option>7부티셔츠</option>'
+		dom += 		'<option>맨투맨</option>'
+		dom += 		'<option>니트/스웨터</option>'
+		dom += 		'<option>후드</option>'
+		dom += 		'<option>폴라넥</option>'
+		dom += '</select>'
+	}
+	else if(value == '셔츠') {
+		dom += '<select class="admin_sub_shirts" name="product_kind" required="required">'
+		dom += 		'<option>--선택--</option>'
+		dom += 		'<option>긴팔셔츠</option>'
+		dom += 		'<option>반팔셔츠</option>'
 		dom += 		'<option>스트라이프</option>'
 		dom += '</select>'
 	}

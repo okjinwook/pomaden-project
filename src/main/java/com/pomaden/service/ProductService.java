@@ -110,6 +110,10 @@ public class ProductService {
 		return dao.delete(product_name);
 	}
 
+	public ProductDTO selectOne(String product_name) {
+		return dao.selectOne(product_name);
+	}
+
 
 
 }
