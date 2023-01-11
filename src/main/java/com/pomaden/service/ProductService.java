@@ -93,7 +93,8 @@ public class ProductService {
 		List<CartDTO> list = new ArrayList<CartDTO>();
 		ProductDTO dto = dao.selectOne(item_name);
 		CartDTO setCart = new CartDTO();
-		int total_price =  Integer.parseInt(count) * dto.getProduct_price() * (100 - dto.getProduct_sale()) / 100;
+		int price = Math.round((dto.getProduct_price() * (100 - dto.getProduct_sale()) / 100)/100);
+		int total_price =  Integer.parseInt(count) * price;
 		setCart.setCart_color(item_color);
 		setCart.setCart_count(Integer.parseInt(count));
 		setCart.setCart_sale(dto.getProduct_sale());

@@ -4,11 +4,10 @@ function answerOnClick(question_idx, member_id, question_title, question_content
 	const title = document.querySelector('.admin_question_answer_title')
 	const content = document.querySelector('.admin_question_answer_content')
 	const idx = document.querySelector('input[name="answer_question_idx"]')
-	console.log(question_content)
 	idx.value = question_idx
 	writer.innerText = member_id
 	title.innerText = question_title
-	content.innerText = question_content
+	content.innerText = question_content + question_content+ question_content + question_content +question_content 
 }
 function answerOnSubmit(event) {
 	const idx = document.querySelector('input[name="answer_question_idx"]')

@@ -32,25 +32,27 @@
 				</div>
 			</div>
 		</form>
-		<div class="question_info_box df">
-			<div class="question_info_idx jcce aice">번호</div>
-			<div class="question_info_category jcce aice">카테고리</div>
-			<div class="question_info_title jcce aice">제목</div>
-			<div class="question_info_writer jcce aice">작성자</div>
-			<div class="question_info_check jcce aice">답변여부</div>
-			<div class="question_info_date jcce aice">작성날짜</div>
-		</div>
-		<div class="question_list_box">
-			<c:forEach var="dto" items="${list }" varStatus="status">
-				<div class="question_list_item df">
-					<div class="question_item_idx jcce aice">${status.count }</div>
-					<div class="question_item_category jcce aice">${dto.question_category }</div>
-					<div class="question_item_title jcce aice">${dto.question_title }</div>
-					<div class="question_item_writer jcce aice">${dto.question_member_id }</div>
-					<div class="question_item_check jcce aice">${dto.question_check }</div>
-					<div class="question_item_date jcce aice">${dto.question_date }</div>
-				</div>
-			</c:forEach>
+		<div class="question_list_component">
+			<div class="question_info_box df">
+				<div class="question_info_idx jcce aice">번호</div>
+				<div class="question_info_category jcce aice">카테고리</div>
+				<div class="question_info_title jcce aice">제목</div>
+				<div class="question_info_writer jcce aice">작성자</div>
+				<div class="question_info_check jcce aice">답변여부</div>
+				<div class="question_info_date jcce aice">작성날짜</div>
+			</div>
+			<div class="question_list_box">
+				<c:forEach var="dto" items="${list }" varStatus="status">
+					<div class="question_list_item df">
+						<div class="question_item_idx jcce aice">${status.count }</div>
+						<div class="question_item_category jcce aice">${dto.question_category }</div>
+						<div class="question_item_title jcce aice">${dto.question_title }</div>
+						<div class="question_item_writer jcce aice">${dto.question_member_id }</div>
+						<div class="question_item_check jcce aice">${dto.question_check }</div>
+						<div class="question_item_date jcce aice">${dto.question_date }</div>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 		<div class="question_paging_box jcce">
 			<fmt:parseNumber var="section" value="${(param.page - 1) / 5 }" integerOnly="true" />
@@ -101,7 +103,7 @@
 				<textarea name="question_content" placeholder="내용을 작성해주세요."></textarea>
 			</div>
 			<div class="question_modal_button_box jcsb">
-				<input class="question_modal_write_button" type="submit" value="작성" onclick="questionOnSubmit(event)">
+				<input class="question_modal_write_button" type="submit" value="작성">
 				<div class="question_modal_cancle_button jcce aice" onclick="modalCancleClick()">취소</div>
 			</div>
 		</div>

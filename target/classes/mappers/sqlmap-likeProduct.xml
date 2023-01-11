@@ -14,8 +14,6 @@
 			#{product_img},
 			#{product_price},
 			#{product_sale},
-			#{product_category},
-			#{product_kind},
 			#{product_like}
 			)
 	</insert>

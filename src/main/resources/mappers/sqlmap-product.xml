@@ -23,6 +23,10 @@
 		<if test="kind != null">
 			and product_kind=#{kind}
 		</if>
+		<if test="top != null">
+			order by product_like desc
+			offset 0 rows fetch first 30 rows only
+		</if>
 	</select>
 	<update id="update" parameterType="hashmap">
 		update product set 

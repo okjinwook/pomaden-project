@@ -17,7 +17,7 @@ public class NoticeService {
 	}
 	public int insert(NoticeDTO dto) {
 		String content = dto.getNotice_content();
-		dto.setNotice_content(content.replaceAll("\n", "<br>"));
+		dto.setNotice_content(content.replaceAll("\r\n", "<br>"));
 		return dao.insert(dto);
 	}
 

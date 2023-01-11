@@ -1,6 +1,6 @@
 function adminUpload(event) {
 	const admin_img = document.querySelector('.admin_img')
-	const file_span = document.querySelectorAll('.admin_img_label > span')
+	const file_span = document.querySelector('.admin_img_label > span')
 	admin_img.innerHTML = ''
 	let target = event.target
 	let file = target.files[0]
@@ -11,9 +11,7 @@ function adminUpload(event) {
     	img.src = reader.result
 		img.classList.add('admin_load_img')
 		admin_img.appendChild(img)
-		file_span.forEach(span => {
-			span.innerText = ''
-		})
+		file_span.innerText = ''
 	}
 }
 
@@ -55,7 +53,6 @@ function adminCegoryOnChange(event){
 		dom += 		'<option>청바지</option>'
 		dom += 		'<option>슬랙스</option>'
 		dom += 		'<option>트레이닝</option>'
-		dom += 		'<option>와이드 팬츠</option>'
 		dom += '</select>'
 	}
 	else if(value == '슈즈') {
@@ -63,9 +60,7 @@ function adminCegoryOnChange(event){
 		dom += 		'<option>--선택--</option>'
 		dom += 		'<option>스니커즈</option>'
 		dom += 		'<option>구두</option>'
-		dom += 		'<option>로퍼</option>'
 		dom += 		'<option>부츠</option>'
-		dom += 		'<option>샌들</option>'
 		dom += 		'<option>슬리퍼</option>'
 		dom += '</select>'
 	}

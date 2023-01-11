@@ -16,6 +16,10 @@
 	text-align: center;
 	margin-bottom: 50px;
 }
+.question_list_component {
+	height: 500px;
+	border-bottom: 1px solid black;
+}
 .question_info_box {
 	height: 50px;
 	width: 100%;

@@ -27,11 +27,19 @@
 				<div class="empty_msg jcce aice">작성하신 게시글이 없습니다.</div>
 			</c:if>
 			<c:forEach var="dto" items="${list }">
+				<c:set var="content" value="${fn:replace(dto.review_content, '<br>', ' ')}"/>
 				<div class="myPage_board_item aice">
 					<div class="myPage_board_date jcce aice">${dto.review_date }</div>
 					<div class="myPage_board_img jcce aice"><img src="${dto.review_img }" width="50px"></div>
 					<div class="myPage_board_name jcce aice">${dto.review_product }</div>
-					<div class="myPage_board_content jcce aice">${dto.review_content }</div>
+					<div class="myPage_board_content jcce aice">
+						<c:if test="${fn:length(content) > 40}">
+							${fn:substring(content , 0 , 40) }...
+						</c:if> 
+						<c:if test="${fn:length(content) < 40}">
+							${content }
+						</c:if> 
+					</div>
 					<div class="myPage_board_grade aice">
 						<c:forEach begin="1" end="${dto.review_grade }">
 							★						

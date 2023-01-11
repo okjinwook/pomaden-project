@@ -95,11 +95,11 @@
 							<div class="menuAll_menu_best">
 								<div class="menuAll_kinds">베스트</div>
 								<ul>
-									<li>아우터 30</li>
-									<li>셔츠 30</li>
-									<li>티셔츠 30</li>
-									<li>팬츠 30</li>
-									<li>슈즈 30</li>
+									<li><a href="${cpath }/product/productList?category=아우터&kind=전체&top=1">아우터 30</a></li>
+									<li><a href="${cpath }/product/productList?category=셔츠&kind=전체&top=1">셔츠 30</a></li>
+									<li><a href="${cpath }/product/productList?category=티셔츠&kind=전체&top=1">티셔츠 30</a></li>
+									<li><a href="${cpath }/product/productList?category=팬츠&kind=전체&top=1">팬츠 30</a></li>
+									<li><a href="${cpath }/product/productList?category=슈즈&kind=전체&top=1">슈즈 30</a></li>
 								</ul>
 							</div>
 							<div class="menuAll_menu_outer">
@@ -138,8 +138,7 @@
 								<ul>
 									<li><a href="${cpath }/product/productList?category=팬츠&kind=청바지">청바지</a></li>
 									<li><a href="${cpath }/product/productList?category=팬츠&kind=슬랙스">슬랙스</a></li>
-									<li><a href="${cpath }/product/productList?category=팬츠&kind=트래이닝">트래이닝</a></li>
-									<li><a href="${cpath }/product/productList?category=팬츠&kind=와이드 팬츠">와이드 팬츠</a></li>
+									<li><a href="${cpath }/product/productList?category=팬츠&kind=트레이닝">트레이닝</a></li>
 								</ul>
 							</div>
 							<div class="menuAll_menu_shoose">
@@ -147,9 +146,7 @@
 								<ul>
 									<li><a href="${cpath }/product/productList?category=슈즈&kind=스니커즈">스니커즈</a></li>
 									<li><a href="${cpath }/product/productList?category=슈즈&kind=구두">구두</a></li>
-									<li><a href="${cpath }/product/productList?category=슈즈&kind=로퍼">로퍼</a></li>
 									<li><a href="${cpath }/product/productList?category=슈즈&kind=부츠">부츠</a></li>
-									<li><a href="${cpath }/product/productList?category=슈즈&kind=샌들">샌들</a></li>
 									<li><a href="${cpath }/product/productList?category=슈즈&kind=슬리퍼">슬리퍼</a></li>
 								</ul>
 							</div>
@@ -161,11 +158,11 @@
 					<div class="menu_best">
 						<a href="${cpath }/product/productList?category=베스트&kind=전체" class="menu_kind_button aice">베스트</a>
 						<ul class="header_menubar_drop hidden">
-							<li><a href="${cpath }/product/">아우터 30</a></li>
-							<li><a href="${cpath }/product/">셔츠 30</a></li>
-							<li><a href="${cpath }/product/">티셔츠 30</a></li>
-							<li><a href="${cpath }/product/">팬츠 30</a></li>
-							<li><a href="${cpath }/product/">슈즈 30</a></li>
+							<li><a href="${cpath }/product/productList?category=아우터&kind=전체&top=1">아우터 30</a></li>
+							<li><a href="${cpath }/product/productList?category=셔츠&kind=전체&top=1">셔츠 30</a></li>
+							<li><a href="${cpath }/product/productList?category=티셔츠&kind=전체&top=1">티셔츠 30</a></li>
+							<li><a href="${cpath }/product/productList?category=팬츠&kind=전체&top=1">팬츠 30</a></li>
+							<li><a href="${cpath }/product/productList?category=슈즈&kind=전체&top=1">슈즈 30</a></li>
 						</ul>
 					</div>
 					<div class="menu_outer">
@@ -200,8 +197,7 @@
 						<ul class="header_menubar_drop hidden">
 							<li><a href="${cpath }/product/productList?category=팬츠&kind=청바지">청바지</a></li>
 							<li><a href="${cpath }/product/productList?category=팬츠&kind=슬랙스">슬랙스</a></li>
-							<li><a href="${cpath }/product/productList?category=팬츠&kind=트래이닝">트래이닝</a></li>
-							<li><a href="${cpath }/product/productList?category=팬츠&kind=와이드 팬츠">와이드 팬츠</a></li>
+							<li><a href="${cpath }/product/productList?category=팬츠&kind=트레이닝">트레이닝</a></li>
 						</ul>
 					</div>
 					<div class="menu_shoose">
@@ -209,9 +205,7 @@
 						<ul class="header_menubar_drop hidden">
 							<li><a href="${cpath }/product/productList?category=슈즈&kind=스니커즈">스니커즈</a></li>
 							<li><a href="${cpath }/product/productList?category=슈즈&kind=구두">구두</a></li>
-							<li><a href="${cpath }/product/productList?category=슈즈&kind=로퍼">로퍼</a></li>
 							<li><a href="${cpath }/product/productList?category=슈즈&kind=부츠">부츠</a></li>
-							<li><a href="${cpath }/product/productList?category=슈즈&kind=샌들">샌들</a></li>
 							<li><a href="${cpath }/product/productList?category=슈즈&kind=슬리퍼">슬리퍼</a></li>
 						</ul>
 					</div>

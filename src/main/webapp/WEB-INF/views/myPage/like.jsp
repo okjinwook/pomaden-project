@@ -15,7 +15,7 @@
 		</div>
 		
 		<div class="myPage_like_title">좋아요 누른 상품</div>
-		<div class="myPage_like_box">
+		<div class="myPage_like_box df">
 			<c:if test="${empty list }">
 				<div class="empty_msg jcce aice">좋아요 누른 상품이 없습니다.</div>
 			</c:if>

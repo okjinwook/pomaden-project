@@ -104,7 +104,7 @@ function kakaopayPayment(item, orderList_order_number) {
 			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
 			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
 			'orderList_progress' : '결제완료',
-			'orderList_shipping_msg' : document.querySelector('.payment_shipping_msg').value,
+			'orderList_shipping_msg' : document.querySelector('.payment_shipping_msg').innerText,
 			'orderList_shipping_address' : document.querySelector('.payment_shipping_address').innerText,
 			'orderList_shipping_phone' : document.querySelector('.payment_shipping_phone').innerText,
 			'orderList_shipping_name' : document.querySelector('.payment_shipping_name').innerText,
@@ -146,7 +146,6 @@ function kakaopayPayment(item, orderList_order_number) {
 // 결제수단 무통장입금 함수입니다
 function depositPayment(item, orderList_order_number) {
 	const size = item.length
-	const coupon_map = {}
 	const point_map = {}
 	const url = cpath + '/orderList/insert'
 	const ob = []
@@ -160,7 +159,7 @@ function depositPayment(item, orderList_order_number) {
 			'orderList_count' : box.getElementsByClassName('order_orderList_count')[0].id,
 			'orderList_price' : box.getElementsByClassName('order_orderList_price')[0].id,
 			'orderList_progress' : '입금대기',
-			'orderList_shipping_msg' : document.querySelector('.payment_shipping_msg').value,
+			'orderList_shipping_msg' : document.querySelector('.payment_shipping_msg').innerText,
 			'orderList_shipping_address' : document.querySelector('.payment_shipping_address').innerText,
 			'orderList_shipping_phone' : document.querySelector('.payment_shipping_phone').innerText,
 			'orderList_shipping_name' : document.querySelector('.payment_shipping_name').innerText,

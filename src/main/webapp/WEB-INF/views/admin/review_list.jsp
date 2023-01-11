@@ -23,10 +23,10 @@
 					<div class="admin_review_writer jcce aice">${dto.review_member_id }</div>
 					<div class="admin_review_product jcce aice">${dto.review_product }</div>
 					<div class="admin_review_content jcce aice">
-						<c:if test="${fn:length(content) > 80}">
-							${fn:substring(content , 0 , 80) }...
+						<c:if test="${fn:length(content) > 40}">
+							${fn:substring(content , 0 , 40) }...
 						</c:if> 
-						<c:if test="${fn:length(content) < 80}">
+						<c:if test="${fn:length(content) < 40}">
 							${content }
 						</c:if> 
 					</div>

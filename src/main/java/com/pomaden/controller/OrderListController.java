@@ -16,6 +16,7 @@ import com.pomaden.model.MemberDTO;
 import com.pomaden.model.PointDTO;
 import com.pomaden.service.CartService;
 import com.pomaden.service.CouponService;
+import com.pomaden.service.ItemService;
 import com.pomaden.service.MemberService;
 import com.pomaden.service.OrderListService;
 import com.pomaden.service.PointService;
@@ -27,6 +28,7 @@ public class OrderListController {
 	@Autowired private MemberService ms;
 	@Autowired private CartService carts;
 	@Autowired private CouponService cous;
+	@Autowired private ItemService is;
 	
 	@ResponseBody
 	@PostMapping("/orderList/insert")
@@ -37,6 +39,7 @@ public class OrderListController {
 		int memberPointUpdateRow = 1;
 		int memberCouponUpdateRow = 1;
 		int pointInsertRow = 1;
+		int itemUpdateRow = 1;
 		HashMap<String, String> resp = new HashMap<String, String>(); 
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		String member_id = login.getMember_id();
@@ -50,9 +53,12 @@ public class OrderListController {
 			if(map.get("orderList_order_number") != null) {
 				map.put("orderList_member_id", member_id);
 				orderListInsertRow = os.insert(map);
+				if(orderListInsertRow == 1) {
+					itemUpdateRow = is.update(map);
+				}
 			}
 			// 주문내역 insert에 성공 했으면서
-			if(orderListInsertRow == 1) {
+			if(orderListInsertRow == 1 && itemUpdateRow == 1) {
 				// 리스트 안의 hashmap이 상품인지 쿠폰,적립금 사용 데이터인지
 				if(map.get("cart_idx") != null) {
 					int cart_idx = Integer.parseInt(String.valueOf(map.get("cart_idx")));

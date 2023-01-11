@@ -21,10 +21,10 @@
 			'정상',
 			sysdate,
 			0,
-			#{orderList_delivery_msg},
-			#{orderList_delivery_address},
-			#{orderList_delivery_phone},
-			#{orderList_delivery_name}
+			#{orderList_shipping_msg},
+			#{orderList_shipping_address},
+			#{orderList_shipping_phone},
+			#{orderList_shipping_name}
 			)
 	</insert>
 </mapper>

@@ -35,6 +35,7 @@
 		<div class="admin_question_item_box">
 			<c:forEach var="dto" items="${list }">
 				<c:set var="content" value="${fn:replace(dto.question_content, '<br>', ' ')}"/>
+				<c:set var="param_content" value="${fn:replace(dto.question_content, '<br>', newLine)}"/>
 				<div class="admin_question_item df">
 					<div class="admin_question_writer jcce aice">${dto.question_member_id }</div>
 					<div class="admin_question_title aice">${dto.question_title }</div>
@@ -50,7 +51,7 @@
 					<div class="admin_question_category jcce aice">${dto.question_category }</div>
 					<div class="admin_question_answer jcce aice">
 						<c:if test="${dto.question_check == '미답변' }">
-							<div class="admin_question_answer_button" onclick="answerOnClick(${dto.question_idx },'${dto.question_member_id }', '${dto.question_title }', '${fn:replace(dto.question_content, '<br>', newLine)}')">답변</div>
+							<div class="admin_question_answer_button" onclick="answerOnClick(${dto.question_idx },'${dto.question_member_id }', '${dto.question_title }', '${param_content}')">답변</div>
 						</c:if>
 					</div>
 					<div class="admin_question_date jcce aice">${dto.question_date }</div>

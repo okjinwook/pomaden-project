@@ -18,6 +18,7 @@ import com.pomaden.model.MemberDTO;
 import com.pomaden.model.PointDTO;
 import com.pomaden.service.CartService;
 import com.pomaden.service.CouponService;
+import com.pomaden.service.ItemService;
 import com.pomaden.service.KakaoPayService;
 import com.pomaden.service.MemberService;
 import com.pomaden.service.OrderListService;
@@ -32,6 +33,7 @@ public class KakaoPayController {
 	@Autowired private CouponService cous;
 	@Autowired private MemberService ms;
 	@Autowired private PointService ps;
+	@Autowired private ItemService is;
 	
 	@GetMapping("/kakaopay/success")
 	public ModelAndView success(HttpSession session) {
@@ -42,6 +44,7 @@ public class KakaoPayController {
 		int memberPointUpdateRow = 1;
 		int memberCouponUpdateRow = 1;
 		int pointInsertRow = 1;
+		int itemUpdateRow = 1;
 		int point_use = 0;
 		// 페이지 리로드 시 중복으로 실행 되는 것을 방지하기 위한 조건문입니다.
 		if(session.getAttribute("kakaopayItemList") != null) {
@@ -59,10 +62,13 @@ public class KakaoPayController {
 					map.put("orderList_member_id", member_id);
 					orderListInsertRow = os.insert(map);
 					successList.add(map);
+					if(orderListInsertRow == 1) {
+						itemUpdateRow = is.update(map);
+					}
 				}
 				session.setAttribute("successList", successList);
 				// 주문내역 insert에 성공 했으면서
-				if(orderListInsertRow == 1) {
+				if(orderListInsertRow == 1 && itemUpdateRow == 1) {
 					// 리스트 안의 hashmap이 상품인지 쿠폰,적립금 사용 데이터인지
 					if(map.get("cart_idx") != null) {
 						int cart_idx = Integer.parseInt(String.valueOf(map.get("cart_idx")));

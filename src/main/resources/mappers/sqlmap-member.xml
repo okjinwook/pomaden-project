@@ -13,10 +13,7 @@
 			#{member_id},
 			#{member_pw},
 			#{member_name},
-			#{member_load_add},
 			#{member_phone},
-			#{member_code_add},
-			#{member_detail_add},
 			#{member_point},
 			#{member_coupon}
 			)

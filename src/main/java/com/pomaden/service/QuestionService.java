@@ -13,6 +13,8 @@ import com.pomaden.model.QuestionDTO;
 public class QuestionService {
 	@Autowired private QuestionDAO dao;
 	public int insert(QuestionDTO getDto) {
+		String content = getDto.getQuestion_content();
+		getDto.setQuestion_content(content.replaceAll("\r\n", "<br>"));
 		return dao.insert(getDto);
 	}
 	public List<QuestionDTO> selectAll(HashMap<String, String> map) {

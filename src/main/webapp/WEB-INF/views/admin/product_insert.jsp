@@ -14,8 +14,7 @@
 						<label class="admin_img_label jcce aice">
 							<div class="admin_img"></div>
 							<input class="admin_file_input" type="file" name="product_upload" hidden="" onchange="adminUpload(event)">
-							<span>상품 이미지 등록</span>
-							<span>클릭</span>
+							<span>상품 이미지 등록(클릭)</span>
 						</label>
 					</div>
 				</div>
@@ -64,9 +63,14 @@
 							<option>화이트</option>
 							<option>그레이</option>
 							<option>베이지</option>
+							<option>브라운</option>
 							<option>옐로우</option>
 							<option>블루</option>
 							<option>레드</option>
+							<option>카키</option>
+							<option>진청</option>
+							<option>중청</option>
+							<option>연청</option>
 							<option>카키</option>
 						</select>
 					</div>
@@ -78,6 +82,10 @@
 							<option>XL</option>
 							<option>L</option>
 							<option>M</option>
+							<option>250</option>
+							<option>260</option>
+							<option>270</option>
+							<option>280</option>
 						</select>
 					</div>
 					<div class="admin_product_box aice">

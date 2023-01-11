@@ -89,6 +89,7 @@
 	background-color: cornsilk;
 	padding-left: 15px;
 	font-weight: 700;
+	min-width: 120px;
 }
 .admin_question_answer_content_info {
 	min-height: 200px;
@@ -102,9 +103,11 @@
 	font-size: 14px;
 }
 .admin_question_answer_content {
-	min-height: 200px;
+	height: 200px;
 	padding: 10px;
 	font-size: 14px;
+    overflow-y: auto;
+    width: 100%;
 }
 .admin_answer_button_box {
 	justify-content: flex-end;

@@ -15,7 +15,8 @@
 							<fmt:formatNumber pattern="###,###" value="${prodDto.product_price}" />원
 						</div>
 						<div class="productDetail_product_salePrice">
-							<fmt:formatNumber pattern="###,###" value="${prodDto.product_price * (100 - prodDto.product_sale) / 100 }" />원
+							<fmt:parseNumber var="salePrice" integerOnly="true" value="${((prodDto.product_price * (100 - prodDto.product_sale) / 100) / 100 )}" />
+							<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 						</div>
 					</div>
 					<div class="productDetail_product_sale">
@@ -139,7 +140,6 @@
 				<div class="empty_msg jcce aice">작성된 리뷰가 없습니다.</div>
 			</c:if>
 			<c:forEach var="reviewDto" items="${reviewList }">
-				<c:set var="content" value="${fn:replace(dto.reviewDto_content, '<br>', ' ')}"/>
 				<c:set var="reply_count" value="0"/>
 				<c:forEach var="replyDto" items="${replyList }">
 					<c:if test="${replyDto.reply_review_idx == reviewDto.review_idx}">
@@ -156,7 +156,7 @@
 						</c:forEach>
 						</div>
 						<div class="productDetail_review_img"><img src="${reviewDto.review_img }" width="100px"></div>
-						<div class="productDetail_review_content">${content }</div>
+						<div class="productDetail_review_content">${reviewDto.review_content }</div>
 						<div class="productDetail_review_reply">
 							<div class="productDetail_review_reply_button" onclick="detailReplyOnClick(event)">
 								댓글 (${reply_count})
@@ -216,7 +216,7 @@
 	const product_category = '${prodDto.product_category}'
 	let product_like = '${prodDto.product_like}'
 	const product_kind = '${prodDto.product_kind}'
-	const product_salePrice = ${prodDto.product_price * (100 - prodDto.product_sale) / 100 }
+	const product_salePrice = ${salePrice * 100}
 	let item_color = ''
 	let item_size = ''
 	if(img.classList.contains('productDetail_colorHearts')) {

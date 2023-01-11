@@ -24,5 +24,17 @@ public class ItemService {
 	public ItemDTO selectOne(HashMap<String, Object> ob) {
 		return dao.selectOne(ob);
 	}
+	public int update(HashMap<String, Object> map) {
+		HashMap<String, Object> countMap = new HashMap<String, Object>();
+		countMap.put("item_name", map.get("orderList_name"));
+		countMap.put("item_color", map.get("orderList_color"));
+		countMap.put("item_size", map.get("orderList_size"));
+		ItemDTO itemDto = dao.selectOne(countMap);
+		int itemCount = itemDto.getItem_count();
+		int buyCount = Integer.parseInt(String.valueOf(map.get("orderList_count")));
+		int resultCount = itemCount - buyCount;
+		map.put("count", resultCount);
+		return dao.update(map);
+	}
 
 }

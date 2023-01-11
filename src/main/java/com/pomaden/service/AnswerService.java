@@ -13,7 +13,7 @@ public class AnswerService {
 	@Autowired private AnswerDAO dao;
 	public int insert(AnswerDTO dto) {
 		String content = dto.getAnswer_content();
-		dto.setAnswer_content(content.replaceAll("\n", "<br>"));
+		dto.setAnswer_content(content.replaceAll("\r\n", "<br>"));
 		return dao.insert(dto);
 	}
 	public List<AnswerDTO> selectAll() {

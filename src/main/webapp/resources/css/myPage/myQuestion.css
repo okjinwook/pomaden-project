@@ -52,10 +52,19 @@
 }
 .myPage_myQuestion_content_box {
 	min-height: 60px;
+	
 }
-.myPage_myQuestion_content ,.myPage_myQuestion_answer {
+.myPage_myQuestion_answer {
 	padding: 10px;
+	height: 200px;
 	width: 1200px;
+    overflow-y: auto;	
+}
+.myPage_myQuestion_content {
+	padding: 10px;
+	height: 100px;
+	width: 1200px;
+    overflow-y: auto;
 }
 .myPage_myQuestion_answer_box {
 	min-height: 200px;

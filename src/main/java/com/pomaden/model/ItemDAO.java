@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface ItemDAO {
 
@@ -20,5 +21,9 @@ public interface ItemDAO {
 	
 	@Select("select * from item where item_name = #{item_name} and item_color = #{item_color} and item_size = #{item_size}")
 	ItemDTO selectOne(HashMap<String, Object> ob);
+
+	
+	@Update("update item set item_count = #{count} where item_name = #{orderList_name} and item_color = #{orderList_color} and item_size = #{orderList_size}")
+	int update(HashMap<String, Object> map);
 
 }

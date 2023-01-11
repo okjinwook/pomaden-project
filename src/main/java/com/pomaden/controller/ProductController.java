@@ -2,8 +2,10 @@ package com.pomaden.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -50,13 +52,16 @@ public class ProductController {
 	@Autowired private ShippingService ss;
 	
 	@GetMapping("/product/productList")
-	public ModelAndView selectCategory(String category, String kind) {
+	public ModelAndView selectCategory(String category, String kind, String top) {
 		ModelAndView mav = new  ModelAndView();
 		HashMap<String, String> data = new HashMap<String, String>();
 		
 		data.put("category", category);
-		if(kind.equals("전체") == false) {
+		if(kind != null && kind.equals("전체") == false) {
 			data.put("kind", kind);
+		}
+		if(top != null) {
+			data.put("top", top);
 		}
 		List<ProductDTO> list = ps.selectList(data);
 		List<ProductDTO> kindAll = ps.selectKind(category);
@@ -81,13 +86,15 @@ public class ProductController {
 		}
 		ProductDTO prodDto = ps.getProduct(product_name);
 		List<String> sizeList = is.getItemSize(product_name);
+		Set<String> setList = new HashSet<String>(sizeList);	// 중복제거 Set
+		List<String> resultSizeList = new ArrayList<String>(setList);
 		List<String> colorList = is.getItemColor(product_name);
 		List<ReviewDTO> reviewList = revs.selectList(map);
 		List<ReplyDTO> replyList = reps.selectList();
 		mav.addObject("likeCheck", likeDTO);
 		mav.addObject("prodDto", prodDto);
 		mav.addObject("colorList", colorList);
-		mav.addObject("sizeList", sizeList);
+		mav.addObject("sizeList", resultSizeList);
 		mav.addObject("reviewList", reviewList);
 		mav.addObject("replyList", replyList);
 		return mav;
@@ -97,6 +104,7 @@ public class ProductController {
 	@PostMapping("/product/likeUpdate")
 	public int likeUpdate(@RequestBody HashMap<String, Object> map) {
 		int row = 0;
+		HashMap<String, Object> updateMap = new HashMap<String, Object>();
 		String product_name = (String)map.get("product_name");
 		String member_id = (String)map.get("member_id");
 		LikeProductDTO dto = ls.selectOne(product_name, member_id);
@@ -106,7 +114,9 @@ public class ProductController {
 		else {
 			row = ls.insert(map);
 		}
-		row = ps.update(map);
+		updateMap.put("product_like", map.get("product_like"));
+		updateMap.put("product_name", map.get("product_name"));
+		row = ps.update(updateMap);
 		return row;
 	}
 	@GetMapping("/product/payment")
