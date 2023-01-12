@@ -21,7 +21,7 @@
 			<div class="couponItemList_item_select_button_box jcce aice">쿠폰선택</div>
 			<div class="couponItemList_item_salePrice jcce aice">할인금액</div>
 		</div>
-		<c:forEach var="dto" items="${couponItemlist }">
+		<c:forEach var="dto" items="${paymentItemList }">
 			<div class="couponItemList_item_box aice">
 				<div class="couponItemList_item_img jcce aice">
 					<img src="${dto.cart_img }" width="50px">
@@ -31,7 +31,8 @@
 					<div class="couponItemList_coupon_name_box"></div>
 				</div>
 				<div class="couponItemList_item_price jcce aice">
-					<fmt:formatNumber pattern="###,###" value="${dto.cart_price * (100 - dto.cart_sale) / 100}" />원
+					<fmt:parseNumber var="salePrice" integerOnly="true" value="${((dto.cart_price * (100 - dto.cart_sale) / 100) / 100 )}" />
+					<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 					 X 
 					 ${dto.cart_count }개 
 					 = 

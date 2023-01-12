@@ -21,10 +21,7 @@
 	<update id="update" parameterType="hashmap">
 		update member set 
 		<if test="member_email != null">
-			member_email = #{member_email},
-			member_code_add = #{member_code_add},
-			member_load_add = #{member_load_add},
-			member_detail_add = #{member_detail_add}
+			member_email = #{member_email}
 			<if test="member_pw != null">
 				, member_pw = #{member_pw}
 			</if>
@@ -35,7 +32,6 @@
 		<if test="member_point != null">
 			member_point = #{member_point}
 		</if>
-		
 		<if test="member_coupon != null">
 			member_coupon = #{member_coupon}
 		</if>

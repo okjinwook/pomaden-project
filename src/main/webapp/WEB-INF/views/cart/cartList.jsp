@@ -39,13 +39,14 @@
 							<div class="cartList_item_size">사이즈[${dto.cart_size }]</div>
 						</div>
 						<div class="cartList_item_price jcce aice">
-							<fmt:formatNumber pattern="###,###" value="${dto.cart_price * (100 - dto.cart_sale) / 100}" />원
+							<fmt:parseNumber var="salePrice" integerOnly="true" value="${((dto.cart_price * (100 - dto.cart_sale) / 100) / 100 )}" />
+							<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 						</div>
 						<div class="cartList_item_count jcce aice">
 							<input type="number" class="cartList_buy_count" value="${dto.cart_count }" min="1" readonly="readonly">
 							<div class="cartList_upDownBox">
-								<img class="cartList_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="upOnClick(event, ${dto.cart_idx}, ${dto.cart_price * (100 - dto.cart_sale) / 100 })">
-								<img class="cartList_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="downOnClick(event, ${dto.cart_idx}, ${dto.cart_price * (100 - dto.cart_sale) / 100 })">
+								<img class="cartList_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="upOnClick(event, ${dto.cart_idx}, ${dto.cart_price})">
+								<img class="cartList_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="downOnClick(event, ${dto.cart_idx}, ${dto.cart_price})">
 							</div>
 						</div>
 						<div class="cartList_item_totalPrice jcce aice" >

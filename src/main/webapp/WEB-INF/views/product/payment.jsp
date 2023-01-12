@@ -40,10 +40,10 @@
 				<div class="payment_orderList_sale jcce aice">상품할인</div>
 				<div class="payment_orderList_price jcce aice">주문금액</div>
 			</div>
-			<c:if test="${not empty couponItemlist}">
-				<c:forEach var="dto" items="${couponItemlist }">
+			<c:if test="${not empty paymentItemList}">
+				<c:forEach var="dto" items="${paymentItemList }">
 					<c:set var="totalOriginalPrice" value="${totalOriginalPrice + dto.cart_price * dto.cart_count}"></c:set>
-					<c:set var="totalSalePrice" value="${totalSalePrice + dto.cart_price * (dto.cart_sale / 100) * dto.cart_count}"></c:set>
+					<c:set var="totalSalePrice" value="${totalSalePrice + dto.cart_price * dto.cart_count - dto.cart_total }"></c:set>
 					<c:set var="totalResultPrice" value="${totalResultPrice + dto.cart_total}"></c:set>
 					
 					<div class="payment_orderList_item aice">
@@ -55,13 +55,13 @@
 							<div class="payment_orderList_size order_orderList_size" id="${dto.cart_size }">[ ${dto.cart_size } ]</div>
 						</div>
 						<div class="payment_orderList_count jcce aice order_orderList_count" id="${dto.cart_count }">${dto.cart_count }</div>
-						<div class="payment_orderList_point jcce aice">
+						<div class="payment_orderList_point jcce aice" id="${dto.cart_total * 0.01}">
 							<fmt:formatNumber pattern="###,###" value="${dto.cart_total * 0.01}" /> P
 						</div>
 						<div class="payment_orderList_sale jcce aice">
 							<div class="" style="font-size: 12px;">${dto.cart_sale }% SALE</div>
-							<div class="payment_orderList_sale_price" id="${dto.cart_price * (dto.cart_sale / 100) * dto.cart_count  }">
-								- <fmt:formatNumber pattern="###,###" value="${dto.cart_price * (dto.cart_sale / 100) * dto.cart_count  }" />원
+							<div class="payment_orderList_sale_price" id="${dto.cart_price * dto.cart_count - dto.cart_total  }">
+								- <fmt:formatNumber pattern="###,###" value="${dto.cart_price * dto.cart_count - dto.cart_total  }" />원
 							</div>
 						</div>
 						<div class="payment_orderList_price jcce aice">
@@ -152,6 +152,7 @@
 	let totalResultPrice = ${totalResultPrice}	// 총 결제할 가격
 	let totalSalePrice = ${totalSalePrice}		// 총 세일 된 가격
 	let coupon = []								// 사용한 쿠폰 배열 
+	let recPoint = 0							// 쌓일 포인트
 	let point = 0
 	
 </script>

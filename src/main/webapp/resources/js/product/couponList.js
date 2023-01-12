@@ -6,7 +6,7 @@ function sendCoupon(){
 // 쿠폰 적용 함수입니다.
 function selectCoupon(coupon_name, coupon_sale, coupon_idx) {
 	for(idx of coupon_arr) {
-		if(coupon.value == coupon_idx) {
+		if(idx == coupon_idx) {
 			// 사용한 쿠폰이랑 동일한 idx이면 함수 막기
 			return false
 		}

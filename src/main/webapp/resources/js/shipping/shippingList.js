@@ -36,17 +36,17 @@ function repOnclick(ob) {
 function repChangeOnClick() {
 	if(rep != '') {
 		// 기존에 대표로 지정된 배송지의 shipping_rep 값을 0 (즉, 대표가 아님)
-		// radio 체크된 배송지의 shipping_rep 값을 1 (즉, 대표)
 		const unRep_url = cpath + '/shipping/repUpdate?shipping_idx=' + unRep * 1 + '&shipping_rep=0'
+		// radio 체크된 배송지의 shipping_rep 값을 1 (즉, 대표)
 		const rep_url = cpath + '/shipping/repUpdate?shipping_idx=' + rep * 1 + '&shipping_rep=1'
 		const opt = {
 			method : 'POST'
 		}
-		fetch(unRep_url, opt)
+		fetch(rep_url, opt)
 		.then(resp => resp.text())
 		.then(text => {
-			if(text == 1) {
-				fetch(rep_url, opt)
+			if(text == 1 && unRep != '') {
+				fetch(unRep_url, opt)
 				.then(resp => resp.text())
 				.then(text => {
 					if(text == 1) {
@@ -60,6 +60,11 @@ function repChangeOnClick() {
 					}
 				})
 			}
+			else if(text == 1){
+				alert('정상적으로 변경되었습니다.')
+				opener.setReload()
+				window.close()
+			}
 			else {
 				alert('변경 실패!!')
 				location.reload()
@@ -67,6 +72,7 @@ function repChangeOnClick() {
 		})
 	}
 	else {
+		opener.setReload()
 		window.close()
 	}
 }

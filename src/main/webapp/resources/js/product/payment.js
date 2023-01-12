@@ -95,6 +95,7 @@ function kakaopayPayment(item, orderList_order_number) {
 		}
 	}
 	item.forEach(box => {
+		recPoint += box.getElementsByClassName('payment_orderList_point')[0].id * 1
 		const map = {
 			'orderList_order_number' : orderList_order_number,
 			'orderList_img' : box.getElementsByClassName('order_orderList_img')[0].id,
@@ -116,12 +117,17 @@ function kakaopayPayment(item, orderList_order_number) {
 		ob[name]  = map
 	})
 	if(coupon.length != 0) {
+		let coupon_map = {}
 		for(idx of coupon) {
-			const coupon_map = {
-				'coupon_idx' : idx
-			}
-			ob['coupon'] = coupon_map
+			coupon_map[idx] = idx
 		}
+		ob['coupon'] = coupon_map
+	}
+	if(recPoint != 0) {
+		const recPoint_map = {
+			'recPoint' : recPoint * 1
+		}
+		ob['recPoint'] = recPoint_map
 	}
 	if(point != 0) {
 		const point_map = {
@@ -146,10 +152,10 @@ function kakaopayPayment(item, orderList_order_number) {
 // 결제수단 무통장입금 함수입니다
 function depositPayment(item, orderList_order_number) {
 	const size = item.length
-	const point_map = {}
 	const url = cpath + '/orderList/insert'
 	const ob = []
 	item.forEach(box => {
+		recPoint += box.getElementsByClassName('payment_orderList_point')[0].id * 1
 		const map = {
 			'orderList_order_number' : orderList_order_number,
 			'orderList_img' : box.getElementsByClassName('order_orderList_img')[0].id,
@@ -170,16 +176,23 @@ function depositPayment(item, orderList_order_number) {
 		ob.push(map)
 	})
 	if(coupon.length != 0) {
+		let coupon_map = {}
 		for(idx of coupon) {
-			const coupon_map = {
-				'coupon_idx' : idx
-			}
-			ob['coupon'] = coupon_map
+			coupon_map[idx] = idx
 		}
+		ob.push(coupon_map)
 	}
 	if(point != 0) {
-		point_map['point_use'] = point * 1
+		const point_map = {
+			'point_use' : point * 1
+		}
 		ob.push(point_map)
+	}
+	if(recPoint != 0) {
+		const recPoint_map = {
+			'recPoint' : recPoint * 1
+		}
+		ob.push(recPoint_map)
 	}
 	const opt = {
 		method : 'POST',

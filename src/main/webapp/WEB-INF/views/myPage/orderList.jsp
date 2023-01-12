@@ -46,7 +46,13 @@
 							<fmt:formatNumber pattern="###,###" value="${dto.orderList_price }" />원
 						</div>
 						<div class="myPage_orderList_progress jcce aice">${dto.orderList_progress }</div>
-						<div class="myPage_orderList_check jcce aice">${dto.orderList_check }</div>
+						<div class="myPage_orderList_check jcce aice">
+							<c:forEach var="nDto" items="${list }">
+								<c:if test="${dto.orderList_order_number == nDto.orderList_order_number}">
+									${dto.orderList_price + nDto.orderList_price }
+								</c:if>
+							</c:forEach>
+						</div>
 						<div class="myPage_orderList_review jcce aice">
 							<c:if test="${dto.orderList_review_check == 0}">
 								<div class="myPage_orderList_review_button" onclick="reviewOnClick('${dto.orderList_idx }','${dto.orderList_name}','${dto.orderList_color }', '${dto.orderList_size }')">리뷰 작성</div>

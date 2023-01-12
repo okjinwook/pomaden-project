@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 
 public interface PointDAO {
 	
-	@Select("select * from point where point_member_id = #{member_id} order by point_date desc")
+	@Select("select * from point where point_member_id = #{member_id} order by point_idx desc")
 	List<PointDTO> seletAll(String member_id);
 
 	int insert(HashMap<String, String> pointInsertMap);

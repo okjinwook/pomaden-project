@@ -126,7 +126,7 @@ public class ProductController {
 		int point = login.getMember_point();
 		List<CartDTO> cartList = cs.getPayment(list, login);
 		List<ShippingDTO> shippingList = ss.selectAll(login.getMember_id());
-		session.setAttribute("couponItemlist", cartList);
+		session.setAttribute("paymentItemList", cartList);
 		mav.addObject("shippingList", shippingList);
 		mav.addObject("point", point);
 		return mav;
@@ -138,7 +138,7 @@ public class ProductController {
 		int point = login.getMember_point();
 		List<CartDTO> list = ps.setPaymentSingle(item_color, item_name, item_size, count);
 		List<ShippingDTO> shippingList = ss.selectAll(login.getMember_id());
-		session.setAttribute("couponItemlist", list);
+		session.setAttribute("paymentItemList", list);
 		mav.addObject("shippingList", shippingList);
 		mav.addObject("point", point);
 		return mav;
