@@ -32,7 +32,8 @@
 							</div>
 							<div class="myPage_like_sale jcce aice">( ${dto.like_sale }% 할인 )</div>
 							<div class="myPage_like_salePrice jcce aice">
-								<fmt:formatNumber pattern="###,###" value="${dto.like_price * (100 - dto.like_sale) / 100}" />원
+								<fmt:parseNumber var="salePrice" integerOnly="true" value="${((dto.like_price * (100 - dto.like_sale) / 100) / 100 )}" />
+								<fmt:formatNumber pattern="###,###" value="${salePrice * 100}" />원
 							</div>
 							<div class="myPage_like_likeCount jcce aice">♥ ${dto.like_like }</div>
 							<form action="${cpath}/likeProduct/delete" method="POST">

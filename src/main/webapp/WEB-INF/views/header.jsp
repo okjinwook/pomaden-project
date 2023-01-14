@@ -27,6 +27,7 @@
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/member_info.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/myPage/myQuestion.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/cs/center.css">
+<link rel="stylesheet" type="text/css" href="${cpath }/resources/css/cs/notice_detail.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/question/questionList.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/product/productList.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/product/productDetail.css">

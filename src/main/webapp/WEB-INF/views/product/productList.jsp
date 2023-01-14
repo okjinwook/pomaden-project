@@ -3,14 +3,27 @@
 <%@ include file="../header.jsp" %>
 <main>
 	<div class="productList_component">
-		<div class="productList_title">${category }</div>
+		<div class="productList_title">
+			${category }
+			<c:if test="${not empty param.top }"> / TOP30</c:if>
+		</div>
 		<div class="productList_category_box aice">
 			<div class="productList_category">
-				<a href="${cpath }/product/productList?category=${category }&kind=전체">전체</a>
+				<c:if test="${not empty param.top }"> 
+					<a href="${cpath }/product/productList?category=${category }&kind=전체&top=1">전체</a>
+				</c:if>
+				<c:if test="${empty param.top }">
+					<a href="${cpath }/product/productList?category=${category }&kind=전체">전체</a>
+				</c:if>
 			</div>
 			<c:forEach var="dto" items="${kindAll }">
 				<div class="productList_category">
-					<a href="${cpath }/product/productList?category=${category }&kind=${dto.product_kind}">${dto.product_kind }</a>
+					<c:if test="${not empty param.top }"> 
+						<a href="${cpath }/product/productList?category=${category }&kind=${dto.product_kind}&top=1">${dto.product_kind }</a>
+					</c:if>
+					<c:if test="${empty param.top }"> 
+						<a href="${cpath }/product/productList?category=${category }&kind=${dto.product_kind}">${dto.product_kind }</a>
+					</c:if>
 				</div>
 			</c:forEach>
 		</div>

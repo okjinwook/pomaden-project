@@ -56,7 +56,7 @@
 				 and question_member_id = #{member}
 			 </if>
 		</if>
-		order by question_date asc
+		order by question_idx desc
 		<if test="page != null">
     		offset ${page} rows fetch first 10 rows only
 		</if>

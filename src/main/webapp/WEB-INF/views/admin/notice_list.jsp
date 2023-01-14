@@ -21,10 +21,10 @@
 					<div class="admin_notice_admin jcce aice">${dto.notice_admin }</div>
 					<div class="admin_notice_title jcce aice">${dto.notice_title }</div>
 					<div class="admin_notice_content jcce aice">
-						<c:if test="${fn:length(content) > 80}">
-							${fn:substring(content , 0 , 80) }...
+						<c:if test="${fn:length(content) > 50}">
+							${fn:substring(content , 0 , 50) }...
 						</c:if> 
-						<c:if test="${fn:length(content) < 80}">
+						<c:if test="${fn:length(content) < 50}">
 							${content }
 						</c:if> 
 					</div>

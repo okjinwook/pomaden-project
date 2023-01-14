@@ -17,11 +17,16 @@
 					<div class="admin_notice_insert_info">내용</div>
 					<textarea name="notice_content" placeholder="공지 내용을 입력해주세요."></textarea>
 				</div>
-				<input type="submit" class="admin_notice_insert_button" onclick="noticeOnSubmit(event)">
+				<input type="submit" class="admin_notice_insert_button" onclick="noticeOnSubmit(event)" value="등록">
 			</div>
 		</form>
 	</div>
-	
+	<script>
+		const msg = '${param.msg}'
+		if(msg != '') {
+			alert(msg)
+		}
+	</script>
 		
 </body>
 </html>

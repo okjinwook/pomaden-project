@@ -34,7 +34,6 @@
 		</form>
 		<div class="question_list_component">
 			<div class="question_info_box df">
-				<div class="question_info_idx jcce aice">번호</div>
 				<div class="question_info_category jcce aice">카테고리</div>
 				<div class="question_info_title jcce aice">제목</div>
 				<div class="question_info_writer jcce aice">작성자</div>
@@ -42,9 +41,8 @@
 				<div class="question_info_date jcce aice">작성날짜</div>
 			</div>
 			<div class="question_list_box">
-				<c:forEach var="dto" items="${list }" varStatus="status">
+				<c:forEach var="dto" items="${list }">
 					<div class="question_list_item df">
-						<div class="question_item_idx jcce aice">${status.count }</div>
 						<div class="question_item_category jcce aice">${dto.question_category }</div>
 						<div class="question_item_title jcce aice">${dto.question_title }</div>
 						<div class="question_item_writer jcce aice">${dto.question_member_id }</div>

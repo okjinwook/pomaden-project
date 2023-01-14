@@ -21,4 +21,12 @@ public class CenterController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	
+	@GetMapping("/cs/notice_detail")
+	public ModelAndView notice_detail(int notice_idx) {
+		ModelAndView mav = new ModelAndView();
+		NoticeDTO dto = ns.selectOne(notice_idx);
+		mav.addObject("dto", dto);
+		return mav;
+	}
 }

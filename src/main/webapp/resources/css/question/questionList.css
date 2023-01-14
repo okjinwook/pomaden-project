@@ -17,7 +17,7 @@
 	margin-bottom: 50px;
 }
 .question_list_component {
-	height: 500px;
+	height: 451px;
 	border-bottom: 1px solid black;
 }
 .question_info_box {
@@ -32,9 +32,6 @@
 .question_info_box > div:last-child {
 	border: none;	
 }
-.question_info_idx, .question_item_idx {
-	width: 60px;
-}
 .question_info_category, .question_item_category {
 	width: 150px;
 }
@@ -42,10 +39,10 @@
 	width: 150px;
 }
 .question_info_title, .question_item_title {
-	width: 720px;
+	width: 750px;
 }
 .question_info_writer, .question_item_writer {
-	width: 150px;
+	width: 180px;
 }
 .question_info_date, .question_item_date {
 	width: 120px;

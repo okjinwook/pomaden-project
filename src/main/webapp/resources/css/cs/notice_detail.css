@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+.notice_dt_component {
+	height: 1000px;
+	width: 1350px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.notice_dt_title {
+	font-size: 30px;
+	font-weight: 700;
+	text-align: center;
+	margin-bottom: 70px;
+}
+.notice_dt_title_box {
+	border: 1px solid #dadada;
+	width: 1350px;
+	height: 40px;
+}
+.notice_dt_title_info {
+	width: 150px;
+	height: 100%;
+	background-color: #dadada;
+	padding-left: 15px;
+	margin-right: 10px;
+	font-weight: 700;
+}
+.notice_dt_title_item {
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+.notice_dt_content {
+	width: 1350px;
+	min-height: 500px;
+	border: 1px solid #dadada;
+	margin-top: 10px;
+	padding: 15px;
+	font-size: 14px;
+	letter-spacing: 3px;
+	line-height: 25px;
+}

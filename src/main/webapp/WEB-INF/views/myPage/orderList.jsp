@@ -24,7 +24,7 @@
 				<div class="myPage_orderList_count jcce aice">수량</div>
 				<div class="myPage_orderList_price jcce aice">구매금액</div>
 				<div class="myPage_orderList_progress jcce aice">주문처리상태</div>
-				<div class="myPage_orderList_check jcce aice">처리여부</div>
+				<div class="myPage_orderList_check jcce aice">총금액</div>
 				<div class="myPage_orderList_review jcce aice">후기</div>
 			</div>
 			<div class="myPage_orderList_content">
@@ -32,6 +32,7 @@
 					<div class="empty_msg jcce aice">주문하신 상품이 없습니다.</div>
 				</c:if>
 				<c:forEach var="dto" items="${list }">
+					<c:set var="resultPrice" value=""/>
 					<div class="myPage_orderList_item df">
 						<div class="myPage_orderList_date jcce aice">${dto.orderList_date }</div>
 						<div class="myPage_orderList_img jcce aice"><img src="${dto.orderList_img }" width="50px"></div>
@@ -49,7 +50,10 @@
 						<div class="myPage_orderList_check jcce aice">
 							<c:forEach var="nDto" items="${list }">
 								<c:if test="${dto.orderList_order_number == nDto.orderList_order_number}">
-									${dto.orderList_price + nDto.orderList_price }
+									<c:if test="${dto.orderList_price != nDto.orderList_price }">
+										<c:set var="resultPrice" value="${dto.orderList_price + nDto.orderList_price }"/>
+										<fmt:formatNumber pattern="###,###" value="${resultPrice }" />원
+									</c:if>
 								</c:if>
 							</c:forEach>
 						</div>

@@ -20,5 +20,8 @@ public class NoticeService {
 		dto.setNotice_content(content.replaceAll("\r\n", "<br>"));
 		return dao.insert(dto);
 	}
+	public NoticeDTO selectOne(int notice_idx) {
+		return dao.selectOne(notice_idx);
+	}
 
 }

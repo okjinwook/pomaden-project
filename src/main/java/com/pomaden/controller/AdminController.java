@@ -155,7 +155,7 @@ public class AdminController {
 	public void getNotice_insert() {}
 	@PostMapping("/admin/notice_insert")
 	public ModelAndView notice_insert(NoticeDTO dto) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("redirect:/admin/notice_insert");
 		int row = ns.insert(dto);
 		if(row == 1) {
 			mav.addObject("msg", "공지가 등록되었습니다.");

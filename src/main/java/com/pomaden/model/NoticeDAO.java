@@ -19,4 +19,7 @@ public interface NoticeDAO {
 			+ ")")
 	int insert(NoticeDTO dto);
 
+	@Select("select * from notice where notice_idx = #{notice_idx}")
+	NoticeDTO selectOne(int notice_idx);
+
 }
