@@ -20,6 +20,7 @@
 <script src="${cpath }/resources/js/admin/product_insert.js"></script>
 <script src="${cpath }/resources/js/admin/product_list.js"></script>
 <script src="${cpath }/resources/js/admin/question_list.js"></script>
+<script src="${cpath }/resources/js/admin/notice_list.js"></script>
 </head>
 <body>
 	<nav class="admin_nav_component df">

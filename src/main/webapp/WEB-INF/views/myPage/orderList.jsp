@@ -50,10 +50,10 @@
 						<div class="myPage_orderList_check jcce aice">
 							<c:forEach var="nDto" items="${list }">
 								<c:if test="${dto.orderList_order_number == nDto.orderList_order_number}">
-									<c:if test="${dto.orderList_price != nDto.orderList_price }">
-										<c:set var="resultPrice" value="${dto.orderList_price + nDto.orderList_price }"/>
-										<fmt:formatNumber pattern="###,###" value="${resultPrice }" />원
+									<c:if test="${resultPrice == dto.orderList_price + nDto.orderList_price }">
+										<fmt:formatNumber pattern="###,###" value="${dto.orderList_price + nDto.orderList_price }" />원
 									</c:if>
+									<c:set var="resultPrice" value="${dto.orderList_price + nDto.orderList_price }"/>
 								</c:if>
 							</c:forEach>
 						</div>

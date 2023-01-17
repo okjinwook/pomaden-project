@@ -123,7 +123,7 @@ public class AdminController {
 			resp.put("msg", "상품이 삭제되었습니다.");
 		}
 		else {
-			resp.put("msg", "수정 실패");
+			resp.put("msg", "삭제 실패");
 		}
 		return resp;
 	}
@@ -199,4 +199,19 @@ public class AdminController {
 		}
 		return mav;
 	}
+	
+	@ResponseBody
+	@PostMapping("/admin/notice_delete")
+	public HashMap<String, String> noticeDelete(int notice_idx) {
+		HashMap<String, String> resp = new HashMap<String, String>();
+		int row = ns.delete(notice_idx);
+		if(row == 1) {
+			resp.put("msg", "공지가 삭제되었습니다.");
+		}
+		else {
+			resp.put("msg", "삭제 실패");
+		}
+		return resp;
+	}
+	
 }

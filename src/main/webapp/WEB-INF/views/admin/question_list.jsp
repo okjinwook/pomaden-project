@@ -38,7 +38,14 @@
 				<c:set var="param_content" value="${fn:replace(dto.question_content, '<br>', newLine)}"/>
 				<div class="admin_question_item df">
 					<div class="admin_question_writer jcce aice">${dto.question_member_id }</div>
-					<div class="admin_question_title aice">${dto.question_title }</div>
+					<div class="admin_question_title aice">
+						<c:if test="${fn:length(dto.question_title ) > 20}">
+							${fn:substring(dto.question_title  , 0 , 20) }...
+						</c:if> 
+						<c:if test="${fn:length(dto.question_title ) < 20}">
+							${dto.question_title  }
+						</c:if>
+					</div>
 					<div class="admin_question_content aice">
 						<c:if test="${fn:length(content) > 40}">
 							${fn:substring(content , 0 , 40) }...

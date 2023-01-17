@@ -44,7 +44,14 @@
 				<c:forEach var="dto" items="${list }">
 					<div class="question_list_item df">
 						<div class="question_item_category jcce aice">${dto.question_category }</div>
-						<div class="question_item_title jcce aice">${dto.question_title }</div>
+						<div class="question_item_title jcce aice">
+							<c:if test="${fn:length(dto.question_title ) > 50}">
+								${fn:substring(dto.question_title  , 0 , 50) }...
+							</c:if> 
+							<c:if test="${fn:length(dto.question_title ) < 50}">
+								${dto.question_title  }
+							</c:if>
+						</div>
 						<div class="question_item_writer jcce aice">${dto.question_member_id }</div>
 						<div class="question_item_check jcce aice">${dto.question_check }</div>
 						<div class="question_item_date jcce aice">${dto.question_date }</div>

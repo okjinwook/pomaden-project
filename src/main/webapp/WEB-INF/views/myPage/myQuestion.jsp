@@ -25,7 +25,14 @@
 			<c:forEach var="dto" items="${list }">
 				<div class="myPage_myQuestion_item df" onclick="questionOnClick(event)">
 					<div class="myPage_myQuestion_category jcce aice">${dto.question_category }</div>
-					<div class="myPage_myQuestion_questionTitle jcce aice">${dto.question_title }</div>
+					<div class="myPage_myQuestion_questionTitle jcce aice">
+						<c:if test="${fn:length(dto.question_title) > 50}">
+							${fn:substring(dto.question_title , 0 , 50) }...
+						</c:if> 
+						<c:if test="${fn:length(dto.question_title) < 50}">
+							${dto.question_title }
+						</c:if> 
+					</div>
 					<div class="myPage_myQuestion_check jcce aice">${dto.question_check }</div>
 					<div class="myPage_myQuestion_date jcce aice">${dto.question_date }</div>
 				</div>
@@ -34,12 +41,6 @@
 						<div class="myPage_myQuestion_content_title aice jcce">내용</div>
 						<div class="myPage_myQuestion_content">
 							${dto.question_content }
-							${dto.question_content }
-							${dto.question_content }
-							${dto.question_content }
-							${dto.question_content }
-							${dto.question_content }
-							
 						</div>
 					</div>
 					<div class="myPage_myQuestion_answer_box df">
@@ -52,27 +53,6 @@
 								<c:forEach var="ansDto" items="${ansList }">
 									<c:if test="${ansDto.answer_question_idx == dto.question_idx}">
 										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										${ansDto.answer_content }
-										
 									</c:if>
 								</c:forEach>
 							</c:if>

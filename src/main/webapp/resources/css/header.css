@@ -197,9 +197,12 @@ header {
     color: white;
 }
 .dropbox_menuAll li {
-	padding: 5px;
 	border-radius: 5px;
 	font-size: 12px;
+}
+.dropbox_menuAll li a{
+	padding: 8px;
+    display: block;
 }
 .dropbox_menuAll li:hover {
 	background-color: #333;

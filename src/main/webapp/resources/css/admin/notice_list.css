@@ -17,6 +17,10 @@
 }
 .admin_notice_item {
 	border-bottom: 1px solid #dadada;
+	cursor: pointer;
+}
+.admin_notice_item:hover{
+	background-color: cornsilk;
 }
 .admin_notice_item > div {
 	height: 60px;
@@ -28,9 +32,62 @@
 	width: 400px;
 }
 .admin_notice_content {
-	width: 771px;
+	width: 671px;
 }
 .admin_notice_date {
 	width: 150px;
 }
-
+.admin_notice_delete {
+	width: 100px;
+}
+.admin_notice_delete_button {
+	background-color: #333;
+	color: white;
+	border-radius: 5px;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 12px;
+}
+/* ================================내용 박스 ===================================*/
+.admin_notice_detail_box {
+	height: auto;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 60px;
+    padding-bottom: 60px;
+}
+.admin_notice_detail_item {
+	background-color: white;
+	margin-bottom: 20px;
+}
+.admin_notice_detail_box textarea {
+	height: 300px;
+	width: 100%;
+	resize: none;
+	padding: 10px;
+}
+.admin_notice_detail_item > div{
+	border-bottom: 1px solid #dadada;	
+}
+.admin_notice_detail_info {
+	width: 120px;
+	height: 50px;
+	background-color: cornsilk;
+	padding-left: 15px;
+	font-weight: 700;
+	min-width: 120px;
+}
+.admin_notice_detail_content_info {
+	min-height: 400px;
+}
+.admin_notice_detail_title {
+	padding-left: 10px;
+	font-size: 14px;
+}
+.admin_notice_detail_content {
+	height: 400px;
+	padding: 10px;
+	font-size: 14px;
+    overflow-y: auto;
+    width: 100%;
+}

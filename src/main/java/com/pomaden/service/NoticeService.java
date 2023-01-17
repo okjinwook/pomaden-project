@@ -23,5 +23,8 @@ public class NoticeService {
 	public NoticeDTO selectOne(int notice_idx) {
 		return dao.selectOne(notice_idx);
 	}
+	public int delete(int notice_idx) {
+		return dao.delete(notice_idx);
+	}
 
 }

@@ -11,7 +11,14 @@
 			</div>
 			<div class="notice_dt_content">${dto.notice_content }</div>
 		</div>
+		<div class="notice_dt_button_box df">
+			<div class="notice_dt_list_button jcce aice" onclick="historyBack()">목록</div>
+		</div>
 	</div>
 </main>
-	
+	<script>
+		function historyBack() {
+			history.go(-1)
+		}
+	</script>
 <%@ include file="../footer.jsp" %>
