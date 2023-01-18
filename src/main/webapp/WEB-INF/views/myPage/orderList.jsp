@@ -24,47 +24,50 @@
 				<div class="myPage_orderList_count jcce aice">수량</div>
 				<div class="myPage_orderList_price jcce aice">구매금액</div>
 				<div class="myPage_orderList_progress jcce aice">주문처리상태</div>
-				<div class="myPage_orderList_check jcce aice">총금액</div>
+				<div class="myPage_orderList_check jcce aice">진행상태</div>
 				<div class="myPage_orderList_review jcce aice">후기</div>
 			</div>
 			<div class="myPage_orderList_content">
 				<c:if test="${empty list }">
 					<div class="empty_msg jcce aice">주문하신 상품이 없습니다.</div>
 				</c:if>
-				<c:forEach var="dto" items="${list }">
-					<c:set var="resultPrice" value=""/>
-					<div class="myPage_orderList_item df">
-						<div class="myPage_orderList_date jcce aice">${dto.orderList_date }</div>
-						<div class="myPage_orderList_img jcce aice"><img src="${dto.orderList_img }" width="50px"></div>
-						<div class="myPage_orderList_product_info jcce aice">
-							<div>${dto.orderList_name }</div>
-							<div>[ ${dto.orderList_color } ]</div>
-							<div>[ ${dto.orderList_size } ]</div>
-						</div>
-						<div class="myPage_orderList_order_number jcce aice">${dto.orderList_order_number }</div>
-						<div class="myPage_orderList_count jcce aice">${dto.orderList_count }</div>
-						<div class="myPage_orderList_price jcce aice">
-							<fmt:formatNumber pattern="###,###" value="${dto.orderList_price }" />원
-						</div>
-						<div class="myPage_orderList_progress jcce aice">${dto.orderList_progress }</div>
-						<div class="myPage_orderList_check jcce aice">
-							<c:forEach var="nDto" items="${list }">
-								<c:if test="${dto.orderList_order_number == nDto.orderList_order_number}">
-									<c:if test="${resultPrice == dto.orderList_price + nDto.orderList_price }">
-										<fmt:formatNumber pattern="###,###" value="${dto.orderList_price + nDto.orderList_price }" />원
-									</c:if>
-									<c:set var="resultPrice" value="${dto.orderList_price + nDto.orderList_price }"/>
-								</c:if>
-							</c:forEach>
-						</div>
-						<div class="myPage_orderList_review jcce aice">
-							<c:if test="${dto.orderList_review_check == 0}">
-								<div class="myPage_orderList_review_button" onclick="reviewOnClick('${dto.orderList_idx }','${dto.orderList_name}','${dto.orderList_color }', '${dto.orderList_size }')">리뷰 작성</div>
+				<c:forEach var="item" items="${orderItemList }">
+					<div class="myPage_orderList_item_box">
+						<c:forEach var="dto" items="${list }">
+							<c:if test="${item == dto.orderList_order_number }">
+								<c:set var="resultPrice" value="${resultPrice + dto.orderList_price }"/>
+								<div class="myPage_orderList_item df">
+									<div class="myPage_orderList_date jcce aice">${dto.orderList_date }</div>
+									<div class="myPage_orderList_img jcce aice"><img src="${dto.orderList_img }" width="50px"></div>
+									<div class="myPage_orderList_product_info jcce aice">
+										<div>${dto.orderList_name }</div>
+										<div>[ ${dto.orderList_color } ]</div>
+										<div>[ ${dto.orderList_size } ]</div>
+									</div>
+									<div class="myPage_orderList_order_number jcce aice">${dto.orderList_order_number }</div>
+									<div class="myPage_orderList_count jcce aice">${dto.orderList_count }</div>
+									<div class="myPage_orderList_price jcce aice">
+										<fmt:formatNumber pattern="###,###" value="${dto.orderList_price }" />원
+									</div>
+									<div class="myPage_orderList_progress jcce aice">${dto.orderList_progress }</div>
+									<div class="myPage_orderList_check jcce aice">${dto.orderList_check }</div>
+									<div class="myPage_orderList_review jcce aice">
+										<c:if test="${dto.orderList_review_check == 0}">
+											<div class="myPage_orderList_review_button" onclick="reviewOnClick('${dto.orderList_idx }','${dto.orderList_name}','${dto.orderList_color }', '${dto.orderList_size }')">리뷰 작성</div>
+										</c:if>
+										<c:if test="${dto.orderList_review_check == 1}">
+											<div class="myPage_orderList_review_success_button">작성 완료</div>
+										</c:if>
+									</div>
+								</div>
 							</c:if>
-							<c:if test="${dto.orderList_review_check == 1}">
-								<div class="myPage_orderList_review_success_button">작성 완료</div>
-							</c:if>
+						</c:forEach>
+						<div class="myPage_orderList_resultPrice aice">
+							<div class="myPage_orderList_resultPrice_span jcce aice">
+								총 결제 금액 : <fmt:formatNumber pattern="###,###" value="${resultPrice }"/>원
+							</div>
 						</div>
+						<c:set var="resultPrice" value="0"/>
 					</div>
 				</c:forEach>
 			</div>
@@ -125,7 +128,9 @@
 <script>
 	const myPage_category = document.location.href.split('myPage/')[1].split('?')[0]
 	const class_category = document.querySelector('.myPage_' + myPage_category)
+	
 	class_category.style.color = 'black'
 	class_category.style.fontWeight = '700'
+	
 </script>
 <%@ include file="../footer.jsp" %>

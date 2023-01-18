@@ -50,11 +50,23 @@ function PointOnKeyUp(ob, myPoint) {
 function pointOnClick() {
 	const discount = document.querySelector('.payment_orderPrice_price > .payment_orderPrice_discount')
 	const total = document.querySelector('.payment_orderPrice_price > .payment_orderPrice_total')
-	
+	const item = document.querySelectorAll('.payment_orderList_item')
 	discount.children[0].innerText = '- ' + Number((totalSalePrice * 1) + (point * 1)).toLocaleString() + '원'
 	total.innerText = Number((totalResultPrice * 1) - (point * 1)).toLocaleString() + '원'
 	totalResultPrice -= point
 	totalSalePrice += point
+	for(ob of item){
+		let target = ob
+		while(target.classList.contains('payment_orderList_item') == false) {
+			target = target.parentNode
+		}
+		// target_price = 상품 최종 가격
+		// target_sale = 상품 최종 세일
+		let target_price = target.getElementsByClassName('order_orderList_price')[0]
+		target_price.id = target_price.id * 1 - point
+		target_price.innerText = Number(target_price.id).toLocaleString() + '원'
+		return false
+	}
 }
 
 

@@ -49,7 +49,9 @@ public class MyPageController {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO login = (MemberDTO) session.getAttribute("login");
 		List<OrderListDTO> list = os.selectList(login.getMember_id());
+		List<String> orderItemList = os.selectOrderItem();
 		mav.addObject("list", list);
+		mav.addObject("orderItemList", orderItemList);
 		return mav;
 	}
 		

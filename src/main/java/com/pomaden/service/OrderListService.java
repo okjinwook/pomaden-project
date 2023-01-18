@@ -25,4 +25,8 @@ public class OrderListService {
 		return dao.update(orderList_idx);
 	}
 
+	public List<String> selectOrderItem() {
+		return dao.selectOrderItem();
+	}
+
 }
