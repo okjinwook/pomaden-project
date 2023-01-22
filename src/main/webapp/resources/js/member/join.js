@@ -115,18 +115,20 @@ function postcodeOnClick() {
 }
 
 // 이메일 인증요청 버튼 클릭 함수입니다.
-function joinEmailOnClick(event) {
+function joinEmailOnClick() {
 	const join_email_code_box = document.querySelector('.join_email_code_box')
 	const join_email_send_msg = document.querySelector('.join_email_send_msg')
 	const join_email_code_input = document.querySelector('.join_email_code_input')
 	const member_email = document.querySelector('.join_input_email').value
+	const msgBox = document.querySelector('.join_code_msg_box ')
+	
 	// 이메일 형식이 올바른지 체크합니다.
 	if(member_email.split('@')[1] == 'naver.com') {
 		const check_url = cpath + '/member/emailCheck?member_email=' + member_email
 		const check_opt = {
 			method: 'GET'
 		}
-		const check_json = fetch(check_url,check_opt)
+		fetch(check_url,check_opt)
 		.then(resp => resp.json())
 		.then(json => {
 			if(json.status == 'OK') {
@@ -140,9 +142,11 @@ function joinEmailOnClick(event) {
 				}
 				// 타이머 실행 
 				time = 180
+				clearInterval(timer)
 				timer = setInterval(JoinCodeTimer, 1000)
 				join_email_code_box.classList.remove('hidden')
-				const json = fetch(url,opt)
+				msgBox.innerHTML = ''
+				fetch(url,opt)
 				.then(resp => resp.json())
 				.then(json => {
 					if(json.status == 'OK') {
@@ -164,7 +168,8 @@ function joinEmailOnClick(event) {
 }
 // 인증코드 제한 타이머 함수입니다
 function JoinCodeTimer() {
-	const join_code_time_box = document.querySelector('.join_code_time_box')
+	const msgBox = document.querySelector('.join_code_msg_box ')
+	const time_box = document.querySelector('.join_code_time_box')
 	let min = Math.floor(time / 60)
 	let sec = Math.floor(time % 60)
 	let tm = min
@@ -175,11 +180,13 @@ function JoinCodeTimer() {
 	if (sec < 10) {
 		ts = '0' + sec
 	}
-	join_code_time_box.innerText = '( ' + tm + ' : ' + ts + ' )'
+	time_box.innerText = '( ' + tm + ' : ' + ts + ' )'
+	time_box.style.color = 'black'
 	if (time == 0) {
 		clearInterval(timer)
-		join_code_time_box.style.color = 'red'
-		time = 180
+		time_box.style.color = 'red'
+		msgBox.innerText = '인증번호 재요청 후 인증확인 부탁드립니다.'
+		return false
 	}
 	time -= 1
 }
@@ -192,20 +199,25 @@ function joinCodeCheckOnClick(event) {
 	const opt = {
 		method: 'GET'
 	}
-	const json = fetch(url,opt)
-	.then(resp => resp.json())
-	.then(json => {
-		if(json.status == 'OK') {
-			clearInterval(timer)
-			msgBox.innerText = json.message
-			msgBox.style.color = 'blue'
-		}
-		else {
-			msgBox.innerText = json.message
-			msgBox.style.color = 'red'
-		}
-	})
-	
+	if(time == 0) {
+		alert('인증번호 재요청 후 인증확인 부탁드립니다.')
+		return false		
+	}
+	else {
+		fetch(url,opt)
+		.then(resp => resp.json())
+		.then(json => {
+			if(json.status == 'OK') {
+				clearInterval(timer)
+				msgBox.innerText = json.message
+				msgBox.style.color = 'blue'
+			}
+			else {
+				msgBox.innerText = json.message
+				msgBox.style.color = 'red'
+			}
+		})
+	}
 }
 
 // 회원가입 눌렀을 때 발생하는 함수입니다.
@@ -215,13 +227,16 @@ function joinSubmitOnClick(event) {
 	// 유효성 검사에 만족하지 못 하는 객체가 있으면 submit 막습니다
 	join_check_msg.forEach(msg => {
 		if (msg.style.color == 'red' || msg.innerText == '') {
-			event.preventDefault()
 			count = 1
 		}
 	})
 	// alert 반복 방지 코드입니다
+	if (time == 0) {
+		count = 1
+	}
 	if (count == 1) {
 		alert('잘못된 입력정보입니다.')
+		event.preventDefault()
 	}
 }
 

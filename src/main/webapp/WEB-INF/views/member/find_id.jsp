@@ -11,4 +11,10 @@
 		</form>
 	</div>
 </main>
+<script>
+	const msg = '${message}'
+	if(msg != '') {
+		alert(msg)
+	}
+</script>
 <%@include file="../footer.jsp" %>

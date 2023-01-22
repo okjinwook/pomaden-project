@@ -30,7 +30,11 @@
 				<c:set var="content" value="${fn:replace(dto.review_content, '<br>', ' ')}"/>
 				<div class="myPage_board_item aice">
 					<div class="myPage_board_date jcce aice">${dto.review_date }</div>
-					<div class="myPage_board_img jcce aice"><img src="${dto.review_img }" width="50px"></div>
+					<div class="myPage_board_img jcce aice">
+						<c:if test="${dto.review_img  != 'none'}">
+							<img src="${dto.review_img }" width="50px">
+						</c:if>
+					</div>
 					<div class="myPage_board_name jcce aice">${dto.review_product }</div>
 					<div class="myPage_board_content jcce aice">
 						<c:if test="${fn:length(content) > 40}">

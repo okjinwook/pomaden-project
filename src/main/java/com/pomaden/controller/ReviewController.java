@@ -22,11 +22,11 @@ public class ReviewController {
 		int row = rs.insert(dto);
 		if(row == 1) {
 			int osRow = os.update(dto.getReview_orderList_idx());
-			mav.addObject("msg", "");
+			mav.addObject("msg", "정상적으로 리뷰가 등록되었습니다.");
 			mav.setViewName("redirect:/myPage/board");
 		}
 		else {
-			mav.addObject("msg", "");
+			mav.addObject("msg", "리뷰 등록 실패!!");
 		}
 		
 		return mav;

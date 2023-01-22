@@ -18,8 +18,10 @@
 		)
 	</insert>
 	<select id="selectList" resultType="product" parameterType="hashmap">
-		select * from product where 
-		product_category=#{category}
+		select * from product 
+		<if test="category != null">
+			where product_category=#{category}
+		</if>
 		<if test="kind != null">
 			and product_kind=#{kind}
 		</if>

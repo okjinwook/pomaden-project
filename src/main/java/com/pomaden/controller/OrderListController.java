@@ -96,7 +96,7 @@ public class OrderListController {
 					pointInsertMap.put("point_total", String.valueOf(point_total));
 					pointInsertRow = ps.insert(pointInsertMap);
 				}
-				else if(map.get("item_name") == null) {	// 마지막은 쿠폰 사용 리스트 
+				else if(map.get("orderList_order_number") == null) {	// 마지막은 쿠폰 사용 리스트 
 					for(String key : map.keySet()) {
 						int coupon_count = ms.selectOne(member_id).getMember_coupon() - 1;
 						int coupon_idx = Integer.parseInt(String.valueOf(map.get(key)));

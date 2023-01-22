@@ -26,4 +26,5 @@ public interface ProductDAO {
 	
 	@Delete("delete product where product_name = #{product_name}")
 	int delete(String product_name);
+
 }

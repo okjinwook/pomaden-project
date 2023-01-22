@@ -10,7 +10,7 @@
 		<div class="productList_category_box aice">
 			<div class="productList_category">
 				<c:if test="${not empty param.top }"> 
-					<a href="${cpath }/product/productList?category=${category }&kind=전체&top=1">전체</a>
+					<a href="${cpath }/product/productList?top=1">전체</a>
 				</c:if>
 				<c:if test="${empty param.top }">
 					<a href="${cpath }/product/productList?category=${category }&kind=전체">전체</a>
@@ -56,8 +56,12 @@
 <script>
 	const productList_categorys = document.querySelectorAll('.productList_category > a')
 	const member_id = '${login.member_id}'
+	let kind = '${kind}'
+	if(kind == '') {
+		kind = '전체'
+	}
 	productList_categorys.forEach(box => {
-		if(box.innerText == '${kind}') {
+		if(box.innerText == kind) {
 			box.style.fontWeight = '700'
 			box.style.color = 'black'
 		}

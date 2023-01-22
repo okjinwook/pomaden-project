@@ -22,4 +22,9 @@
 		</form>	
 	</div>
 </main>
+<script>
+	let timer = 0
+	let time = 0
+	let retimer = 0
+</script>
 <%@include file="../footer.jsp" %>

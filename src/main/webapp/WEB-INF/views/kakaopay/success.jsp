@@ -35,7 +35,7 @@
 			<div class="success_orderList_price aice">
 				<div class="success_orderList_info_price jcce aice">가격</div>
 				<div class="success_orderList_item_price jcce aice">
-					<fmt:formatNumber pattern="###,###" value="${success_order_price - point }" />원
+					<fmt:formatNumber pattern="###,###" value="${success_order_price}" />원
 				</div>
 			</div>
 		</div>

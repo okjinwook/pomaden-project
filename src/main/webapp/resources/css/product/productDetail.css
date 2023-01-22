@@ -333,3 +333,8 @@
 	width: 310px;
 	flex-flow: column;
 }
+.soldOut {
+	line-height: 61px;
+    font-size: 20px;
+	color: red;
+}

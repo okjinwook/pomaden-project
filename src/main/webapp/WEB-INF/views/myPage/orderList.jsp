@@ -80,23 +80,23 @@
 		<div class="review_modal_component">
 			<input type="number" name="review_orderList_idx" hidden="">
 			<div class="review_modal_writer aice">
-				<div>작성자</div>
+				<div class="review_modal_info aice jcce">작성자</div>
 				<input name="review_member_id" value="${login.member_id }" readonly="readonly">
 			</div>
 			<div class="review_modal_product aice">
-				<div>상품명</div>
+				<div class="review_modal_info aice jcce">상품명</div>
 				<input name="review_product" readonly="readonly">
 			</div>
 			<div class="review_modal_color aice">
-				<div>컬러</div>
+				<div class="review_modal_info aice jcce">컬러</div>
 				<input name="review_color" readonly="readonly">
 			</div>
 			<div class="review_modal_size aice">
-				<div>사이즈</div>
+				<div class="review_modal_info aice jcce">사이즈</div>
 				<input name="review_size" readonly="readonly">
 			</div>
 			<div class="review_modal_img aice">
-				<div>이미지</div>
+				<div class="review_modal_info aice jcce">이미지</div>
 				<div class="review_modal_img_box jcce aice">
 					<label class="jcce aice">
 						<span class="review_modal_img_span">사진등록</span>
@@ -105,21 +105,21 @@
 				</div>
 			</div>
 			<div class="review_modal_category aice">
-				<div>평점</div>
+				<div class="review_modal_info aice jcce">평점</div>
 				<input class="review_grade_input" name="review_grade" value="5" hidden="">
 				<div class="review_grade_star df">
-					<div class="" onclick="gradeOnClick(1)">☆</div>
-					<div class="" onclick="gradeOnClick(2)">☆</div>
-					<div class="" onclick="gradeOnClick(3)">☆</div>
-					<div class="" onclick="gradeOnClick(4)">☆</div>
-					<div class="" onclick="gradeOnClick(5)">☆</div>
+					<div onclick="gradeOnClick(1)">☆</div>
+					<div onclick="gradeOnClick(2)">☆</div>
+					<div onclick="gradeOnClick(3)">☆</div>
+					<div onclick="gradeOnClick(4)">☆</div>
+					<div onclick="gradeOnClick(5)">☆</div>
 				</div>
 			</div>
 			<div class="review_modal_content">
 				<textarea name="review_content" placeholder="내용을 작성해주세요."></textarea>
 			</div>
 			<div class="review_modal_button_box jcsb">
-				<input class="review_modal_write_button" type="submit" value="작성">
+				<input class="review_modal_write_button" type="submit" value="작성" onclick="reviewOnSubmit(event)">
 				<div class="review_modal_cancle_button jcce aice" onclick="reviewModalCancleClick()">취소</div>
 			</div>
 		</div>
@@ -128,7 +128,7 @@
 <script>
 	const myPage_category = document.location.href.split('myPage/')[1].split('?')[0]
 	const class_category = document.querySelector('.myPage_' + myPage_category)
-	
+	let reviewStar = 0
 	class_category.style.color = 'black'
 	class_category.style.fontWeight = '700'
 	

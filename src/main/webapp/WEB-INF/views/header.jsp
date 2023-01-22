@@ -157,7 +157,7 @@
 				<div class="menu_kind aice jcsb">
 					<div class="menuAll_button jcce">전체보기</div>
 					<div class="menu_best">
-						<a href="${cpath }/product/productList?category=베스트&kind=전체" class="menu_kind_button aice">베스트</a>
+						<a href="${cpath }/product/productList?top=1" class="menu_kind_button aice">베스트</a>
 						<ul class="header_menubar_drop hidden">
 							<li><a href="${cpath }/product/productList?category=아우터&kind=전체&top=1">아우터 30</a></li>
 							<li><a href="${cpath }/product/productList?category=셔츠&kind=전체&top=1">셔츠 30</a></li>

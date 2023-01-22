@@ -105,7 +105,7 @@ public class KakaoPayController {
 						pointInsertMap.put("point_total", String.valueOf(point_total));
 						pointInsertRow = ps.insert(pointInsertMap);
 					}
-					else if(map.get("item_name") == null) {	// 마지막은 쿠폰 사용 리스트 
+					else if(map.get("orderList_order_number") == null) {	// 마지막은 쿠폰 사용 리스트 
 						for(String key : map.keySet()) {
 							int coupon_count = ms.selectOne(member_id).getMember_coupon() - 1;
 							int coupon_idx = Integer.parseInt(String.valueOf(map.get(key)));
@@ -123,7 +123,6 @@ public class KakaoPayController {
 						mav.addObject("status", "OK");
 						mav.addObject("msg", "정상적으로 상품이 구매되었습니다.");
 						mav.addObject("successList", session.getAttribute("successList"));
-						mav.addObject("point", point_use);
 					}
 					else {
 						mav.addObject("status", "FAIL");

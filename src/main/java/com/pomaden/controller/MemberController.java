@@ -100,7 +100,23 @@ public class MemberController {
 		}
 		return map;
 	}
-	
+	@ResponseBody
+	@GetMapping("/member/findPw_member_check")
+	public HashMap<String, String> findPw_member_check(String member_email, String member_name, String member_id) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		MemberDTO param_dto = new MemberDTO();
+		param_dto.setMember_email(member_email);
+		param_dto.setMember_name(member_name);
+		param_dto.setMember_id(member_id);
+		MemberDTO dto = ms.findPw(param_dto);
+		if(dto != null) {
+			map.put("status", "OK");
+		}
+		else {
+			map.put("status", "Fail");
+		}
+		return map;
+	}
 	@GetMapping("/member/find_id")
 	public void getFind_id() {}
 	

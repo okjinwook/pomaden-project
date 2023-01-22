@@ -101,8 +101,8 @@
 	let join_phone_select_number = ''
 	let join_phone_start_number= ''
 	let join_phone_end_number = ''
-	let time = 180
-	let timer
+	let timer = 0
+	let time = 0
 	
 	
 	

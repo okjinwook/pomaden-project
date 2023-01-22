@@ -1,7 +1,10 @@
 // color 선택 함수입니다
 function colorOnClick(event) {
+	const buyList_box = document.querySelector('.productDetail_buyList_box')
 	const colors = document.querySelectorAll(".productDetail_colors")
 	const sizes = document.querySelectorAll(".productDetail_sizes")
+	buyList_box.classList.remove('soldOut')
+	buyList_box.innerHTML = '<div class="productDetail_none_option jcce aice">옵션을 선택해주세요</div>'
 	colors.forEach(color => {
 		color.style.backgroundColor = '#F9F9F9'
 		color.style.color = 'black'
@@ -19,6 +22,7 @@ function sizeOnClick(event) {
 	const sizes = document.querySelectorAll(".productDetail_sizes")
 	const colors = document.querySelectorAll(".productDetail_colors")
 	const size = event.target
+	buyList_box.classList.remove('soldOut')
 	// 색상이 선택이 먼저 되어 있으면 사이즈 선택할 수 있습니다
 	colors.forEach(color => {
 		if(color.style.color == 'white'){
@@ -47,29 +51,36 @@ function sizeOnClick(event) {
 			fetch(url, opt)
 			.then(resp => resp.json())
 			.then(json => {
-				let dom = ''
-				dom += '<div class="jcsb">'
-				dom += `	<div class="aice">`
-				dom += `		<div class="productDetail_buyList_color" id="${item_color}">색상[${item_color}]</div>`
-				dom += `		<div class="productDetail_buyList_size" id="${item_size}">사이즈[${item_size}]</div>`
-				dom += `		<div class="productDetail_buyList_count" id="${json.count}">남은수량[${json.count}개]</div>`
-				dom += `		<div class="productDetail_buyList_orderCount df">`
-				dom += `			<input class="productDetail_buy_count" type="number" value="1" min="1">`
-				dom += `			<div class="productDetail_upDownBox">`
-				dom += `				<img class="productDetail_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="detailUpOnClick()">`
-				dom += `				<img class="productDetail_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="detailDownOnClick()">`
-				dom += `			</div>`
-				dom += '		</div>'
-				dom += '	</div>'
-				dom += '</div>'
-				dom += '<div class="jcsb">'
-				dom += `	<div class="productDetail_buyList_total_info">상품 가격 : ${Number(product_salePrice).toLocaleString()}</div>`
-				dom += '	<div class="productDetail_buyList_salePrice">'
-				dom += `		총가격 : ${Number(product_salePrice).toLocaleString() }원`
-				dom += '	</div>'
-				dom += '</div>'
-				buyList_box.innerHTML = dom
-				buyList_box.classList.remove('hidden')
+				if(json.count != 0) {
+					let dom = ''
+					dom += '<div class="jcsb">'
+					dom += `	<div class="aice">`
+					dom += `		<div class="productDetail_buyList_color" id="${item_color}">색상[${item_color}]</div>`
+					dom += `		<div class="productDetail_buyList_size" id="${item_size}">사이즈[${item_size}]</div>`
+					dom += `		<div class="productDetail_buyList_count" id="${json.count}">남은수량[${json.count}개]</div>`
+					dom += `		<div class="productDetail_buyList_orderCount df">`
+					dom += `			<input class="productDetail_buy_count" type="number" value="1" min="1">`
+					dom += `			<div class="productDetail_upDownBox">`
+					dom += `				<img class="productDetail_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="detailUpOnClick()">`
+					dom += `				<img class="productDetail_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="detailDownOnClick()">`
+					dom += `			</div>`
+					dom += '		</div>'
+					dom += '	</div>'
+					dom += '</div>'
+					dom += '<div class="jcsb">'
+					dom += `	<div class="productDetail_buyList_total_info">상품 가격 : ${Number(product_salePrice).toLocaleString()}</div>`
+					dom += '	<div class="productDetail_buyList_salePrice">'
+					dom += `		총가격 : ${Number(product_salePrice).toLocaleString() }원`
+					dom += '	</div>'
+					dom += '</div>'
+					buyList_box.innerHTML = dom
+					buyList_box.classList.remove('hidden')
+					buyList_box.classList.add('choose_item')
+				}
+				else {
+					buyList_box.innerHTML = '<div class="soldOut jcce aice">품절된 상품입니다!!</div>'
+					buyList_box.classList.add('soldOut')
+				}
 			})
 		}
 	})
@@ -158,15 +169,18 @@ function cartUpdateAjax(count , cart_idx) {
 }
 
 // 장바구니 담기 버튼 클릭 함수입니다
-function cartOnclick(event) {
+function cartOnclick() {
 	if(member_id == '') {
 		alert('로그인 후 이용가능합니다.')
 		location.href = cpath + '/member/login'
 	}
 	else {
 		const buyList_box = document.querySelector(".productDetail_buyList_box")
-		if(buyList_box.innerText == '') {
+		if(buyList_box.classList.contains('choose_item') == false) {
 			alert('상품을 선택해주세요.')
+		}
+		else if(buyList_box.classList.contains('soldOut') == true) {
+			alert('품절된 상품입니다')
 		}
 		else {
 			const product_count = document.querySelector(".productDetail_buy_count").value
@@ -269,9 +283,16 @@ function likeOnClick(event) {
 }
 // 구매하기 버튼 클릭함수입니다.
 function paymentOnClick() {
+	const buyList_box = document.querySelector(".productDetail_buyList_box")
 	if(member_id == '') {
 		alert('로그인 후 이용가능합니다.')
 		location.href = cpath + '/member/login'
+	}
+	if(buyList_box.classList.contains('choose_item') == false) {
+		alert('상품을 선택해주세요.')
+		}
+	else if(buyList_box.classList.contains('soldOut') == true) {
+		alert('품절된 상품입니다')
 	}
 	else {
 		const count = document.querySelector(".productDetail_buy_count").value
@@ -359,6 +380,12 @@ function replyDelete(reply_idx) {
 			alert(json.msg)
 			location.reload()
 		})
+	}
+}
+function loginTest() {
+	if(member_id == '') {
+		alert('로그인 후 이용가능합니다.')
+		location.href = cpath + '/member/login'
 	}
 }
 function setReload() {

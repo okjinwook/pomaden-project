@@ -94,8 +94,8 @@ function kakaopayPayment(item, orderList_order_number) {
 		item_name = box.getElementsByClassName('order_orderList_name')[0].id
 		return
 	})
-	if(quantity != 1) {
-		item_name += ' 외 ' + ((quantity * 1) - 1) + '개' // ex) 가디건 외 1개
+	if(size != 1) {
+		item_name += ' 외 ' + ((size * 1) - 1) + '개' // ex) 가디건 외 1개
 	}
 	
 	const url = cpath + '/kakaopay/paymentReady'

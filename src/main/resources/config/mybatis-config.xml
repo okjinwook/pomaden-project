@@ -35,6 +35,7 @@
 		<mapper resource="mappers/sqlmap-likeProduct.xml"/>
 		<mapper resource="mappers/sqlmap-orderList.xml"/>
 		<mapper resource="mappers/sqlmap-review.xml"/>
+		<mapper resource="mappers/sqlmap-reply.xml"/>
 		<mapper resource="mappers/sqlmap-point.xml"/>
 		<mapper resource="mappers/sqlmap-coupon.xml"/>
 		<mapper resource="mappers/sqlmap-shipping.xml"/>

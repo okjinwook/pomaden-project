@@ -39,6 +39,18 @@ function reviewUpload(event) {
 	}
 }
 
+function reviewOnSubmit(event) {
+	const review_content = document.querySelector('.review_modal_content > textarea')
+	if(review_content.value == '') {
+		alert('내용을 작성해주세요.')
+		event.preventDefault()
+	}
+	else if(reviewStar == 0) {
+		alert('평점을 선택해주세요.')
+		event.preventDefault()
+	}
+}
+
 // 평점 별 클릭 함수입니다
 function gradeOnClick(count) {
 	const grade_box = document.querySelector('.review_grade_star')
@@ -56,5 +68,6 @@ function gradeOnClick(count) {
 	for(let k = whiteStar + 1; k <= 5; k++) {
 		dom += `<div class="" onclick="gradeOnClick(${k})">☆</div>`
 	}
+	reviewStar = count
 	grade_box.innerHTML = dom
 }

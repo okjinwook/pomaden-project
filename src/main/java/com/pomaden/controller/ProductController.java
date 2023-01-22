@@ -55,18 +55,23 @@ public class ProductController {
 	public ModelAndView selectCategory(String category, String kind, String top) {
 		ModelAndView mav = new  ModelAndView();
 		HashMap<String, String> data = new HashMap<String, String>();
-		
-		data.put("category", category);
+		List<ProductDTO> kindAll = null;
+		if(category != null) {
+			data.put("category", category);
+			kindAll = ps.selectKind(category);
+			mav.addObject("category", category);
+		}
+		else {
+			mav.addObject("category", "전체");
+		}
 		if(kind != null && kind.equals("전체") == false) {
 			data.put("kind", kind);
+			mav.addObject("kind", kind);
 		}
 		if(top != null) {
 			data.put("top", top);
 		}
 		List<ProductDTO> list = ps.selectList(data);
-		List<ProductDTO> kindAll = ps.selectKind(category);
-		mav.addObject("category", category);
-		mav.addObject("kind", kind);
 		mav.addObject("kindAll", kindAll);
 		mav.addObject("list", list);
 		return mav;

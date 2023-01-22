@@ -33,7 +33,8 @@
 						</div>
 						<div class="productDetail_product df">
 							<div class="productDetail_info_span">- 판매가</div>
-							<span class="productDetail_price_span"><fmt:formatNumber pattern="###,###" value="${prodDto.product_price * (100 - prodDto.product_sale) / 100}" />원</span>
+							<fmt:parseNumber var="resultPrice" integerOnly="true" value="${prodDto.product_price * (100 - prodDto.product_sale) / 100 / 100}"/>
+							<span class="productDetail_price_span"><fmt:formatNumber pattern="###,###" value="${resultPrice * 100 }" />원</span>
 						</div>
 						<div class="productDetail_product df">
 							<div class="productDetail_info_span">- 배송비 결제</div>
@@ -155,7 +156,11 @@
 							★						
 						</c:forEach>
 						</div>
-						<div class="productDetail_review_img"><img src="${reviewDto.review_img }" width="100px"></div>
+						<div class="productDetail_review_img">
+							<c:if test="${reviewDto.review_img  != 'none'}">
+								<img src="${reviewDto.review_img }" width="100px">
+							</c:if>
+						</div>
 						<div class="productDetail_review_content">${reviewDto.review_content }</div>
 						<div class="productDetail_review_reply">
 							<div class="productDetail_review_reply_button" onclick="detailReplyOnClick(event)">
