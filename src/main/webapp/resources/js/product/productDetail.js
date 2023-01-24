@@ -240,7 +240,7 @@ function likeOnClick(event) {
 		if(img.classList.contains('productDetail_colorHearts')) {
 			result_like = (product_like * 1) - 1
 			product_like = (product_like * 1) - 1
-			src = cpath + '/resources/img/blackHearts.png'
+			src = 'http://192.168.1.100:80/icon/blackHearts.png'
 			img.classList.remove('productDetail_colorHearts')
 			img.classList.add('productDetail_blackHearts')
 			document.querySelector('.productDetail_like_button').style.backgroundColor = 'white'
@@ -249,7 +249,7 @@ function likeOnClick(event) {
 		else {
 			result_like = (product_like * 1) + 1
 			product_like = (product_like * 1) + 1
-			src = cpath + '/resources/img/colorHearts.png'
+			src = 'http://192.168.1.100:80/icon/colorHearts.png'
 			img.classList.remove('productDetail_blackHearts')
 			img.classList.add('productDetail_colorHearts')
 			document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'

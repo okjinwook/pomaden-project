@@ -30,8 +30,8 @@ public class ReviewService {
 		if(dto.getReview_upload().getOriginalFilename() != "") {
 			File dest1 = null;
 			if (dto.getReview_upload() != null) {
-				MultipartFile file = dto.getReview_upload();
-				dest1 = new File(file.getOriginalFilename());
+				MultipartFile file =  dto.getReview_upload();
+				dest1 = new File(dto.getReview_member_id()  + "_" + file.getOriginalFilename());
 				file.transferTo(dest1);
 			}
 			// 웹서버에 생성된 임시파일을 파일서버에 전송
@@ -61,7 +61,7 @@ public class ReviewService {
 			uploadFilePath += "http://";
 			uploadFilePath += serverIP;
 			uploadFilePath += ":80"; // 기본 포트는 80이며 작성필요없으나, 서비스가 중복된다면 별도로 지정
-			uploadFilePath += "/review/" + dto.getReview_upload().getOriginalFilename();
+			uploadFilePath += "/review/" + dto.getReview_member_id()  + "_" + dto.getReview_upload().getOriginalFilename();
 
 			dto.setReview_img(uploadFilePath);
 		}

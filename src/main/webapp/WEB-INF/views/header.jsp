@@ -80,10 +80,10 @@
 						<a href="${cpath }/member/join">회원가입</a>
 					</c:if>
 					<a href="${cpath }/cart/cartList">
-						<img src="${cpath }/resources/img/cart.png" width="30px">
+						<img src="http://192.168.1.100:80/icon/cart.png" width="30px">
 					</a>
 					<a href="${cpath }/myPage/orderList">
-						<img src="${cpath }/resources/img/profile.png" width="30px">
+						<img src="http://192.168.1.100:80/icon/profile.png" width="30px">
 					</a>
 				</div>
 			</div>

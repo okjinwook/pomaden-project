@@ -64,14 +64,14 @@
 				<div class="productDetail_button_box jcsb">
 					<div class="productDetail_buy_button jcce aice" onclick="paymentOnClick()">바로구매</div>
 					<div class="productDetail_cart_button jcce aice" onclick="cartOnclick()">
-						<img src="${cpath }/resources/img/cart.png" width="30px">
+						<img src="http://192.168.1.100:80/icon/cart.png" width="30px">
 					</div>
 					<div class="productDetail_like_button jcce aice" onclick="likeOnClick(event)">
 						<c:if test="${empty likeCheck }">
-							<img class="productDetail_blackHearts" src="${cpath }/resources/img/blackHearts.png" width="30px">
+							<img class="productDetail_blackHearts" src="http://192.168.1.100:80/icon/blackHearts.png" width="30px">
 						</c:if>
 						<c:if test="${not empty likeCheck }">
-							<img class="productDetail_colorHearts" src="${cpath }/resources/img/colorHearts.png" width="30px">
+							<img class="productDetail_colorHearts" src="http://192.168.1.100:80/icon/colorHearts.png" width="30px">
 						</c:if>
 					</div>
 				</div>

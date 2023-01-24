@@ -77,7 +77,7 @@ public class MyPageController {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		map.put("member_id", login.getMember_id());
-		map.put("sort", "review_grade");
+		map.put("sort", "review_idx");
 		List<ReviewDTO> list = rs.selectList(map);
 		mav.addObject("list", list);
 		return mav;
