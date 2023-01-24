@@ -43,6 +43,19 @@
 			<beans:bean id="loginIntercepter" class="com.pomaden.interceptor.LoginInterceptor" />
 		</interceptor>
 	</interceptors>
+	<interceptors>	
+		<interceptor>	
+			<mapping path="/admin/admin_nav" />
+			<mapping path="/admin/member_list" />
+			<mapping path="/admin/notice_insert" />
+			<mapping path="/admin/notice_list" />
+			<mapping path="/admin/product_list" />
+			<mapping path="/admin/product_insert" />
+			<mapping path="/admin/question_list" />
+			<mapping path="/admin/review_list" />
+			<beans:bean id="adminIntercepter" class="com.pomaden.interceptor.AdminInterceptor" />
+		</interceptor>
+	</interceptors>
 	
 	<context:component-scan base-package="com.pomaden.controller" />
 	
