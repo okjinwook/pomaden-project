@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.pomaden.model.NoticeDAO;
 import com.pomaden.model.NoticeDTO;
-import com.pomaden.model.ReviewDTO;
 
 @Service
 public class NoticeService {

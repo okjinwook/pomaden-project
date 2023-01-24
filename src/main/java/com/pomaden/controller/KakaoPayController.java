@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pomaden.model.MemberDTO;
-import com.pomaden.model.PointDTO;
 import com.pomaden.service.CartService;
 import com.pomaden.service.CouponService;
 import com.pomaden.service.ItemService;

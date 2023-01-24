@@ -1,6 +1,5 @@
 package com.pomaden.model;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;

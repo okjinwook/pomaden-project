@@ -10,15 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pomaden.model.AnswerDTO;
 import com.pomaden.model.QuestionDTO;
-import com.pomaden.service.AnswerService;
 import com.pomaden.service.QuestionService;
 
 @Controller
 public class QuestionController {
 	@Autowired private QuestionService qs;
-	@Autowired private AnswerService as;
 	
 	@GetMapping("/question/questionList")
 	public ModelAndView question(String category, String check, String kind, String search, String page) {

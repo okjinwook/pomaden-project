@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.pomaden.mail.Hash;
 import com.pomaden.model.AdminDTO;
 import com.pomaden.model.AnswerDTO;
 import com.pomaden.model.ItemDTO;

@@ -38,7 +38,7 @@
 							<div class="myPage_like_likeCount jcce aice">♥ ${dto.like_like }</div>
 							<form action="${cpath}/likeProduct/delete" method="POST">
 								<input name="like_name" value="${dto.like_name}" hidden="">
-								<input type="submit" class="myPage_like_delete_button jcce aice" value="삭제"></span>
+								<input type="submit" class="myPage_like_delete_button jcce aice" value="삭제">
 							</form>
 						</div>
 					</div>
