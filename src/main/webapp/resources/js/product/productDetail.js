@@ -240,7 +240,7 @@ function likeOnClick(event) {
 		if(img.classList.contains('productDetail_colorHearts')) {
 			result_like = (product_like * 1) - 1
 			product_like = (product_like * 1) - 1
-			src = 'http://192.168.1.100:80/icon/blackHearts.png'
+			src = 'https://pomadenimg.cafe24.com/icon/blackHeart.png'
 			img.classList.remove('productDetail_colorHearts')
 			img.classList.add('productDetail_blackHearts')
 			document.querySelector('.productDetail_like_button').style.backgroundColor = 'white'
@@ -249,7 +249,7 @@ function likeOnClick(event) {
 		else {
 			result_like = (product_like * 1) + 1
 			product_like = (product_like * 1) + 1
-			src = 'http://192.168.1.100:80/icon/colorHearts.png'
+			src = 'https://pomadenimg.cafe24.com/icon/colorHeart.png'
 			img.classList.remove('productDetail_blackHearts')
 			img.classList.add('productDetail_colorHearts')
 			document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'
@@ -288,7 +288,7 @@ function paymentOnClick() {
 		alert('로그인 후 이용가능합니다.')
 		location.href = cpath + '/member/login'
 	}
-	if(buyList_box.classList.contains('choose_item') == false) {
+	else if(buyList_box.classList.contains('choose_item') == false) {
 		alert('상품을 선택해주세요.')
 		}
 	else if(buyList_box.classList.contains('soldOut') == true) {

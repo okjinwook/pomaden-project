@@ -22,10 +22,10 @@ import com.pomaden.model.ProductDTO;
 public class ProductService {
 	@Autowired
 	private ProductDAO dao;
-	private final String serverIP = "192.168.1.100";
-	private int serverPort = 22;
-	private final String serverUser = "root";
-	private final String serverPass = "1";
+	private final String serverIP = "pomadenimg.cafe24.com";
+	private int serverPort = 3822;
+	private final String serverUser = "pomadenimg";
+	private final String serverPass = "ok584711@";
 	private ChannelSftp chSftp = null;
 
 	public int insert(ProductDTO dto) throws Exception {
@@ -51,7 +51,7 @@ public class ProductService {
 		chSftp = (ChannelSftp) channel;
 
 		FileInputStream fis = new FileInputStream(dest1);
-		chSftp.cd("/var/www/html/product");
+		chSftp.cd("/upload/product");
 		chSftp.put(fis, dest1.getName());
 		System.out.println("sftp> transfer complete");
 
@@ -61,8 +61,7 @@ public class ProductService {
 		String uploadFilePath = "";
 		uploadFilePath += "http://";
 		uploadFilePath += serverIP;
-		uploadFilePath += ":80"; // 기본 포트는 80이며 작성필요없으나, 서비스가 중복된다면 별도로 지정
-		uploadFilePath += "/product/" + dto.getProduct_upload().getOriginalFilename();
+		uploadFilePath += "/upload/product/" + dto.getProduct_upload().getOriginalFilename();
 
 		dto.setProduct_img(uploadFilePath);
 

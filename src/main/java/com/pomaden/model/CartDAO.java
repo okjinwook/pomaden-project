@@ -16,7 +16,7 @@ public interface CartDAO {
 	@Update("update cart set cart_count = #{cart_count}, cart_total = #{cart_total} where cart_idx = #{cart_idx} ")
 	int update(HashMap<String, Object> map);
 
-	@Delete("delete cart where cart_idx = #{idx}")
+	@Delete("delete from cart where cart_idx = #{idx}")
 	int cartDelete(int idx);
 	
 	@Select("select * from cart where cart_name = #{cart_name} and cart_color = #{cart_color} and cart_size = #{cart_size} and cart_member_id = #{cart_member_id}")

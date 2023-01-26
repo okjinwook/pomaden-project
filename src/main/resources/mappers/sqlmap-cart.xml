@@ -6,9 +6,19 @@
 <mapper namespace="com.pomaden.model.CartDAO">
 	<insert id="insert" parameterType="cart">
 		insert into cart 
+			(
+			cart_member_id,
+			cart_name,
+			cart_img,
+			cart_price,
+			cart_sale,
+			cart_count,
+			cart_color,
+			cart_size,
+			cart_total
+			)
 		values
 			(
-			cart_seq.nextval,
 			#{cart_member_id},
 			#{cart_name},
 			#{cart_img},

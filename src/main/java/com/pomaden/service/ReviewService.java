@@ -19,10 +19,10 @@ import com.pomaden.model.ReviewDTO;
 @Service
 public class ReviewService {
 	@Autowired private ReviewDAO dao;
-	private final String serverIP = "192.168.1.100";
-	private int serverPort = 22;
-	private final String serverUser = "root";
-	private final String serverPass = "1";
+	private final String serverIP = "pomadenimg.cafe24.com";
+	private int serverPort = 3822;
+	private final String serverUser = "pomadenimg";
+	private final String serverPass = "ok584711@";
 	private ChannelSftp chSftp = null;
 
 	public int insert(ReviewDTO dto) throws Exception {
@@ -50,7 +50,7 @@ public class ReviewService {
 			chSftp = (ChannelSftp) channel;
 
 			FileInputStream fis = new FileInputStream(dest1);
-			chSftp.cd("/var/www/html/review");
+			chSftp.cd("/upload/review");
 			chSftp.put(fis, dest1.getName());
 			System.out.println("sftp> transfer complete");
 
@@ -58,10 +58,9 @@ public class ReviewService {
 			chSftp.exit();
 
 			String uploadFilePath = "";
-			uploadFilePath += "http://";
+			uploadFilePath += "https://";
 			uploadFilePath += serverIP;
-			uploadFilePath += ":80"; // 기본 포트는 80이며 작성필요없으나, 서비스가 중복된다면 별도로 지정
-			uploadFilePath += "/review/" + dto.getReview_member_id()  + "_" + dto.getReview_upload().getOriginalFilename();
+			uploadFilePath += "/upload/review/" + dto.getReview_member_id()  + "_" + dto.getReview_upload().getOriginalFilename();
 
 			dto.setReview_img(uploadFilePath);
 		}

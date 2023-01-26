@@ -25,6 +25,7 @@ function adminProductUpdate(event, product_name) {
 	})
 }
 function adminProductDelete(product_name) {
+	console.log(product_name)
 	if(confirm('상품을 삭제하시겠습니까?')) {
 		const url = cpath + '/admin/product_delete?product_name=' + product_name
 		const opt = {

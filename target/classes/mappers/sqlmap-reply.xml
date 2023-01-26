@@ -5,14 +5,19 @@
    
 <mapper namespace="com.pomaden.model.ReplyDAO">
 	<insert id="insert" parameterType="hashmap">
-		insert into reply 
+		insert into reply
+			(
+			reply_member_id,
+			reply_review_idx,
+			reply_content,
+			reply_date
+			) 
 		values
 			(
-			reply_seq.nextval,
 			#{reply_member_id},
 			#{reply_review_idx},
 			#{reply_content},
-			sysdate
+			now()
 			)
 	</insert>
 </mapper>

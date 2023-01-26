@@ -22,4 +22,10 @@
 		</div>
 	</div>
 </main>
+<script>
+	const msg = '${msg}'
+	if(msg != '') {
+		alert(msg)
+	}
+</script>
 <%@ include file="../footer.jsp" %>

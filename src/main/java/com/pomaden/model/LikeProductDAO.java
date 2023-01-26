@@ -17,7 +17,7 @@ public interface LikeProductDAO {
 	@Select("select * from likeProduct where like_member_id = #{member_id} and like_name = #{product_name}")
 	LikeProductDTO selectOne(HashMap<String, String> map);
 	
-	@Delete("delete likeProduct where like_member_id = #{member_id} and like_name = #{product_name}")
+	@Delete("delete from likeProduct where like_member_id = #{member_id} and like_name = #{product_name}")
 	int delete(HashMap<String, Object> map);
 
 }

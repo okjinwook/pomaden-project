@@ -58,17 +58,24 @@
 		</if>
 		order by question_idx desc
 		<if test="page != null">
-    		offset ${page} rows fetch first 10 rows only
+    		LIMIT 10 OFFSET ${page}
 		</if>
 	</select>
 	<insert id="insert" parameterType="question">
 		insert into question 
+			(
+			question_member_id,
+			question_content,
+			question_date,
+			question_check,
+			question_category,
+			question_title
+			)
 		values
 			(
-			question_seq.nextval,
 			#{question_member_id},
 			#{question_content},
-			sysdate,
+			now(),
 			'미답변',
 			#{question_category},
 			#{question_title}

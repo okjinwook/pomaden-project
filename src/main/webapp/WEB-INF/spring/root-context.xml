@@ -11,16 +11,26 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.1.100:1521:xe" />
-		<property name="username" value="c##itbank" />
-		<property name="password" value="it" />
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="org.mariadb.jdbc.Driver"/>
+<!-- 		로컬에서 돌릴 때 -->
+<!-- 		<property name="url" value="jdbc:mariadb://pomaden.cafe24.com:3306/pomaden"/> -->
+<!-- 		호스팅서버에서 돌릴 때 -->
+		<property name="url" value="jdbc:mariadb://localhost:3306/pomaden"/>
+		<property name="username" value="pomaden" />
+		<property name="password" value="ok584711@" />
 	</bean>
 	
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-		<constructor-arg ref="hikariConfig" />
-	</bean>
+<!-- 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig"> -->
+<!-- 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" /> -->
+<!-- 		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.1.100:1521:xe" /> -->
+<!-- 		<property name="username" value="c##itbank" /> -->
+<!-- 		<property name="password" value="it" /> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close"> -->
+<!-- 		<constructor-arg ref="hikariConfig" /> -->
+<!-- 	</bean> -->
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" /> 

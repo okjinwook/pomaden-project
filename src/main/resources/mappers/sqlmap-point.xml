@@ -6,14 +6,20 @@
 <mapper namespace="com.pomaden.model.PointDAO">
 	<insert id="insert" parameterType="hashmap">
 		insert into point 
+			(
+			point_member_id,
+			point_content,
+			point_change,
+			point_total,
+			point_date
+			)
 		values
 			(
-			point_seq.nextval,
 			#{point_member_id},
 			#{point_content},
 			#{point_change},
 			#{point_total},
-			sysdate
+			now()
 			)
 	</insert>
 </mapper>

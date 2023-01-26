@@ -6,14 +6,22 @@
 <mapper namespace="com.pomaden.model.CouponDAO">
 	<insert id="insert" parameterType="hashmap">
 		insert into coupon 
+			(
+			coupon_member_id,
+			coupon_name,
+			coupon_benefit,
+			coupon_condition,
+			coupon_date,
+			coupon_sale,
+			coupon_use
+			)
 		values
 			(
-			coupon_seq.nextval,
 			#{coupon_member_id},
 			#{coupon_name},
 			#{coupon_benefit},
 			#{coupon_condition},
-			sysdate,
+			now(),
 			#{coupon_sale},
 			0
 			)

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>남성룩 - 포마든POMADEN</title>
+<title>포마든</title>
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/header.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/main.css">
 <link rel="stylesheet" type="text/css" href="${cpath }/resources/css/footer.css">
@@ -39,7 +39,7 @@
 
 
 
-<link rel="icon" type="icon/png" href="">
+<link rel="icon" type="icon/png" href="https://pomadenimg.cafe24.com/icon/icon.png">
 <script src="${cpath }/resources/js/header.js"></script>
 <script src="${cpath }/resources/js/main.js"></script>
 <script src="${cpath }/resources/js/cs/center.js"></script>
@@ -63,7 +63,7 @@
 			<div class="header_info jcsb aice">
 				<div class="header_left">
 					<div class="logo">
-						<a href="${cpath }">POMADEN</a>
+						<a href="/">POMADEN</a>
 					</div>
 				</div>
 				<div class="header_right aice">
@@ -80,10 +80,10 @@
 						<a href="${cpath }/member/join">회원가입</a>
 					</c:if>
 					<a href="${cpath }/cart/cartList">
-						<img src="http://192.168.1.100:80/icon/cart.png" width="30px">
+						<img src="https://pomadenimg.cafe24.com/icon/cart.png" width="30px">
 					</a>
 					<a href="${cpath }/myPage/orderList">
-						<img src="http://192.168.1.100:80/icon/profile.png" width="30px">
+						<img src="https://pomadenimg.cafe24.com/icon/profile.png" width="30px">
 					</a>
 				</div>
 			</div>

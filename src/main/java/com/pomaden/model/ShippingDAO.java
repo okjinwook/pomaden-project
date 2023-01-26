@@ -17,7 +17,7 @@ public interface ShippingDAO {
 
 	int update(ShippingDTO dto);
 
-	@Delete("delete shipping where shipping_idx = #{shipping_idx}")
+	@Delete("delete from shipping where shipping_idx = #{shipping_idx}")
 	int delete(int shipping_idx);
 
 }

@@ -23,7 +23,7 @@ public interface ProductDAO {
 	
 	int update(HashMap<String, Object> map);
 	
-	@Delete("delete product where product_name = #{product_name}")
+	@Delete("delete from product where product_name = #{product_name}")
 	int delete(String product_name);
 
 }

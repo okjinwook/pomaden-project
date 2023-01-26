@@ -6,9 +6,17 @@
 <mapper namespace="com.pomaden.model.MemberDAO">
 	<insert id="insert" parameterType="member">
 		insert into member 
+			(
+			member_email,
+			member_id,
+			member_pw,
+			member_name,
+			member_phone,
+			member_point,
+			member_coupon
+			)
 		values
 			(
-			member_seq.nextval,
 			#{member_email},
 			#{member_id},
 			#{member_pw},

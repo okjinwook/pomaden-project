@@ -5,10 +5,27 @@
    
 <mapper namespace="com.pomaden.model.OrderListDAO">
 	<insert id="insert" parameterType="hashmap">
-		insert into orderList 
+		insert into orderList
+			(
+			orderlist_order_number,
+			orderlist_member_id,
+			orderlist_name,
+			orderlist_img,
+			orderlist_price,
+			orderlist_count,
+			orderlist_color,
+			orderlist_size,
+			orderlist_progress,
+			orderlist_check,
+			orderlist_date,
+			orderlist_review_check,
+			orderlist_delivery_msg,
+			orderlist_delivery_address,
+			orderlist_delivery_phone,
+			orderlist_delivery_name
+			) 
 		values
 			(
-			order_seq.nextval,
 			#{orderList_order_number},
 			#{orderList_member_id},
 			#{orderList_name},
@@ -19,7 +36,7 @@
 			#{orderList_size},
 			#{orderList_progress},
 			'정상',
-			sysdate,
+			now(),
 			0,
 			#{orderList_shipping_msg},
 			#{orderList_shipping_address},

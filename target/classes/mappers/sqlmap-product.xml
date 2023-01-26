@@ -7,7 +7,7 @@
 	<insert id="insert" parameterType="product">
 		insert into product
 		values
-		(
+			(
 			#{product_name},
 			#{product_img},
 			#{product_price},
@@ -15,7 +15,7 @@
 			#{product_category},
 			#{product_kind},
 			0
-		)
+			)
 	</insert>
 	<select id="selectList" resultType="product" parameterType="hashmap">
 		select * from product 
@@ -27,7 +27,7 @@
 		</if>
 		<if test="top != null">
 			order by product_like desc
-			offset 0 rows fetch first 30 rows only
+			LIMIT 30 OFFSET 0
 		</if>
 	</select>
 	<update id="update" parameterType="hashmap">

@@ -6,9 +6,16 @@
 <mapper namespace="com.pomaden.model.LikeProductDAO">
 	<insert id="insert" parameterType="hashmap">
 		insert into likeProduct 
+			(
+			like_member_id,
+			like_name,
+			like_img,
+			like_price,
+			like_sale,
+			like_like
+			)
 		values
 			(
-			like_seq.nextval,
 			#{member_id},
 			#{product_name},
 			#{product_img},
