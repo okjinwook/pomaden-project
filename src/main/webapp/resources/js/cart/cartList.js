@@ -62,7 +62,7 @@ function upOnClick(event, cart_idx, cart_price) {
 			'Content-type' : 'application/json'
 		}
 	}
-	fetch(url, opt)
+	fetch(url, opt) 
 	.then(resp => resp.json()) 
 	.then(json => {
 			alert(json.msg)

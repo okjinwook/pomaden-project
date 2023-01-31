@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KakaoPayService {
+public class KakaoPayService { 
 
 	public String getResult(HashMap<String, HashMap<String, Object>> data, HttpSession session) {
 		String item_name = "";

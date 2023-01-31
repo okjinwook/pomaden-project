@@ -77,7 +77,7 @@
 							<c:if test="${useCouponSet == 0 }">
 								<div class="couponList_apply_button jcce aice" onclick="selectCoupon('${dto.coupon_name }',${dto.coupon_sale},${dto.coupon_idx })">쿠폰선택</div>
 							</c:if>
-						</div>
+						</div> 
 					</div>
 				</c:if>
 			</c:forEach>

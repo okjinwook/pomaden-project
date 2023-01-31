@@ -59,7 +59,7 @@ public class CartController {
 	@PostMapping("/cart/update")
 	public HashMap<String, String> updateCount(@RequestBody HashMap<String, Object> map) {
 		HashMap<String, String> resp = new HashMap<String, String>();
-		int row = cs.update(map);
+		int row = cs.update(map); 
 		if(row == 1) {
 			resp.put("msg", "수량이 변경되었습니다.");
 		}

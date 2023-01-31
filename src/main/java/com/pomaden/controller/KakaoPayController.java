@@ -31,7 +31,7 @@ public class KakaoPayController {
 	@Autowired private CartService carts;
 	@Autowired private CouponService cous;
 	@Autowired private MemberService ms;
-	@Autowired private PointService ps;
+	@Autowired private PointService ps; 
 	@Autowired private ItemService is;
 	
 	@GetMapping("/kakaopay/success")

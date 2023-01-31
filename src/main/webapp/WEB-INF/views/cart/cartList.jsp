@@ -30,7 +30,7 @@
 						</div>
 						<div class="cartList_item_img jcce aice">
 							<img src="${dto.cart_img }" width="50px">
-						</div>
+						</div> 
 						<div class="cartList_item_option aice">
 							<div class="cartList_item_name">
 								<a href="${cpath }/product/productDetail/${dto.cart_name}">${dto.cart_name }</a>

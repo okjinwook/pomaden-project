@@ -131,7 +131,7 @@ function kakaopayPayment(item, orderList_order_number) {
 			map.cart_idx = box.getElementsByClassName('order_orderList_idx')[0].value		
 		}
 		const name = box.getElementsByClassName('order_orderList_name')[0].id
-		ob[name]  = map
+		ob[name]  = map 
 	})
 	if(coupon.length != 0) {
 		let coupon_map = {}

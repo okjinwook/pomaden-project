@@ -139,7 +139,7 @@ public class ProductController {
 		List<ShippingDTO> shippingList = ss.selectAll(login.getMember_id());
 		session.setAttribute("paymentItemList", list);
 		mav.addObject("shippingList", shippingList);
-		mav.addObject("point", point);
+		mav.addObject("point", point); 
 		return mav;
 	}
 	@GetMapping("/product/couponList")

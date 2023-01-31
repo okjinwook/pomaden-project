@@ -147,7 +147,7 @@
 		</div>
 		<div class="payment_pay_button jcce aice" onclick="ResultPaymentOnClick()">결제하기</div>
 	</div>
-</main>
+</main> 
 <script>
 	let totalResultPrice = ${totalResultPrice}	// 총 결제할 가격
 	let totalSalePrice = ${totalSalePrice}		// 총 세일 된 가격
