@@ -167,6 +167,12 @@
 	border: 1px solid #dadada;
 	cursor: pointer;
 }
+.productDetail_blackHearts_button {
+	background-color: white;
+}
+.productDetail_colorHearts_button {
+	background-color: antiquewhite;
+}
 .productDetail_review_box {
 	width: 100%;
 	min-height: 300px;

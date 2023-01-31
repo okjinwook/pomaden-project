@@ -61,11 +61,10 @@ public class CartController {
 		HashMap<String, String> resp = new HashMap<String, String>();
 		int row = cs.update(map);
 		if(row == 1) {
-			resp.put("msg", "장바구니에 등록되었습니다.\n장바구니로 이동하시겠습니까?");
-			resp.put("confirm", "confirm");
+			resp.put("msg", "수량이 변경되었습니다.");
 		}
 		else {
-			resp.put("msg", "장바구니 등록에 실패하였습니다.");
+			resp.put("msg", "변경 실패");
 		}
 		return resp;
 	}

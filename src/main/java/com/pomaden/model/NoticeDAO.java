@@ -11,13 +11,6 @@ public interface NoticeDAO {
 	@Select("select * from notice")
 	List<NoticeDTO> selectList();
 
-	@Insert("insert into notice values("
-			+ "notice_seq.nextval,"
-			+ "'관리자',"
-			+ "#{notice_title},"
-			+ "#{notice_content},"
-			+ "sysdate"
-			+ ")")
 	int insert(NoticeDTO dto);
 
 	@Select("select * from notice where notice_idx = #{notice_idx}")

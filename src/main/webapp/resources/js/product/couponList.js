@@ -36,8 +36,7 @@ function selectCouponList(event, totalPrice, item_idx) {
 			if(coupon.value == idx) {
 				const button = coupon.parentNode.getElementsByClassName('couponList_apply_button')[0] 
 				button.innerText = '선택 완료'
-				button.style.backgroundColor = 'darkgrey'
-				button.style.cursor = 'default'
+				button.classList.add('useCoupon_button')
 			}
 		}
 	})

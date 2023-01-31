@@ -52,9 +52,9 @@ public class KakaoPayService {
 						 + "&quantity=" + quantity
 						 + "&total_amount=" + total_amount
 						 + "&tax_free_amount=0"
-						 + "&approval_url=http://localhost:8080/controller/kakaopay/success" 
-						 + "&cancel_url=http://localhost:8080/controller/kakaopay/fail"
-						 + "&fail_url=http://localhost:8080/controller/kakaopay/cancel";
+						 + "&approval_url=http://pomaden.cafe24.com/kakaopay/success" 
+						 + "&cancel_url=http://pomaden.cafe24.com/kakaopay/fail"
+						 + "&fail_url=http://pomaden.cafe24.com/kakaopay/cancel";
 			
 			OutputStream output = conn.getOutputStream();
 			DataOutputStream dataOutput = new DataOutputStream(output);

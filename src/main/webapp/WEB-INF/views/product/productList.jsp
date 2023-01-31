@@ -55,7 +55,6 @@
 </main>
 <script>
 	const productList_categorys = document.querySelectorAll('.productList_category > a')
-	const member_id = '${login.member_id}'
 	let kind = '${kind}'
 	if(kind == '') {
 		kind = '전체'

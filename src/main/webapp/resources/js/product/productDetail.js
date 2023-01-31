@@ -240,7 +240,7 @@ function likeOnClick(event) {
 		if(img.classList.contains('productDetail_colorHearts')) {
 			result_like = (product_like * 1) - 1
 			product_like = (product_like * 1) - 1
-			src = 'https://pomadenimg.cafe24.com/icon/blackHeart.png'
+			src = 'https://pomadenimg.cafe24.com/icon/blackH.png'
 			img.classList.remove('productDetail_colorHearts')
 			img.classList.add('productDetail_blackHearts')
 			document.querySelector('.productDetail_like_button').style.backgroundColor = 'white'
@@ -249,7 +249,7 @@ function likeOnClick(event) {
 		else {
 			result_like = (product_like * 1) + 1
 			product_like = (product_like * 1) + 1
-			src = 'https://pomadenimg.cafe24.com/icon/colorHeart.png'
+			src = 'https://pomadenimg.cafe24.com/icon/colorH.png'
 			img.classList.remove('productDetail_blackHearts')
 			img.classList.add('productDetail_colorHearts')
 			document.querySelector('.productDetail_like_button').style.backgroundColor = 'antiquewhite'

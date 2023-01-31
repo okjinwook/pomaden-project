@@ -14,7 +14,7 @@
 	<typeAliases>
 		<typeAlias type="com.pomaden.model.MemberDTO" alias="member"/>		
 		<typeAlias type="com.pomaden.model.ProductDTO" alias="product"/>		
-		<typeAlias type="com.pomaden.model.ItemDTO" alias="item"/>		
+		<typeAlias type="com.pomaden.model.AnswerDTO" alias="answer"/>		
 		<typeAlias type="com.pomaden.model.CartDTO" alias="cart"/>		
 		<typeAlias type="com.pomaden.model.QuestionDTO" alias="question"/>		
 		<typeAlias type="com.pomaden.model.LikeProductDTO" alias="lileProduct"/>		
@@ -24,11 +24,12 @@
 		<typeAlias type="com.pomaden.model.PointDTO" alias="point"/>		
 		<typeAlias type="com.pomaden.model.CouponDTO" alias="coupon"/>		
 		<typeAlias type="com.pomaden.model.ShippingDTO" alias="shipping"/>		
+		<typeAlias type="com.pomaden.model.NoticeDTO" alias="notice"/>		
 	</typeAliases>
 	
 	<mappers>
+		<mapper resource="mappers/sqlmap-answer.xml"/>
 		<mapper resource="mappers/sqlmap-member.xml"/>
-		<mapper resource="mappers/sqlmap-item.xml"/>
 		<mapper resource="mappers/sqlmap-product.xml"/>
 		<mapper resource="mappers/sqlmap-cart.xml"/>
 		<mapper resource="mappers/sqlmap-question.xml"/>
@@ -39,5 +40,6 @@
 		<mapper resource="mappers/sqlmap-point.xml"/>
 		<mapper resource="mappers/sqlmap-coupon.xml"/>
 		<mapper resource="mappers/sqlmap-shipping.xml"/>
+		<mapper resource="mappers/sqlmap-notice.xml"/>
 	</mappers>
 </configuration>

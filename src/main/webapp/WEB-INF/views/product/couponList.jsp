@@ -65,7 +65,18 @@
 						<div class="couponList_coupon_date jcce aice">~ ${dto.coupon_date }</div>
 						<div class="couponList_coupon_sale jcce aice">${dto.coupon_sale} %</div>
 						<div class="couponList_coupon_apply jcce aice">
-							<div class="couponList_apply_button jcce aice" onclick="selectCoupon('${dto.coupon_name }',${dto.coupon_sale},${dto.coupon_idx })">쿠폰선택</div>
+							<c:set var="useCouponSet" value="0"/>
+							<c:forEach var="useCoupon" items="${useCouponList }">
+								<c:if test="${dto.coupon_idx == useCoupon }">
+									<c:set var="useCouponSet" value="1"/>
+								</c:if>
+							</c:forEach>
+							<c:if test="${useCouponSet == 1 }">
+								<div class="couponList_apply_button useCoupon_button jcce aice">선택완료</div>
+							</c:if>
+							<c:if test="${useCouponSet == 0 }">
+								<div class="couponList_apply_button jcce aice" onclick="selectCoupon('${dto.coupon_name }',${dto.coupon_sale},${dto.coupon_idx })">쿠폰선택</div>
+							</c:if>
 						</div>
 					</div>
 				</c:if>

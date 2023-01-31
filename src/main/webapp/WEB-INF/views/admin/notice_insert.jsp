@@ -5,7 +5,7 @@
 		<div class="admin_title aice">공지 등록</div>
 		<div class="admin_category_box df">
 			<a href="${cpath }/admin/notice_list" class="admin_category_button jcce aice">공지 목록</a>
-			<a href="${cpath }/admin/notice_add" class="admin_category_button jcce aice">공지 등록</a>
+			<a href="${cpath }/admin/notice_insert" class="admin_category_button jcce aice">공지 등록</a>
 		</div>
 		<form action="${cpath }/admin/notice_insert" method="POST">
 			<div class="admin_notice_component">

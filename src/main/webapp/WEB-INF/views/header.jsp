@@ -224,6 +224,7 @@
 	<script>
 		const menuAll_button = document.querySelector('.menuAll_button')
 		const cpath = '${cpath}'
+		const member_id = '${login.member_id}'
 		// 전체메뉴 클릭 이벤트
 		menuAll_button.addEventListener('click', menuAllClick)
 			

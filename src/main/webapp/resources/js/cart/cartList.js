@@ -48,13 +48,12 @@ function cartOnCheck(event) {
 // 장바구니 상품 수량 증가 함수입니다
 function upOnClick(event, cart_idx, cart_price) {
 	const count_input = event.target.parentNode.previousElementSibling
-	let value = count_input.value
-	count_input.value = ++value
+	let cart_count = count_input.value * 1
 	const url = cpath + "/cart/update"
 	const ob = {
 		'cart_idx' : cart_idx,
-		'cart_count' : count_input.value,
-		'cart_total' : count_input.value * cart_price,
+		'cart_count' : cart_count + 1,
+		'cart_total' : (cart_count + 1) * cart_price,
 	}
 	const opt = {
 		method: 'POST',
@@ -64,25 +63,24 @@ function upOnClick(event, cart_idx, cart_price) {
 		}
 	}
 	fetch(url, opt)
-	.then(resp => resp.text()) 
-	.then(text => {
-		console.log(text)
-	})
-	location.reload();
+	.then(resp => resp.json()) 
+	.then(json => {
+			alert(json.msg)
+			location.href = cpath + '/cart/cartList'
+		})
 }
 function downOnClick(event, idx, cart_price) {
 	const count_input = event.target.parentNode.previousElementSibling
-	let value = count_input.value
-	if(value == 1) {
-		return
+	let cart_count = count_input.value * 1
+	if(cart_count == 1) {
+		return false
 	}
 	else {
-		count_input.value = --value
 		const url = cpath + "/cart/update"
 		const ob = {
 			'cart_idx' : idx,
-			'cart_count' : count_input.value,
-			'cart_total' : count_input.value * cart_price,
+			'cart_count' : cart_count - 1,
+			'cart_total' : (cart_count - 1)* cart_price,
 		}
 		const opt = {
 			method: 'POST',
@@ -92,12 +90,12 @@ function downOnClick(event, idx, cart_price) {
 			}
 		}
 		fetch(url, opt)
-		.then(resp => resp.text()) 
-		.then(text => {
-			console.log(text)
+		.then(resp => resp.json()) 
+		.then(json => {
+			alert(json.msg)
+			location.href = cpath + '/cart/cartList'
 		})
 	}
-	location.reload();
 }
 function cartOnDelete(event) {
 	if(confirm("장바구니에서 삭제를 하시겠습니까?")) {
@@ -161,6 +159,10 @@ function checkOnClick(event, cart_price, cart_idx) {
 	expected_box.innerHTML = Number(price).toLocaleString()  + '원'
 }
 function cartPaymentOnClick() {
+	if(buy_product.length == 0) {
+		alert('상품을 선택해주세요.')
+		return false
+	}
 	const url = cpath + '/product/payment?list='
 	const arr = []
 	for(idx of buy_product) {

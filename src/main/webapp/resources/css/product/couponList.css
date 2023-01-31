@@ -171,3 +171,7 @@ body {
 	cursor: pointer;
 	margin: 10px auto;
 }
+.useCoupon_button {
+	background-color: darkgrey;
+	cursor: default;
+}

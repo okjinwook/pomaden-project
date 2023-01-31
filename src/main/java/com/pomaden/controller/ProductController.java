@@ -143,11 +143,12 @@ public class ProductController {
 		return mav;
 	}
 	@GetMapping("/product/couponList")
-	public ModelAndView couponList(HttpSession session) {
+	public ModelAndView couponList(String[] useCouponList, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		MemberDTO login = (MemberDTO)session.getAttribute("login");
 		List<CouponDTO> coupon =  cps.selectAll(login.getMember_id());
 		mav.addObject("couponList", coupon);
+		mav.addObject("useCouponList", useCouponList);
 		return mav;
 	}
 }

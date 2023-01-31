@@ -95,7 +95,7 @@
 			<div class="payment_discount_coupon_box aice">
 				<div class="payment_discount_info aice">쿠폰 할인</div>
 				<div class="payment_coupon_box payment_discount_price">적용된 쿠폰 없음</div>
-				<div class="payment_coupon_button" onclick="window.open('${cpath }/product/couponList','쿠폰조회/적용','width=900px, height=500px')">쿠폰조회/적용</div>	
+				<div class="payment_coupon_button" onclick="openCouponList()">쿠폰조회/적용</div>	
 			</div>
 			<div class="payment_discount_point_box aice">
 				<div class="payment_discount_info aice">적립금 사용</div>

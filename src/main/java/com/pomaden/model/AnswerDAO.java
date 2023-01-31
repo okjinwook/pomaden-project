@@ -7,12 +7,6 @@ import org.apache.ibatis.annotations.Select;
 
 public interface AnswerDAO {
 
-	@Insert("insert into answer values("
-			+ "answer_seq.nextval,"
-			+ "#{answer_question_idx},"
-			+ "'관리자',"
-			+ "#{answer_content},"
-			+ "sysdate)")
 	int insert(AnswerDTO dto);
 
 	@Select("select * from answer")

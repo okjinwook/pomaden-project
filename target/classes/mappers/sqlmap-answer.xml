@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="com.pomaden.model.AnswerDAO">
+	<insert id="insert" parameterType="answer">
+		insert into answer 
+			(
+			answer_question_idx,
+			answer_admin,
+			answer_content,
+			answer_date
+			)
+		values
+			(
+			#{answer_question_idx},
+			'관리자',
+			#{answer_content},
+			now()
+			)
+	</insert>
+</mapper>

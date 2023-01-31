@@ -38,7 +38,7 @@
 						</div>
 						<div class="productDetail_product df">
 							<div class="productDetail_info_span">- 배송비 결제</div>
-							<span class="productDetail_price_span">2500원</span>
+							<span class="productDetail_price_span">무료</span>
 						</div>
 					</div>
 				</div>
@@ -66,14 +66,16 @@
 					<div class="productDetail_cart_button jcce aice" onclick="cartOnclick()">
 						<img src="https://pomadenimg.cafe24.com/icon/cart.png" width="30px">
 					</div>
-					<div class="productDetail_like_button jcce aice" onclick="likeOnClick(event)">
-						<c:if test="${empty likeCheck }">
-							<img class="productDetail_blackHearts" src="https://pomadenimg.cafe24.com/icon/blackHeart.png" width="30px">
-						</c:if>
-						<c:if test="${not empty likeCheck }">
-							<img class="productDetail_colorHearts" src="https://pomadenimg.cafe24.com/icon/colorHeart.png" width="30px">
-						</c:if>
-					</div>
+					<c:if test="${empty likeCheck }">
+						<div class="productDetail_like_button productDetail_blackHearts_button jcce aice" onclick="likeOnClick(event)">
+							<img class="productDetail_blackHearts" src="https://pomadenimg.cafe24.com/icon/blackH.png" width="30px">
+						</div>
+					</c:if>
+					<c:if test="${not empty likeCheck }">
+						<div class="productDetail_like_button productDetail_colorHearts_button jcce aice" onclick="likeOnClick(event)">
+							<img class="productDetail_colorHearts" src="https://pomadenimg.cafe24.com/icon/colorH.png" width="30px">
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -213,7 +215,6 @@
 		document.querySelector('.productDetail_review_short_new').classList.add('productDetail_review_short_button')
 	}
 	const img = document.querySelector('.productDetail_like_button > img')
-	const member_id = '${login.member_id}'
 	const product_name = '${prodDto.product_name}'
 	const product_img = '${prodDto.product_img}'
 	const product_price = '${prodDto.product_price}'

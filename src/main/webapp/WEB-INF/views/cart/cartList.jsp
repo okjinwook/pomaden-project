@@ -45,8 +45,8 @@
 						<div class="cartList_item_count jcce aice">
 							<input type="number" class="cartList_buy_count" value="${dto.cart_count }" min="1" readonly="readonly">
 							<div class="cartList_upDownBox">
-								<img class="cartList_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="upOnClick(event, ${dto.cart_idx}, ${dto.cart_price})">
-								<img class="cartList_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="downOnClick(event, ${dto.cart_idx}, ${dto.cart_price})">
+								<img class="cartList_up_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_up.gif" onclick="upOnClick(event, ${dto.cart_idx}, ${salePrice * 100})">
+								<img class="cartList_down_button" src="https://img.echosting.cafe24.com/design/skin/default/product/btn_count_down.gif" onclick="downOnClick(event, ${dto.cart_idx}, ${salePrice * 100})">
 							</div>
 						</div>
 						<div class="cartList_item_totalPrice jcce aice" >

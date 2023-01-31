@@ -1,3 +1,8 @@
+function openCouponList() {
+	const url = cpath + '/product/couponList?useCouponList=' + coupon
+	window.open(url,'쿠폰조회/적용','width=900px, height=500px')
+}
+
 // 자식 부모창에서 쿠폰 정보를 받아오는 함수입니다
 function sendCoupon(total_sale_price, coupon_arr, item_arr) {
 	const coupon_box = document.querySelector('.payment_coupon_box')
@@ -53,8 +58,8 @@ function pointOnClick() {
 	const item = document.querySelectorAll('.payment_orderList_item')
 	discount.children[0].innerText = '- ' + Number((totalSalePrice * 1) + (point * 1)).toLocaleString() + '원'
 	total.innerText = Number((totalResultPrice * 1) - (point * 1)).toLocaleString() + '원'
-	totalResultPrice -= point
-	totalSalePrice += point
+	totalResultPrice -= point * 1
+	totalSalePrice += point * 1
 	for(ob of item){
 		let target = ob
 		while(target.classList.contains('payment_orderList_item') == false) {
